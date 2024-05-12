@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="1" minor="0" revision="0" build="1"/>
+    <region id="SpellLists">
+        <node id="root">
+            <children>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Cantrips (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_PoisonSpray;Target_ChillTouch;Projectile_FireBolt;Target_MageHand;Projectile_PoisonSpray;Target_MinorIllusion;Projectile_RayOfFrost;Target_ShockingGrasp;Target_Friends"/>
+                    <attribute id="UUID" type="guid" value="095d673d-e117-4bfe-a6fd-2259d7506de1"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 1 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmPerson;Target_CureWounds;Target_Command;Target_Longstrider;Projectile_RayOfSickness;Target_Sleep;Projectile_MagicMissile;Projectile_WitchBolt;Zone_Thunderwave;Target_InflictWounds;Target_HexProjectile_ChromaticOrb"/>
+                    <attribute id="UUID" type="guid" value="3da4611a-4014-4e2b-9c9f-782ded566931"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 2 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_ScorchingRay;Zone_GustOfWind;Target_EnhanceAbility;Target_HoldPerson;Shout_Blur;Target_LesserRestoration;Target_Blindness;Target_ArcaneLock;Target_Knock;Shout_MirrorImage;Target_Enthrall;Projectile_RayOfEnfeeblement;Projectile_AcidArrow"/>
+                    <attribute id="UUID" type="guid" value="3918fe90-4e88-4c4f-b858-505ef56bd09f"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 3 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Target_GlyphOfWarding;Target_BestowCurse;Target_HypnoticPattern;Projectile_Fireball;Interrupt_Counterspell;Target_Haste;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_AnimateDead"/>
+                    <attribute id="UUID" type="guid" value="3638ec9b-b465-4e24-b9db-510a7ad0f804"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 4 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Target_Confusion;Target_FreedomOfMovement"/>
+                    <attribute id="UUID" type="guid" value="4ee40bd6-9287-4e7b-ab08-f388239665cf"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 5 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="ef4bda6c-f033-4ce6-bc39-7851786a314f"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Level 6 Spells (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="2e35e73c-d984-46af-8998-159ba9aaa952"/>
+                </node>
+
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Magus Magical Energy Substitution"/>
+                    <attribute id="Spells" type="LSString" value="magicalEnergySubstitution"/>
+                    <attribute id="UUID" type="guid" value="2cda2b35-8fd7-4e33-916f-6fe109c2f1b2"/>
+                </node>
+			</children>
+        </node>
+    </region>
+</save>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="1" minor="0" revision="0" build="1"/>
+    <region id="Progressions">
+        <node id="root">
+          <children>
+            <node id="Progression"> <!--Magus Level 1-->
+              <attribute id="AllowImprovement" type="bool" value="false"/> 
+              <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,2,1);ActionResource(MagicalEnergy,5,0);ProficiencyBonus(SavingThrow,Intelligence);ProficiencyBonus(SavingThrow,Constitution);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)"/> 
+              <attribute id="Level" type="uint8" value="1"/> 
+              <attribute id="Name" type="LSString" value="Magus"/>
+              <attribute id="ProgressionType" type="uint8" value="0"/> 
+              <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(b9149c8e-52c8-46e5-9cb6-fc39301c05fe,AbilityBonus,2,1);SelectSpells(3cae2e56-9871-4cef-bba6-96845ea765fa,4,0,,,,AlwaysPrepared);SelectSpells(11f331b0-e8b7-473b-9d1f-19e8e4178d7d,3,0)"/>
+              <attribute id="TableUUID" type="guid" value="c97c063b-b2b5-472d-ba81-4dd2f623103c"/> 
+              <attribute id="UUID" type="guid" value="92f632e0-5454-4796-a5ea-9afe610cc279"/> 
+            </node>
+
+            <node id="Progression"> <!--Multiclass-->
+              <attribute id="AllowImprovement" type="bool" value="false"/> 
+              <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,2,1);ActionResource(MagicalEnergy,5,0);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)"/> 
+              <attribute id="IsMulticlass" type="bool" value="true"/>
+              <attribute id="Level" type="uint8" value="1"/> 
+              <attribute id="Name" type="LSString" value="Magus"/>
+              <attribute id="ProgressionType" type="uint8" value="0"/> 
+              <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel1"/>
+              <attribute id="Selectors" type="LSString" value="SelectSpells(3cae2e56-9871-4cef-bba6-96845ea765fa,4,0,,,,AlwaysPrepared);SelectSpells(11f331b0-e8b7-473b-9d1f-19e8e4178d7d,3,0)"/>
+              <attribute id="TableUUID" type="guid" value="c97c063b-b2b5-472d-ba81-4dd2f623103c"/> 
+              <attribute id="UUID" type="guid" value="735eb0fd-cd25-406e-b108-c7b9f6e4e8b1"/> 
+            </node>
+          </children>
+        </node>
+    </region>
+</save>

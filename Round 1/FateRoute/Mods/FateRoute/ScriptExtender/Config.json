@@ -1,0 +1,5 @@
+{
+    "RequiredVersion": 16,
+    "ModTable": "FateRoute",
+    "FeatureFlags": ["Lua"]
+}

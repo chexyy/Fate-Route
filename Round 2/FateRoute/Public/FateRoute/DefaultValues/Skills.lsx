@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="1" minor="0" revision="0" build="1"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Arcana;Investigation"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="SelectorId" type="LSString" value="SkillBonus"/>
+                    <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
+                    <attribute id="UUID" type="guid" value="98a0a866-0d41-489d-b86e-cdd4b6c9e7b3"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

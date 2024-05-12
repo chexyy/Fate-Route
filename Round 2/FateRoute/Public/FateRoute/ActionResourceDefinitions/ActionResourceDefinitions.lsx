@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="1" minor="0" revision="0" build="1" />
+  <region id="ActionResourceDefinitions">
+    <node id="root">
+      <children>
+        <node id="ActionResourceDefinition">
+          <!-- The energy that comes about as the refinement of the planet’s Mana or one’s Od by their Magic Circuits. Needed to fuel Magecraft. -->
+          <attribute id="Description" type="TranslatedString" handle="h507b2239g004ag441cgbac6g131ac76e4c94" version="1" /> A text tied to the .loca file
+          <!-- Magical Energy -->
+          <attribute id="DisplayName" type="TranslatedString" handle="h1bcbdffbgde7dg49a7g8dfegbf217d7df689" version="1" /> A text tied to the .loca file
+          <attribute id="MaxLevel" type="uint32" value="0" />
+          <attribute id="Name" type="FixedString" value="MagicalEnergy" /> What you will be referring to in your code
+          <attribute id="ReplenishType" type="FixedString" value="Rest" /> Rest = Long Rest, ShortRest = ShortRest
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="true" /> If the resource will be displayed on your hotbar
+          <attribute id="UUID" type="guid" value="7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0" /> UUID for the Resource, give it a new one 
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

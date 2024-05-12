@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="307"/>
+    <region id="AbilityLists">
+        <node id="root">
+            <children>
+                 <node id="AbilityList">
+                    <attribute id="Comment" type="LSString" value="Magus Constitution and Intelligence"/>
+                    <attribute id="Abilities" type="LSString" value="Intelligence,Constitution"/>
+                    <attribute id="UUID" type="guid" value="ac038081-6fc5-42e7-b10e-dcb78e97ff7a"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

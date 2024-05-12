@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="1" minor="0" revision="0" build="1" />
+  <region id="Progressions">
+    <node id="root">
+      <children>
+        <node id="Progression">
+            <attribute id="AllowImprovement" type="bool" value="false" />
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,5,0);ActionResource(SpellSlot,1,1);ActionResource(SpellSlot,2,1);ProficiencyBonus(SavingThrow,Intelligence);ProficiencyBonus(SavingThrow,Constitution);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)"/>               
+            <attribute id="Level" type="uint8" value="1" />
+            <attribute id="Name" type="LSString" value="FateMagus" />
+            <attribute id="Selectors" type="LSString" value="SelectSkills(ac038081-6fc5-42e7-b10e-dcb78e97ff7a,2,1,SkillBonus);SelectSpells(095d673d-e117-4bfe-a6fd-2259d7506de1,2,0,MagusCantrips,Intelligence,,AlwaysPrepared);SelectSpells(3da4611a-4014-4e2b-9c9f-782ded566931,2,0,MagusLevel1Spells,Intelligence,,AlwaysPrepared);AddSpells(2cda2b35-8fd7-4e33-916f-6fe109c2f1b2,,,,AlwaysPrepared);SelectAbilityBonus(85c1d4d0-bcca-42aa-8068-a22f62ea27f8,AbilityBonus,2,1)" />
+            <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel1" />
+            <attribute id="ProgressionType" type="uint8" value="0" />
+            <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
+            <attribute id="UUID" type="guid" value="92f632e0-5454-4796-a5ea-9afe610cc279" />
+        </node>
+
+        <node id="Progression">
+            <attribute id="AllowImprovement" type="bool" value="false" />
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,5,0);ActionResource(SpellSlot,1,1);ActionResource(SpellSlot,2,1);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
+            <attribute id="Level" type="uint8" value="1" />
+            <attribute id="IsMulticlass" type="bool" value="true"/>
+            <attribute id="Name" type="LSString" value="FateMagus" />
+            <attribute id="Selectors" type="LSString" value="SelectSpells(095d673d-e117-4bfe-a6fd-2259d7506de1,2,0,MagusCantrips,Intelligence,,AlwaysPrepared);SelectSpells(3da4611a-4014-4e2b-9c9f-782ded566931,2,0,MagusLevel1Spells,Intelligence,,AlwaysPrepared);AddSpells(2cda2b35-8fd7-4e33-916f-6fe109c2f1b2,,,,AlwaysPrepared)" />
+            <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel1" />
+            <attribute id="ProgressionType" type="uint8" value="0" />
+            <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
+            <attribute id="UUID" type="guid" value="e17c89bb-7ead-4539-952a-d225d16b64e3" />
+        </node>
+
+        <node id="Progression">
+            <attribute id="AllowImprovement" type="bool" value="false" />
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,1,0);ActionResource(SpellSlot,2,1)" />               
+            <attribute id="Level" type="uint8" value="2" />
+            <attribute id="IsMulticlass" type="bool" value="true"/>
+            <attribute id="Name" type="LSString" value="FateMagus" />
+            <attribute id="Selectors" type="LSString" value="SelectSpells(3da4611a-4014-4e2b-9c9f-782ded566931,3,0,MagusLevel1Spells,Intelligence,,AlwaysPrepared)"/>
+            <attribute id="ProgressionType" type="uint8" value="0" />
+            <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
+            <attribute id="UUID" type="guid" value="ac6af927-234c-459f-a352-ea021e2ead09" />
+        </node>
+
+        <node id="Progression">
+            <attribute id="AllowImprovement" type="bool" value="false" />
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,1,0);ActionResource(SpellSlot,2,1);ActionResource(SpellSlot,3,1)" />               
+            <attribute id="Level" type="uint8" value="3" />
+            <attribute id="IsMulticlass" type="bool" value="true"/>
+            <attribute id="Name" type="LSString" value="FateMagus" />
+            <attribute id="Selectors" type="LSString" value="SelectSpells(3da4611a-4014-4e2b-9c9f-782ded566931,3,0,MagusLevel1Spells,Intelligence,,AlwaysPrepared)"/>
+            <attribute id="ProgressionType" type="uint8" value="0" />
+            <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
+            <attribute id="UUID" type="guid" value="ce1cdf3b-7222-4f09-928c-219247206238" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

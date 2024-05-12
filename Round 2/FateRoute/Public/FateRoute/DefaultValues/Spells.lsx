@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="1" minor="0" revision="0" build="1"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Target_Magehand;Target_Friends;Target_MinorIllusion"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="SelectorId" type="LSString" value="MagusCantrips"/>
+                    <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
+                    <attribute id="UUID" type="guid" value="189b408b-922c-4c05-9d15-1315dbaa2719"/>
+                </node>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="Projectile_RayOfSickness; Target_CharmPerson"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="SelectorId" type="LSString" value="MagusLevel1Spells"/>
+                    <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
+                    <attribute id="UUID" type="guid" value="24025210-f014-4c44-91c0-6ff55401e202"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

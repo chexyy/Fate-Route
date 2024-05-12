@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="1" minor="0" revision="0" build="1" />
+  <region id="SpellLists">
+    <node id="root">
+      <children>
+        <node id="SpellList">
+            <attribute id="Comment" type="LSString" value="Magical Energy Substitution" />
+            <attribute id="Spells" type="LSString" value="magicalEnergySubstitution" />
+            <attribute id="UUID" type="guid" value="1dfe9ac1-fb44-414d-8980-f0a37f642d35" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>
