@@ -5,7 +5,7 @@
         <node id="root">
             <children>
                 <node id="SkillList"> Class Skills
-                    <attribute id="Skills" type="LSString" value="Arcana,History,Investigation,Religion,Medicine,Nature"/>
+                    <attribute id="Skills" type="LSString" value="Arcana, History, Investigation, Medicine, Nature, Religion"/>
                     <attribute id="UUID" type="guid" value="ac038081-6fc5-42e7-b10e-dcb78e97ff7a"/>
                 </node>
             </children>

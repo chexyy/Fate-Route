@@ -4,11 +4,7 @@
     <region id="SpellLists">
         <node id="root">
             <children>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Magus Magical Energy Substitution"/>
-                    <attribute id="Spells" type="LSString" value="magicalEnergySubstitution"/>
-                    <attribute id="UUID" type="guid" value="2cda2b35-8fd7-4e33-916f-6fe109c2f1b2"/>
-                </node>
+
 			</children>
         </node>
     </region>

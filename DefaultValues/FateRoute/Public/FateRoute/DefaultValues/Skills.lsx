@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="329"/>
+    <region id="DefaultValues">
+        <node id="root">
+            <children>
+                <node id="DefaultValue">
+                    <attribute id="Add" type="LSString" value="History;Arcana"/>
+                    <attribute id="Level" type="int32" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="de7aa9fa-8d7d-4c73-b199-634d8b646c61"/>
+                    <attribute id="UUID" type="guid" value="b0547490-64eb-476c-8ee9-cbb165666e42"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="SpellLists">
+    <node id="root">
+      <children>
+        <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Joker_Spells_Lv3" />
+                    <attribute id="Spells" type="LSString" value="Target_SummonIsolde;Target_MistAttack;Shout_blade1;Zone_BladeOfTheRuinedKing;Rush_MistDash;Target_Heartbreaker;Target_MistPath;Harrowing;Target_UndeadSuck" />
+                    <attribute id="UUID" type="guid" value="f66a5ee7-2d20-4805-a96f-49e28d459e92" />
+        </node>
+        <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Joker_Spells_Lv5" />
+                    <attribute id="Spells" type="LSString" value="Target_Joker_Blight;Construct_broken;Animal_Butcher" />
+                    <attribute id="UUID" type="guid" value="7056edf1-7842-4b77-9590-69b253b0a1ce" />
+        </node>
+        <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Joker_Spells_Lv8" />
+                    <attribute id="Spells" type="LSString" value="Projectile_LaughingGas" />
+                    <attribute id="UUID" type="guid" value="5a45335b-622b-43a7-8de2-2361377869d5" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>
