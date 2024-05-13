@@ -4,5 +4,7 @@
   <content contentuid="h1bcbdffbgde7dg49a7g8dfegbf217d7df689" version="1">Magical Energy</content>
   <content contentuid="h507b2239g004ag441cgbac6g131ac76e4c94" version="1">The energy that comes about as the refinement of the planet’s Mana or one’s Od by their Magic Circuits. Needed to fuel Magecraft.</content>
   <content contentuid="hfce69fddga493g4c5ag8f29ged5daf0e1c54" version="1">Sword</content>
-  <content contentuid="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1">As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Alignment are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world.</content>
+  <content contentuid="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1">As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Element are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world.</content>
+  <content contentuid="hcd2cdd21gdfb8g4d2egaeeag7fb7986265fd" version="1">Elemental Unalignment</content>
+  <content contentuid="ha2507199gdb48g4bf6gb3f5g1291ca26000f" version="1">As a result of your Origin and Element, your precision with the Five Great Elements is limited. You suffer a -2 bonus to &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; and spell &lt;LSTag Tooltip="AttackRoll"&gt;attack rolls&lt;/LSTag&gt;.</content>
 </contentList>

@@ -7,7 +7,9 @@
         <node id="ClassDescription">
           <attribute id="BaseHp" type="int32" value="10" />
           <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8" />
+          <!-- Magus -->
           <attribute id="DisplayName" type="TranslatedString" handle="hb2cc69a2gaebbg4509g90adgbaf65e403db2" version="1" />
+          <!-- As the practitioners of Magecraft from another world, Magi race towards the past– executing what is theoretically possible with science through supernatural means in a bid to reach the “truth.” -->
 					<attribute id="Description" type="TranslatedString" handle="h8235e249gbc09g4191g9bf9g5ff981ab5581" version="1" />
           <attribute id="HpPerLevel" type="int32" value="6" />
           <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Warlock" />
@@ -31,10 +33,10 @@
         <node id="ClassDescription">
           <attribute id="CanLearnSpells" type="bool" value="false"/>
           <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
-          <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Warlock"/>
+          <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Emiya"/>
           <!-- Sword -->
           <attribute id="DisplayName" type="TranslatedString" handle="hfce69fddga493g4c5ag8f29ged5daf0e1c54" version="1"/>
-          <!-- As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Alignment are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world. -->
+          <!-- As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Element are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world. -->
           <attribute id="Description" type="TranslatedString" handle="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1"/>
           <attribute id="MulticlassSpellcasterModifier" type="int32" value="1"/>
           <attribute id="LearningStrategy" type="uint8" value="1"/>
