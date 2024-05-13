@@ -15,8 +15,8 @@
                 <node id="ProgressionDescription">
                     <attribute id="Description" type="TranslatedString" handle="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="hfce69fddga493g4c5ag8f29ged5daf0e1c54" version="1"/>
-                    <attribute id="ProgressionTableId" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
-                    <attribute id="Type" type="FixedString" value="FateMagus"/>
+                    <attribute id="ProgressionTableId" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+                    <attribute id="Type" type="FixedString" value="Emiya"/>
                     <attribute id="UUID" type="guid" value="5729bc23-6d41-4dd2-8d88-7f881e6a55ed"/>
                 </node>
             </children>

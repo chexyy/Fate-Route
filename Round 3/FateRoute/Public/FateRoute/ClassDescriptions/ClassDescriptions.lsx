@@ -18,12 +18,42 @@
           <attribute id="LearningStrategy" type="uint8" value="1" />
           <attribute id="PrimaryAbility" type="uint8" value="2" /> order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="ProgressionTableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> This UUID links the Class to a specific progression table inside Progressions.lsx
-          <attribute id="SoundClassType" type="FixedString" value="Ranger" />
+          <attribute id="SoundClassType" type="FixedString" value="Wizard" />
           <attribute id="SpellCastingAbility" type="uint8" value="4" /> 4 is for int. order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="UUID" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb" /> The ID for your class, make a new one
 					<children>
             <node id="Tags">
               <attribute id="Object" type="guid" value="1ae7017c-4884-4a43-bc4a-742fa0d201c0" /> Dialogue tag Fighter (yes you can have multiple dialogue tags)
+            </node>
+          </children>
+        </node>
+
+        <node id="ClassDescription">
+          <attribute id="CanLearnSpells" type="bool" value="false"/>
+          <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
+          <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Warlock"/>
+          <!-- Sword -->
+          <attribute id="DisplayName" type="TranslatedString" handle="hfce69fddga493g4c5ag8f29ged5daf0e1c54" version="1"/>
+          <!-- As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Alignment are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world. -->
+          <attribute id="Description" type="TranslatedString" handle="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1"/>
+          <attribute id="MulticlassSpellcasterModifier" type="int32" value="1"/>
+          <attribute id="LearningStrategy" type="uint8" value="1"/>
+          <attribute id="MustPrepareSpells" type="bool" value="true"/>
+          <attribute id="Name" type="FixedString" value="Emiya"/>
+          <attribute id="ParentGuid" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb"/>
+          <attribute id="PrimaryAbility" type="uint8" value="3"/>
+          <attribute id="ProgressionTableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+          <attribute id="SoundClassType" type="FixedString" value="Wizard"/>
+          <attribute id="SpellCastingAbility" type="uint8" value="3"/>
+          <attribute id="UUID" type="guid" value="fcbaa6ae-07d7-4134-a81d-360d23e6050f"/>
+          <children>
+            <node id="Tags">
+              <!-- Wizard -->
+              <attribute id="Object" type="guid" value="6fe3ae27-dc6c-4fc9-9245-710c790c396c"/> 
+            </node>
+            <node id="Tags">
+              <!-- Fighter -->
+              <attribute id="Object" type="guid" value="1ae7017c-4884-4a43-bc4a-742fa0d201c0"/>
             </node>
           </children>
         </node>

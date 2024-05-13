@@ -6,13 +6,22 @@
       <children>
         <node id="Progression">
             <attribute id="AllowImprovement" type="bool" value="false" />
-            <attribute id="Boosts" type="LSString" value="ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Constitution);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,5,0);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Constitution);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
             <attribute id="Level" type="uint8" value="1" />
             <attribute id="Name" type="LSString" value="FateMagus" />
             <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(85c1d4d0-bcca-42aa-8068-a22f62ea27f8,AbilityBonus,2,1);SelectSkills(2552506b-02e9-4bbe-9f34-d2af494fed15,2)" />
             <attribute id="ProgressionType" type="uint8" value="0" />
             <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
             <attribute id="UUID" type="guid" value="b85c5b64-347c-4ece-b45c-fe55a6fa2762" />
+            <children>
+              <node id="SubClasses">
+                <children>
+                  <node id="SubClass">
+                    <attribute id="Object" type="guid" value="fcbaa6ae-07d7-4134-a81d-360d23e6050f" />
+                  </node>
+                </children>
+              </node>
+            </children>
         </node>
       </children>
     </node>

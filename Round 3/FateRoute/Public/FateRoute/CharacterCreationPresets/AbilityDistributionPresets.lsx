@@ -5,15 +5,26 @@
     <node id="root">
       <children>
         <node id="AbilityDistributionPreset">
-                    <attribute id="Charisma" type="int32" value="9" />
-                    <attribute id="ClassUUID" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb" />
-                    <attribute id="Constitution" type="int32" value="15" />
-                    <attribute id="Dexterity" type="int32" value="15" />
-                    <attribute id="Intelligence" type="int32" value="9" />
-                    <attribute id="Strength" type="int32" value="13" />
-                    <attribute id="UUID" type="guid" value="e9c9edca-1497-4f67-8bad-aefe4e688308" />
-                    <attribute id="Wisdom" type="int32" value="10" />
-                </node>
+          <attribute id="Charisma" type="int32" value="9" />
+          <attribute id="ClassUUID" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb" />
+          <attribute id="Constitution" type="int32" value="15" />
+          <attribute id="Dexterity" type="int32" value="15" />
+          <attribute id="Intelligence" type="int32" value="9" />
+          <attribute id="Strength" type="int32" value="13" />
+          <attribute id="UUID" type="guid" value="e9c9edca-1497-4f67-8bad-aefe4e688308" />
+          <attribute id="Wisdom" type="int32" value="10" />
+        </node>
+
+        <node id="AbilityDistributionPreset">
+          <attribute id="Strength" type="int32" value="13" />
+          <attribute id="Dexterity" type="int32" value="15" />
+          <attribute id="Constitution" type="int32" value="15" />
+          <attribute id="Intelligence" type="int32" value="10" />
+          <attribute id="Wisdom" type="int32" value="10" />
+          <attribute id="Charisma" type="int32" value="8" />
+          <attribute id="ClassUUID" type="guid" value="fcbaa6ae-07d7-4134-a81d-360d23e6050f" />
+          <attribute id="UUID" type="guid" value="a60baf3a-9243-4ebb-96fc-bd7d05238fdc" />
+        </node>
       </children>
     </node>
   </region>
