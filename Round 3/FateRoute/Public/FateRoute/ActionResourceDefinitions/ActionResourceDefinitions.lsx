@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328" />
+  <region id="ActionResourceDefinitions">
+    <node id="root">
+      <children>
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h1bcbdffbgde7dg49a7g8dfegbf217d7df689" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="h507b2239g004ag441cgbac6g131ac76e4c94" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="10" />
+          <attribute id="Name" type="FixedString" value="MagicalEnergy" />
+          <attribute id="ReplenishType" type="FixedString" value="Rest" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+          <attribute id="UUID" type="guid" value="7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0" />
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

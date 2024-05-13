@@ -7,8 +7,8 @@
                 <node id="DefaultValue">
                     <attribute id="Add" type="LSString" value="History;Arcana"/>
                     <attribute id="Level" type="int32" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="de7aa9fa-8d7d-4c73-b199-634d8b646c61"/>
-                    <attribute id="UUID" type="guid" value="b0547490-64eb-476c-8ee9-cbb165666e42"/>
+                    <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
+                    <attribute id="UUID" type="guid" value="caab7c63-78ba-4dd2-a74c-8f841f4ca3f2"/>
                 </node>
             </children>
         </node>

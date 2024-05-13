@@ -6,7 +6,7 @@
       <children>
         <node id="AbilityList">
           <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma" />
-          <attribute id="UUID" type="guid" value="2dec347e-a367-4dab-83ba-76b5657ea4de" />
+          <attribute id="UUID" type="guid" value="85c1d4d0-bcca-42aa-8068-a22f62ea27f8" />
         </node>
       </children>
     </node>

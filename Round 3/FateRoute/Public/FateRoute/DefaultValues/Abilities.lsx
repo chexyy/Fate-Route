@@ -5,10 +5,10 @@
         <node id="root">
             <children>
                 <node id="DefaultValue">
-                    <attribute id="Add" type="LSString" value="Dexterity;Constitution"/>
+                    <attribute id="Add" type="LSString" value="Constitution;Dexterity"/>
                     <attribute id="Level" type="int32" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="de7aa9fa-8d7d-4c73-b199-634d8b646c61"/>
-                    <attribute id="UUID" type="guid" value="361748e1-0435-4699-bee0-01556870531d"/>
+                    <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
+                    <attribute id="UUID" type="guid" value="6938cbef-d170-4eca-b9b1-bc3fe303edb7"/>
                 </node>
             </children>
         </node>
