@@ -1,0 +1,7 @@
+new entry "Passive_ElementalUnalignment"
+type "PassiveData"
+data "DisplayName" "hcd2cdd21gdfb8g4d2egaeeag7fb7986265fd"
+data "Description""ha2507199gdb48g4bf6gb3f5g1291ca26000f"
+data "Icon" "Action_DivineIntervention_Attack"
+data "Properties" "Highlighted"
+data "Boosts" "SpellSaveDC(-2);RollBonus(MeleeSpellAttack,-2);RollBonus(RangedSpellAttack,-2)"
