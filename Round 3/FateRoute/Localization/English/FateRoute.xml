@@ -8,6 +8,8 @@
   <content contentuid="hcd2cdd21gdfb8g4d2egaeeag7fb7986265fd" version="1">Elemental Unalignment</content>
   <content contentuid="ha2507199gdb48g4bf6gb3f5g1291ca26000f" version="1">As a result of your Origin and Element, your precision with the Five Great Elements is limited. You suffer a -2 penalty to &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; and spell &lt;LSTag Tooltip="AttackRoll"&gt;attack rolls&lt;/LSTag&gt;.</content>
   <content contentuid="h0ba02a42gf0e4g4495g868eg7dc7ffbdd2a8" version="1">Reinforcement: Body</content>
-  <content contentuid="h31ffd21fg11eeg464fg9f8agba35a67277cb" version="1">You use Reinforcement Magecraft to bolster your body, increasing the damage of Unarmed Attacks by [1], hit point maximum by 10%, and max movement per turn by 10%.</content>
-  <content contentuid="hfec1d6b0ga7f2g4c44gb36agf6f78a928803" version="1">Your body has been reinforced. The damage of Unarmed Attacks is increased by [1], hit point maximum is increased by 10%, and max movement per turn is increased by 10%.</content>
+  <content contentuid="h31ffd21fg11eeg464fg9f8agba35a67277cb" version="1">You use Reinforcement Magecraft to bolster your body, increasing the damage of Unarmed Attacks by [1], hit point maximum by 25%, and max movement per turn by 33%.</content>
+  <content contentuid="hfec1d6b0ga7f2g4c44gb36agf6f78a928803" version="1">Your body has been reinforced. The damage of Unarmed Attacks is increased by [1], hit point maximum is increased by 25%, and max movement per turn is increased by 33%.</content>
+  <content contentuid="h58d2c55fg7049g4a58ga91bg7e4b09f9cb14" version="1">Reinforced Body</content>
+  <content contentuid="hf6f86f15g3f2dg4c96gabb1g126cf302d377" version="1">The damage of Unarmed Attacks is increased by [1], hit point maximum is increased by 25%, and max movement per turn is increased by 33%.</content>
 </contentList>

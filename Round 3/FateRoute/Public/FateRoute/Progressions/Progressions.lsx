@@ -32,7 +32,7 @@
 			<attribute id="Name" type="LSString" value="Emiya"/>
 			<attribute id="ProgressionType" type="uint8" value="1"/>
 			<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment"/>
-			<attribute id="Selectors" type="LSString" value="AddSpells(2552506b-02e9-4bbe-9f34-d2af494fed15)"/>
+			<attribute id="Selectors" type="LSString" value="AddSpells(55b92ed9-8ecc-48f8-871c-3591b852f1c2,,3,,AlwaysPrepared)"/>
 			<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 			<attribute id="UUID" type="guid" value="f8a4e9b0-b2ac-4c5f-bab6-046e94a42c40"/>
 		</node>
