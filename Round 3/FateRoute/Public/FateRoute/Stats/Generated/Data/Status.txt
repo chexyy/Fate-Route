@@ -8,3 +8,21 @@ data "Icon" "PassiveFeature_MartialArts_UnarmedDamage"
 data "StackId" "REINFORCEMENT_BODY"
 data "Properties" "Highlighted"
 data "Boosts" "IF(IsMeleeUnarmedAttack()):RollBonus(Attack, LevelMapValue(reinforcementBody));IncreaseMaxHP(MaxHP/4);ActionResource(Movement,3,0)"
+
+new entry "TRACE_WEAPON_ENEMY"
+type "StatusData"
+data "StatusEffect" "EFFECT"
+// Weapon Traced
+data "DisplayName" "h0db8fbd4g49cdg4d72gafe3g4d16817cc525"
+// The spellcaster traced this enemy's active weapon.
+data "Description" "h6d59fc23g6429g4b7agb156g989fa516781f"
+data "Icon" "Action_Barbarian_FrenziedStrike"
+data "TickType" "StartTurn"
+data
+
+new entry "TRACE_WEAPON_OWNER"
+type "StatusData"
+// Faker
+data "DisplayName" "hd53022dc920d4db09a87d293b786b6d5e903"
+
+data "Description"
