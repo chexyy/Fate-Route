@@ -1,0 +1,18 @@
+local __util = require 'larian.util'
+
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID)
+    if SpellName == Target_TraceWeapon then
+        local uuid_pattern = "%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x"
+        local beginningIndex, endingIndex = string.find(target, uuid_pattern)
+        local targetUUID = string.sub(target,beginningIndex,endingIndex)
+        
+        if GetEquippedItem(targetUUID, "Melee Offhand") ~= null then
+            offhandItem = GetEquippedItem(targetUUID, "Melee Offhand")
+            offhandItemTemplate = Osi.GetTemplate(offhandItem)
+            Osi.TemplateAddTo(offhandItemTemplate,GetHostCharacter(),1,0) -- Gives offhand item
+        end
+        local item = GetEquippedItem(targetUUID, "Melee Main Weapon")
+        local itemTemplate = Osi.GetTemplate(item)
+        Osi.TemplateAddTo(itemTemplate,GetHostCharacter(),1,0) -- Gives item
+    end
+end)

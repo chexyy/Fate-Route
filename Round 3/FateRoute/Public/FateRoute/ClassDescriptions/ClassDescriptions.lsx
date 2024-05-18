@@ -16,10 +16,10 @@
           <attribute id="Name" type="FixedString" value="FateMagus" />
           <attribute id="ItemsHotbarColumns" type="int32" value="2" />
           <attribute id="LearningStrategy" type="uint8" value="1" />
-          <attribute id="PrimaryAbility" type="uint8" value="2" /> order goes from Str, Dex, Con, Int, Wis, and Cha.
+          <attribute id="PrimaryAbility" type="uint8" value="3" /> order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="ProgressionTableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> This UUID links the Class to a specific progression table inside Progressions.lsx
           <attribute id="SoundClassType" type="FixedString" value="Wizard" />
-          <attribute id="SpellCastingAbility" type="uint8" value="4" /> 4 is for int. order goes from Str, Dex, Con, Int, Wis, and Cha.
+          <attribute id="SpellCastingAbility" type="uint8" value="3" /> 4 is for int. order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="UUID" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb" /> The ID for your class, make a new one
 					<children>
             <node id="Tags">
