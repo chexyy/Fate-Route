@@ -79,3 +79,15 @@ KNOCKED_OUT_SUMMON_DISMISS
 -- print(Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).ServerItem.Template.Id)
 -- print(Ext.GetStatString(GetEquippedItem(GetHostCharacter(),"Melee Main Weapon")))
 -- print(GetUUID(GetEquippedItem(GetHostCharacter(),"Melee Main Weapon")))
+
+rushAttack = Ext.Stats.Get("Rush_SpringAttack")
+rushAttack.Cooldown = "None"
+rushAttack:Sync()
+Osi.RemoveSpell(GetHostCharacter(),"Rush_SpringAttack")
+Osi.AddSpell(GetHostCharacter(),"Rush_SpringAttack",0)
+
+rushAttack = Ext.Stats.Get("Rush_SpringAttack")
+rushAttack.Cooldown = "OncePerShortRest"
+rushAttack:Sync()
+Osi.RemoveSpell(GetHostCharacter(),"Rush_SpringAttack")
+Osi.AddSpell(GetHostCharacter(),"Rush_SpringAttack",0)
