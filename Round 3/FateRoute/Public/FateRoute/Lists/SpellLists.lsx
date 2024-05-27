@@ -5,9 +5,14 @@
 		<node id="root">
 			<children>
 				<node id="SpellList">
-					<attribute id="Comment" type="LSString" value="Reinforcement: Body and Trace Weapon" />
-					<attribute id="Spells" type="LSString" value="Shout_ReinforceBody;Target_TraceWeapon;Shout_TraceWeapon;Shout_TraceWeapon_Test;Shout_TraceWeapon_Template_Test" />
+					<attribute id="Comment" type="LSString" value="Reinforcement: Body" />
+					<attribute id="Spells" type="LSString" value="Shout_ReinforceBody" />
 					<attribute id="UUID" type="guid" value="55b92ed9-8ecc-48f8-871c-3591b852f1c2" />
+				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Reinforcement: Body and Trace Weapon" />
+					<attribute id="Spells" type="LSString" value="Target_TraceWeapon;Shout_TraceWeapon" />
+					<attribute id="UUID" type="guid" value="49e80ff0-76f1-41c4-9a30-963915e796fd" />
 				</node>
 			</children>
 		</node>

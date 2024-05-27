@@ -1,0 +1,1 @@
+Ext.Vars.RegisterUserVariable("traceTable", {})

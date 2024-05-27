@@ -61,5 +61,21 @@ print(Ext.Stats.Get("Test Spell Changed").TargetConditions)
 AddSpell(GetHostCharacter(), "Shout_FlameBlade")
 print(Ext.Stats.Get("Shout_FlameBlade").TargetConditions)
 
-Ext.IO.SaveFile("CharacterEntity.json", Ext.DumpExport(Ext.Entity.Get(GetHostCharacter()):GetAllComponents()))
+Ext.IO.SaveFile("CharacterEntitySummonTable.json", Ext.DumpExport(Ext.Entity.Get(GetHostCharacter()):GetAllComponents()))
 tracebladeTemplate:SetRawAttribute("SpellProperties", "AI_IGNORE:SummonInInventory(cd6c6adc-8792-4378-8c63-8169cfad6c55,2,1,true,true,true,,,,,KNOCKED_OUT_SUMMON_DISMISS)")
+KNOCKED_OUT_SUMMON_DISMISS
+
+-- Ext.Osiris.RegisterListener("TemplateUnequipped", 2, "after", function(itemTemplate,character)
+--     if itemTemplate == mainWeaponTemplate then
+--         Osi.AddSpell(GetHostCharacter(), "Trace_" .. string.gsub(mainWeaponTemplate,"_%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x",""), "SpellData", "Shout_TraceWeapon_Template")
+--     end
+
+-- end)
+
+-- print(Ext.Stats.Get(string.gsub(Osi.GetTemplate(GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")),"_%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x","")))
+-- print(string.gsub(Osi.GetTemplate(GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")),"_%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x",""))
+-- print(Ext.Stats.Get("MAG_Invisible_Pike").Rarity)
+-- print(Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.BoostsOnEquipMainHand)
+-- print(Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).ServerItem.Template.Id)
+-- print(Ext.GetStatString(GetEquippedItem(GetHostCharacter(),"Melee Main Weapon")))
+-- print(GetUUID(GetEquippedItem(GetHostCharacter(),"Melee Main Weapon")))
