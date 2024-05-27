@@ -58,79 +58,43 @@ function addTraceSpell(character, weaponSlot)
 end
 
 -- spell cooldowns
-function resetCooldownOne(character, weaponSlot)
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.Boosts
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.Boosts
-    end
-    print("Boosts is")
-    _D(weaponSpells)
+function resetCooldownOne(character, boost, mainhandBoost, offhandBoost)
     local boostsCooldown = {}
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if entry ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                table.insert(boostsCooldown,weaponSpellData.Cooldown)
-                weaponSpellData.Cooldown = "None"
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+    for key, entry in pairs(boost) do
+        if entry ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            table.insert(boostsCooldown,weaponSpellData.Cooldown)
+            weaponSpellData.Cooldown = "None"
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Reset " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipMainHand
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipMainHand
-    end
-    print("BoostsOnEquipMainHand is")
-    _D(weaponSpells)
     local boostsOnEquipMainHandCooldown = {}
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if entry ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                table.insert(boostsOnEquipMainHandCooldown,weaponSpellData.Cooldown)
-                weaponSpellData.Cooldown = "None"
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+    for key, entry in pairs(mainhandBoost) do
+        if entry ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            table.insert(boostsOnEquipMainHandCooldown,weaponSpellData.Cooldown)
+            weaponSpellData.Cooldown = "None"
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Reset " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipOffHand
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipOffHand
-    end
-    print("BoostsOnEquipOffHand is")
-    _D(weaponSpells)
     local boostsOnEquipOffHandCooldown = {}
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if entry ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                table.insert(boostsOnEquipOffHandCooldown,weaponSpellData.Cooldown)
-                weaponSpellData.Cooldown = "None"
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+    for key, entry in pairs(offhandBoost) do
+        if entry ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            table.insert(boostsOnEquipOffHandCooldown,weaponSpellData.Cooldown)
+            weaponSpellData.Cooldown = "None"
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Reset " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 
@@ -144,72 +108,37 @@ function resetCooldownOne(character, weaponSlot)
     return originalWeaponCooldowns
 end
 
-function resetCooldownTwo(character, weaponSlot, originalWeaponCooldowns)
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.Boosts
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.Boosts
-    end
-    print("Boosts is")
-    _D(weaponSpells)
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if originalWeaponCooldowns[1][key] ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                weaponSpellData.Cooldown = originalWeaponCooldowns[1][key]
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+function resetCooldownTwo(character, boost, mainhandBoost, offhandBoost, originalWeaponCooldowns)
+    for key, entry in pairs(boost) do
+        if originalWeaponCooldowns[1][key] ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            weaponSpellData.Cooldown = originalWeaponCooldowns[1][key]
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Returned " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipMainHand
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipMainHand
-    end
-    print("BoostsOnEquipMainHand is")
-    _D(weaponSpells)
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if originalWeaponCooldowns[2][key] ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                weaponSpellData.Cooldown = originalWeaponCooldowns[2][key]
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+    for key, entry in pairs(mainhandBoost) do
+        if originalWeaponCooldowns[2][key] ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            weaponSpellData.Cooldown = originalWeaponCooldowns[2][key]
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Returned " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 
-    if weaponSlot == "Melee Main Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipOffHand
-    elseif weaponSlot == "Melee Offhand Weapon" then
-        local weaponType = Osi.GetEquippedItem(character, "Melee Main Weapon")
-        print(weaponType)
-        local weaponSpells = Ext.Entity.Get(weaponType).Use.BoostsOnEquipOffHand
-    end
-    _D(weaponSpells)
-    if weaponSpells ~= nil then
-        for key, entry in pairs(weaponSpells) do
-            if originalWeaponCooldowns[3][key] ~= nil then
-                local weaponSpellData = Ext.Stats.Get(entry.Params)
-                weaponSpellData.Cooldown = originalWeaponCooldowns[3][key]
-                weaponSpellData:Sync()
-                Osi.RemoveSpell(character, entry.Params)
-                Osi.AddSpell(character, entry.Params,0,0)
-            end
+    for key, entry in pairs(offhandBoost) do
+        if originalWeaponCooldowns[3][key] ~= nil then
+            local weaponSpellData = Ext.Stats.Get(entry.Params)
+            weaponSpellData.Cooldown = originalWeaponCooldowns[3][key]
+            weaponSpellData:Sync()
+            Osi.RemoveSpell(character, entry.Params, 1)
+            Osi.AddSpell(character, entry.Params,0,0)
+            print("Returned " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
         end
     end
 

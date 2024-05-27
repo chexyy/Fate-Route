@@ -142,9 +142,12 @@ Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplat
         local entity = Ext.Entity.Get(character)
         entity.Vars.traceVariables = traceVariables:new(mainWeaponTemplate,offhandWeaponTemplate,proficiencyBoost)
         -- resetting cooldown
-        local originalWeaponCooldowns = resetCooldownOne(character, "Melee Offhand Weapon")
+        local boosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.Boosts
+        local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.BoostsOnEquipMainHand
+        local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.BoostsOnEquipOffHand
+        local originalWeaponCooldowns = resetCooldownOne(character,boosts,mainhandBoosts,offhandBoosts)
         print(originalWeaponCooldowns)
-        resetCooldownTwo(originalWeaponCooldowns)
+        resetCooldownTwo(character,boosts,mainhandBoosts,offhandBoosts,originalWeaponCooldowns)
         
     end
 
@@ -161,9 +164,12 @@ Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplat
         local entity = Ext.Entity.Get(character)
         entity.Vars.traceVariables = traceVariables:new(mainWeaponTemplate,offhandWeaponTemplate,proficiencyBoost)
         -- resetting cooldown
-        local originalWeaponCooldowns = resetCooldownOne(character, "Melee Offhand Weapon")
+        local boosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.Boosts
+        local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.BoostsOnEquipMainHand
+        local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")).Use.BoostsOnEquipOffHand
+        local originalWeaponCooldowns = resetCooldownOne(character,boosts,mainhandBoosts,offhandBoosts)
         print(originalWeaponCooldowns)
-        resetCooldownTwo(originalWeaponCooldowns)
+        resetCooldownTwo(character,boosts,mainhandBoosts,offhandBoosts,originalWeaponCooldowns)
     end
 
 end)
