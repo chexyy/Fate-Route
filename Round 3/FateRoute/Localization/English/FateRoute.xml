@@ -4,7 +4,7 @@
 	<content contentuid="h1bcbdffbgde7dg49a7g8dfegbf217d7df689" version="1">Magical Energy</content>
 	<content contentuid="h507b2239g004ag441cgbac6g131ac76e4c94" version="1">The energy that comes about as the refinement of the planet’s Mana or one’s Od by their Magic Circuits. Needed to fuel Magecraft.</content>
 	<content contentuid="hfce69fddga493g4c5ag8f29ged5daf0e1c54" version="1">Sword</content>
-	<content contentuid="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1">As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Alignment are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world.</content>
+	<content contentuid="h6905418dg027fg424dgb80bgadbd7f82da7e" version="1">As a result of having the Noble Phantasm Avalon inserted into you in your childhood, both your Origin and Element are Sword. Having recently survived the 5th Holy Grail War, you seek to make your dream a reality even in this alternate world.</content>
 	<content contentuid="hcd2cdd21gdfb8g4d2egaeeag7fb7986265fd" version="1">Elemental Unalignment</content>
 	<content contentuid="ha2507199gdb48g4bf6gb3f5g1291ca26000f" version="1">As a result of your Origin and Element, your precision with the Five Great Elements is limited. You suffer a -2 penalty to &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; and spell &lt;LSTag Tooltip="AttackRoll"&gt;attack rolls&lt;/LSTag&gt;.</content>
 	<content contentuid="h0ba02a42gf0e4g4495g868eg7dc7ffbdd2a8" version="1">Reinforcement: Body</content>
@@ -13,7 +13,7 @@
 	<content contentuid="h58d2c55fg7049g4a58ga91bg7e4b09f9cb14" version="1">Reinforced Body</content>
 	<content contentuid="hf6f86f15g3f2dg4c96gabb1g126cf302d377" version="1">The damage of Unarmed Attacks is increased by [1], hit point maximum is increased by 25%, and max movement per turn is increased by 33%.</content>
 	<content contentuid="h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" version="1">Trace Weapon</content>
-	<content contentuid="h2008f847g4182g4c9agbcc1geef592458443" version="1">Reproduce the weapon(s) of a chosen creature in sight. It is equipped in your main-hand if it is free and if not, in your off-hand if the weapon is Light or Versatile. The amount of magical energy used is dependent on the rarity of the weapon.</content>
+	<content contentuid="h2008f847g4182g4c9agbcc1geef592458443" version="1">Reproduce the weapon(s) of a chosen creature in sight.</content>
 	<content contentuid="h2aad907fgaf0ag4241g880cg4ffea096ec0d" version="1">You become &lt;LSTag Tooltip="Proficiency"&gt;Proficient&lt;/LSTag&gt; with the weapon and any actions associated with the weapon can be performed again without having to take a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; or &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. However, as a result of being traced, you suffer a [1] &lt;LSTag Tooltip="AttackRoll"&gt;attack roll&lt;/LSTag&gt; penalty and upon failure, if you fail an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingRoll"&gt;Saving Roll&lt;/LSTag&gt;, your traced weapon will break and disappear.</content>
 	<content contentuid="h0db8fbd4g49cdg4d72gafe3g4d16817cc525" version="1">Weapon Traced</content>
 	<content contentuid="h6d59fc23g6429g4b7agb156g989fa516781f" version="1">The spellcaster traced this creature active weapon.</content>
@@ -24,4 +24,6 @@
     <content contentuid="hb2e96d7a77c34ea7a6dcbf669f8296c0cd00" version="1">Trace Weapon: Reproduction</content>
     <content contentuid="hd73c56d852324fae83d55aa34308bb3bcc0e" version="1">Reproduction</content>
     <content contentuid="h2a42060cf8284890a9a63cd265e1b9d5fg67" version="1">This weapon has been remade with the seven steps of tracing, giving you proficiency with the weapon.</content>
+    <content contentuid="hebb28c40fdf94f2c9b5bf7b187ebe915a434" version="1">Trace Weapon (Ranged)</content>
+    <content contentuid="h7592d8939b6d462881a7b0bf937fd4958g77" version="1">Trace Weapon (Melee)</content>
 </contentList>

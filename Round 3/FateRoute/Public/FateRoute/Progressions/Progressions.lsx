@@ -7,7 +7,7 @@
 	  	<!-- Magus -->
         <node id="Progression">
             <attribute id="AllowImprovement" type="bool" value="false" />
-            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,5,0);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Constitution);Proficiency(SimpleWeapons);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
+            <attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,6,0);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Constitution);Proficiency(Daggers);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
             <attribute id="Level" type="uint8" value="1" />
             <attribute id="Name" type="LSString" value="FateMagus" />
             <attribute id="Selectors" type="LSString" value="SelectAbilityBonus(85c1d4d0-bcca-42aa-8068-a22f62ea27f8,AbilityBonus,2,1);SelectSkills(2552506b-02e9-4bbe-9f34-d2af494fed15,2);AddSpells(55b92ed9-8ecc-48f8-871c-3591b852f1c2)" />

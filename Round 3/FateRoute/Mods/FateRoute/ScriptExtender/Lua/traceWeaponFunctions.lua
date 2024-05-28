@@ -195,6 +195,48 @@ function addProficiencyPassive(character, weaponType, proficiencyBoost)
     elseif weaponType == "ca1a548b-f409-4cad-af5a-dfdd5834c709" then -- pike
         table.insert(proficiencyBoost, "pike")
         Osi.AddPassive(character, "Proficiency_Pikes")
+    elseif weaponType == "9b333d67-365f-41fa-80b2-08e86588e9ac" then -- club
+        table.insert(proficiencyBoost, "club")
+        Osi.AddPassive(character, "Proficiency_Clubs")
+    elseif weaponType == "7490e5d0-d346-4b0e-80c6-04e977160863" then -- dagger
+        table.insert(proficiencyBoost, "dagger")
+        Osi.AddPassive(character, "Proficiency_Daggers")
+    elseif weaponType == "09dd1e1e-6d9f-4cc6-b514-68e981c80543" then -- handaxe
+        table.insert(proficiencyBoost, "handaxe")
+        Osi.AddPassive(character, "Proficiency_Handaxes")
+    elseif weaponType == "b6e3bfa1-2c63-404f-becb-21d047aacce1" then -- javelin
+        table.insert(proficiencyBoost, "javelin")
+        Osi.AddPassive(character, "Proficiency_Javelins")
+    elseif weaponType == "edc46cc0-25d0-4da9-bfcb-edba239edcce" then -- light hammer
+        table.insert(proficiencyBoost, "light hammer")
+        Osi.AddPassive(character, "Proficiency_LightHammers")
+    elseif weaponType == "c29fc6ce-0482-420d-a839-41a0bab95c2d" then -- mace
+        table.insert(proficiencyBoost, "mace")
+        Osi.AddPassive(character, "Proficiency_Maces")
+    elseif weaponType == "bfdc63bd-b8f6-4eac-9363-0c71882ff46f" then -- sickle
+        table.insert(proficiencyBoost, "sickle")
+        Osi.AddPassive(character, "Proficiency_Sickles")
+    elseif weaponType == "b428632e-3137-47aa-ae8f-ddff6fc27cc8" then -- quarterstaff
+        table.insert(proficiencyBoost, "quarterstaff")
+        Osi.AddPassive(character, "Proficiency_Quarterstaffs")
+    elseif weaponType == "fef6b399-19da-4d4b-b1ec-c79dff7f46c3" then -- spear
+        table.insert(proficiencyBoost, "spear")
+        Osi.AddPassive(character, "Proficiency_Spears")
+    elseif weaponType == "ab44887d-0eb0-4fef-bd9d-943ea8971aa2" then -- greatclub
+        table.insert(proficiencyBoost, "greatclub")
+        Osi.AddPassive(character, "Proficiency_Greatclubs")
+    elseif weaponType == "1c12ee6d-50e2-459f-90c8-ae56701190ce" then -- hand crossbow
+        table.insert(proficiencyBoost, "hand crossbow")
+        Osi.AddPassive(character, "Proficiency_HandCrossbows")
+    elseif weaponType == "2cc23bb9-d777-4265-a34c-333528628b90" then -- heavy crossbow
+        table.insert(proficiencyBoost, "heavy crossbow")
+        Osi.AddPassive(character, "Proficiency_HeavyCrossbows")
+    elseif weaponType == "a302a8e2-a3f9-41e1-a68c-70a453e65399" then -- light crossbow
+        table.insert(proficiencyBoost, "light crossbow")
+        Osi.AddPassive(character, "Proficiency_LightCrossbows")
+    elseif weaponType == "81197304-7116-4d7b-8ef4-207bbf636682" then -- shortbow
+        table.insert(proficiencyBoost, "shortbow")
+        Osi.AddPassive(character, "Proficiency_Shortbows")
     end
 end
 
@@ -232,6 +274,34 @@ function removeProficiencyPassive(proficiencyBoost)
             Osi.RemovePassive(GetHostCharacter(), "Proficiency_Mauls")
         elseif entry == "pike" then -- pike
             Osi.RemovePassive(GetHostCharacter(), "Proficiency_Pikes")
+        elseif entry == "club" then -- club
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Clubs")
+        elseif entry == "dagger" then -- dagger
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Daggers")
+        elseif entry == "handaxe" then -- handaxe
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Handaxes")
+        elseif entry == "javelin" then -- javelin
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Javelins")
+        elseif entry == "light hammer" then -- light hammer
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_LightHammers")
+        elseif entry == "mace" then -- mace
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Maces")
+        elseif entry == "sickle" then -- sickle
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Sickles")
+        elseif entry == "quarterstaff" then -- quarterstaff
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Quarterstaffs")
+        elseif entry == "spear" then -- spear
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Spears")
+        elseif entry == "greatclub" then -- greatclub 
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Greatclubs")
+        elseif entry == "hand crossbow" then -- hand crossbow
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_HandCrossbows")
+        elseif entry == "heavy crossbow" then -- heavy crossbow
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_HeavyCrossbows") 
+        elseif entry == "light crossbow" then -- light crossbow
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_LightCrossbows")
+        elseif entry == "shortbow" then -- shortbow
+            Osi.RemovePassive(GetHostCharacter(), "Proficiency_Shortbows")
         end
     end
 end

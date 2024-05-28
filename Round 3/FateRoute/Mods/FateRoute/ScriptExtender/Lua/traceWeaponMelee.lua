@@ -23,11 +23,11 @@ function traceVariables:new(mainWeaponTemplate, offhandWeaponTemplate, proficien
 end
 
 -- listeners
-Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(character)
-    print("Character made player")
+Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
+    print("Attempted baseSpell sync")
     Ext.Vars.RegisterUserVariable("traceTable", {})
     Ext.Vars.RegisterUserVariable("traceVariables", {})
-    local entity = Ext.Entity.Get(character)
+    local entity = Ext.Entity.Get(GetHostCharacter())
     local localTraceTable = entity.Vars.traceTable or {}
     local localTraceVariables = entity.Vars.traceVariables or {}
     
@@ -36,12 +36,14 @@ Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(characte
         for key, entry in ipairs(localTraceTable) do
             for i=1,999,1 do
                 local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-                if observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" and observedTraceTemplate.DisplayName ~= entry.DisplayName then
-                    
+                if observedTraceTemplate.Icon == entry.Icon or observedTraceTemplate.DisplayName == entry.DisplayName then
+                    print("Broke at index #" .. i)
+                    break
+                elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
                     -- copying over stats
                     observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
                     observedTraceTemplate.Icon = entry.Icon
-                    observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER,100,2);AI_IGNORE:SummonInInventory(" .. entry.weaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
+                    observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_MELEE,100,2);AI_IGNORE:SummonInInventory(" .. entry.weaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
                     observedTraceTemplate.UseCosts = entry.UseCosts
 
                     -- adding to spell
@@ -65,6 +67,8 @@ Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(characte
 
             local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
             baseSpell:Sync() 
+
+            Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
         end
     end
 
@@ -86,13 +90,83 @@ Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(characte
         end
     end
 
+    Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(character)
+        print("Character made player")
+        Ext.Vars.RegisterUserVariable("traceTable", {})
+        Ext.Vars.RegisterUserVariable("traceVariables", {})
+        local entity = Ext.Entity.Get(character)
+        local localTraceTable = entity.Vars.traceTable or {}
+        local localTraceVariables = entity.Vars.traceVariables or {}
+        
+        if localTraceTable ~= {} then
+            _D(localTraceTable)
+            for key, entry in ipairs(localTraceTable) do
+                for i=1,999,1 do
+                    local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
+                    if observedTraceTemplate.Icon == entry.Icon or observedTraceTemplate.DisplayName == entry.DisplayName then
+                        print("Broke at index #" .. i)
+                        break
+                    elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+                        -- copying over stats
+                        observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
+                        observedTraceTemplate.Icon = entry.Icon
+                        observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_MELEE,100,2);AI_IGNORE:SummonInInventory(" .. entry.weaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
+                        observedTraceTemplate.UseCosts = entry.UseCosts
+    
+                        -- adding to spell
+                        local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+                        local containerList = baseSpell.ContainerSpells
+                        if containerList == "" then
+                            containerList = "Shout_TraceWeapon_Template" .. i
+                        else
+                            containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
+                        end
+                        
+        
+                        observedTraceTemplate:Sync()       
+                        baseSpell.ContainerSpells = containerList
+                        baseSpell:Sync()
+        
+                        print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
+                        break
+                    end
+                end
+    
+                local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+                baseSpell:Sync() 
+
+                Osi.RemoveSpell(character,"Shout_TraceWeapon",0)
+            end
+        end
+    
+        if localTraceVariables ~= {} and localTraceVariables ~= nil and localTraceVariable ~= { } then
+            _D(localTraceVariables)
+            for key, entry in ipairs(localTraceTable) do
+                if entry ~= nil and entry ~= {} then
+                    if key == 1 then
+                        mainWeaponTemplate = localTraceVariables.mainWeaponTemplate
+                        print("mainWeaponTemplate loaded")
+                    elseif key == 2 then
+                        offhandWeaponTemplate = localTraceVariables.offhandWeaponTemplate
+                        print("offhandWeaponTemplate loaded")
+                    elseif key == 3 then
+                        proficiencyBoost = localTraceVariables.proficiencyBoost
+                        print("proficiencyBoost loaded")
+                    end
+                end
+            end
+        end
+    
+    end)
+    
 end)
 
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID)
-    if spellName == "Target_TraceWeapon" then
 
-        if HasAppliedStatus(caster,"FAKER") then
-            Osi.RemoveStatus(caster,"FAKER")
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID)
+    if spellName == "Target_TraceWeapon_Melee" then
+
+        if HasAppliedStatus(caster,"FAKER_MELEE") then
+            Osi.RemoveStatus(caster,"FAKER_MELEE")
         end
         local beginningIndex, endingIndex = string.find(target, "%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x")
         local targetUUID = string.sub(target,beginningIndex,endingIndex)
@@ -104,26 +178,30 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, t
         end
         
         local mainWeapon = GetEquippedItem(targetUUID, "Melee Main Weapon")
-        mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
-        Osi.TemplateAddTo(mainWeaponTemplate,caster,1,0) -- Gives item
 
-        ApplyStatus(caster,"FAKER",10,100)
+        if mainWeapon ~= nil then
+            mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
+            Osi.TemplateAddTo(mainWeaponTemplate,caster,1,0) -- Gives item
+            ApplyStatus(caster,"FAKER_MELEE",10,100)
+        else
+            local caster = Ext.Entity.Get(caster)
+            caster.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = caster.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + 1
+        end
     end
 end)
 
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
-    if status == "FAKER" then
-        proficiencyBoost = {}
-        if mainWeaponTemplate ~= nil then
-            Osi.Equip(object,GetItemByTemplateInInventory(mainWeaponTemplate,object),1,0)
-            Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,object), "REPRODUCTION", 10, 100)
-        end
-        if offhandWeaponTemplate ~= nil then
-            Osi.Equip(object,GetItemByTemplateInInventory(offhandWeaponTemplate,object),1,0)
-            Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplate,object), "REPRODUCTION", 10, 100)
-        end 
+Ext.Osiris.RegisterListener("MissedBy", 4, "after", function(defender, attackOwner, attacker, storyActionID) 
+    if Osi.HasActiveStatus(attacker, "FAKER_MELEE") then
+        Osi.RequestPassiveRoll(GetHostCharacter(), GetHostCharacter(),"SavingThrow", "Constitution", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Melee)")
     end
+end)
 
+Ext.Osiris.RegisterListener("RollResult", 6, "after", function(eventName, roller, rollSubject, resultType, isActiveRoll, criticality)
+    if eventName == "Image Failure Roll (Melee)" then 
+        if resultType == 0 then
+            Osi.RemoveStatus(caster,"FAKER_MELEE")
+        end
+    end
 end)
 
 Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplate, character)
@@ -175,7 +253,7 @@ Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplat
 end)
 
 Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID)
-    if status == "FAKER" then 
+    if status == "FAKER_MELEE" then 
         if mainWeaponTemplate ~= nil then    
             -- removing proficiency
             removeProficiencyPassive(proficiencyBoost)
@@ -184,12 +262,26 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
             Osi.Unequip(GetHostCharacter(),GetItemByTemplateInInventory(mainWeaponTemplate,object))
             Osi.TemplateRemoveFrom(mainWeaponTemplate, object, 1)
             mainWeaponTemplate = nil
+        else
+            local mainWeapon = GetEquippedItem(object, "Melee Main Weapon")
+            local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
+            if mainWeaponTemplate ~= nil then
+                Osi.Unequip(GetHostCharacter(),GetItemByTemplateInInventory(mainWeaponTemplate,object))
+                Osi.TemplateRemoveFrom(mainWeaponTemplate, object, 1)
+            end
         end
 
         if offhandWeaponTemplate ~= nil then  
             Osi.Unequip(object,GetItemByTemplateInInventory(offhandWeaponTemplate,object))
             Osi.TemplateRemoveFrom(offhandWeaponTemplate, object, 1)
             offhandWeaponTemplate = nil
+        else
+            local offhandWeapon = GetEquippedItem(object, "Melee Main Weapon")
+            local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
+            if offhandWeaponTemplate ~= nil then
+                Osi.Unequip(GetHostCharacter(),GetItemByTemplateInInventory(offhandWeaponTemplate,object))
+                Osi.TemplateRemoveFrom(mainWeaponTemplate, object, 1)
+            end
         end
         
         local entity = Ext.Entity.Get(object)
