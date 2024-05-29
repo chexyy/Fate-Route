@@ -31,7 +31,7 @@
 			<attribute id="Boosts" type="LSString" value="Proficiency(Longbows);Proficiency(Shortbows)"/>
 			<attribute id="Name" type="LSString" value="Emiya"/>
 			<attribute id="ProgressionType" type="uint8" value="1"/>
-			<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment"/>
+			<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment;Passive_BladeReconstitution"/>
 			<attribute id="Selectors" type="LSString" value="AddSpells(49e80ff0-76f1-41c4-9a30-963915e796fd,,3,,AlwaysPrepared)"/>
 			<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 			<attribute id="UUID" type="guid" value="f8a4e9b0-b2ac-4c5f-bab6-046e94a42c40"/>

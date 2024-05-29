@@ -168,7 +168,6 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     
 end)
 
-
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID)
     if spellName == "Target_TraceWeapon_Melee" then
 
