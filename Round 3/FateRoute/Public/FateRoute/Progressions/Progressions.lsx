@@ -28,7 +28,7 @@
 		<!-- Emiya -->
 		<node id="Progression">
 			<attribute id="Level" type="uint8" value="1"/>
-			<attribute id="Boosts" type="LSString" value="Proficiency(Longbows)"/>
+			<attribute id="Boosts" type="LSString" value="Proficiency(Longbows);Proficiency(Shortbows)"/>
 			<attribute id="Name" type="LSString" value="Emiya"/>
 			<attribute id="ProgressionType" type="uint8" value="1"/>
 			<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment"/>
