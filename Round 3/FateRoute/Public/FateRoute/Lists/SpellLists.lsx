@@ -10,9 +10,24 @@
 					<attribute id="UUID" type="guid" value="55b92ed9-8ecc-48f8-871c-3591b852f1c2" />
 				</node>
 				<node id="SpellList">
-					<attribute id="Comment" type="LSString" value="Reinforcement: Body and Trace Weapon" />
-					<attribute id="Spells" type="LSString" value="Target_TraceWeapon_Melee;Target_TraceWeapon_Ranged;Shout_TraceWeapon" />
+					<attribute id="Comment" type="LSString" value="Trace Weapon" />
+					<attribute id="Spells" type="LSString" value="Target_TraceWeapon_Melee;Target_TraceWeapon_Ranged" />
 					<attribute id="UUID" type="guid" value="49e80ff0-76f1-41c4-9a30-963915e796fd" />
+				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Reinforcement: Eyes" />
+					<attribute id="Spells" type="LSString" value="Shout_ReinforceEyes" />
+					<attribute id="UUID" type="guid" value="031f44ef-5b4d-45d8-a320-64b7cdc69ff0" />
+				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Trace Weapon Reproduction" />
+					<attribute id="Spells" type="LSString" value="Shout_TraceWeapon" />
+					<attribute id="UUID" type="guid" value="dc89c5d8-a0e6-4ed3-9e9e-1233a9abbac0" />
+				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Reinforcement: Legs" />
+					<attribute id="Spells" type="LSString" value="Shout_ReinforceLegs" />
+					<attribute id="UUID" type="guid" value="6f9582bc-b182-48c5-bbeb-5a3fee9258b9" />
 				</node>
 			</children>
 		</node>

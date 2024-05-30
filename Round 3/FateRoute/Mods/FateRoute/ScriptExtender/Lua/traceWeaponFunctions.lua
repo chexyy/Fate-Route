@@ -1,4 +1,4 @@
-function addTraceSpell(character, weaponSlot)
+function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity, wielderMovementSpeed)
     local entity = Ext.Entity.Get(character)
     local localTraceTable = entity.Vars.traceTable or {}
     local foundWeapon = 0
@@ -6,6 +6,22 @@ function addTraceSpell(character, weaponSlot)
         if localTraceTable ~= {} then
             local offhandWeapon = Osi.GetEquippedItem(GetHostCharacter(), weaponSlot)
             if entry.DisplayName == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot)).DisplayName.NameKey.Handle.Handle then
+                if wielderStrength > entry.wielderStrength or wielderDexterity > entry.wielderDexterity or wielderMovementSpeed > entry.wielderMovementSpeed then
+                    print("Stat found to be higher")
+                    if wielderStrength > entry.wielderStrength then
+                        print("Strength of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderStrength .. " is greater than " .. entry.wielderStrength)
+                        entry.wielderStrength = wielderStrength
+                    end
+                    if wielderDexterity > entry.wielderDexterity then
+                        print("Dexterity of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderDexterity .. " is greater than " .. entry.wielderDexterity)
+                        entry.wielderDexterity = wielderDexterity
+                    end
+                    if wielderMovementSpeed > entry.wielderMovementSpeed then
+                        print("Movement speed of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderMovementSpeed .. " is greater than " .. entry.wielderMovementSpeed)
+                        entry.wielderMovementSpeed = wielderMovementSpeed
+                    end
+                    entity.Vars.traceTable = localTraceTable
+                end
                 foundWeapon = 1
                 break
             end
@@ -52,7 +68,7 @@ function addTraceSpell(character, weaponSlot)
                 baseSpell.ContainerSpells = containerList
                 baseSpell:Sync()
 
-                table.insert(localTraceTable,traceObject:new(observedTraceTemplate.DisplayName, observedTraceTemplate.Icon, offhandWeaponUUID, observedTraceTemplate.UseCosts))
+                table.insert(localTraceTable,traceObject:new(observedTraceTemplate.DisplayName, observedTraceTemplate.Icon, offhandWeaponUUID, observedTraceTemplate.UseCosts, wielderStrength, wielderDexterity, wielderMovementSpeed))
                 entity.Vars.traceTable = localTraceTable
                 print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
 
@@ -63,7 +79,7 @@ function addTraceSpell(character, weaponSlot)
 end
 
 -- spell cooldowns
-function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost)
+function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, offhandBoolean)
     local entity = Ext.Entity.Get(character)
     for key, entry in pairs(boost) do
         if entry ~= nil then
