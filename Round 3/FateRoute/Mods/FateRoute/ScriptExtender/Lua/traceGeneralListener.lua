@@ -36,18 +36,21 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                         if observedStatusTemplate.DisplayName == entry.weaponDisplayName then
                             print("Dual weapon status-spell match found for " .. Osi.ResolveTranslatedString(observedStatusTemplate.DisplayName))
                             Osi.TemplateAddTo(entry.weaponTemplate,caster,1,0)
-                            dualWeaponsProjected = true
                             if keyStatus == 1 then
                                 if entry.meleeOrRanged == "Melee" then
+                                    dualWeaponsProjected = true
                                     mainWeaponTemplate = entry.weaponTemplate
                                 else
+                                    dualWeaponsProjectedRanged = true
                                     mainWeaponTemplateRanged = entry.weaponTemplate
                                 end
                             else
                                 if entry.meleeOrRanged == "Melee" then
+                                    dualWeaponsProjected = true
                                     offhandWeaponTemplate = entry.weaponTemplate
                                     ApplyStatus(caster,"FAKER_MELEE",15,100)
                                 else
+                                    dualWeaponsProjectedRanged = true
                                     offhandWeaponTemplateRanged = entry.weaponTemplate
                                     ApplyStatus(caster,"FAKER_RANGED",15,100)
                                 end
