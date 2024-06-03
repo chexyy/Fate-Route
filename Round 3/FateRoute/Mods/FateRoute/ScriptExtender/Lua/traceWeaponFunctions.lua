@@ -1,62 +1,134 @@
-function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity, wielderMovementSpeed)
+function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity, wielderMovementSpeed, wielderIcon, originalWielderName, meleeOrRanged, weaponTemplates)
     local entity = Ext.Entity.Get(character)
     local localTraceTable = entity.Vars.traceTable or {}
     local foundWeapon = 0
+    
+    -- looking to see if weapon was found
     for key, entry in ipairs(localTraceTable) do
         if localTraceTable ~= {} then
-            local offhandWeapon = Osi.GetEquippedItem(GetHostCharacter(), weaponSlot)
-            if entry.DisplayName == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot)).DisplayName.NameKey.Handle.Handle then
-                if wielderStrength > entry.wielderStrength or wielderDexterity > entry.wielderDexterity or wielderMovementSpeed > entry.wielderMovementSpeed then
-                    print("Stat found to be higher")
-                    if wielderStrength > entry.wielderStrength then
-                        print("Strength of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderStrength .. " is greater than " .. entry.wielderStrength)
-                        entry.wielderStrength = wielderStrength
-                    end
-                    if wielderDexterity > entry.wielderDexterity then
-                        print("Dexterity of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderDexterity .. " is greater than " .. entry.wielderDexterity)
-                        entry.wielderDexterity = wielderDexterity
-                    end
-                    if wielderMovementSpeed > entry.wielderMovementSpeed then
-                        print("Movement speed of " .. Osi.ResolveTranslatedString(entry.DisplayName) .. " replaced as " .. wielderMovementSpeed .. " is greater than " .. entry.wielderMovementSpeed)
-                        entry.wielderMovementSpeed = wielderMovementSpeed
-                    end
-                    entity.Vars.traceTable = localTraceTable
+            entry.weaponUUID = entry.weaponUUID or {}
+            -- if both weapons are there
+            if weaponSlot[1] ~= nil and weaponSlot[2] ~= nil then
+                if entry.weaponUUID[1] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).GameObjectVisual.RootTemplateId and entry.weaponUUID[2] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).GameObjectVisual.RootTemplateId then
+                    foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
                 end
-                foundWeapon = 1
-                break
+
+            -- if only main hand is there
+            elseif weaponSlot[1] ~= nil and weaponSlot[2] == nil then
+                if entry.weaponUUID[1] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).GameObjectVisual.RootTemplateId then
+                    foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
+                    break
+                end
+
+            -- if only off hand is there
+            elseif weaponSlot[1] == nil and weaponSlot[2] ~= nil then
+                if entry.weaponUUID[2] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).GameObjectVisual.RootTemplateId then
+                    foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
+                    break
+                end
             end
         end 
     end
         
     for i = 1,999, 1 do
         if foundWeapon == 0 then
-            local offhandWeapon = Osi.GetEquippedItem(GetHostCharacter(), weaponSlot)
+            -- adding the weapon
             local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
             if observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                
-                local offhandWeaponUUID = Ext.Entity.Get(offhandWeapon).ServerItem.Template.Id
-                observedTraceTemplate:SetRawAttribute("DisplayName", Ext.Entity.Get(offhandWeapon).DisplayName.NameKey.Handle.Handle)
-                observedTraceTemplate.Icon = Ext.Entity.Get(offhandWeapon).ServerIconList.Icons[1].Icon
 
-                if weaponSlot == "Melee Main Weapon" or "Melee Offhand Weapon" then
-                    observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_MELEE,100,2);AI_IGNORE:SummonInInventory(" .. offhandWeaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
-                else
-                    observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_RANGED,100,2);AI_IGNORE:SummonInInventory(" .. offhandWeaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
+                -- checks if melee or ranged
+                if meleeOrRanged == "Melee" then
+                    spellProperties = "ApplyStatus(FAKER_MELEE,100,3);"
+                else 
+                    spellProperties = "ApplyStatus(FAKER_RANGED,100,3);"
                 end
 
-                -- sets use cost based on rarity
-                if Ext.Entity.Get(offhandWeapon).Value.Rarity == 0 then
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:1"
-                elseif Ext.Entity.Get(offhandWeapon).Value.Rarity == 1 then
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:2"
-                elseif Ext.Entity.Get(offhandWeapon).Value.Rarity == 2 then
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:3"
-                elseif Ext.Entity.Get(offhandWeapon).Value.Rarity == 3 then
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:4"
-                elseif Ext.Entity.Get(offhandWeapon).Value.Rarity == 4 then
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:5"
-                else
-                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:2"
+                --if mainhand but no offhand
+                if weaponSlot[1] ~= nil and weaponSlot[2] == nil then
+                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle)
+                    local displayName = originalWielderName .. "'s " .. weaponName
+                    local weapon = Osi.GetEquippedItem(character, weaponSlot[1])
+                    
+                    Ext.Loca.UpdateTranslatedString(displayName, displayName) -- display name
+                    observedTraceTemplate:SetRawAttribute("DisplayName", displayName) -- display name
+                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899") -- description
+                    observedTraceTemplate.Icon = wielderIcon -- icon
+                    observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param
+                    
+                    -- checks if melee or ranged and makes spell summonable
+                    weaponUUID = {Ext.Entity.Get(weapon).ServerItem.Template.Id, nil}
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)"
+                    observedTraceTemplate:SetRawAttribute("SpellProperties", spellProperties)
+
+                    -- sets use cost based on rarity
+                    local magicalEnergyCost = Ext.Entity.Get(weapon).Value.Rarity + 1
+                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:" .. magicalEnergyCost
+                
+                --if offhand but no mainhand
+                elseif weaponSlot[1] == nil and weaponSlot[2] ~= nil then
+                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)
+                    local displayName = originalWielderName .. "'s " .. weaponName
+                    local weapon = Osi.GetEquippedItem(character, weaponSlot[2])
+                    
+                    Ext.Loca.UpdateTranslatedString(displayName, displayName) -- display name
+                    observedTraceTemplate:SetRawAttribute("DisplayName", displayName) -- display name
+                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899")
+                    observedTraceTemplate.Icon = wielderIcon -- icon
+                    observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param
+
+                    -- makes spell summonable
+                    weaponUUID = {nil, Ext.Entity.Get(weapon).ServerItem.Template.Id}
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)"
+                    observedTraceTemplate:SetRawAttribute("SpellProperties", spellProperties)
+
+                    -- sets use cost based on rarity
+                    local magicalEnergyCost = Ext.Entity.Get(weapon).Value.Rarity + 1
+                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:" .. magicalEnergyCost
+
+                
+                --if both mainhand and offhand
+                elseif weaponSlot[1] ~= nil and weaponSlot[2] ~= nil then
+                    local weaponName = {Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle),Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)}
+                    local weapon = {Osi.GetEquippedItem(character, weaponSlot[1]),Osi.GetEquippedItem(character, weaponSlot[2])}
+
+                    -- display name
+                    local displayName = originalWielderName .. "'s " .. weaponName[1] .. " and " .. weaponName[2]
+                    Ext.Loca.UpdateTranslatedString(displayName, displayName)
+                    observedTraceTemplate:SetRawAttribute("DisplayName", displayName)
+                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899")
+
+                    observedTraceTemplate.Icon = wielderIcon -- icon
+                    observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param
+
+                    -- checks if melee or ranged and makes spell summonable
+                    weaponUUID = {Ext.Entity.Get(weapon[1]).ServerItem.Template.Id, Ext.Entity.Get(weapon[2]).ServerItem.Template.Id}
+                    -- spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)"
+
+                    -- sets use cost based on rarity
+                    local magicalEnergyCost = math.ceil((Ext.Entity.Get(weapon[1]).Value.Rarity + Ext.Entity.Get(weapon[1]).Value.Rarity)*3/4)
+                    observedTraceTemplate.UseCosts = "BonusActionPoint:1;MagicalEnergy:" .. magicalEnergyCost
+
+                    -- add tooltip apply status
+                    local extraSpellNum = addExtraDescription(character,weaponSlot, weaponUUID, meleeOrRanged,"Shout_TraceWeapon_Template" .. i, weaponTemplates)
+                    -- local statusNum = addApplyStatus(character,weaponSlot,weaponUUID, extraSpellNum, "Shout_TraceWeapon_Template" .. i)
+                    tooltipApply = "ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[1] .. ",100,3);ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[2] .. ",100,3)"
+                    -- print("Tooltip is " .. tooltipApply)
+
+                        -- checks if melee or ranged
+                        if meleeOrRanged == "Melee" then
+                            spellProperties = "ApplyStatus(FAKER_MELEE_DUAL,100,3);"
+                        else 
+                            spellProperties = "ApplyStatus(FAKER_RANGED_DUAL,100,3);"
+                        end
+                    -- spellProperties = spellProperties .. tooltipApply
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",3,1,true,true,true,,,REPRODUCTION,REPRODUCTION,TRACE_RESETCOOLDOWN)" --;AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",3,1,true,true,true,,,REPRODUCTION,REPRODUCTION,TRACE_RESETCOOLDOWN)"
+                    observedTraceTemplate:SetRawAttribute("SpellProperties", "")
+                    -- table.insert(observedTraceTemplate.SpellFlags,"IsLinkedSpellContainer")
+                    -- observedTraceTemplate.ContainerSpells = "Shout_TraceWeapon_TemplateDescription" .. extraSpellNum[1] .. ";Shout_TraceWeapon_TemplateDescription" .. extraSpellNum[2]
+
+                    -- observedTraceTemplate:SetRawAttribute("SpellAnimation", "f489d217-b699-4e8e-bf22-6ef539c5d65b,,;,,;7a343ea7-1330-428a-b0b1-9f6dc7f2a91c,,;0f872585-3c6e-4493-a0b5-5acc882b7aaf,,;f9414915-2da7-4f40-bcbd-90e956461246,,;,,;f2a62277-c87a-4ec7-b4f2-c3c37e6e30ae,,;,,;,,")
+                    observedTraceTemplate:SetRawAttribute("TooltipStatusApply", tooltipApply)
+
                 end
             
                 -- adding to spell
@@ -68,7 +140,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                 baseSpell.ContainerSpells = containerList
                 baseSpell:Sync()
 
-                table.insert(localTraceTable,traceObject:new(observedTraceTemplate.DisplayName, observedTraceTemplate.Icon, offhandWeaponUUID, observedTraceTemplate.UseCosts, wielderStrength, wielderDexterity, wielderMovementSpeed))
+                table.insert(localTraceTable,traceObject:new(displayName, wielderIcon, weaponUUID,spellProperties, observedTraceTemplate.UseCosts, tooltipApply, wielderStrength, wielderDexterity, wielderMovementSpeed))
                 entity.Vars.traceTable = localTraceTable
                 print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
 
@@ -77,6 +149,169 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
         end
     end
 end
+
+function checkForWeapon(entry, character, weaponSlot, wielderIcon, wielderStrength, wielderDexterity, wielderMovementSpeed)
+    local foundWeapon = 0;
+    if wielderStrength > entry.wielderStrength or wielderDexterity > entry.wielderDexterity or wielderMovementSpeed > entry.wielderMovementSpeed then
+        print("Stat found to be higher")
+        if wielderStrength > entry.wielderStrength then
+            print("Strength replaced as " .. wielderStrength .. " is greater than " .. entry.wielderStrength)
+            entry.wielderStrength = wielderStrength
+        end
+        if wielderDexterity > entry.wielderDexterity then
+            print("Dexterity replaced as " .. wielderDexterity .. " is greater than " .. entry.wielderDexterity)
+            entry.wielderDexterity = wielderDexterity
+        end
+        if wielderMovementSpeed > entry.wielderMovementSpeed then
+            print("Movement speed replaced as " .. wielderMovementSpeed .. " is greater than " .. entry.wielderMovementSpeed)
+            entry.wielderMovementSpeed = wielderMovementSpeed
+        end
+        entry.Icon = wielderIcon
+        if weaponSlot[1] ~= nil and weaponSlot[2] == nil then
+            entry.DisplayName = originalWielderName .. "'s " .. Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle)
+        elseif weaponSlot[1] == nil and weaponSlot[2] ~= nil then
+            entry.DisplayName = originalWielderName .. "'s " .. Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)
+        else
+            entry.DisplayName = originalWielderName .. "'s " .. Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle) .. " and " .. Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)
+        end
+        entity.Vars.traceTable = localTraceTable
+
+    end
+    foundWeapon = 1
+    return foundWeapon
+    
+end
+
+function addExtraDescription(character, weaponSlot, weaponUUID, meleeOrRanged, originalSpell, weaponTemplates)
+    
+    local weaponDisplayName = {Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle,Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle}
+    local extraDescriptionAddon = ""
+    local entity = Ext.Entity.Get(character)
+    
+    local extraSpellNum = {}
+    for weaponNum = 1,2,1 do
+        local foundWeaponDescription = false
+        local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
+        if localextraDescriptionTable ~= {} then
+            _D(localextraDescriptionTable)
+            for i = 1,999,1 do
+                local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i)
+                if observedDescriptionTemplate.DisplayName == weaponDisplayName[weaponNum] then
+                    foundWeaponDescription = true 
+                    local followupSpell = entry.followupSpell or ""
+                    followupSpell = followupSpell .. originalSpell .. ";"
+                    observedDescriptionTemplate.FollowUpOriginalSpell = followupSpell
+                    entry.followupSpell = followupSpell
+
+                    -- observedDescriptionTemplate.SpellContainerID = observedDescriptionTemplate.SpellContainerID .. ";" ..  originalSpell
+
+                    entity.Vars.extraDescriptionTable = localextraDescriptionTable
+                    extraSpellNum[weaponNum] = i
+                    break
+                end
+            end
+            
+        end
+
+        if foundWeaponDescription == false then
+            local weaponDescription = {Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).ServerItem.Template.Description.Handle.Handle,Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).ServerItem.Template.Description.Handle.Handle}
+            local weaponIcon = {Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).Icon.Icon,Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).Icon.Icon}
+            
+            for i = 1,999,1 do
+                local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i) 
+                if observedDescriptionTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+                    observedDescriptionTemplate:SetRawAttribute("DisplayName", weaponDisplayName[weaponNum])
+                    observedDescriptionTemplate:SetRawAttribute("Description", weaponDescription[weaponNum])
+                    observedDescriptionTemplate:SetRawAttribute("Sheathing", meleeOrRanged)
+
+                    spellProperties = "AI_IGNORE:SummonInInventory(" .. weaponUUID[weaponNum] .. ",3,1,true,true,true,,,REPRODUCTION,REPRODUCTION,TRACE_RESETCOOLDOWN)"
+                    observedDescriptionTemplate:SetRawAttribute("SpellProperties", spellProperties)
+
+                    local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+
+                    local followupSpell =  observedDescriptionTemplate.FollowUpOriginalSpell
+                    followupSpell = followupSpell .. originalSpell .. ";" 
+                    observedDescriptionTemplate.FollowUpOriginalSpell = followupSpell
+                    observedDescriptionTemplate.Icon = weaponIcon[weaponNum]
+                    -- observedDescriptionTemplate.SpellContainerID = observedDescriptionTemplate.SpellContainerID .. ";" ..  originalSpell
+                    observedDescriptionTemplate:Sync()
+
+                    local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i) 
+                    observedStatusTemplate:SetRawAttribute("DisplayName", weaponDisplayName[weaponNum])
+                    observedStatusTemplate.DescriptionParams = Osi.ResolveTranslatedString(weaponDisplayName[weaponNum])
+                    observedStatusTemplate.Icon = weaponIcon[weaponNum]
+                    observedStatusTemplate:Sync()
+
+                    extraSpellNum[weaponNum] = i
+
+                    baseSpell:Sync()
+                    break
+                end
+            end
+
+            print(Osi.ResolveTranslatedString(weaponDisplayName[weaponNum]) .. " added to extraDescriptionTable")
+            table.insert(localextraDescriptionTable, extraDescription:new(weaponDisplayName[weaponNum],weaponDescription[weaponNum],weaponIcon[weaponNum], spellProperties, meleeOrRanged,followupSpell, weaponTemplates[weaponNum]))
+            entity.Vars.extraDescriptionTable = localextraDescriptionTable
+            
+        end
+    end
+
+    return extraSpellNum
+
+end
+
+-- function addApplyStatus(character, weaponSlot, weaponUUID, extraSpellNum)
+    
+--     local weaponDisplayName = {Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle,Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle}
+--     local entity = Ext.Entity.Get(character)
+    
+--     local statusNum = {}
+--     for weaponNum = 1,2,1 do
+--         local foundWeaponDescription = false
+--         local localstatusApplyTable = entity.Vars.statusApplyTable or {}
+--         if localstatusApplyTable ~= {} then
+--             _D(localstatusApplyTable)
+--             for i = 1,999,1 do
+--                 local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i)
+--                 if observedStatusTemplate.DisplayName == weaponDisplayName[weaponNum] then
+--                     foundWeaponDescription = true 
+--                     statusNum[weaponNum] = i
+--                     break
+--                 end
+--             end
+            
+--         end
+
+--         if foundWeaponDescription == false then
+--             local boosts = {}
+--             local translatedWeaponDisplayName = {Osi.ResolveTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle),Osi.ResolveTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)}
+--             local weaponIcon = {Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).Icon.Icon,Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).Icon.Icon}
+            
+--             for i = 1,999,1 do
+--                 local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i) 
+--                 if observedStatusTemplate.DisplayName == "hbb03389153034c47a5c18ce5f66198fc42d7" then
+--                     observedStatusTemplate:SetRawAttribute("DisplayName", weaponDisplayName[weaponNum])
+--                     observedStatusTemplate.DescriptionParams = translatedWeaponDisplayName[weaponNum]
+
+--                     print("Assigned Shout_TraceWeapon_TemplateDescription" .. extraSpellNum[weaponNum] .. " to status WEAPON_DESCRIPTION_TEMPLATE" .. i )
+--                     boosts[weaponNum] = "UnlockSpell(Shout_TraceWeapon_TemplateDescription" .. extraSpellNum[weaponNum] .. ")"
+--                     -- observedStatusTemplate.Boosts = boosts[weaponNum]
+--                     observedStatusTemplate.Icon = weaponIcon[weaponNum]
+--                     statusNum[weaponNum] = i
+--                     observedStatusTemplate:Sync()
+--                     break
+--                 end
+--             end
+
+--             table.insert(localstatusApplyTable, statusApply:new(weaponDisplayName[weaponNum],translatedWeaponDisplayName[weaponNum],weaponIcon[weaponNum], boosts[weaponNum]))
+--             entity.Vars.statusApplyTable = localstatusApplyTable
+
+--         end
+--     end
+
+--     return statusNum
+
+-- end
 
 -- spell cooldowns
 function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, offhandBoolean)

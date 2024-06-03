@@ -91,3 +91,5 @@ rushAttack.Cooldown = "OncePerShortRest"
 rushAttack:Sync()
 Osi.RemoveSpell(GetHostCharacter(),"Rush_SpringAttack")
 Osi.AddSpell(GetHostCharacter(),"Rush_SpringAttack",0)
+
+string = '&lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_TemplateDescription1"&gt;Shield of Devotion&lt;/LSTag&gt;'

@@ -1,4 +1,6 @@
+Ext.Require("traceClasses.lua")
 Ext.Require("traceWeaponFunctions.lua")
+Ext.Require("traceGeneralListener.lua")
 Ext.Require("traceWeaponMelee.lua")
 Ext.Require("traceWeaponRanged.lua")
 Ext.Require("bladeReconstitution.lua")

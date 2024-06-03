@@ -1,69 +1,13 @@
--- classes / objects
-traceVariablesRanged = {}
-traceVariablesRanged.__index = traceVariablesRanged
-
-function traceVariablesRanged:new(mainWeaponTemplateRanged, offhandWeaponTemplateRanged, proficiencyBoostRanged, fakerCharacter)
-    local instance = setmetatable({}, traceVariablesRanged)
-    instance.mainWeaponTemplateRanged = mainWeaponTemplateRanged
-    instance.offhandWeaponTemplateRanged = offhandWeaponTemplateRanged
-    instance.proficiencyBoostRanged = proficiencyBoostRanged
-    instance.fakerCharacter = fakerCharacter
-    return instance
-end
-
 -- listeners
 Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
-    print("Attempted ranged baseSpell sync")
-    Ext.Vars.RegisterUserVariable("traceTableRanged", {})
+    print("Attempted ranged variables sync")
     Ext.Vars.RegisterUserVariable("traceVariablesRanged", {})
     local entity = Ext.Entity.Get(GetHostCharacter())
-    local localTraceTable = entity.Vars.traceTableRanged or {}
     local localTraceVariables = entity.Vars.traceVariablesRanged or {}
     
-    if localTraceTable ~= {} then
-        _D(localTraceTable)
-        for key, entry in ipairs(localTraceTable) do
-            for i=1,999,1 do
-                local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-                if observedTraceTemplate.Icon == entry.Icon or observedTraceTemplate.DisplayName == entry.DisplayName then
-                    print("Broke at index #" .. i)
-                    break
-                elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                    -- copying over stats
-                    observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
-                    observedTraceTemplate.Icon = entry.Icon
-                    observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_RANGED,100,2);AI_IGNORE:SummonInInventory(" .. entry.weaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
-                    observedTraceTemplate.UseCosts = entry.UseCosts
-
-                    -- adding to spell
-                    local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                    local containerList = baseSpell.ContainerSpells
-                    if containerList == "" then
-                        containerList = "Shout_TraceWeapon_Template" .. i
-                    else
-                        containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
-                    end
-                    
-    
-                    observedTraceTemplate:Sync()       
-                    baseSpell.ContainerSpells = containerList
-                    baseSpell:Sync()
-    
-                    print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
-                    break
-                end
-            end
-
-            local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-            baseSpell:Sync() 
-
-            Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
-        end
-    end
-
     if localTraceVariables ~= {} and localTraceVariables ~= nil and localTraceVariable ~= { } then
         _D(localTraceVariables)
-        for key, entry in ipairs(localTraceTable) do
+        for key, entry in ipairs(localTraceVariables) do
             if entry ~= nil and entry ~= {} then
                 if key == 1 then
                     mainWeaponTemplateRanged = localTraceVariables.mainWeaponTemplateRanged
@@ -83,57 +27,15 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     end
 
     Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(character)
-        print("Character made player")
-        Ext.Vars.RegisterUserVariable("traceTableRanged", {})
-        Ext.Vars.RegisterUserVariable("traceVariablesRanged", {})
-        local entity = Ext.Entity.Get(character)
-        local localTraceTable = entity.Vars.traceTableRanged or {}
-        local localTraceVariables = entity.Vars.traceVariablesRanged or {}
-        
-        if localTraceTable ~= {} then
-            _D(localTraceTable)
-            for key, entry in ipairs(localTraceTable) do
-                for i=1,999,1 do
-                    local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-                    if observedTraceTemplate.Icon == entry.Icon or observedTraceTemplate.DisplayName == entry.DisplayName then
-                        print("Broke at index #" .. i)
-                        break
-                    elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                        -- copying over stats
-                        observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
-                        observedTraceTemplate.Icon = entry.Icon
-                        observedTraceTemplate:SetRawAttribute("SpellProperties", "ApplyStatus(FAKER_RANGED,100,2);AI_IGNORE:SummonInInventory(" .. entry.weaponUUID .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)")
-                        observedTraceTemplate.UseCosts = entry.UseCosts
-    
-                        -- adding to spell
-                        local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                        local containerList = baseSpell.ContainerSpells
-                        if containerList == "" then
-                            containerList = "Shout_TraceWeapon_Template" .. i
-                        else
-                            containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
-                        end
-                        
-        
-                        observedTraceTemplate:Sync()       
-                        baseSpell.ContainerSpells = containerList
-                        baseSpell:Sync()
-        
-                        print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
-                        break
-                    end
-                end
-    
-                local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                baseSpell:Sync() 
+        print("Character made player (ranged)")
+        print("Attempted second ranged variables sync")
 
-                Osi.RemoveSpell(character,"Shout_TraceWeapon",0)
-            end
-        end
-    
+        local entity = Ext.Entity.Get(GetHostCharacter())
+        local localTraceVariables = entity.Vars.traceVariablesRanged or {}
+
         if localTraceVariables ~= {} and localTraceVariables ~= nil and localTraceVariable ~= { } then
             _D(localTraceVariables)
-            for key, entry in ipairs(localTraceTable) do
+            for key, entry in ipairs(localTraceVariables) do
                 if entry ~= nil and entry ~= {} then
                     if key == 1 then
                         mainWeaponTemplateRanged = localTraceVariables.mainWeaponTemplateRanged
@@ -166,44 +68,56 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, t
         end
         local beginningIndex, endingIndex = string.find(target, "%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x")
         local targetUUID = string.sub(target,beginningIndex,endingIndex)
+
+        if HasRangedWeaponEquipped(targetUUID, "Mainhand") == 0 and HasRangedWeaponEquipped(targetUUID, "Offhand") == 0 then
+            local casterEntity = Ext.Entity.Get(fakerCharacter)
+            casterEntity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = caster.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + 1
+        end
+
         local targetEntity = Ext.Entity.Get(target)
         wielderStrengthRanged = targetEntity.Stats.Abilities[2]
         wielderDexterityRanged = targetEntity.Stats.Abilities[3]
         wielderMovementSpeedRanged = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
+        wielderNameRanged = targetEntity.CharacterCreationStats.Name
         
-        if GetEquippedItem(targetUUID, "Ranged Offhand Weapon") ~= nil then
-            print("Attempting to equip main weapon")
+        if HasRangedWeaponEquipped(targetUUID, "Offhand") == 1 then
+            print("Attempting to equip ranged offhamd weapon")
             local offhandWeapon = GetEquippedItem(targetUUID, "Ranged Offhand Weapon")
             offhandWeaponTemplateRanged = Osi.GetTemplate(offhandWeapon)
             Osi.TemplateAddTo(offhandWeaponTemplateRanged,fakerCharacter,1,0) -- Gives offhand item
+            wielderIconRanged = Ext.Entity.Get(Osi.GetEquippedItem(target, "Ranged Offhand Weapon")).Icon.Icon
         end
         
-        local mainWeapon = GetEquippedItem(targetUUID, "Ranged Main Weapon")
-
-        if mainWeapon ~= nil then 
+        if HasRangedWeaponEquipped(targetUUID, "Mainhand") == 1 then 
+            print("Attempting to equip ranged main weapon")
+            local mainWeapon = GetEquippedItem(targetUUID, "Ranged Main Weapon")
             mainWeaponTemplateRanged = Osi.GetTemplate(mainWeapon)
             Osi.TemplateAddTo(mainWeaponTemplateRanged,fakerCharacter,1,0) -- Gives item
             ApplyStatus(fakerCharacter,"FAKER_RANGED",15,100)
-        else
-            local casterEntity = Ext.Entity.Get(fakerCharacter)
-            casterEntity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = caster.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + 1
+            wielderIconRanged = Ext.Entity.Get(Osi.GetEquippedItem(target, "Ranged Main Weapon")).Icon.Icon
         end
     end
 end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_RANGED" then
+        fakerCharacter = object
         proficiencyBoostRanged = {}
-        if mainWeaponTemplateRanged ~= nil then
-            spellActivatedMainRanged = true
-            Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter),1,0)
-            Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter), "REPRODUCTION", 15, 100)
+        if mainWeaponTemplateRanged ~= nil or offhandWeaponTemplateRanged ~= nil then
+            if offhandWeaponTemplateRanged ~= nil then
+                spellActivatedOffRanged = true
+                Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter),1,0)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter), "REPRODUCTION", 15, 100)
+            end 
+            if mainWeaponTemplateRanged ~= nil then
+                spellActivatedMainRanged = true
+                Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter),1,0)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter), "REPRODUCTION", 15, 100)
+            end
+            if mainWeaponTemplate ~= nil or offhandWeaponTemplate ~= nil then
+                Osi.ApplyStatus(fakerCharacter, "FAKER_RANGED_CONFIRMATION", 15, 100)
+            end
         end
-        if offhandWeaponTemplateRanged ~= nil then
-            spellActivatedOffRanged = true
-            Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter),1,0)
-            Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter), "REPRODUCTION", 15, 100)
-        end 
         if mainWeaponTemplateRanged == nil and offhandWeaponTemplateRanged == nil then
             if Osi.GetEquippedItem(fakerCharacter, "Rangged Main Weapon") then
                 local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Ranged Main Weapon")).Use.Boosts
@@ -217,7 +131,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                 resetWeaponCooldowns(fakerCharacter, boosts,mainhandBoosts,offhandBoosts)
                 print("Reset cooldown of reproduced mainhand ranged weapon")
 
-                if GetEquippedItem(targetUUID, "Ranged Offhand Weapon") ~= nil then
+                if Osi.HasRangedWeaponEquipped(targetUUID, "Offhand") == 1 then
                     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")).Use.Boosts
                     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")).Use.BoostsOnEquipMainHand
                     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")).Use.BoostsOnEquipOffHand
@@ -231,6 +145,23 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                 end 
             end
         end
+    end
+
+    if status == "FAKER_RANGED_CONFIRMATION" then
+        print("Faker confirmation done")
+        -- checking if it's been traced before
+        if mainWeaponTemplate ~= nil and offhandWeaponTemplate == nil then
+            addTraceSpell(fakerCharacter, {"Ranged Main Weapon", nil}, wielderStrengthRanged, wielderDexterityRanged, wielderMovementSpeedRanged, wielderIconRanged, wielderNameRanged, "Ranged")
+        elseif mainWeaponTemplate == nil and offhandWeaponTemplate ~= nil then
+            addTraceSpell(fakerCharacter, {nil, "Ranged Offhand Weapon"}, wielderStrengthRanged, wielderDexterityRanged, wielderMovementSpeedRanged, wielderIconRanged, wielderNameRanged, "Ranged")
+        elseif mainWeaponTemplate ~= nil and offhandWeaponTemplate ~= nil then
+            addTraceSpell(fakerCharacter, {"Ranged Main Weapon", "Ranged Offhand Weapon"}, wielderStrengthRanged, wielderDexterityRanged, wielderMovementSpeedRanged, wielderIconRanged, wielderNameRanged, "Ranged")
+        end
+        wielderStrengthRanged = nil
+        wielderDexterityRanged = nil 
+        wielderMovementSpeedRanged = nil
+        wielderIconRanged = nil
+        wielderNameRanged = nil
     end
 
 end)
@@ -364,7 +295,9 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         local entity = Ext.Entity.Get(fakerCharacter)
         entity.Vars.traceVariablesRanged = {}
 
-        fakerCharacter = {}
+        fakerCharacter = nil
+        offhandWeaponTemplateRanged = nil
+        mainWeaponTemplateRanged = ""
     end
 
 end)
