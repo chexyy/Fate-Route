@@ -93,3 +93,9 @@ Osi.RemoveSpell(GetHostCharacter(),"Rush_SpringAttack")
 Osi.AddSpell(GetHostCharacter(),"Rush_SpringAttack",0)
 
 string = '&lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_TemplateDescription1"&gt;Shield of Devotion&lt;/LSTag&gt;'
+
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+    local entity = Ext.Entity.Get(defender);
+    Ext.IO.SaveFile("Nightsong.json", Ext.DumpExport(entity:GetAllComponents()))
+
+end)

@@ -61,59 +61,80 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
 end)
 
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID)
-    if spellName == "Target_TraceWeapon_Melee" then
-
+    if spellName == "Target_TraceWeapon_Melee" and HasAppliedStatus(caster,"FAKER_MELEE") == 1 then
+        Osi.RemoveStatus(caster,"FAKER_MELEE")
         fakerCharacter = caster
-        if HasAppliedStatus(fakerCharacter,"FAKER_MELEE") then
-            Osi.RemoveStatus(fakerCharacter,"FAKER_MELEE")
-        end
-        local beginningIndex, endingIndex = string.find(target, "%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x")
-        local targetUUID = string.sub(target,beginningIndex,endingIndex)
-
-        if HasMeleeWeaponEquipped(targetUUID, "Mainhand") == 0 and HasMeleeWeaponEquipped(targetUUID, "Offhand") == 0 then
-            local casterEntity = Ext.Entity.Get(fakerCharacter)
-            casterEntity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = caster.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + 1
-        end
-
-        local targetEntity = Ext.Entity.Get(target)
-        wielderStrength = targetEntity.Stats.Abilities[2]
-        wielderDexterity = targetEntity.Stats.Abilities[3]
-        wielderMovementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
-        wielderName = targetEntity.CharacterCreationStats.Name
-        
-        if HasMeleeWeaponEquipped(targetUUID, "Offhand") == 1 or GetEquippedShield(targetUUID) ~= "NULL_00000000-0000-0000-0000-000000000000" then
-            print("Attempting to equip melee offhand weapon")
-            local offhandWeapon = GetEquippedItem(targetUUID, "Melee Offhand Weapon")
-            offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
-            Osi.TemplateAddTo(offhandWeaponTemplate,fakerCharacter,1,0) -- Gives offhand item
-            wielderIcon = Ext.Entity.Get(Osi.GetEquippedItem(target, "Melee Offhand Weapon")).Icon.Icon
-        end
-        
-        if HasMeleeWeaponEquipped(targetUUID, "Mainhand") == 1 then 
-            print("Attempting to equip melee main weapon")
-            local mainWeapon = GetEquippedItem(targetUUID, "Melee Main Weapon")
-            mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
-            Osi.TemplateAddTo(mainWeaponTemplate,fakerCharacter,1,0) -- Gives item
-            ApplyStatus(fakerCharacter,"FAKER_MELEE",15,100)
-            wielderIcon = Ext.Entity.Get(Osi.GetEquippedItem(target, "Melee Main Weapon")).Icon.Icon
-        end
+        fakerTarget = target
+        Osi.TimerLaunch("Faker Cooldown (Melee)", 250)
+    elseif spellName == "Target_TraceWeapon_Melee" then
+        fakerCharacter = caster
+        traceWeaponMelee(caster,target)
     end
+end)
+
+function traceWeaponMelee(caster,target)
+    fakerCharacter = caster
+    local beginningIndex, endingIndex = string.find(target, "%x%x%x%x%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%-%x%x%x%x%x%x%x%x%x%x%x%x")
+    targetUUID_Melee = string.sub(target,beginningIndex,endingIndex)
+
+    if HasMeleeWeaponEquipped(targetUUID_Melee, "Mainhand") == 0 and HasMeleeWeaponEquipped(targetUUID_Melee, "Offhand") == 0 then
+        local casterEntity = Ext.Entity.Get(fakerCharacter)
+        casterEntity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = casterEntity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + 1
+        return nil
+    end
+
+    local targetEntity = Ext.Entity.Get(target)
+    wielderStrength = targetEntity.Stats.Abilities[2]
+    wielderDexterity = targetEntity.Stats.Abilities[3]
+    wielderMovementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
+    wielderName = Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle)
+    
+    if HasMeleeWeaponEquipped(targetUUID_Melee, "Offhand") == 1 or (GetEquippedShield(targetUUID_Melee) ~= "NULL_00000000-0000-0000-0000-000000000000" and GetEquippedShield(targetUUID_Melee) ~= nil) then
+        print("Attempting to equip melee offhand weapon")
+        local offhandWeapon = GetEquippedItem(targetUUID_Melee, "Melee Offhand Weapon")
+        offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
+        Osi.TemplateAddTo(offhandWeaponTemplate,fakerCharacter,1,0) -- Gives offhand item
+        wielderIcon = Ext.Entity.Get(Osi.GetEquippedItem(target, "Melee Offhand Weapon")).Icon.Icon
+    end
+    
+    if HasMeleeWeaponEquipped(targetUUID_Melee, "Mainhand") == 1 then 
+        print("Attempting to equip melee main weapon")
+        local mainWeapon = GetEquippedItem(targetUUID_Melee, "Melee Main Weapon")
+        mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
+        Osi.TemplateAddTo(mainWeaponTemplate,fakerCharacter,1,0) -- Gives item
+        ApplyStatus(fakerCharacter,"FAKER_MELEE",15,100)
+        wielderIcon = Ext.Entity.Get(Osi.GetEquippedItem(target, "Melee Main Weapon")).Icon.Icon
+    end
+end
+
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer) 
+    if timer == "Faker Cooldown (Melee)" then
+        traceWeaponMelee(fakerCharacter,fakerTarget)
+        fakerTarget = nil
+    end
+
 end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_MELEE" and dualWeaponsProjected == nil then
-        fakerCharacter = object
+        if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
+            AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
+        end
+        if Osi.HasActiveStatus(fakerCharacter, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+            emulateWielder(fakerCharacter, originalStats) 
+        end
+
         proficiencyBoost = {}
         if mainWeaponTemplate ~= nil or offhandWeaponTemplate ~= nil then
             if offhandWeaponTemplate ~= nil then
                 spellActivatedOff = true
                 Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter), "REPRODUCTION", 15, 100)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter), "REPRODUCTION_MELEE", 15, 100, "")
             end
             if mainWeaponTemplate ~= nil then
                 spellActivatedMain = true
                 Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter), "REPRODUCTION", 15, 100)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter), "REPRODUCTION_MELEE", 15, 100, "")
             end
             if mainWeaponTemplate ~= nil or offhandWeaponTemplate ~= nil then
                 Osi.ApplyStatus(fakerCharacter, "FAKER_MELEE_CONFIRMATION", 15, 100)
@@ -138,7 +159,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                     addProficiencyPassive(fakerCharacter,Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Main Weapon")).ServerTemplateTag.Tags[3],proficiencyBoost)
                 end
 
-                if Osi.HasMeleeWeaponEquipped(targetUUID, "Offhand") == 1 then
+                if Osi.HasMeleeWeaponEquipped(targetUUID_Melee, "Offhand") == 1 then
                     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.Boosts
                     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.BoostsOnEquipMainHand
                     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.BoostsOnEquipOffHand
@@ -169,29 +190,32 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         elseif mainWeaponTemplate ~= nil and offhandWeaponTemplate ~= nil then
             addTraceSpell(fakerCharacter, {"Melee Main Weapon", "Melee Offhand Weapon"}, wielderStrength, wielderDexterity, wielderMovementSpeed, wielderIcon, wielderName, "Melee", {mainWeaponTemplate, offhandWeaponTemplate})
         end
-        wielderStrength = nil
-        wielderDexterity = nil 
-        wielderMovementSpeed = nil
-        wielderIcon = nil
-        wielderName = nil
     end
 
 end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_MELEE" and dualWeaponsProjected == true then
+        if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
+            AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
+        end
+        if Osi.HasActiveStatus(fakerCharacter, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+            emulateWielder(fakerCharacter, originalStats) 
+        end
+
         fakerCharacter = object
+
         proficiencyBoost = {}
         if mainWeaponTemplate ~= nil or offhandWeaponTemplate ~= nil then
             if offhandWeaponTemplate ~= nil then
                 spellActivatedOff = true
                 Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter), "REPRODUCTION", 15, 100)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter), "REPRODUCTION_MELEE", 15, 100, "")
             end
             if mainWeaponTemplate ~= nil then
                 spellActivatedMain = true
                 Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter), "REPRODUCTION", 15, 100)
+                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter), "REPRODUCTION_MELEE", 15, 100, "")
             end
         end
         if mainWeaponTemplate == nil and offhandWeaponTemplate == nil then
@@ -213,7 +237,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                     addProficiencyPassive(fakerCharacter,Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Main Weapon")).ServerTemplateTag.Tags[3],proficiencyBoost)
                 end
 
-                if Osi.HasMeleeWeaponEquipped(targetUUID, "Offhand") == 1 then
+                if Osi.HasMeleeWeaponEquipped(targetUUID_Melee, "Offhand") == 1 then
                     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.Boosts
                     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.BoostsOnEquipMainHand
                     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")).Use.BoostsOnEquipOffHand
@@ -238,15 +262,19 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
 
 end)
 
-Ext.Osiris.RegisterListener("MissedBy", 4, "after", function(defender, attackOwner, attacker, storyActionID) 
-    if Osi.HasActiveStatus(attacker, "FAKER_MELEE") and attacker == fakerCharacter and defender ~= fakerCharacter then
+Ext.Osiris.RegisterListener("MissedBy", 4, "after", function(defender, attackOwner, attacker, storyActionID)     
+    if (Osi.HasActiveStatus(attacker, "FAKER_MELEE") == 1 or Osi.HasActiveStatus(attackOwner, "FAKER_MELEE") == 1) and savingThrowTimer == nil then
+        local fakerCharacter = attacker or attackOwner
         print("Attacker is " .. attacker .. " and defender is " .. defender)
         Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Constitution", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Melee)")
+        Osi.TimerLaunch("Fate Saving Throw Timer",250)
+        savingThrowTimer = true
     end
 end)
 
 Ext.Osiris.RegisterListener("RollResult", 6, "after", function(eventName, roller, rollSubject, resultType, isActiveRoll, criticality)
     if eventName == "Image Failure Roll (Melee)" then 
+        local fakerCharacter = roller
         if resultType == 0 then
             Osi.RemoveStatus(fakerCharacter,"FAKER_MELEE")
         end
@@ -311,7 +339,18 @@ Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplat
 end)
 
 Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID)
-    if status == "FAKER_MELEE" then 
+    local fakerCharacter = object
+    
+    if status == "FAKER_MELEE" then
+        if Osi.HasActiveStatus(fakerCharacter, "FAKER_RANGED") == 0 and Osi.HasPassive(fakerCharacter, "Passive_EmulateWielder_Toggle") == 1 then
+            if HasAppliedStatus(fakerCharacter,"EMULATE_WIELDER_SELFDAMAGE") == 1 then
+                Osi.TogglePassive(fakerCharacter, "Passive_EmulateWielder_Toggle")
+            end
+            Osi.RemovePassive(fakerCharacter, "Passive_EmulateWielder_Toggle")
+            Osi.RemoveStatus(fakerCharacter, "EMULATE_WIELDER_CHECK")
+            emulateWielderCheck = nil
+        end
+
         if mainWeaponTemplate ~= nil then    
             -- removing proficiency
             removeProficiencyPassive(proficiencyBoost)
@@ -319,7 +358,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
 
             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
             Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
-            mainWeaponTemplate = nil
+            print("Attempted to remove " .. mainWeaponTemplate)
             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
         else
@@ -329,6 +368,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
                 if mainWeaponTemplate ~= nil then
                     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
                     Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
+                    print("Attempted to remove " .. mainWeaponTemplate)
                     Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
                     Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
                 end
@@ -338,7 +378,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         if offhandWeaponTemplate ~= nil then  
             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
             Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
-            offhandWeaponTemplate = nil
+            print("Attempted to remove " .. offhandWeaponTemplate)
             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
         else
@@ -347,7 +387,8 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
                 local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
                 if offhandWeaponTemplate ~= nil then
                     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
-                    Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
+                    Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
+                    print("Attempted to remove " .. offhandWeaponTemplate)
                     Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
                     Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
                 end
@@ -357,9 +398,12 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         local entity = Ext.Entity.Get(fakerCharacter)
         entity.Vars.traceVariables = {}
 
-        mainWeaponTemplate = nil
+        wielderStrength = 0
+        wielderDexterity = 0
+        wielderMovementSpeed = 0
+        wielderName = ""
         offhandWeaponTemplate = nil
-        fakerCharacter = ""
+        mainWeaponTemplate = nil
     end
 
 end)

@@ -1,3 +1,4 @@
+-- sync tables
 Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     print("Attempted traceTable, extraDescriptionTable, and statusApplyTable sync")
     syncAllVariables()
@@ -10,11 +11,13 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     
 end)
 
+-- apply reproduced trace stats and summon dual weapons if there
 Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
     local spellName = spell:gsub("%d","")
     if spellName == "Shout_TraceWeapon_Template" then
         print(spell .. " found to be a template")
         local observedTraceTemplate = Ext.Stats.Get(spell)
+        local entity = Ext.Entity.Get(caster)
         if observedTraceTemplate.TooltipStatusApply ~= nil and observedTraceTemplate.TooltipStatusApply ~= "" then
             print(spell .. " found to have a tooltip")
             local toolTip = observedTraceTemplate.TooltipStatusApply
@@ -25,7 +28,6 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
             _D(status)
 
             for keyStatus, entryStatus in pairs(status) do
-                local entity = Ext.Entity.Get(caster)
                 local observedStatusTemplate = Ext.Stats.Get(entryStatus)
                 local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
 
@@ -60,33 +62,100 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                 end
             end
         end
+
+        local descriptionParams = observedTraceTemplate.DescriptionParams
+        local params = {}
+        for capture in descriptionParams:gmatch("(%d*%.?%d+)") do
+            table.insert(params, capture)   
+        end
+        
+        local localTraceTable = entity.Vars.traceTable or {}
+        if localTraceTable ~= {} then
+            for key, entry in pairs(localTraceTable) do 
+                if entry.DisplayName == Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) then
+                    if entry.meleeOrRanged == "Melee" then
+                        wielderStrength = params[1]
+                        wielderDexterity = params[2]
+                        wielderMovementSpeed = params[3]
+                        print("Stats of melee reproduction traced weapon applied")
+                    else
+                        wielderStrengthRanged = params[1]
+                        wielderDexterityRanged = params[2]
+                        wielderMovementSpeedRanged = params[3]
+                        print("Stats of ranged reproduction traced weapon applied")
+                    end
+                    break
+                end
+            end
+        end
+
+        if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+           emulateWielder(caster, originalStats) 
+        end
+
     end
 
 end)
 
+-- Timer for Saving Throw or Trace Equip
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
+    if timer == "Fate Saving Throw Timer" then
+        savingThrowTimer = nil
+    end
 
--- Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplate, character)
---     for key,entry in pairs(Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).StatusContainer.Statuses) do
---         if entry == "TRACE_RESETCOOLDOWN" then
---             print("Cooldown reset for trace reproduction weapon")
---             local boosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.Boosts
---             local mainhandBoosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.BoostsOnEquipMainHand
---             local offhandBoosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.BoostsOnEquipOffHand
---             resetWeaponCooldowns(fakerCharacter, boosts, mainhandBoosts, offhandBoosts)
+end)
 
---             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
---             Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
+-- Emulate Wielder
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+    if (Osi.HasActiveStatus(attackerOwner, "EMULATE_WIELDER_SELFDAMAGE") == 1) and (Osi.HasActiveStatus(attackerOwner, "FAKER_MELEE") == 1 or Osi.HasActiveStatus(attackerOwner, "FAKER_RANGED") == 1) and savingThrowTimer == nil then
+        print("Emulate wielder saving throw triggered")
+        Osi.RequestPassiveRoll(attackerOwner, attackerOwner, "SavingThrow", "Constitution", "63c8b98d-25dc-455a-84e3-c84d0c12263b", 0, "Emulate Wielder Selfdamage")
+        Osi.TimerLaunch("Fate Saving Throw Timer",500)
+        savingThrowTimer = true
+    end
 
---             local boosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.Boosts
---             local mainhandBoosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.BoostsOnEquipMainHand
---             local offhandBoosts = Ext.Entity.Get(GetItemByTemplateInInventory(itemTemplate,character)).Use.BoostsOnEquipOffHand
---             resetWeaponCooldowns(fakerCharacter, boosts, mainhandBoosts, offhandBoosts)
-            
---         end
---     end
+end)
 
--- end)
+Ext.Osiris.RegisterListener("RollResult", 6, "after", function(eventName, roller, rollSubject, resultType, isActiveRoll, criticality)
+    if eventName == "Emulate Wielder Selfdamage" then 
+        if resultType == 0 then
+            print("Emulate wielder lost health")
+            Osi.ApplyDamage(roller, math.ceil(Osi.GetMaxHitpoints(roller)/5), "Force")
+        end
+    end
+end)
 
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
+    if status == "EMULATE_WIELDER_CHECK" then
+        local entity = Ext.Entity.Get(object)
+        originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
+        emulateWielder(object, originalStats)
+        emulateWielderCheck = true
+    end
+
+    if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true then
+        emulateWielder(object, originalStats)
+        print("Attempted to reapply emulate wielder")
+    end
+end)
+
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, applyStoryActionID) 
+    if status == "EMULATE_WIELDER_SELFDAMAGE" then
+        Osi.RemoveBoosts(object, emulateBoost, 1, "Emulate Wielder", "")
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
+    if timer == "Emulate Wielder Timer" then
+        emulateBoost = emulateBoost
+        Osi.AddBoosts(emulateWielderOwner, emulateBoost, "Emulate Wielder", "")
+        emulateWielderOwner = nil
+    end 
+
+end)
+
+-- variable sync
 function syncAllVariables()
     Ext.Vars.RegisterUserVariable("traceTable", {})
     Ext.Vars.RegisterUserVariable("extraDescriptionTable", {})
@@ -125,28 +194,6 @@ function syncAllVariables()
             end
         end
     end
-
-    -- if localstatusApplyTable ~= {} then
-    --     _D(localstatusApplyTable)
-    --     for key, entry in pairs(localstatusApplyTable) do
-    --         for i = 1,999,1 do
-    --             local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i)
-    --             if observedStatusTemplate.DisplayName == entry.statusDisplayName then
-    --                 print("Description check found at index #" .. i)
-    --                 break
-    --             elseif observedStatusTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-    --                 observedStatusTemplate:SetRawAttribute("DisplayName", entry.statusDisplayName)
-    --                 observedStatusTemplate:SetRawAttribute("Description", entry.statusDescription)
-    --                 observedStatusTemplate:SetRawAttribute("DescriptionParam", entry.translatedWeaponDisplayName)
-    --                 -- observedStatusTemplate:SetRawAttribute("Boosts", entry.statusBoosts)
-    --                 observedStatusTemplate.Icon = entry.statusIcon
-
-    --                 observedStatusTemplate:Sync()
-    --                 print("This sync produced a spell for the status template spell: " .. Osi.ResolveTranslatedString(observedStatusTemplate.DisplayName) .. " for template spell #" .. i) 
-    --             end
-    --         end
-    --     end
-    -- end
 
     if localTraceTable ~= {} then
         _D(localTraceTable)
@@ -198,49 +245,6 @@ function syncAllVariables()
 
 end
 
--- Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
---     local statusStats = Ext.Stats.Get(status) 
 
---     local entity = Ext.Entity.Get(object)
---     local localstatusApplyTable = entity.Vars.statusApplyTable or {}
---     if localstatusApplyTable ~= {} then
---         -- checks if status is the same
---         for key, entry in pairs(localstatusApplyTable) do
---             if entry.statusDisplayName == statusStats.DisplayName then
---                 print(Osi.ResolveTranslatedString(entry.statusDisplayName) .. " found in statusApplyTable")
---                 local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
---                 -- checks for matching extra description spell
---                 if localextraDescriptionTable ~= {} then
---                     for keyExtra, entryExtra in pairs(localextraDescriptionTable) do
---                         if entryExtra.weaponDisplayName == entry.statusDisplayName then
---                             print(Osi.ResolveTranslatedString(entryExtra.weaponDisplayName) .. " found in extraDescriptionTable")
---                             local spellUsed = entry.statusBoosts
---                             spellUsed = spellUsed:gsub("UnlockSpell","")
---                             spellUsed = spellUsed:gsub("%(","")
---                             spellUsed = spellUsed:gsub("%)","")
---                             print(spellUsed)
---                             Osi.UseSpell(object,spellUsed, object)
---                         end
---                         break
---                     end
---                 end
---                 break
---             end
---         end
---     end
 
--- end)
-
--- Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID)
---     local statusStats = Ext.Stats.Get(status) 
-
---     local localstatusApplyTable = entity.Vars.statusApplyTable or {}
---     if localstatusApplyTable ~= {} then
---         for key, entry in pairs(localstatusApplyTable) do
---             if entry.statusDisplayName == statusStats.DisplayName then
---                 Osi.RemoveBoosts(object,entry.Boosts, 1, "Reproduction Status Remove","", "")
---                 break
---             end
---         end
---     end
--- end)
+print("General listeners loaded")

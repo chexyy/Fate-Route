@@ -4,7 +4,7 @@
 traceObject = {}
 traceObject.__index = traceObject
 
-function traceObject:new(DisplayName, Icon, weaponUUID, spellProperties, UseCosts, tooltipApply, wielderStrength, wielderDexterity, wielderMovementSpeed)
+function traceObject:new(DisplayName, Icon, weaponUUID, spellProperties, UseCosts, tooltipApply, wielderStrength, wielderDexterity, wielderMovementSpeed, meleeOrRanged)
     local instance = setmetatable({}, traceObject)
     instance.DisplayName = DisplayName
     instance.Icon = Icon
@@ -15,6 +15,7 @@ function traceObject:new(DisplayName, Icon, weaponUUID, spellProperties, UseCost
     instance.wielderStrength = wielderStrength
     instance.wielderDexterity = wielderDexterity
     instance.wielderMovementSpeed = wielderMovementSpeed
+    instance.meleeOrRanged = meleeOrRanged
     return instance
 end
 
@@ -30,18 +31,6 @@ function extraDescription:new(weaponDisplayName, weaponDescription, weaponIcon, 
     instance.meleeOrRanged = meleeOrRanged
     instance.followUpSpell = followUpSpell
     instance.weaponTemplate = weaponTemplate
-    return instance
-end
-
-statusApply = {}
-statusApply.__index = extraDescription
-
-function statusApply:new(statusDisplayName, translatedWeaponDisplayName, statusIcon, statusBoosts)
-    local instance = setmetatable({}, traceVariables)
-    instance.statusDisplayName = statusDisplayName
-    instance.translatedWeaponDisplayName = translatedWeaponDisplayName
-    instance.statusIcon = statusIcon
-    instance.statusBoosts = statusBoosts
     return instance
 end
 
@@ -66,6 +55,6 @@ function traceVariablesRanged:new(mainWeaponTemplateRanged, offhandWeaponTemplat
     instance.mainWeaponTemplateRanged = mainWeaponTemplateRanged
     instance.offhandWeaponTemplateRanged = offhandWeaponTemplateRanged
     instance.proficiencyBoostRanged = proficiencyBoostRanged
-    instance.fakerCharacter = fakerCharacter
+    instance.fakerCharacter = fakerCharacterRanged
     return instance
 end

@@ -9,14 +9,14 @@
                     <attribute id="Level2" type="LSString" value="1d4"/>
                     <attribute id="Level3" type="LSString" value="1d4"/>
                     <attribute id="Level4" type="LSString" value="1d4"/>
-                    <attribute id="Level5" type="LSString" value="2d4"/>
-                    <attribute id="Level6" type="LSString" value="2d4"/>
+                    <attribute id="Level5" type="LSString" value="1d4"/>
+                    <attribute id="Level6" type="LSString" value="1d4"/>
                     <attribute id="Level7" type="LSString" value="2d4"/>
                     <attribute id="Level8" type="LSString" value="2d4"/>
                     <attribute id="Level9" type="LSString" value="2d4"/>
-                    <attribute id="Level10" type="LSString" value="3d4"/>
-                    <attribute id="Level11" type="LSString" value="3d4"/>
-                    <attribute id="Level12" type="LSString" value="3d4"/>
+                    <attribute id="Level10" type="LSString" value="2d4"/>
+                    <attribute id="Level11" type="LSString" value="2d4"/>
+                    <attribute id="Level12" type="LSString" value="2d4"/>
                     <attribute id="Name" type="FixedString" value="reinforcementBody"/>
                     <attribute id="UUID" type="guid" value="4391f6ce-578b-4bfa-ab22-badb2ecd9df2"/>
                 </node>

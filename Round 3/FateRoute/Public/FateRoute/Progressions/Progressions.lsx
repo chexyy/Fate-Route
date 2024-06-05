@@ -148,6 +148,22 @@
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="c1c3daf2-5c3e-42a2-830b-64a283ddad43"/>
 				</node>
+				<node id="Progression">
+					<attribute id="Level" type="uint8" value="4"/>
+					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="ProgressionType" type="uint8" value="1"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_SympathizeExperience"/>
+					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+					<attribute id="UUID" type="guid" value="2d0050c8-4350-45b9-8ca5-c9c74f90d08d"/>
+				</node>
+				<node id="Progression">
+					<attribute id="Level" type="uint8" value="6"/>
+					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="ProgressionType" type="uint8" value="1"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_EmulateWielder"/>
+					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+					<attribute id="UUID" type="guid" value="2868ff97-e3ac-4ace-99b8-98b65d7a5546"/>
+				</node>
 			</children>
 		</node>
 	</region>
