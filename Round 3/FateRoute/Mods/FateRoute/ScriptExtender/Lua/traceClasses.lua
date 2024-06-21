@@ -22,14 +22,13 @@ end
 extraDescription = {}
 extraDescription.__index = extraDescription
 
-function extraDescription:new(weaponDisplayName, weaponDescription, weaponIcon, spellProperties, meleeOrRanged, followUpSpell, weaponTemplate)
+function extraDescription:new(weaponDisplayName, weaponDescription, weaponIcon, spellProperties, meleeOrRanged, weaponTemplate)
     local instance = setmetatable({}, traceVariables)
     instance.weaponDisplayName = weaponDisplayName
     instance.weaponDescription = weaponDescription
     instance.weaponIcon = weaponIcon
     instance.spellProperties = spellProperties
     instance.meleeOrRanged = meleeOrRanged
-    instance.followUpSpell = followUpSpell
     instance.weaponTemplate = weaponTemplate
     return instance
 end
@@ -38,23 +37,21 @@ end
 traceVariables = {}
 traceVariables.__index = traceVariables
 
-function traceVariables:new(mainWeaponTemplate, offhandWeaponTemplate, proficiencyBoost, fakerCharacter)
+function traceVariables:new(mainWeaponTemplate, offhandWeaponTemplate, proficiencyBoost)
     local instance = setmetatable({}, traceVariables)
     instance.mainWeaponTemplate = mainWeaponTemplate
     instance.offhandWeaponTemplate = offhandWeaponTemplate
     instance.proficiencyBoost = proficiencyBoost
-    instance.fakerCharacter = fakerCharacter
     return instance
 end
 
 traceVariablesRanged = {}
 traceVariablesRanged.__index = traceVariablesRanged
 
-function traceVariablesRanged:new(mainWeaponTemplateRanged, offhandWeaponTemplateRanged, proficiencyBoostRanged, fakerCharacter)
+function traceVariablesRanged:new(mainWeaponTemplateRanged, offhandWeaponTemplateRanged, proficiencyBoostRanged)
     local instance = setmetatable({}, traceVariablesRanged)
     instance.mainWeaponTemplateRanged = mainWeaponTemplateRanged
     instance.offhandWeaponTemplateRanged = offhandWeaponTemplateRanged
     instance.proficiencyBoostRanged = proficiencyBoostRanged
-    instance.fakerCharacter = fakerCharacterRanged
     return instance
 end

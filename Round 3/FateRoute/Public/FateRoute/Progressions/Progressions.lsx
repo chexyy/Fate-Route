@@ -140,6 +140,14 @@
 					<attribute id="UUID" type="guid" value="f8a4e9b0-b2ac-4c5f-bab6-046e94a42c40"/>
 				</node>
 				<node id="Progression">
+					<attribute id="Level" type="uint8" value="2"/>
+					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="ProgressionType" type="uint8" value="1"/>
+					<attribute id="PassivesAdded" type="LSString" value="FightingStyle_Archery"/>
+					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+					<attribute id="UUID" type="guid" value="a7ab62e6-d908-4565-a4b2-4e9bc89a6773"/>
+				</node>
+				<node id="Progression">
 					<attribute id="Level" type="uint8" value="3"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
@@ -157,12 +165,30 @@
 					<attribute id="UUID" type="guid" value="2d0050c8-4350-45b9-8ca5-c9c74f90d08d"/>
 				</node>
 				<node id="Progression">
+					<attribute id="Level" type="uint8" value="5"/>
+					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="ProgressionType" type="uint8" value="1"/>
+					<attribute id="Selectors" type="LSString" value="AddSpells(eb9bfb76-628c-4eb8-9fbb-3377ca55cc0b,,3,,AlwaysPrepared)"/>
+					<attribute id="PassivesAdded" type="LSString" value="ExtraAttack"/>
+					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+					<attribute id="UUID" type="guid" value="f254a1cc-b3dd-4adf-be19-0f1a10c1b4c3"/>
+				</node>
+				<node id="Progression">
 					<attribute id="Level" type="uint8" value="6"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_EmulateWielder"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="2868ff97-e3ac-4ace-99b8-98b65d7a5546"/>
+				</node>
+				<node id="Progression">
+					<attribute id="Level" type="uint8" value="7"/>
+					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="ProgressionType" type="uint8" value="1"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_Overedge_Overdraw"/>
+					<attribute id="Selectors" type="LSString" value="AddSpells(1b058edb-f62e-4191-b8a0-7b21f4a83ebd,,3,,AlwaysPrepared)"/>
+					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+					<attribute id="UUID" type="guid" value="87dbe833-244a-4260-8da4-76c20642762c"/>
 				</node>
 			</children>
 		</node>

@@ -12,12 +12,15 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
             if weaponSlot[1] ~= nil and weaponSlot[2] ~= nil then
                 if entry.weaponUUID[1] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).GameObjectVisual.RootTemplateId and entry.weaponUUID[2] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).GameObjectVisual.RootTemplateId then
                     foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
+                    foundWeapon = 1
+                    break
                 end
 
             -- if only main hand is there
             elseif weaponSlot[1] ~= nil and weaponSlot[2] == nil then
                 if entry.weaponUUID[1] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).GameObjectVisual.RootTemplateId then
                     foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
+                    foundWeapon = 1
                     break
                 end
 
@@ -25,6 +28,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
             elseif weaponSlot[1] == nil and weaponSlot[2] ~= nil then
                 if entry.weaponUUID[2] == Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).GameObjectVisual.RootTemplateId then
                     foundWeapon = checkForWeapon(entry,character,weaponSlot,wielderIcon)
+                    foundWeapon = 1
                     break
                 end
             end
@@ -60,7 +64,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     
                     -- checks if melee or ranged and makes spell summonable
                     weaponUUID = {Ext.Entity.Get(weapon).ServerItem.Template.Id, nil}
-                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",2,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ", ,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
                     observedTraceTemplate:SetRawAttribute("SpellProperties", spellProperties)
 
                     -- sets use cost based on rarity
@@ -81,7 +85,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
 
                     -- makes spell summonable
                     weaponUUID = {nil, Ext.Entity.Get(weapon).ServerItem.Template.Id}
-                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",2,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",3,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
                     observedTraceTemplate:SetRawAttribute("SpellProperties", spellProperties)
 
                     -- sets use cost based on rarity
@@ -95,7 +99,11 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     local weapon = {Osi.GetEquippedItem(character, weaponSlot[1]),Osi.GetEquippedItem(character, weaponSlot[2])}
 
                     -- display name
-                    displayName = originalWielderName .. "'s " .. weaponName[1] .. " and " .. weaponName[2]
+                    if weaponName[1] ~= weaponName[2] then
+                        displayName = originalWielderName .. "'s " .. weaponName[1] .. " and " .. weaponName[2]
+                    else
+                        displayName = originalWielderName .. "'s " .. weaponName[1] .. "s"
+                    end
                     Ext.Loca.UpdateTranslatedString(displayName, displayName)
                     observedTraceTemplate:SetRawAttribute("DisplayName", displayName)
                     observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899")
@@ -105,7 +113,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
 
                     -- checks if melee or ranged and makes spell summonable
                     weaponUUID = {Ext.Entity.Get(weapon[1]).ServerItem.Template.Id, Ext.Entity.Get(weapon[2]).ServerItem.Template.Id}
-                    -- spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",2,1,true,true,true,,,REPRODUCTION,REPRODUCTION)"
+                    -- spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",3,1,true,true,true,,,REPRODUCTION,REPRODUCTION);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",3,1,true,true,true,,,REPRODUCTION,REPRODUCTION)"
 
                     -- sets use cost based on rarity
                     local magicalEnergyCost = math.ceil((Ext.Entity.Get(weapon[1]).Value.Rarity + Ext.Entity.Get(weapon[1]).Value.Rarity)*3/4)
@@ -203,10 +211,6 @@ function addExtraDescription(character, weaponSlot, weaponUUID, meleeOrRanged, o
                 local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i)
                 if observedDescriptionTemplate.DisplayName == weaponDisplayName[weaponNum] then
                     foundWeaponDescription = true 
-                    local followupSpell = entry.followupSpell or ""
-                    followupSpell = followupSpell .. originalSpell .. ";"
-                    observedDescriptionTemplate.FollowUpOriginalSpell = followupSpell
-                    entry.followupSpell = followupSpell
 
                     -- observedDescriptionTemplate.SpellContainerID = observedDescriptionTemplate.SpellContainerID .. ";" ..  originalSpell
 
@@ -240,9 +244,6 @@ function addExtraDescription(character, weaponSlot, weaponUUID, meleeOrRanged, o
 
                     local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
 
-                    local followupSpell =  observedDescriptionTemplate.FollowUpOriginalSpell
-                    followupSpell = followupSpell .. originalSpell .. ";" 
-                    observedDescriptionTemplate.FollowUpOriginalSpell = followupSpell
                     observedDescriptionTemplate.Icon = weaponIcon[weaponNum]
                     -- observedDescriptionTemplate.SpellContainerID = observedDescriptionTemplate.SpellContainerID .. ";" ..  originalSpell
                     observedDescriptionTemplate:Sync()
@@ -260,8 +261,8 @@ function addExtraDescription(character, weaponSlot, weaponUUID, meleeOrRanged, o
                 end
             end
 
-            print(Osi.ResolveTranslatedString(weaponDisplayName[weaponNum]) .. " added to extraDescriptionTable")
-            table.insert(localextraDescriptionTable, extraDescription:new(weaponDisplayName[weaponNum],weaponDescription[weaponNum],weaponIcon[weaponNum], spellProperties, meleeOrRanged,followupSpell, weaponTemplates[weaponNum]))
+            print(Osi.ResolveTranslatedString(weaponDisplayName[weaponNum]) .. " added to extraDescriptionTable, whose weapon template is " .. weaponTemplates[weaponNum])
+            table.insert(localextraDescriptionTable, extraDescription:new(weaponDisplayName[weaponNum],weaponDescription[weaponNum],weaponIcon[weaponNum], spellProperties, meleeOrRanged, weaponTemplates[weaponNum]))
             entity.Vars.extraDescriptionTable = localextraDescriptionTable
             
         end

@@ -36,6 +36,22 @@
                     <attribute id="Name" type="FixedString" value="FakerList"/>
                     <attribute id="UUID" type="guid" value="abc6a311-a4c5-43c2-95d0-94a1bc571b0e"/>
                 </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2d4"/>
+                    <attribute id="Level2" type="LSString" value="2d4"/>
+                    <attribute id="Level3" type="LSString" value="3d4"/>
+                    <attribute id="Level4" type="LSString" value="3d4"/>
+                    <attribute id="Level5" type="LSString" value="3d4"/>
+                    <attribute id="Level6" type="LSString" value="4d4"/>
+                    <attribute id="Level7" type="LSString" value="4d4"/>
+                    <attribute id="Level8" type="LSString" value="4d4"/>
+                    <attribute id="Level9" type="LSString" value="5d4"/>
+                    <attribute id="Level10" type="LSString" value="5d4"/>
+                    <attribute id="Level11" type="LSString" value="6d4"/>
+                    <attribute id="Level12" type="LSString" value="6d4"/>
+                    <attribute id="Name" type="FixedString" value="BladeReconstitutionHP"/>
+                    <attribute id="UUID" type="guid" value="484b0709-2060-4e70-999c-0011d74448f6"/>
+                </node>
             </children>
         </node>
     </region>

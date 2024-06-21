@@ -29,6 +29,16 @@
 					<attribute id="Spells" type="LSString" value="Shout_ReinforceLegs" />
 					<attribute id="UUID" type="guid" value="6f9582bc-b182-48c5-bbeb-5a3fee9258b9" />
 				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Reinforcement: Overedge and Reinforcement: Overdraw" />
+					<attribute id="Spells" type="LSString" value="Shout_ReinforceOveredge;Shout_ReinforceOverdraw" />
+					<attribute id="UUID" type="guid" value="1b058edb-f62e-4191-b8a0-7b21f4a83ebd" />
+				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Alteration: Arrow" />
+					<attribute id="Spells" type="LSString" value="Throw_Alteration_Arrow" />
+					<attribute id="UUID" type="guid" value="eb9bfb76-628c-4eb8-9fbb-3377ca55cc0b" />
+				</node>
 			</children>
 		</node>
 	</region>

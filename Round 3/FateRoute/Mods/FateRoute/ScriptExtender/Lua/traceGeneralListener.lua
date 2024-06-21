@@ -1,13 +1,35 @@
 -- sync tables
 Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     print("Attempted traceTable, extraDescriptionTable, and statusApplyTable sync")
-    syncAllVariables()
 
-    Ext.Osiris.RegisterListener("CharacterMadePlayer", 1, "after", function(character)
-        print("Attempted second traceTable, extraDescriptionTable, and statusApplyTable sync")
-        syncAllVariables()
-        
-    end)
+    local shoutTrace = Ext.Stats.Get("Shout_TraceWeapon")
+    shoutTrace:SetRawAttribute("Description","hc0c5f647ge23ag4125gaabfg15645d6ee811")
+    shoutTrace:Sync()
+
+    local foundFaker = false
+    local faker = ""
+    for position, partymember in pairs(Osi.DB_Players:Get(nil)) do
+        for _, guid in pairs(partymember) do
+            local entityFake = Ext.Entity.Get(guid)
+            for fakerCheckKey, fakerCheckEntry in pairs(entityFake.Classes.Classes) do
+                if fakerCheckEntry.SubClassUUID == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
+                    faker = guid
+                    print("Faker (general listener) found to be " .. faker)
+                    foundFaker = true
+                    break
+                end
+            end
+
+            if foundFaker == true then
+                break
+            end
+        end
+
+        if foundFaker == true then
+            break
+        end    
+    end
+    syncAllVariables(faker)
     
 end)
 
@@ -25,8 +47,10 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
             for capture in toolTip:gmatch("(WEAPON_DESCRIPTION_TEMPLATE%d*)") do
                 table.insert(status, capture)   
             end
-            _D(status)
-
+            if next(status) ~= nil then
+                _D(status)
+            end
+            
             for keyStatus, entryStatus in pairs(status) do
                 local observedStatusTemplate = Ext.Stats.Get(entryStatus)
                 local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
@@ -34,7 +58,7 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                 if localextraDescriptionTable ~= {} then
                     print("Going through localextraDescriptionTable for dual weapons")
                     for key, entry in pairs(localextraDescriptionTable) do
-                        print(observedStatusTemplate.DisplayName .. " compared to " .. entry.weaponDisplayName)
+                        -- print(observedStatusTemplate.DisplayName .. " compared to " .. entry.weaponDisplayName)
                         if observedStatusTemplate.DisplayName == entry.weaponDisplayName then
                             print("Dual weapon status-spell match found for " .. Osi.ResolveTranslatedString(observedStatusTemplate.DisplayName))
                             Osi.TemplateAddTo(entry.weaponTemplate,caster,1,0)
@@ -105,141 +129,99 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
 
 end)
 
--- Emulate Wielder
-Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
-    if (Osi.HasActiveStatus(attackerOwner, "EMULATE_WIELDER_SELFDAMAGE") == 1) and (Osi.HasActiveStatus(attackerOwner, "FAKER_MELEE") == 1 or Osi.HasActiveStatus(attackerOwner, "FAKER_RANGED") == 1) and savingThrowTimer == nil then
-        print("Emulate wielder saving throw triggered")
-        Osi.RequestPassiveRoll(attackerOwner, attackerOwner, "SavingThrow", "Constitution", "63c8b98d-25dc-455a-84e3-c84d0c12263b", 0, "Emulate Wielder Selfdamage")
-        Osi.TimerLaunch("Fate Saving Throw Timer",500)
-        savingThrowTimer = true
-    end
-
-end)
-
-Ext.Osiris.RegisterListener("RollResult", 6, "after", function(eventName, roller, rollSubject, resultType, isActiveRoll, criticality)
-    if eventName == "Emulate Wielder Selfdamage" then 
-        if resultType == 0 then
-            print("Emulate wielder lost health")
-            Osi.ApplyDamage(roller, math.ceil(Osi.GetMaxHitpoints(roller)/5), "Force")
-        end
-    end
-end)
-
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
-    if status == "EMULATE_WIELDER_CHECK" then
-        local entity = Ext.Entity.Get(object)
-        originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
-        emulateWielder(object, originalStats)
-        emulateWielderCheck = true
-    end
-
-    if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true then
-        emulateWielder(object, originalStats)
-        print("Attempted to reapply emulate wielder")
-    end
-end)
-
-Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, applyStoryActionID) 
-    if status == "EMULATE_WIELDER_SELFDAMAGE" then
-        Osi.RemoveBoosts(object, emulateBoost, 1, "Emulate Wielder", "")
-    end
-
-end)
-
-Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
-    if timer == "Emulate Wielder Timer" then
-        emulateBoost = emulateBoost
-        Osi.AddBoosts(emulateWielderOwner, emulateBoost, "Emulate Wielder", "")
-        emulateWielderOwner = nil
-    end 
-
-end)
-
 -- variable sync
-function syncAllVariables()
+function syncAllVariables(character)
     Ext.Vars.RegisterUserVariable("traceTable", {})
     Ext.Vars.RegisterUserVariable("extraDescriptionTable", {})
+    Ext.Vars.RegisterUserVariable("bladeReconstitutionTurnCheck", {})
     -- Ext.Vars.RegisterUserVariable("statusApplyTable", {})
 
-    local entity = Ext.Entity.Get(GetHostCharacter())
+    local entity = Ext.Entity.Get(character)
     local localTraceTable = entity.Vars.traceTable or {}
     local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
+    local bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or nil
     -- local localstatusApplyTable = entity.Vars.statusApplyTable or {}
     
     if localextraDescriptionTable ~= {} then
-        _D(localextraDescriptionTable)
-        for key, entry in pairs(localextraDescriptionTable) do
-            for i = 1,999,1 do
-                local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i)
-                if observedDescriptionTemplate.DisplayName == entry.weaponDisplayName then
-                    print("Description check found at index #" .. i)
-                    break
-                elseif observedDescriptionTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                    observedDescriptionTemplate:SetRawAttribute("DisplayName", entry.weaponDisplayName)
-                    observedDescriptionTemplate:SetRawAttribute("Description", entry.weaponDescription)
-                    observedDescriptionTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
-                    observedDescriptionTemplate:SetRawAttribute("Sheathed", entry.meleeOrRanged)
-                    observedDescriptionTemplate.FollowUpOriginalSpell = entry.followUpSpell
-                    observedDescriptionTemplate.Icon = entry.weaponIcon
-                    observedDescriptionTemplate:Sync()
+        if next(localextraDescriptionTable) ~= nil then
+            _D(localextraDescriptionTable)
+            for key, entry in pairs(localextraDescriptionTable) do
+                for i = 1,999,1 do
+                    local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i)
+                    if observedDescriptionTemplate.DisplayName == entry.weaponDisplayName then
+                        print("Description check found at index #" .. i)
+                        break
+                    elseif observedDescriptionTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+                        observedDescriptionTemplate:SetRawAttribute("DisplayName", entry.weaponDisplayName)
+                        observedDescriptionTemplate:SetRawAttribute("Description", entry.weaponDescription)
+                        observedDescriptionTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
+                        observedDescriptionTemplate:SetRawAttribute("Sheathing", entry.meleeOrRanged)
+                        observedDescriptionTemplate.Icon = entry.weaponIcon
+                        observedDescriptionTemplate:Sync()
 
-                    local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i) 
-                    observedStatusTemplate:SetRawAttribute("DisplayName", entry.weaponDisplayName)
-                    observedStatusTemplate.DescriptionParams = Osi.ResolveTranslatedString(entry.weaponDisplayName)
-                    observedStatusTemplate.Icon = entry.weaponIcon
-                    observedStatusTemplate:Sync()
+                        local observedStatusTemplate = Ext.Stats.Get("WEAPON_DESCRIPTION_TEMPLATE" .. i) 
+                        observedStatusTemplate:SetRawAttribute("DisplayName", entry.weaponDisplayName)
+                        observedStatusTemplate.DescriptionParams = Osi.ResolveTranslatedString(entry.weaponDisplayName)
+                        observedStatusTemplate.Icon = entry.weaponIcon
+                        observedStatusTemplate:Sync()
 
-                    print("This sync produced a spell for the description and status template: " .. Osi.ResolveTranslatedString(observedDescriptionTemplate.DisplayName) .. " for template #" .. i) 
+                        print("This sync produced a spell for the description and status template: " .. Osi.ResolveTranslatedString(observedDescriptionTemplate.DisplayName) .. " for template #" .. i) 
+                        break
+                    end
                 end
             end
         end
     end
 
     if localTraceTable ~= {} then
-        _D(localTraceTable)
-        for key, entry in ipairs(localTraceTable) do
-            for i=1,999,1 do
-                local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-                if observedTraceTemplate.DisplayName == entry.DisplayName then
-                    print("Found at index #" .. i)
-                    break
-                elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                    -- copying over stats
-                    Ext.Loca.UpdateTranslatedString(entry.Name, entry.Name)
-                    observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
-                    observedTraceTemplate.Icon = entry.Icon
-                    observedTraceTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
-                    observedTraceTemplate.UseCosts = entry.UseCosts
+        if next(localTraceTable) ~= nil then
+            _D(localTraceTable)
+            for key, entry in ipairs(localTraceTable) do
+                for i=1,999,1 do
+                    local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
+                    if observedTraceTemplate.DisplayName == entry.DisplayName then
+                        print("Found at index #" .. i)
+                        break
+                    elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+                        -- copying over stats
+                        Ext.Loca.UpdateTranslatedString(entry.DisplayName, entry.DisplayName)
+                        observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
+                        observedTraceTemplate.Icon = entry.Icon
+                        observedTraceTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
+                        observedTraceTemplate:SetRawAttribute("Sheathing", entry.meleeOrRanged)
+                        observedTraceTemplate.UseCosts = entry.UseCosts
 
-                    if entry.tooltipApply ~= nil then
-                        observedTraceTemplate:SetRawAttribute("tooltipApply", tooltipApply)
-                    else
-                    
-                    end
+                        if entry.tooltipApply ~= nil then
+                            observedTraceTemplate:SetRawAttribute("TooltipStatusApply", entry.tooltipApply)
+                            observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
+                        else
+                            observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
+                        end
 
-                    -- adding to spell
-                    local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                    local containerList = baseSpell.ContainerSpells
-                    if containerList == "" then
-                        containerList = "Shout_TraceWeapon_Template" .. i
-                    else
-                        containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
+                        -- adding to spell
+                        local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+                        local containerList = baseSpell.ContainerSpells
+                        if containerList == "" then
+                            containerList = "Shout_TraceWeapon_Template" .. i
+                        else
+                            containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
+                        end
+                        
+        
+                        observedTraceTemplate:Sync()       
+                        baseSpell.ContainerSpells = containerList
+                        baseSpell:Sync()
+        
+                        print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
+                        break
                     end
-                    
-    
-                    observedTraceTemplate:Sync()       
-                    baseSpell.ContainerSpells = containerList
-                    baseSpell:Sync()
-    
-                    print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
-                    break
                 end
+
+                local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+                baseSpell:Sync() 
+
+                Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
             end
-
-            local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-            baseSpell:Sync() 
-
-            Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
         end
     end
 

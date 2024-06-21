@@ -1,0 +1,195 @@
+<save>
+   <version major="4" minor="0" revision="9" build="328" />
+   <region id="TextureAtlasInfo"> 
+       <node id="root">
+           <children>
+               <node id="TextureAtlasIconSize">
+                   <attribute id="Height" type="int64" value="64"/>
+                   <attribute id="Width" type="int64" value="64"/>
+               </node>
+               <node id="TextureAtlasPath">
+                   <attribute id="Path" type="LSString" value="Assets/Textures/Icons/FateRoute_Icons.dds"/>
+                   <attribute id="UUID" type="FixedString" value="7099d1bf-b33b-45da-91fe-db4af09faab7"/>
+               </node>
+               <node id="TextureAtlasTextureSize">
+                   <attribute id="Height" type="int64" value="320"/>
+                   <attribute id="Width" type="int64" value="320"/>
+               </node>
+           </children>
+       </node>
+   </region>
+   <region id="IconUVList">
+       <node id="root">
+           <children>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Trace_Melee_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.20"/> Right
+                   <attribute id="V1" type="float" value="0.0"/> Top
+                   <attribute id="V2" type="float" value="0.20"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Trace_Ranged_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.20"/> Left
+                   <attribute id="U2" type="float" value="0.40"/> Right
+                   <attribute id="V1" type="float" value="0.0"/> Top
+                   <attribute id="V2" type="float" value="0.20"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Reinforcement_Overedge_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.40"/> Left
+                   <attribute id="U2" type="float" value="0.60"/> Right
+                   <attribute id="V1" type="float" value="0.0"/> Top
+                   <attribute id="V2" type="float" value="0.20"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Alteration_Arrow_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.60"/> Left
+                   <attribute id="U2" type="float" value="0.80"/> Right
+                   <attribute id="V1" type="float" value="0.0"/> Top
+                   <attribute id="V2" type="float" value="0.20"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Sympathize_Experience_Toggle_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.80"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.0"/> Top
+                   <attribute id="V2" type="float" value="0.20"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Reinforcement_Body_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.20"/> Right
+                   <attribute id="V1" type="float" value="0.20"/> Top
+                   <attribute id="V2" type="float" value="0.40"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Reinforcement_Eye_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.20"/> Left
+                   <attribute id="U2" type="float" value="0.40"/> Right
+                   <attribute id="V1" type="float" value="0.20"/> Top
+                   <attribute id="V2" type="float" value="0.40"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Reinforcement_Leg_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.40"/> Left
+                   <attribute id="U2" type="float" value="0.60"/> Right
+                   <attribute id="V1" type="float" value="0.20"/> Top
+                   <attribute id="V2" type="float" value="0.40"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Reinforcement_Overdraw_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.60"/> Left
+                   <attribute id="U2" type="float" value="0.80"/> Right
+                   <attribute id="V1" type="float" value="0.20"/> Top
+                   <attribute id="V2" type="float" value="0.40"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_EmulateWielder_Toggle_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.80"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.20"/> Top
+                   <attribute id="V2" type="float" value="0.40"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Trace_Reproduction_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.20"/> Right
+                   <attribute id="V1" type="float" value="0.40"/> Top
+                   <attribute id="V2" type="float" value="0.60"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Weapon_Catalog_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.20"/> Left
+                   <attribute id="U2" type="float" value="0.40"/> Right
+                   <attribute id="V1" type="float" value="0.40"/> Top
+                   <attribute id="V2" type="float" value="0.60"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_ElementalUnalignment_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.40"/> Left
+                   <attribute id="U2" type="float" value="0.60"/> Right
+                   <attribute id="V1" type="float" value="0.40"/> Top
+                   <attribute id="V2" type="float" value="0.60"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_BladeReconstitution_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.60"/> Left
+                   <attribute id="U2" type="float" value="0.80"/> Right
+                   <attribute id="V1" type="float" value="0.40"/> Top
+                   <attribute id="V2" type="float" value="0.60"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reinforcement_Body_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.80"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.40"/> Top
+                   <attribute id="V2" type="float" value="0.60"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reinforcement_Overedge_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.20"/> Right
+                   <attribute id="V1" type="float" value="0.60"/> Top
+                   <attribute id="V2" type="float" value="0.80"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reinforcement_Overdraw_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.20"/> Left
+                   <attribute id="U2" type="float" value="0.40"/> Right
+                   <attribute id="V1" type="float" value="0.60"/> Top
+                   <attribute id="V2" type="float" value="0.80"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Sympathize_Experience_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.40"/> Left
+                   <attribute id="U2" type="float" value="0.60"/> Right
+                   <attribute id="V1" type="float" value="0.60"/> Top
+                   <attribute id="V2" type="float" value="0.80"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_EmulateWielder_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.60"/> Left
+                   <attribute id="U2" type="float" value="0.80"/> Right
+                   <attribute id="V1" type="float" value="0.60"/> Top
+                   <attribute id="V2" type="float" value="0.80"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reinforcement_Eye_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.80"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.60"/> Top
+                   <attribute id="V2" type="float" value="0.80"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_FakerMelee_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.20"/> Right
+                   <attribute id="V1" type="float" value="0.80"/> Top
+                   <attribute id="V2" type="float" value="1.0"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_FakerRanged_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.20"/> Left
+                   <attribute id="U2" type="float" value="0.40"/> Right
+                   <attribute id="V1" type="float" value="0.80"/> Top
+                   <attribute id="V2" type="float" value="1.0"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Resource_MagicalEnergy_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.40"/> Left
+                   <attribute id="U2" type="float" value="0.60"/> Right
+                   <attribute id="V1" type="float" value="0.80"/> Top
+                   <attribute id="V2" type="float" value="1.0"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reinforcement_Leg_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.8"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.80"/> Top
+                   <attribute id="V2" type="float" value="1.0"/> Bottom
+               </node>
+           </children>
+       </node>
+   </region>
+</save>
