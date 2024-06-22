@@ -1,134 +1,3 @@
--- sync tables
-Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
-    print("Attempted traceTable, extraDescriptionTable, and statusApplyTable sync")
-
-    local shoutTrace = Ext.Stats.Get("Shout_TraceWeapon")
-    shoutTrace:SetRawAttribute("Description","hc0c5f647ge23ag4125gaabfg15645d6ee811")
-    shoutTrace:Sync()
-
-    local foundFaker = false
-    local faker = ""
-    for position, partymember in pairs(Osi.DB_Players:Get(nil)) do
-        for _, guid in pairs(partymember) do
-            local entityFake = Ext.Entity.Get(guid)
-            for fakerCheckKey, fakerCheckEntry in pairs(entityFake.Classes.Classes) do
-                if fakerCheckEntry.SubClassUUID == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
-                    faker = guid
-                    print("Faker (general listener) found to be " .. faker)
-                    foundFaker = true
-                    break
-                end
-            end
-
-            if foundFaker == true then
-                break
-            end
-        end
-
-        if foundFaker == true then
-            break
-        end    
-    end
-    syncAllVariables(faker)
-    
-end)
-
--- apply reproduced trace stats and summon dual weapons if there
-Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
-    local spellName = spell:gsub("%d","")
-    if spellName == "Shout_TraceWeapon_Template" then
-        print(spell .. " found to be a template")
-        local observedTraceTemplate = Ext.Stats.Get(spell)
-        local entity = Ext.Entity.Get(caster)
-        if observedTraceTemplate.TooltipStatusApply ~= nil and observedTraceTemplate.TooltipStatusApply ~= "" then
-            print(spell .. " found to have a tooltip")
-            local toolTip = observedTraceTemplate.TooltipStatusApply
-            local status = {}
-            for capture in toolTip:gmatch("(WEAPON_DESCRIPTION_TEMPLATE%d*)") do
-                table.insert(status, capture)   
-            end
-            if next(status) ~= nil then
-                _D(status)
-            end
-            
-            for keyStatus, entryStatus in pairs(status) do
-                local observedStatusTemplate = Ext.Stats.Get(entryStatus)
-                local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
-
-                if localextraDescriptionTable ~= {} then
-                    print("Going through localextraDescriptionTable for dual weapons")
-                    for key, entry in pairs(localextraDescriptionTable) do
-                        -- print(observedStatusTemplate.DisplayName .. " compared to " .. entry.weaponDisplayName)
-                        if observedStatusTemplate.DisplayName == entry.weaponDisplayName then
-                            print("Dual weapon status-spell match found for " .. Osi.ResolveTranslatedString(observedStatusTemplate.DisplayName))
-                            Osi.TemplateAddTo(entry.weaponTemplate,caster,1,0)
-                            if keyStatus == 1 then
-                                if entry.meleeOrRanged == "Melee" then
-                                    dualWeaponsProjected = true
-                                    mainWeaponTemplate = entry.weaponTemplate
-                                else
-                                    dualWeaponsProjectedRanged = true
-                                    mainWeaponTemplateRanged = entry.weaponTemplate
-                                end
-                            else
-                                if entry.meleeOrRanged == "Melee" then
-                                    dualWeaponsProjected = true
-                                    offhandWeaponTemplate = entry.weaponTemplate
-                                    ApplyStatus(caster,"FAKER_MELEE",15,100)
-                                else
-                                    dualWeaponsProjectedRanged = true
-                                    offhandWeaponTemplateRanged = entry.weaponTemplate
-                                    ApplyStatus(caster,"FAKER_RANGED",15,100)
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-
-        local descriptionParams = observedTraceTemplate.DescriptionParams
-        local params = {}
-        for capture in descriptionParams:gmatch("(%d*%.?%d+)") do
-            table.insert(params, capture)   
-        end
-        
-        local localTraceTable = entity.Vars.traceTable or {}
-        if localTraceTable ~= {} then
-            for key, entry in pairs(localTraceTable) do 
-                if entry.DisplayName == Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) then
-                    if entry.meleeOrRanged == "Melee" then
-                        wielderStrength = params[1]
-                        wielderDexterity = params[2]
-                        wielderMovementSpeed = params[3]
-                        print("Stats of melee reproduction traced weapon applied")
-                    else
-                        wielderStrengthRanged = params[1]
-                        wielderDexterityRanged = params[2]
-                        wielderMovementSpeedRanged = params[3]
-                        print("Stats of ranged reproduction traced weapon applied")
-                    end
-                    break
-                end
-            end
-        end
-
-        if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-           emulateWielder(caster, originalStats) 
-        end
-
-    end
-
-end)
-
--- Timer for Saving Throw or Trace Equip
-Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
-    if timer == "Fate Saving Throw Timer" then
-        savingThrowTimer = nil
-    end
-
-end)
-
 -- variable sync
 function syncAllVariables(character)
     Ext.Vars.RegisterUserVariable("traceTable", {})
@@ -227,6 +96,153 @@ function syncAllVariables(character)
 
 end
 
+-- sync tables
+Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
+    print("Attempted traceTable, extraDescriptionTable, and statusApplyTable sync")
 
+    local shoutTrace = Ext.Stats.Get("Shout_TraceWeapon")
+    shoutTrace:SetRawAttribute("Description","hc0c5f647ge23ag4125gaabfg15645d6ee811")
+    shoutTrace:Sync()
+
+    local foundFaker = false
+    for position, partymember in pairs(Osi.DB_Players:Get(nil)) do
+        for _, guid in pairs(partymember) do
+            local entityFake = Ext.Entity.Get(guid)
+            for fakerCheckKey, fakerCheckEntry in pairs(entityFake.Classes.Classes) do
+                if fakerCheckEntry.SubClassUUID == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
+                    local faker = guid
+                    print("Faker (general listener) found to be " .. faker)
+                    syncAllVariables(faker)
+                    foundFaker = true
+                    break
+                end
+            end
+
+            if foundFaker == true then
+                break
+            end
+        end
+
+        if foundFaker == true then
+            break
+        end    
+    end
+    
+end)
+
+-- apply reproduced trace stats and summon dual weapons if there
+Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
+    local spellName = spell:gsub("%d","")
+    if spellName == "Shout_TraceWeapon_Template" then
+        print(spell .. " found to be a template")
+        local observedTraceTemplate = Ext.Stats.Get(spell)
+        local entity = Ext.Entity.Get(caster)
+        if observedTraceTemplate.TooltipStatusApply ~= nil and observedTraceTemplate.TooltipStatusApply ~= "" then
+            print(spell .. " found to have a tooltip")
+            local toolTip = observedTraceTemplate.TooltipStatusApply
+            local status = {}
+            for capture in toolTip:gmatch("(WEAPON_DESCRIPTION_TEMPLATE%d*)") do
+                table.insert(status, capture)   
+            end
+            if next(status) ~= nil then
+                _D(status)
+            end
+            
+            for keyStatus, entryStatus in pairs(status) do
+                local observedStatusTemplate = Ext.Stats.Get(entryStatus)
+                local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
+
+                if localextraDescriptionTable ~= {} then
+                    print("Going through localextraDescriptionTable for dual weapons")
+                    for key, entry in pairs(localextraDescriptionTable) do
+                        -- print(observedStatusTemplate.DisplayName .. " compared to " .. entry.weaponDisplayName)
+                        if observedStatusTemplate.DisplayName == entry.weaponDisplayName then
+                            print("Dual weapon status-spell match found for " .. Osi.ResolveTranslatedString(observedStatusTemplate.DisplayName))
+                            Osi.TemplateAddTo(entry.weaponTemplate,caster,1,0)
+                            if keyStatus == 1 then
+                                if entry.meleeOrRanged == "Melee" then
+                                    dualWeaponsProjected = true
+                                    mainWeaponTemplate = entry.weaponTemplate
+                                else
+                                    dualWeaponsProjectedRanged = true
+                                    mainWeaponTemplateRanged = entry.weaponTemplate
+                                end
+                            else
+                                if entry.meleeOrRanged == "Melee" then
+                                    dualWeaponsProjected = true
+                                    offhandWeaponTemplate = entry.weaponTemplate
+                                    ApplyStatus(caster,"FAKER_MELEE",15,100)
+                                else
+                                    dualWeaponsProjectedRanged = true
+                                    offhandWeaponTemplateRanged = entry.weaponTemplate
+                                    ApplyStatus(caster,"FAKER_RANGED",15,100)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
+        local descriptionParams = observedTraceTemplate.DescriptionParams
+        local params = {}
+        for capture in descriptionParams:gmatch("(%d*%.?%d+)") do
+            table.insert(params, capture)   
+        end
+        
+        local localTraceTable = entity.Vars.traceTable or {}
+        if localTraceTable ~= {} then
+            for key, entry in pairs(localTraceTable) do 
+                if entry.DisplayName == Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) then
+                    if entry.meleeOrRanged == "Melee" then
+                        wielderStrength = params[1]
+                        wielderDexterity = params[2]
+                        wielderMovementSpeed = params[3]
+                        print("Stats of melee reproduction traced weapon applied")
+                    else
+                        wielderStrengthRanged = params[1]
+                        wielderDexterityRanged = params[2]
+                        wielderMovementSpeedRanged = params[3]
+                        print("Stats of ranged reproduction traced weapon applied")
+                    end
+                    if observedTraceTemplate.TooltipStatusApply == nil or observedTraceTemplate.TooltipStatusApply == "" then
+                        if entry.meleeOrRanged == "Melee" then
+                            Osi.TimerLaunch("Reproduced single melee weapon", 1500)
+                        else
+                            Osi.TimerLaunch("Reproduced single ranged weapon", 1500)
+                        end
+                    end
+
+                    break
+                end
+            end
+        end
+
+        if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+           emulateWielder(caster, originalStats) 
+        end
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
+    if timer == "Reproduced single melee weapon" then
+        mainWeaponTemplate = Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, "Melee Main Weapon"))
+        print("Melee weapon template of reproduced weapon assigned variable")
+    elseif timer == "Reproduced single ranged weapon" then
+        mainWeaponTemplateRanged = Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, "Ranged Main Weapon"))
+        print("Ranged weapon template of reproduced weapon assigned variable")
+    end
+
+end)
+
+-- Timer for Saving Throw or Trace Equip
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
+    if timer == "Fate Saving Throw Timer" then
+        savingThrowTimer = nil
+    end
+
+end)
 
 print("General listeners loaded")

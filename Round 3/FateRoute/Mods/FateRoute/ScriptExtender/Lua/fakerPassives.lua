@@ -6,7 +6,7 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
 
         if entity.Health.Hp <= entity.Health.MaxHp*0.25 then
             if bladeReconstitutionTurnCheck ~= 3 and savingThrowTimer == nil then
-                if Osi.HasActiveStatus(defender, "DOWNED") == 1 then
+                if Osi.HasActiveStatus(defender, "DOWNED") == 1 and Osi.IsDead(defender) == 0 then
                     Osi.RemoveStatus(defender, "DOWNED", defender)
                 end
                 Osi.UseSpell(defender,"Shout_BladeReconstitution",defender)
@@ -18,7 +18,7 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
                 Osi.ObjectTimerLaunch(defender, "Blade Reconstitution Timer", 1, 1)
                 print("Blade Reconstitution on cooldown")
             end
-            print("Blade reconstitution triggered on being attacked")
+            print("Blade reconstitution triggered on being attacked, and its cooldown is " .. bladeReconstitutionTurnCheck)
         end
     end
 
@@ -31,7 +31,7 @@ Ext.Osiris.RegisterListener("TurnStarted", 1, "before", function(object)
 
         if entity.Health.Hp <= entity.Health.MaxHp*0.25 and savingThrowTimer == nil then
             if bladeReconstitutionTurnCheck ~= 3 then
-                if Osi.HasActiveStatus(object, "DOWNED") == 1 then
+                if Osi.HasActiveStatus(object, "DOWNED") == 1 and Osi.IsDead(object) == 0 then
                     Osi.RemoveStatus(object, "DOWNED", object)
                 end
                 Osi.UseSpell(object,"Shout_BladeReconstitution",object)
@@ -43,7 +43,7 @@ Ext.Osiris.RegisterListener("TurnStarted", 1, "before", function(object)
                 Osi.ObjectTimerLaunch(object, "Blade Reconstitution Timer", 1, 1)
                 print("Blade Reconstitution on cooldown")
             end
-            print("Blade reconstitution triggered on turn start")
+            print("Blade reconstitution triggered on turn start, and its cooldown is " .. bladeReconstitutionTurnCheck)
         end
     end
 

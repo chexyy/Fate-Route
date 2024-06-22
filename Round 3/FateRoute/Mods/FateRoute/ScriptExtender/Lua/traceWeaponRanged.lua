@@ -106,7 +106,7 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
 end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
-    if status == "FAKER_MELEE" and dualWeaponsProjected == nil then
+    if status == "FAKER_RANGED" and dualWeaponsProjected == nil then
         if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
             AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
         end
@@ -117,12 +117,12 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         proficiencyBoostRanged = {}
         if mainWeaponTemplateRanged ~= nil or offhandWeaponTemplateRanged ~= nil then
             if offhandWeaponTemplateRanged ~= nil then
-                spellActivatedOff = true
+                spellActivatedOffRanged = true
                 Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged),1,0)
                 Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
             end
             if mainWeaponTemplateRanged ~= nil then
-                spellActivatedMain = true
+                spellActivatedMainRanged = true
                 Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged),1,0)
                 Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
             end
@@ -149,7 +149,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                     addProficiencyPassive(fakerCharacterRanged,Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Main Weapon")).ServerTemplateTag.Tags[3],proficiencyBoostRanged)
                 end
 
-                if Osi.HasRangedWeaponEquipped(targetUUID_Ranged, "Offhand") == 1 then
+                if Osi.HasRangedWeaponEquipped(fakerCharacterRanged, "Offhand") == 1 then
                     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.Boosts
                     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.BoostsOnEquipMainHand
                     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.BoostsOnEquipOffHand
@@ -185,7 +185,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
 end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
-    if status == "FAKER_RANGED" and dualWeaponsProjected == true then
+    if status == "FAKER_RANGED" and dualWeaponsProjectedRanged == true then
         fakerCharacterRanged = object
         if Osi.GetLevel(fakerCharacterRanged) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
             AddPassive(fakerCharacterRanged,"Passive_EmulateWielder_Toggle")
@@ -197,14 +197,18 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         proficiencyBoostRanged = {}
         if mainWeaponTemplateRanged ~= nil or offhandWeaponTemplateRanged ~= nil then
             if offhandWeaponTemplateRanged ~= nil then
-                spellActivatedOff = true
-                Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
+                if Osi.HasActiveStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED") == 0 then
+                    spellActivatedOffRanged = true
+                    Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged),1,0)
+                    Osi.ApplyStatus(GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
+                end
             end
             if mainWeaponTemplateRanged ~= nil then
-                spellActivatedMain = true
-                Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged),1,0)
-                Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
+                if Osi.HasActiveStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED") == 0 then
+                    spellActivatedMainRanged = true
+                    Osi.Equip(fakerCharacterRanged,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged),1,0)
+                    Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacterRanged), "REPRODUCTION_RANGED", 15, 100, fakerCharacterRanged)
+                end
             end
         end
         if mainWeaponTemplateRanged == nil and offhandWeaponTemplateRanged == nil then
@@ -226,7 +230,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
                     addProficiencyPassive(fakerCharacterRanged,Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Main Weapon")).ServerTemplateTag.Tags[3],proficiencyBoostRanged)
                 end
 
-                if Osi.HasRangedWeaponEquipped(targetUUID_Ranged, "Offhand") == 1 then
+                if Osi.HasRangedWeaponEquipped(fakerCharacterRanged, "Offhand") == 1 then
                     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.Boosts
                     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.BoostsOnEquipMainHand
                     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacterRanged, "Ranged Offhand Weapon")).Use.BoostsOnEquipOffHand
@@ -276,8 +280,8 @@ end)
 
 Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplate, character)
     -- mainhand
-    if itemTemplate == mainWeaponTemplateRanged and spellActivatedMain == true then
-        spellActivatedMain = false
+    if itemTemplate == mainWeaponTemplateRanged and spellActivatedMainRanged == true then
+        spellActivatedMainRanged = false
         print("Mainhand item equipped")
         -- keeping track of variables
         local entity = Ext.Entity.Get(fakerCharacterRanged)
@@ -304,8 +308,8 @@ Ext.Osiris.RegisterListener("TemplateEquipped", 2, "after", function(itemTemplat
     end
 
     -- in the case of a secondary weapon
-    if itemTemplate == offhandWeaponTemplateRanged and spellActivatedOff == true and offhandWeaponTemplateRanged ~= mainWeaponTemplateRanged then
-        spellActivatedOff = false
+    if itemTemplate == offhandWeaponTemplateRanged and spellActivatedOffRanged == true and offhandWeaponTemplateRanged ~= mainWeaponTemplateRanged then
+        spellActivatedOffRanged = false
         print("Offhand item equipped")
         local entity = Ext.Entity.Get(fakerCharacterRanged)
         entity.Vars.traceVariablesRanged = traceVariablesRanged:new(mainWeaponTemplateRanged,offhandWeaponTemplateRanged,proficiencyBoostRanged)
@@ -358,6 +362,11 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
                 print("Attempted to remove " .. mainWeaponTemplateRanged)
                 Osi.SetWeaponUnsheathed(fakerCharacterRanged, 0, 0)
                 Osi.SetWeaponUnsheathed(fakerCharacterRanged, 1, 0)
+                Osi.UnloadItem(mainWeaponTemplateRanged)
+            end
+        else
+            if mainWeaponTemplateRanged ~= nil then
+                Osi.UnloadItem(mainWeaponTemplateRanged)
             end
         end
 
@@ -370,6 +379,11 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
                 print("Attempted to remove " .. offhandWeaponTemplateRanged)
                 Osi.SetWeaponUnsheathed(fakerCharacterRanged, 0, 0)
                 Osi.SetWeaponUnsheathed(fakerCharacterRanged, 1, 0)
+                Osi.UnloadItem(offhandWeaponTemplateRanged)
+            end
+        else
+            if offhandWeaponTemplateRanged ~= nil then
+                Osi.UnloadItem(offhandWeaponTemplateRanged)
             end
         end
         

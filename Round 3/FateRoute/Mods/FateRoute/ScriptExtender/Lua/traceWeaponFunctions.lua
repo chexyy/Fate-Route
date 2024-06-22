@@ -64,7 +64,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     
                     -- checks if melee or ranged and makes spell summonable
                     weaponUUID = {Ext.Entity.Get(weapon).ServerItem.Template.Id, nil}
-                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ", ,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
+                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",3,1,true,true,true,,," .. REPRODUCTION .. "," .. REPRODUCTION .. ")"
                     observedTraceTemplate:SetRawAttribute("SpellProperties", spellProperties)
 
                     -- sets use cost based on rarity
