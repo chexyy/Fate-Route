@@ -107,13 +107,6 @@ end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_MELEE" and dualWeaponsProjected == nil then
-        if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
-            AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
-        end
-        if Osi.HasActiveStatus(fakerCharacter, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-            emulateWielder(fakerCharacter, originalStats) 
-        end
-
         proficiencyBoost = {}
         if mainWeaponTemplate ~= nil or offhandWeaponTemplate ~= nil then
             if mainWeaponTemplate ~= nil then
@@ -184,13 +177,6 @@ end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_MELEE" and dualWeaponsProjected == true then
-        if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
-            AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
-        end
-        if Osi.HasActiveStatus(fakerCharacter, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-            emulateWielder(fakerCharacter, originalStats) 
-        end
-
         fakerCharacter = object
 
         proficiencyBoost = {}
@@ -354,15 +340,6 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
     local fakerCharacter = object
     
     if status == "FAKER_MELEE" then
-        if Osi.HasActiveStatus(fakerCharacter, "FAKER_RANGED") == 0 and Osi.HasPassive(fakerCharacter, "Passive_EmulateWielder_Toggle") == 1 then
-            if HasAppliedStatus(fakerCharacter,"EMULATE_WIELDER_SELFDAMAGE") == 1 then
-                Osi.TogglePassive(fakerCharacter, "Passive_EmulateWielder_Toggle")
-            end
-            Osi.RemovePassive(fakerCharacter, "Passive_EmulateWielder_Toggle")
-            Osi.RemoveStatus(fakerCharacter, "EMULATE_WIELDER_CHECK")
-            emulateWielderCheck = nil
-        end
-
         if proficiencyBoost ~= nil then
             removeProficiencyPassive(proficiencyBoost)
             proficiencyBoost = {}
