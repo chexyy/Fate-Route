@@ -35,8 +35,8 @@
 					<attribute id="UUID" type="guid" value="1b058edb-f62e-4191-b8a0-7b21f4a83ebd" />
 				</node>
 				<node id="SpellList">
-					<attribute id="Comment" type="LSString" value="Alteration: Arrow" />
-					<attribute id="Spells" type="LSString" value="Throw_Alteration_Arrow" />
+					<attribute id="Comment" type="LSString" value="Alteration: Arrow and Shout: Aria" />
+					<attribute id="Spells" type="LSString" value="Throw_Alteration_Arrow;Shout_Aria" />
 					<attribute id="UUID" type="guid" value="eb9bfb76-628c-4eb8-9fbb-3377ca55cc0b" />
 				</node>
 			</children>

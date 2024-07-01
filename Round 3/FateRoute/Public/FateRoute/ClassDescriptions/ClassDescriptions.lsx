@@ -19,11 +19,11 @@
           <attribute id="PrimaryAbility" type="uint8" value="3" /> order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="ProgressionTableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> This UUID links the Class to a specific progression table inside Progressions.lsx
           <attribute id="SoundClassType" type="FixedString" value="Wizard" />
-          <attribute id="SpellCastingAbility" type="uint8" value="3" /> 4 is for int. order goes from Str, Dex, Con, Int, Wis, and Cha.
+          <attribute id="SpellCastingAbility" type="uint8" value="4" /> 4 is for int. order goes from Str, Dex, Con, Int, Wis, and Cha.
           <attribute id="UUID" type="guid" value="0533e922-9fcb-47bb-a03c-f6cc93329feb" /> The ID for your class, make a new one
 					<children>
             <node id="Tags">
-              <attribute id="Object" type="guid" value="1ae7017c-4884-4a43-bc4a-742fa0d201c0" /> Dialogue tag Fighter (yes you can have multiple dialogue tags)
+              <attribute id="Object" type="guid" value="6fe3ae27-dc6c-4fc9-9245-710c790c396c" />
             </node>
           </children>
         </node>

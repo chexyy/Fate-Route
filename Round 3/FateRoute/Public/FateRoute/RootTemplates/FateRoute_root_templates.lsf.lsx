@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="328" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>	
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="ha8f4bcbecd7a46df8f44c3a1ace4775a14ed" version="1" />
+					<attribute id="Description" type="TranslatedString" handle="h0254c8c8gf9d5g4ac7g95b4gbe7d50c20c64" version="1" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Caliburn_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="5d59144e-5ad7-4283-b3c5-e25724d70161" />
+					<attribute id="Name" type="LSString" value="MAG_Caliburn" />
+					<attribute id="VisualTemplate" type="FixedString" value="470e0219-e8eb-480c-8891-b3484de36356" />
+					<attribute id="ParentTemplateId" type="FixedString" value="1865323f-b428-4791-a0a9-578841e57463" />
+					<attribute id="Stats" type="FixedString" value="MAG_Caliburn" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+						</children>
+					</node>
+					<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="CALIBURN_SKILL" />
+							</node>
+						</children>
+					</node>
+				</node> 
+				
+			</children>
+		</node>
+	</region>
+</save>

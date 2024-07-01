@@ -107,13 +107,6 @@ end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_RANGED" and dualWeaponsProjected == nil then
-        if Osi.GetLevel(fakerCharacter) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
-            AddPassive(fakerCharacter,"Passive_EmulateWielder_Toggle")
-        end
-        if Osi.HasActiveStatus(fakerCharacterRanged, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-            emulateWielder(fakerCharacterRanged, originalStats) 
-        end
-
         proficiencyBoostRanged = {}
         if mainWeaponTemplateRanged ~= nil or offhandWeaponTemplateRanged ~= nil then
             if offhandWeaponTemplateRanged ~= nil then
@@ -187,12 +180,6 @@ end)
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_RANGED" and dualWeaponsProjectedRanged == true then
         fakerCharacterRanged = object
-        if Osi.GetLevel(fakerCharacterRanged) >= 6 and HasPassive(fakerCharacter,"Passive_EmulateWielder_Toggle") == 0 then -- ➤ need a way to differentiate active weapon
-            AddPassive(fakerCharacterRanged,"Passive_EmulateWielder_Toggle")
-        end
-        if Osi.HasActiveStatus(fakerCharacterRanged, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-            emulateWielder(fakerCharacterRanged, originalStats) 
-        end
 
         proficiencyBoostRanged = {}
         if mainWeaponTemplateRanged ~= nil or offhandWeaponTemplateRanged ~= nil then
@@ -260,9 +247,17 @@ Ext.Osiris.RegisterListener("MissedBy", 4, "after", function(defender, attackOwn
         local fakerCharacterRanged = attacker or attackOwner
         print("Attacker is " .. attacker .. " and defender is " .. defender)
         if (Osi.HasActiveStatus(attacker, "REINFORCEMENT_OVERDRAW") == 1) then
-            Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Constitution", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 0, "Image Failure Roll (Ranged)")
+            if (Osi.HasPassive(attacker, "Passive_MentalBattle") == 1) then
+                Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Intelligence", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 1, "Image Failure Roll (Ranged)")
+            else
+                Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Intelligence", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 0, "Image Failure Roll (Ranged)")
+            end
         else
-            Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Constitution", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Ranged)")
+            if (Osi.HasPassive(attacker, "Passive_MentalBattle") == 1) then
+                Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Intelligence", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 1, "Image Failure Roll (Ranged)")
+            else
+                Osi.RequestPassiveRoll(fakerCharacterRanged, fakerCharacterRanged,"SavingThrow", "Intelligence", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Ranged)")
+            end
         end
         Osi.TimerLaunch("Fate Saving Throw Timer",250)
         savingThrowTimer = true
@@ -339,15 +334,6 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
     local fakerCharacterRanged = object
     
     if status == "FAKER_RANGED" then 
-        if Osi.HasActiveStatus(fakerCharacterRanged, "FAKER_MELEE") == 0 and Osi.HasPassive(fakerCharacterRanged, "Passive_EmulateWielder_Toggle") == 1 then
-            if HasAppliedStatus(fakerCharacterRanged,"EMULATE_WIELDER_SELFDAMAGE") == 1 then
-                Osi.TogglePassive(fakerCharacterRanged, "Passive_EmulateWielder_Toggle")
-            end
-            Osi.RemovePassive(fakerCharacterRanged, "Passive_EmulateWielder_Toggle")
-            Osi.RemoveStatus(fakerCharacterRanged, "EMULATE_WIELDER_CHECK")
-            emulateWielderCheck = nil
-        end
-
         if proficiencyBoostRanged ~= nil then
             removeProficiencyPassive(proficiencyBoostRanged)
             proficiencyBoostRanged = {}

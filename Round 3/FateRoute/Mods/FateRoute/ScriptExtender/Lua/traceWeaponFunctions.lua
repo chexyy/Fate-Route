@@ -326,17 +326,44 @@ end
 -- emulate wielder
 function emulateWielder(character, originalStats)
     
-    local strength = wielderStrength or 0
-    local dexterity = wielderDexterity or 0
-    local movementSpeed = wielderMovementSpeed or 0
+    local strength = tonumber(wielderStrength) or 0
+    local dexterity = tonumber(wielderDexterity) or 0
+    local movementSpeed = tonumber(wielderMovementSpeed) or 0
 
-    local strengthRanged = wielderStrengthRanged or 0
-    local dexterityRanged = wielderDexterityRanged or 0
-    local movementSpeedRanged = wielderMovementSpeedRanged or 0
+    local strengthRanged = tonumber(wielderStrengthRanged) or 0
+    local dexterityRanged = tonumber(wielderDexterityRanged) or 0
+    local movementSpeedRanged = tonumber(wielderMovementSpeedRanged) or 0
 
     local strengthIncrease = 0;
     local dexterityIncrease = 0;
     local movementSpeedIncrease = 0;
+
+
+    if type(strength) ~= "number" then
+        print("Replaced strengh: " .. strength .. " with 0.")
+        local strength = 0
+    end
+    if type(dexterity) ~= "number" then
+        print("Replaced dexterity: " .. dexterity .. " with 0.")
+        local dexterity = 0
+    end
+    if type(movementSpeed) ~= "number" then
+        print("Replaced movementSpeed: " .. movementSpeed .. " with 0.")
+        local strength = 0
+    end
+    if type(strengthRanged) ~= "number" then
+        print("Replaced strengthRanged: " .. strengthRanged .. " with 0.")
+        local strength = 0
+    end
+    if type(dexterityRanged) ~= "number" then
+        print("Replaced dexterityRanged: " .. dexterityRanged .. " with 0.")
+        local strength = 0
+    end
+    if type(movementSpeedRanged) ~= "number" then
+        print("Replaced movementSpeedRanged: " .. movementSpeedRanged .. " with 0.")
+        local strength = 0
+    end
+
 
     if strength < strengthRanged then
         strength = strengthRanged

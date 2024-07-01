@@ -8,7 +8,7 @@ function syncAllVariables(character)
     local entity = Ext.Entity.Get(character)
     local localTraceTable = entity.Vars.traceTable or {}
     local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
-    local bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or nil
+    local bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or 0
     -- local localstatusApplyTable = entity.Vars.statusApplyTable or {}
     
     if localextraDescriptionTable ~= {} then
@@ -113,6 +113,21 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                     local faker = guid
                     print("Faker (general listener) found to be " .. faker)
                     syncAllVariables(faker)
+
+                    for keyStatus, entryStatus in pairs(entityFake.ServerCharacter.StatusManager.Statuses) do
+                        if entryStatus.StackId:match("ARIA_") == "ARIA_" then
+                            print("Removing lingering aria " .. entryStatus.StackId)
+                            Osi.RemoveStatus(faker, entryStatus.StackId)
+                        end
+                    end 
+
+                    -- local entity = Ext.Entity.Get(faker)
+                    -- for key, entry in pairs(entity.SpellBook.Spells) do
+                    --     if entry.Id.ProgressionSource == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
+                    --         entry.SpellCastingAbility = "Constitution"
+                    --         print("Changed the spellcasting ability of " .. entry.Id.OriginatorPrototype .. " to constitution.")
+                    --     end
+                    -- end
                     foundFaker = true
                     break
                 end
@@ -132,8 +147,8 @@ end)
 
 -- apply reproduced trace stats and summon dual weapons if there
 Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
-    local spellName = spell:gsub("%d","")
-    if spellName == "Shout_TraceWeapon_Template" then
+    local spellName = spell:match("Shout_TraceWeapon_")
+    if spellName == "Shout_TraceWeapon_" then
         print(spell .. " found to be a template")
         local observedTraceTemplate = Ext.Stats.Get(spell)
         local entity = Ext.Entity.Get(caster)
@@ -190,20 +205,22 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
             table.insert(params, capture)   
         end
         
-        local localTraceTable = entity.Vars.traceTable or {}
-        if localTraceTable ~= {} then
-            for key, entry in pairs(localTraceTable) do 
+        local entity = Ext.Entity.Get(fakerCharacter)
+        local localTraceTable = entity.Vars.traceTable
+        local templateNum = spell:match("%d+")
+        if templateNum ~= nil then
+            for key, entry in pairs(localTraceTable) do
                 if entry.DisplayName == Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) then
                     if entry.meleeOrRanged == "Melee" then
                         wielderStrength = params[1]
                         wielderDexterity = params[2]
                         wielderMovementSpeed = params[3]
-                        print("Stats of melee reproduction traced weapon applied")
+                        print("Stats of melee reproduction traced weapon tracked")
                     else
                         wielderStrengthRanged = params[1]
                         wielderDexterityRanged = params[2]
                         wielderMovementSpeedRanged = params[3]
-                        print("Stats of ranged reproduction traced weapon applied")
+                        print("Stats of ranged reproduction traced weapon tracked")
                     end
                     if observedTraceTemplate.TooltipStatusApply == nil or observedTraceTemplate.TooltipStatusApply == "" then
                         if entry.meleeOrRanged == "Melee" then
@@ -216,10 +233,35 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                     break
                 end
             end
+        
+        else
+            if spell == "Shout_TraceWeapon_Caliburn" then
+                wielderStrength = params[1]
+                print("Strength is " .. wielderStrength)
+                wielderDexterity = params[2]
+                print("Dexterity is " .. wielderDexterity)
+                wielderMovementSpeed = params[3]
+                print("Movement speed is " .. wielderMovementSpeed)
+                Osi.TimerLaunch("Reproduced single melee weapon", 1500)
+
+                originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
+                
+                if Osi.HasActiveStatus(caster, "DASH") == 1 then
+                    originalStats[3] = originalStats[3]/2
+                end
+                if Osi.HasActiveStatus(caster, "LONGSTRIDER") == 1 then
+                    originalStats[3] = originalStats[3] - 3
+                end
+
+                emulateWielderCheck = true
+                emulateWielder(caster, originalStats) 
+                print("Stats of melee reproduction traced weapon tracked")
+            end
+
         end
 
         if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-           emulateWielder(caster, originalStats) 
+            emulateWielder(caster, originalStats) 
         end
 
     end
@@ -235,6 +277,10 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
         print("Ranged weapon template of reproduced weapon assigned variable")
     end
 
+    if Osi.TimerLaunch("Reproduced Noble Phantasm", 1500) then
+        
+    end
+
 end)
 
 -- Timer for Saving Throw or Trace Equip
@@ -244,5 +290,73 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
     end
 
 end)
+
+-- Emulate Wielder
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
+    if status == "EMULATE_WIELDER_SELFDAMAGE" then
+        if originalStats ~= nil then
+            emulateWielder(object, originalStats)
+        end
+
+    end
+
+end)
+
+-- Shout Aria
+Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+    if spell == "Shout_Aria" then
+        print("Shout aria detected")
+        if Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_8") == 0 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_1", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 1 and Osi.HasPassive(caster, "Passive_Aria_Two") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_2", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 1 and Osi.HasPassive(caster, "Passive_Aria_Three") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_3", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 1 and Osi.HasPassive(caster, "Passive_Aria_Four") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_4", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 1 and Osi.HasPassive(caster, "Passive_Aria_Five") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_5", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 1 and Osi.HasPassive(caster, "Passive_Aria_Six") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_6", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 1 and Osi.HasPassive(caster, "Passive_Aria_Seven") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_7", 10, 100, caster)
+        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 1 and Osi.HasPassive(caster, "Passive_Aria_Eight") == 1 then
+            Osi.ApplyStatus(caster, "APPLY_ARIA_8", 10, 100, caster)
+        end
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("CombatEnded", 1, "before", function(combatGuid) 
+    if Osi.CombatGetInvolvedPartyMember(combatGuid,1) == fakerCharacter or Osi.CombatGetInvolvedPartyMember(combatGuid,2) == fakerCharacter or Osi.CombatGetInvolvedPartyMember(combatGuid,3) == fakerCharacter or Osi.CombatGetInvolvedPartyMember(combatGuid,4) == fakerCharacter then
+
+        local entity = Ext.Entity.Get(fakerCharacter)
+        for keyStatus, entryStatus in pairs(entity.ServerCharacter.StatusManager.Statuses) do
+            if entryStatus.StackId:match("ARIA_") == "ARIA_" then
+                print("Removing lingering aria " .. entryStatus.StackId)
+                Osi.RemoveStatus(fakerCharacter, entryStatus.StackId)
+            end
+        end 
+
+    end
+
+end)
+
+-- trace on
+-- Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+--     if caster == fakerCharacter then
+--         -- Osi.TimerLaunch("Trace On Timer", 800)
+--         Osi.ShowNotification(fakerCharacter, "Trace On!")
+--     end
+
+-- end)
+
+-- Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
+--     if timer == "Trace On Timer" then
+--         UseSpell(fakerCharacter, "TRACEON", fakerCharacter)
+--     end
+
+-- end)
 
 print("General listeners loaded")

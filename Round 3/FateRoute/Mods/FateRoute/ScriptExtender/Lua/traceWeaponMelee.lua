@@ -267,9 +267,17 @@ Ext.Osiris.RegisterListener("MissedBy", 4, "after", function(defender, attackOwn
         local fakerCharacter = attacker or attackOwner
         print("Attacker is " .. attacker .. " and defender is " .. defender)
         if (Osi.HasActiveStatus(attacker, "REINFORCEMENT_OVEREDGE") == 1) then
-            Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Constitution", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 0, "Image Failure Roll (Melee)")
+            if (Osi.HasPassive(attacker, "Passive_MentalBattle") == 1) then
+                Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Intelligence", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 1, "Image Failure Roll (Melee)")
+            else
+                Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Intelligence", "13467824-03fd-4316-a0d1-5412cb6f9b2b", 0, "Image Failure Roll (Melee)")
+            end
         else
-            Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Constitution", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Melee)")
+            if (Osi.HasPassive(attacker, "Passive_MentalBattle") == 1) then
+                Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Intelligence", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 1, "Image Failure Roll (Melee)")
+            else
+                Osi.RequestPassiveRoll(fakerCharacter, fakerCharacter,"SavingThrow", "Intelligence", "f149a3ce-7625-4b9c-97b5-cfefaf791b64", 0, "Image Failure Roll (Melee)")
+            end
         end
         Osi.TimerLaunch("Fate Saving Throw Timer",250)
         savingThrowTimer = true
@@ -410,14 +418,18 @@ end)
 
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spellName, spellType, spellElement, storyActionID) 
     if spellName == "Throw_Alteration_Arrow" then
-        if HasMeleeWeaponEquipped(caster, "Mainhand") == 1 then
-            mainWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
+        if (Osi.HasPassive(caster, "MAG_HomingWeapon_Passive") == 0) then
+            if HasMeleeWeaponEquipped(caster, "Mainhand") == 1 then
+                mainWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
+            end
+            if HasMeleeWeaponEquipped(caster, "Offhand") == 1 then
+                offhandWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
+            end
+            print("Detected alteration arrow used")
+            Osi.TimerLaunch("Alteration Arrow", 4000)
+        else
+            Osi.TimerLaunch("Alteration Arrow: Returning", 4000)
         end
-        if HasMeleeWeaponEquipped(caster, "Offhand") == 1 then
-            offhandWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
-        end
-        print("Detected alteration arrow used")
-        Osi.TimerLaunch("Alteration Arrow", 4000)
     end
 end)
 
@@ -438,6 +450,8 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
         end
 
         print("Shot weapon attempted to be deleted end")
+    elseif timer == "Alteration Arrow: Returning" then
+        Osi.ApplyStatus(GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter), "REPRODUCTION_MELEE", GetStatusTurns(fakerCharacter, "FAKER_MELEE")*5, 100, fakerCharacter)
     end
 
 end)

@@ -19,6 +19,22 @@
             <attribute id="Type" type="FixedString" value="Emiya"/>
             <attribute id="UUID" type="guid" value="5729bc23-6d41-4dd2-8d88-7f881e6a55ed"/>
         </node>
+
+        <node id="ProgressionDescription">
+            <attribute id="Description" type="TranslatedString" handle="h4d3de7a36bff4f9e8a7428f48fda7ba8gc85" version="1"/>
+            <attribute id="DisplayName" type="TranslatedString" handle="h404561aa153149828aaa16885c6ec2a60d4d" version="1"/>
+            <attribute id="ProgressionTableId" type="guid" value="01865e3f-243e-4810-a82e-2c72018aa2a5"/>
+            <attribute id="Type" type="FixedString" value="BasicMagecraft"/>
+            <attribute id="UUID" type="guid" value="69470c2f-31cf-421a-8da1-9cf690a567bf"/>
+        </node>
+
+        <node id="ProgressionDescription">
+            <attribute id="Description" type="TranslatedString" handle="h69fc26e8999747ccbf0832b5c3a6a374caca" version="1"/>
+            <attribute id="DisplayName" type="TranslatedString" handle="h61d4091194bf46d7a04a7125844901449a52" version="1"/>
+            <attribute id="ProgressionTableId" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
+            <attribute id="Type" type="FixedString" value="FakerMagecraft"/>
+            <attribute id="UUID" type="guid" value="05147068-4c0b-4acb-ba68-95b878a62b0b"/>
+        </node>
       </children>
     </node>
   </region>

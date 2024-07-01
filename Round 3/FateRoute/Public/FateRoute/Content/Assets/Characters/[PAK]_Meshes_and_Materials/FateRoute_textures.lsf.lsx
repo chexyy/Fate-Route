@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="328" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="05a4ce29-b1da-43a5-8f63-3c025a98de39" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="4096" />
+					<attribute id="Height" type="int32" value="4096" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="51a3de01-d08c-4b48-8b94-3971248bfa0c" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="4096" />
+					<attribute id="Height" type="int32" value="4096" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="4488ba5b-3a33-4219-a194-b2f722b0f722" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="4096" />
+					<attribute id="Height" type="int32" value="4096" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+						
+			</children>
+		</node>
+	</region>
+</save>
