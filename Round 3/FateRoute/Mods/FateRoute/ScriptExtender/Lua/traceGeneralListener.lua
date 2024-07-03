@@ -121,6 +121,10 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                         end
                     end 
 
+                    if Osi.HasPassive(faker, "Passive_Aria_One") == 1 then
+                        addAria(faker)
+                    end
+
                     -- local entity = Ext.Entity.Get(faker)
                     -- for key, entry in pairs(entity.SpellBook.Spells) do
                     --     if entry.Id.ProgressionSource == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
@@ -304,24 +308,33 @@ end)
 
 -- Shout Aria
 Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
-    if spell == "Shout_Aria" then
-        print("Shout aria detected")
+    if spell == "Shout_Aria_1" or spell == "Shout_Aria_2" or spell == "Shout_Aria_3" or spell == "Shout_Aria_4" or spell == "Shout_Aria_5" or spell == "Shout_Aria_6" or spell == "Shout_Aria_7" or spell == "Shout_Aria_8" then
+        print(spell .. " detected")
+
         if Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_8") == 0 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_1", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 1 and Osi.HasPassive(caster, "Passive_Aria_Two") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_2", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 1 and Osi.HasPassive(caster, "Passive_Aria_Three") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_3", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 1 and Osi.HasPassive(caster, "Passive_Aria_Four") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_4", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 1 and Osi.HasPassive(caster, "Passive_Aria_Five") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_5", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 1 and Osi.HasPassive(caster, "Passive_Aria_Six") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_6", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 1 and Osi.HasPassive(caster, "Passive_Aria_Seven") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_7", 10, 100, caster)
+
         elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 1 and Osi.HasPassive(caster, "Passive_Aria_Eight") == 1 then
             Osi.ApplyStatus(caster, "APPLY_ARIA_8", 10, 100, caster)
+
         end
 
     end
@@ -340,8 +353,69 @@ Ext.Osiris.RegisterListener("CombatEnded", 1, "before", function(combatGuid)
         end 
 
     end
+end)
+
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID) 
+    if status:match("APPLY_ARIA") == "APPLY_ARIA" then
+        local entity = Ext.Entity.Get(object)
+        for key, entry in pairs(entity.SpellBook.Spells) do
+            if (entry.Id.OriginatorPrototype):match("Shout_Aria") == "Shout_Aria" then
+                print("Removing " .. entry.Id.OriginatorPrototype)
+                Osi.RemoveSpell(fakerCharacter, entry.Id.OriginatorPrototype)
+                break
+            end
+
+        end
+
+        Osi.TimerLaunch("Aria Timer", 125)
+
+    end
 
 end)
+
+Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer) 
+    if timer == "Aria Timer" then
+        addAria(fakerCharacter)
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", function(character) 
+    if character == fakerCharacter then
+        addAria(character)
+    end
+end)
+
+function addAria(character)
+    local entity = Ext.Entity.Get(character)
+    for key, entry in pairs(entity.SpellBook.Spells) do
+        if (entry.Id.OriginatorPrototype):match("Shout_Aria") == "Shout_Aria" then
+            Osi.RemoveSpell(character, entry.Id.OriginatorPrototype)
+            break
+        end
+
+    end
+
+    if Osi.HasPassive(character, "Passive_Aria_Eight") == 1 then
+        AddSpell(character, "Shout_Aria_8",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Seven") == 1 then
+        AddSpell(character, "Shout_Aria_7",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Six") == 1 then
+        AddSpell(character, "Shout_Aria_6",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Five") == 1 then
+        AddSpell(character, "Shout_Aria_5",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Four") == 1 then
+        AddSpell(character, "Shout_Aria_4",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Three") == 1 then
+        AddSpell(character, "Shout_Aria_3",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_Two") == 1 then
+        AddSpell(character, "Shout_Aria_2",0)
+    elseif Osi.HasPassive(character, "Passive_Aria_One") == 1 then
+        AddSpell(character, "Shout_Aria_1",0)
+    end
+
+end
 
 -- trace on
 -- Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 

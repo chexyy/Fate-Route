@@ -52,7 +52,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
 
                 --if mainhand but no offhand
                 if weaponSlot[1] ~= nil and weaponSlot[2] == nil then
-                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle)
+                    weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle)
                     displayName = originalWielderName .. "'s " .. weaponName
                     local weapon = Osi.GetEquippedItem(character, weaponSlot[1])
                     
@@ -73,7 +73,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                 
                 --if offhand but no mainhand
                 elseif weaponSlot[1] == nil and weaponSlot[2] ~= nil then
-                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)
+                    weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)
                     displayName = originalWielderName .. "'s " .. weaponName
                     local weapon = Osi.GetEquippedItem(character, weaponSlot[2])
                     
@@ -95,14 +95,16 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                 
                 --if both mainhand and offhand
                 elseif weaponSlot[1] ~= nil and weaponSlot[2] ~= nil then
-                    local weaponName = {Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle),Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)}
+                    local weaponNames = {Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[1])).DisplayName.NameKey.Handle.Handle),Ext.Loca.GetTranslatedString(Ext.Entity.Get(Osi.GetEquippedItem(character, weaponSlot[2])).DisplayName.NameKey.Handle.Handle)}
                     local weapon = {Osi.GetEquippedItem(character, weaponSlot[1]),Osi.GetEquippedItem(character, weaponSlot[2])}
 
                     -- display name
-                    if weaponName[1] ~= weaponName[2] then
-                        displayName = originalWielderName .. "'s " .. weaponName[1] .. " and " .. weaponName[2]
+                    if weaponNames[1] ~= weaponNames[2] then
+                        displayName = originalWielderName .. "'s " .. weaponNames[1] .. " and " .. weaponNames[2]
+                        weaponName = weaponNames[1] .. " and " .. weaponNames[2]
                     else
-                        displayName = originalWielderName .. "'s " .. weaponName[1] .. "s"
+                        displayName = originalWielderName .. "'s " .. weaponNames[1] .. "s"
+                        weaponName = weaponNames[1] .. "s"
                     end
                     Ext.Loca.UpdateTranslatedString(displayName, displayName)
                     observedTraceTemplate:SetRawAttribute("DisplayName", displayName)
@@ -151,7 +153,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                 baseSpell.ContainerSpells = containerList
                 baseSpell:Sync()
 
-                table.insert(localTraceTable,traceObject:new(displayName, wielderIcon, weaponUUID,spellProperties, observedTraceTemplate.UseCosts, tooltipApply, wielderStrength, wielderDexterity, wielderMovementSpeed,meleeOrRanged))
+                table.insert(localTraceTable,traceObject:new(displayName, wielderIcon, weaponUUID,spellProperties, observedTraceTemplate.UseCosts, tooltipApply, wielderStrength, wielderDexterity, wielderMovementSpeed,meleeOrRanged, weaponName))
                 entity.Vars.traceTable = localTraceTable
                 print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i)  
                 break

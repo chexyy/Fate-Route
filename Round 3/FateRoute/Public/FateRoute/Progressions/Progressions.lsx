@@ -7,7 +7,7 @@
 				<!-- Magus -->
 				<node id="Progression">
 					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,5,0);ProficiencyBonus(SavingThrow,Intelligence);ProficiencyBonus(SavingThrow,Constitution);Proficiency(Daggers);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
+					<attribute id="Boosts" type="LSString" value="ProficiencyBonus(SavingThrow,Intelligence);ProficiencyBonus(SavingThrow,Constitution);Proficiency(Daggers);Proficiency(LightArmor);Proficiency(MediumArmor)" />               
 					<attribute id="Level" type="uint8" value="1" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="Selectors" type="LSString" value="SelectAbilityBonus(85c1d4d0-bcca-42aa-8068-a22f62ea27f8,AbilityBonus,2,1);SelectSkills(2552506b-02e9-4bbe-9f34-d2af494fed15,2);AddSpells(55b92ed9-8ecc-48f8-871c-3591b852f1c2,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
@@ -25,8 +25,7 @@
 					</children>
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="2" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="Selectors" type="LSString" value="AddSpells(031f44ef-5b4d-45d8-a320-64b7cdc69ff0,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
@@ -35,8 +34,7 @@
 					<attribute id="UUID" type="guid" value="f8eb4316-0bac-4d09-aab6-166cebd00525" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="3" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -44,8 +42,7 @@
 					<attribute id="UUID" type="guid" value="2b31d184-fb94-439e-b282-b5690d12fc5c" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="true" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="true" />            
 					<attribute id="Level" type="uint8" value="4" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="Selectors" type="LSString" value="AddSpells(6f9582bc-b182-48c5-bbeb-5a3fee9258b9,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
@@ -54,8 +51,7 @@
 					<attribute id="UUID" type="guid" value="3b32b3ac-0acc-4ee5-a9d7-811b11e92b04" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="5" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -63,8 +59,7 @@
 					<attribute id="UUID" type="guid" value="0d22d56b-4f4f-4084-842c-83cf7a7415d9" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="6" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -72,8 +67,7 @@
 					<attribute id="UUID" type="guid" value="3d6bba1e-9a6d-4b87-91b5-a86284e0bcf6" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="7" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -81,8 +75,7 @@
 					<attribute id="UUID" type="guid" value="69f2c4e8-4ead-462d-8d62-6c935691bd88" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="true" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="true" />            
 					<attribute id="Level" type="uint8" value="8" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -90,8 +83,7 @@
 					<attribute id="UUID" type="guid" value="fd7c92ce-59b2-470f-8ab8-19dcb95d379d" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="9" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -99,8 +91,7 @@
 					<attribute id="UUID" type="guid" value="fe3e1fbc-0ee2-4b67-8cee-8a37cc0222ff" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="10" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -108,8 +99,7 @@
 					<attribute id="UUID" type="guid" value="4cce695b-0c12-4e9f-a38b-b6abbd304874" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="false" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="11" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
@@ -117,8 +107,7 @@
 					<attribute id="UUID" type="guid" value="2c9bec68-6a15-4e3a-847d-3e4611bf927d" />
 				</node>
 				<node id="Progression">
-					<attribute id="AllowImprovement" type="bool" value="true" />
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy,2,0)" />               
+					<attribute id="AllowImprovement" type="bool" value="true" />            
 					<attribute id="Level" type="uint8" value="12" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />

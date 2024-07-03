@@ -120,6 +120,13 @@
                    <attribute id="V2" type="float" value="0.250"/> Bottom
                </node>
                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_Trace_NoblePhantasm_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> Left
+                   <attribute id="U2" type="float" value="0.875"/> Right
+                   <attribute id="V1" type="float" value="0.125"/> Top
+                   <attribute id="V2" type="float" value="0.250"/> Bottom
+               </node>
+               <node id="IconUV">
                    <attribute id="MapKey" type="FixedString" value="Spell_Trace_Reproduction_Icon"/> 1
                    <attribute id="U1" type="float" value="0.0"/> Left
                    <attribute id="U2" type="float" value="0.125"/> Right
@@ -160,7 +167,7 @@
                    <attribute id="U2" type="float" value="0.75"/> Right
                    <attribute id="V1" type="float" value="0.25"/> Top
                    <attribute id="V2" type="float" value="0.375"/> Bottom
-               </node>
+                </node>
                 <node id="IconUV">
                    <attribute id="MapKey" type="FixedString" value="Spell_RushAttack_Caliburn_Icon"/> 7
                    <attribute id="U1" type="float" value="0.75"/> Left
