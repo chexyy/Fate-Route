@@ -14,7 +14,7 @@
 	<content contentuid="hf6f86f15g3f2dg4c96gabb1g126cf302d377" version="1">Increases the damage of unarmed attacks is increased by [1], &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; by [2], &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt; maximum by [3], and &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; by [4].</content>
 	<content contentuid="h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" version="1">Trace Weapon</content>
 	<content contentuid="h2008f847g4182g4c9agbcc1geef592458443" version="1">Reproduce the weapon(s) of a chosen creature in sight with Projection Magecraft.</content>
-	<content contentuid="h2aad907fgaf0ag4241g880cg4ffea096ec0d" version="1">You become &lt;LSTag Tooltip="Proficiency"&gt;Proficient&lt;/LSTag&gt; with the weapon and any actions associated with the weapon can be performed again without having to take a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; or &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. However, as a result of being traced, you suffer a [1] &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; penalty and upon failure, if you fail an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, your traced weapon will break and disappear. You can also only have one set of melee or ranged traced weapons at a time.</content>
+	<content contentuid="h2aad907fgaf0ag4241g880cg4ffea096ec0d" version="1">You become &lt;LSTag Tooltip="Proficiency"&gt;Proficient&lt;/LSTag&gt; with the weapon and any actions associated with the weapon can be performed again without having to take a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; or &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. However, as a result of being traced, you suffer a [1] &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; penalty and upon failure of one, if you then fail an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, your traced weapon will break and disappear.</content>
 	<content contentuid="h0db8fbd4g49cdg4d72gafe3g4d16817cc525" version="1">Weapon Traced</content>
 	<content contentuid="h6d59fc23g6429g4b7agb156g989fa516781f" version="1">The spellcaster traced this creature active weapon.</content>
 	<content contentuid="hd53022dc920d4db09a87d293b786b6d5e903" version="1">Faker (Melee)</content>
@@ -41,7 +41,7 @@
     <content contentuid="hd0a09a0f573e40bd997a3fcccd65ff949g5b" version="1">Sympathize Experience</content>
     <content contentuid="hf74c14bc6049473d9fd42b7bcd9d9c2ad70g" version="1">Depending on your currently traced weapon, gain the appropriate Fighting Style if you do not possess it already.</content>
     <content contentuid="hb542de732d8c48ee90224d3fde2b87ad2b2a" version="1">Weapon Catalog</content>
-    <content contentuid="hb8ee8e5b67ef43859d52520e4cebc6d503gg" version="1">Traced weapons are stored in your Reality Marble, allowing you to use &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon"&gt;Trace Weapon Reproduction&lt;/LSTag&gt; to reproduce any weapon previously copied.</content>
+    <content contentuid="hb8ee8e5b67ef43859d52520e4cebc6d503gg" version="1">Because of your unique constitution, you can remember any weapons that you lay your eyes on and reproduce them using &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Melee"&gt;Trace Weapon: Melee&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Ranged"&gt;Trace Weapon: Ranged&lt;/LSTag&gt;.</content>
     <content contentuid="h9786436ag6854g4471gb89cgb7966937b899" version="1">[1] wielded with [2] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [3] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [4] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
     <content contentuid="hd0849cd124b549e5b2e562b96c3ffbcb527g" version="1">Faker (Hidden)</content>
     <content contentuid="hb9d825e85c824fa2a9a4b2bcfaf4ceba068c" version="1">A hidden status used to check for tracing.</content>
@@ -1077,7 +1077,7 @@
     <content contentuid="h61d4091194bf46d7a04a7125844901449a52" version="1">Magecraft Specialization</content>
     <content contentuid="h8c17b2eaf2ba40bfb7e4a7ddcf3870b65309" version="1">The fired arrow deals the same damage as the weapon plus [1] of the damage of your main-hand bow and disappears after landing, unless it is &lt;LSTag Type="Passive" Tooltip="MAG_HomingWeapon_Passive"&gt;homing&lt;/LSTag&gt;.</content>
     <content contentuid="h8cb70edb465648b6a983b041e48e55953a03" version="1">"--Do not forget. What you must imagine is always that you yourself are the strongest. You do not need outside enemies. For you, the one you have to fight is none other than your own image."</content>
-    <content contentuid="h669608f31eec4da68edda8ed388428cda590" version="1">You've taken the final words spoken by Archer to heart. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; related to your Magecraft.</content>
+    <content contentuid="h669608f31eec4da68edda8ed388428cda590" version="1">You've taken the final words spoken by Archer to heart. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; and a [1] bonus on &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
     <content contentuid="h4d12bbc8f3c34709930fa03e51ee29c57701" version="1">All the World's Evil</content>
     <content contentuid="h2d4d9de707b043478efaee3a4f959f671744" version="1">Your prior experience in overcoming the mud of the grail grants you &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; against being Frightened.</content>
     <content contentuid="h3ea471e3f486431787bfd63cf7ce8af612ae" version="1">One's Image</content>
@@ -1127,4 +1127,35 @@
     <content contentuid="hdae76cca4dbb4173953cb597ce8fa80033cd" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; You must be wielding a traced melee weapon, see the attacker, and not be Incapacitated or Restrained.</content>
     <content contentuid="h2631b77efa454befb6784a47dc1d4f6160fa" version="1">Connection of One's Self</content>
     <content contentuid="h413eda141c9a49b5b814b679ac292238da1d" version="1">This creature has spoken [1] [2] of their Self Reflecting Aria, increasing their damage by [3].</content>
+    <content contentuid="hbc40c9e0c43c43df8e882fd6b01712e1g05d" version="1">Image Failure</content>
+    <content contentuid="hb6687af5c9954d908f484c67e78e27ae6g13" version="1">This creature tried to block with their traced melee weapons, but the reality of the weapons' failure couldn't be recounciled with weapons' image so they disappeared.</content>
+    <content contentuid="h5d24716fc4a947edb399db538327d7d8f691" version="1">Mana Burst Conduit</content>
+    <content contentuid="hac7a69e8bdbc48358ee6da598d7fd068269b" version="1">With a minimum of 10 &lt;LSTag Type="ActionResource" Tooltip="MagicalEnergy"&gt;Magical Energy&lt;/LSTag&gt;, this weapon's wielder can pour all of their magical energy into the blade and then immediately expend it to release a Mana Burst. The damage of the beam scales with the amount invested.</content>
+    <content contentuid="h0b70deafa6964f7f9b5a267f10eff5ec6314" version="1">The experiences of this weapon automatically flow into its wielder regardless of will.</content>
+    <content contentuid="h5e60ec07f3fe43c8b351cef341fbeb187g31" version="1">Seen by special eyes, the weapon(s) wielded by this creature have been catalogued.</content>
+    <content contentuid="h5c9325ba1c4a4fb3847d68be684d811df7f3" version="1">Weapon Copied</content>
+    <content contentuid="h560659c750d94707b266c08c0c8dc5f5g27b" version="1">You remember every weapon within [1] of you.</content>
+    <content contentuid="hfcca788c148141239cd3556bceca0cbc8393" version="1">Fascination with Blades</content>
+    <content contentuid="h0956611bd7104ed0a931e2c28d4280d7283a" version="1">Trace Weapon</content>
+    <content contentuid="h493c88718c9b44c6a20ffa5177d60ec051c5" version="1">Trace Weapon: Melee</content>
+    <content contentuid="h160104f49ae24d83a81fb1b13092fc5bag98" version="1">Using Project Magecraft, reproduce weapons that you've seen before whose cost is dependent on rarity.</content>
+    <content contentuid="h478aaf564667469fa804a0fae5c34449dbdg" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set of melee or ranged weapons at a time.</content>
+    <content contentuid="h5a42c8e19f57468d99487d79119824d4f360" version="1">Trace a melee weapon that you've seen before.</content>
+    <content contentuid="h98bca29667e044f689a705e39d99c9dbb06b" version="1">Trace Weapon: Ranged</content>
+    <content contentuid="h209b718fc03d49a0b1e6246979b912330660" version="1">Trace a ranged weapon that you've seen before.</content>
+    <content contentuid="h9bb0b9092fd949898950b810ea8016d90d49" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set melee weapons at a time.</content>
+    <content contentuid="h76ed5b6ed7844dcf8ad963d412b53c2022a2" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set ranged weapons at a time.</content>
+    <content contentuid="hbf4523d8d1064c8bb50c533788c0676881a5" version="1">Trace Weapon: Noble Phantasm</content>
+    <content contentuid="hec37dd83ecc444f6a6507c8d3a165cc3e4c0" version="1">Trace a weapon that you've seen before from your experience in the Fifth Holy Grail War.</content>
+    <content contentuid="h25f15cb7114740759147f3716a69767e7d23" version="1">Traced Proficiency</content>
+    <content contentuid="hb9266e48b4b64c02870fb5809868dd15f900" version="1">This creature has become proficient with their equipped traced weapons.</content>
+    <content contentuid="h1d3e95c1218f40bd9a8b10532310a0377cge" version="1">Remembered weapons are sorted by rarity first and then weapon type.</content>
+    <content contentuid="hfb4dd8c76589456dbfbfcbc9c4f5cac8g1fd" version="1">Projection Practitioner</content>
+    <content contentuid="h91f501d15be5420d9ac69c00b9b956eed69d" version="1">You’ve become acquainted with the use of Projection Magecraft. Tracing a weapon restores the bonus action used to cast it, once per round.</content>
+    <content contentuid="ha7b7257852f941af9bcb88387eec707696g4" version="1">Projection Expert</content>
+    <content contentuid="h4fd513866d11445d936e59f40f3ce0eb9fd9" version="1">Your constant use of Projection Magecraft has elevated you to the level of an expert. Tracing a weapon restores the bonus action used to cast it, twice per round.</content>
+    <content contentuid="h5acba4b740a84885835ed2903f40d94ab1ce" version="1">You’ve become an undeniable master of Projection Magecraft, a true Specialist. Tracing a weapon restores the bonus action used to cast it, three times per round.</content>
+    <content contentuid="h94a32c3692ba470ebe1d59a5f8cb31370078" version="1">Projection Master</content>
+    <content contentuid="hb0cb6a8da91840a6aa8032c3e733c8181gf9" version="1">The image of this creature's traced weapons had to be validated after missing.</content>
+    <content contentuid="h3b7b90813f894bbfab894dda58a526dfec65" version="1">Image Failure</content>
 </contentList>

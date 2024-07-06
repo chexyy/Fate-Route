@@ -28,7 +28,6 @@
 					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="2" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
-					<attribute id="Selectors" type="LSString" value="AddSpells(031f44ef-5b4d-45d8-a320-64b7cdc69ff0,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
 					<attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
 					<attribute id="UUID" type="guid" value="f8eb4316-0bac-4d09-aab6-166cebd00525" />
@@ -36,6 +35,7 @@
 				<node id="Progression">
 					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="3" />
+					<attribute id="Selectors" type="LSString" value="AddSpells(031f44ef-5b4d-45d8-a320-64b7cdc69ff0,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
 					<attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
@@ -45,7 +45,6 @@
 					<attribute id="AllowImprovement" type="bool" value="true" />            
 					<attribute id="Level" type="uint8" value="4" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
-					<attribute id="Selectors" type="LSString" value="AddSpells(6f9582bc-b182-48c5-bbeb-5a3fee9258b9,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
 					<attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
 					<attribute id="UUID" type="guid" value="3b32b3ac-0acc-4ee5-a9d7-811b11e92b04" />
@@ -53,6 +52,7 @@
 				<node id="Progression">
 					<attribute id="AllowImprovement" type="bool" value="false" />            
 					<attribute id="Level" type="uint8" value="5" />
+					<attribute id="Selectors" type="LSString" value="AddSpells(6f9582bc-b182-48c5-bbeb-5a3fee9258b9,BasicMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)" />
 					<attribute id="Name" type="LSString" value="FateMagus" />
 					<attribute id="ProgressionType" type="uint8" value="0" />
 					<attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5" /> 
@@ -120,10 +120,10 @@
 				<!-- Emiya -->
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="1"/>
-					<attribute id="Boosts" type="LSString" value="Proficiency(Longbows);Proficiency(Shortbows)"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 10, 0);Proficiency(Longbows);Proficiency(Shortbows)"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment;Passive_BladeReconstitution;Passive_TraceOn"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment;Passive_BladeReconstitution;Passive_TraceOn;Passive_WeaponCatalog"/>
 					<attribute id="Selectors" type="LSString" value="AddSpells(49e80ff0-76f1-41c4-9a30-963915e796fd,FakerMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="f8a4e9b0-b2ac-4c5f-bab6-046e94a42c40"/>
@@ -131,6 +131,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="2"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="FightingStyle_Archery"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -139,15 +140,16 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="3"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_WeaponCatalog"/>
-					<attribute id="Selectors" type="LSString" value="AddSpells(dc89c5d8-a0e6-4ed3-9e9e-1233a9abbac0,FakerMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_ProjectionPractitioner"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="c1c3daf2-5c3e-42a2-830b-64a283ddad43"/>
 				</node>
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="4"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_SympathizeExperience"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -156,6 +158,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="5"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="Selectors" type="LSString" value="AddSpells(eb9bfb76-628c-4eb8-9fbb-3377ca55cc0b,FakerMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)"/>
 					<attribute id="PassivesAdded" type="LSString" value="ExtraAttack;Passive_Aria_One"/>
@@ -165,6 +168,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="6"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_EmulateWielder;Passive_MindsEye;Passive_Aria_Two"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -173,8 +177,9 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="7"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_Overedge_Overdraw;Passive_Aria_Three"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_Overedge_Overdraw;Passive_Aria_Three;Passive_ProjectionExpert"/>
 					<attribute id="Selectors" type="LSString" value="AddSpells(1b058edb-f62e-4191-b8a0-7b21f4a83ebd,FakerMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="87dbe833-244a-4260-8da4-76c20642762c"/>
@@ -182,6 +187,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="8"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_AlltheWorldsEvil;Passive_Aria_Four"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -190,6 +196,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="9"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_MentalBattle;Passive_Aria_Five"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -198,6 +205,7 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="10"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Six"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
@@ -206,14 +214,16 @@
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="11"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Seven"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Seven;Passive_ProjectionMaster"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="7a507049-addb-441a-828a-3ee342588593"/>
 				</node>
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="12"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
 					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Eight"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>

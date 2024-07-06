@@ -252,6 +252,27 @@
                    <attribute id="V1" type="float" value="0.50"/> Top
                    <attribute id="V2" type="float" value="0.625"/> Bottom
                </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_ProjectionPractitioner_Icon"/> 6
+                   <attribute id="U1" type="float" value="0.625"/> Left
+                   <attribute id="U2" type="float" value="0.75"/> Right
+                   <attribute id="V1" type="float" value="0.50"/> Top
+                   <attribute id="V2" type="float" value="0.625"/> Bottom
+                </node>
+                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_ProjectionExpert_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> Left
+                   <attribute id="U2" type="float" value="0.875"/> Right
+                   <attribute id="V1" type="float" value="0.50"/> Top
+                   <attribute id="V2" type="float" value="0.625"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_ProjectionMaster_Icon"/> 8
+                   <attribute id="U1" type="float" value="0.875"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.50"/> Top
+                   <attribute id="V2" type="float" value="0.625"/> Bottom
+               </node>
            </children>
        </node>
    </region>

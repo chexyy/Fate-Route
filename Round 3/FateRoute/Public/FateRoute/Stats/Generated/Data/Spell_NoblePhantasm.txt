@@ -11,7 +11,7 @@ data "SpellProperties" "SummonInInventory(5d59144e-5ad7-4283-b3c5-e25724d70161,5
 data "SpellContainerID" "Shout_TraceWeapon"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent"
 data "Sheathing" "Melee"
-data "UseCosts" "BonusActionPoint:1;MagicalEnergy:6"
+data "UseCosts" "BonusActionPoint:1;MagicalEnergy:8"
 data "PrepareEffect" "60ec0a2d-1b72-4fb2-9eaf-571638aca25d"
 data "CastEffect" "6d072523-11f5-4b1b-a2d8-24ade34a315d"
 data "CastSound" "Spell_Cast_Summon_Flameblade_L1to3"

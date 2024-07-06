@@ -5,7 +5,7 @@
         <node id="root">
             <children>
                 <node id="DefaultValue">
-                    <attribute id="Add" type="LSString" value="Constitution;Dexterity"/>
+                    <attribute id="Add" type="LSString" value="Intelligence;Dexterity"/>
                     <attribute id="Level" type="int32" value="1"/>
                     <attribute id="TableUUID" type="guid" value="b4bae54b-9607-4b96-8985-2c72018aa2a5"/>
                     <attribute id="UUID" type="guid" value="6938cbef-d170-4eca-b9b1-bc3fe303edb7"/>

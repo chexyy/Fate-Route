@@ -254,7 +254,7 @@ data "SpellSuccess" "TARGET:IF(IsLightThrownObject(context.HitDescription.Thrown
 data "SpellProperties" "TARGET:IF((HasStatus('BURNING', context.HitDescription.ThrownObject) or HasStatus('FLAMING_SPHERE_AURA', context.HitDescription.ThrownObject))):ApplyStatus(BURNING,100,1)"
 data "ThrowableSpellRoll" "ThrowableCheck()"
 data "ThrowableSpellSuccess" "IF(Character()):ApplyStatus(OFFBALANCE_AFTER_SHOT,100,1);IF(Character() and HasPassive('MAG_HomingWeapon_Passive', context.Source)):ApplyStatus(BLEEDING,100, 1)"
-data "ThrowableTargetConditions" "not Grounded() and not IsItemDisabled() and not HasAttribute('InventoryBound') and (IsMovable() or Character() or Dead()) and CanMove(context.Target, context.Source, false) and not Tagged('CANT_SHOVE_THROW') and HasStatus('REPRODUCTION_MELEE')"
+data "ThrowableTargetConditions" "not Grounded() and not IsItemDisabled() and not HasAttribute('InventoryBound') and (IsMovable() or Character() or Dead()) and CanMove(context.Target, context.Source, false) and not Tagged('CANT_SHOVE_THROW') and (HasStatus('REPRODUCTION_MELEE') or HasStatus('REPRODUCTION_MELEE_OFFHAND'))"
 data "ThrowOrigin" "Target"
 data "TargetRadius" "RangedMainWeaponRange"
 data "TooltipAttackSave" "RangedWeaponAttack"
