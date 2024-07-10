@@ -1067,7 +1067,7 @@
     <content contentuid="h3b3871e9cbfe410ab448a7419dfbd7f8034f" version="1">You use Reinforcement Magecraft to enhance a traced melee weapon to become more arrow-like, allowing it to be fired as a projectile from a bow.</content>
     <content contentuid="h35c573a57ae14774855715773f0491dbded3" version="1">Overedge and Overdraw Remover</content>
     <content contentuid="h2091282348d042808a8f666e9cc5bf892aff" version="1">Takes [1] at the start of each turn and has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. Turns into regular &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;bleeding&lt;/LSTag&gt; after [2] turn[3], allowing it to be removed by healing.</content>
-    <content contentuid="hd868e82490194b888082ad12a8f1497aba81" version="1">Has the ability to trigger while &lt;LSTag Type="Status" Tooltip="DOWNED"&gt;downed&lt;/LSTag&gt; and can only trigger [1] times per round.</content>
+    <content contentuid="hd868e82490194b888082ad12a8f1497aba81" version="1">Has the ability to trigger while &lt;LSTag Type="Status" Tooltip="DOWNED"&gt;downed&lt;/LSTag&gt; and can only trigger [1] time per round.</content>
     <content contentuid="h5cf742054dd64083b0c24789eb03c692ec57" version="1">Internal Bleeding</content>
     <content contentuid="h404561aa153149828aaa16885c6ec2a60d4d" version="1">Basic Magecraft</content>
     <content contentuid="h4d3de7a36bff4f9e8a7428f48fda7ba8gc85" version="1">Magecraft that is expected for all magi to eventually know. These are &lt;LSTag Tooltip="AlwaysPrepared"&gt;Always Prepared&lt;/LSTag&gt;.</content>

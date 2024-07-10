@@ -71,11 +71,15 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
         local observedTraceTemplate = Ext.Stats.Get(spell)
         local entity = Ext.Entity.Get(caster)
 
+        entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount = entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount - 1 
+
         local descriptionParams = observedTraceTemplate.DescriptionParams
         local params = {}
         for capture in descriptionParams:gmatch("(%d*%.?%d+)") do
             table.insert(params, capture)   
         end
+        print("Params found to be:")
+        _D(params)
         
         local templateNum = spell:match("%d+")
         if templateNum ~= nil then
@@ -90,10 +94,19 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                 wielderMovementSpeedRanged = params[3]
                 print("Stats of ranged reproduction traced weapon tracked")
             end
+            if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+                emulateWielder(caster, originalStats) 
+            end
         end
         if spell == "Shout_TraceWeapon_Caliburn" then
+            print("Caliburn cast")
             originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
+            wielderStrength = params[1]
+            wielderDexterity = params[2]
+            wielderMovementSpeed = params[3]
             
+            caliburnCheck = true
+
             if Osi.HasActiveStatus(caster, "DASH") == 1 then
                 originalStats[3] = originalStats[3]/2
             end
@@ -102,14 +115,11 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
             end
 
             emulateWielderCheck = true
-            emulateWielder(caster, originalStats) 
             print("Stats of melee reproduction traced weapon tracked")
         end
 
 
-        if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-            emulateWielder(caster, originalStats) 
-        end
+        
 
     end
 
@@ -119,7 +129,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
     if status == "FAKER_MELEE" then
         Ext.Timer.WaitFor(1250,function()
             cooldownHelper("Melee Main Weapon")
-            if Osi.HasMeleeWeaponEquipped(character, "Offhand") == 1 or Osi.GetEquippedShield(character) ~= nil then
+            if Osi.HasMeleeWeaponEquipped(object, "Offhand") == 1 or Osi.GetEquippedShield(object) ~= nil then
                 cooldownHelper("Melee Offhand Weapon")
             end
     
@@ -128,8 +138,8 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
 
     if status == "FAKER_RANGED" then
         Ext.Timer.WaitFor(1250,function()
-            cooldownHelper("Melee Main Weapon")
-            if Osi.HasRangedWeaponEquipped(character, "Offhand") == 1 then
+            cooldownHelper("Ranged Main Weapon")
+            if Osi.HasRangedWeaponEquipped(object, "Offhand") == 1 then
                 cooldownHelper("Ranged Offhand Weapon")
             end
 
@@ -147,15 +157,15 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
 end)
 
 -- Emulate Wielder
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
-    if status == "EMULATE_WIELDER_SELFDAMAGE" then
-        if originalStats ~= nil then
-            emulateWielder(object, originalStats)
-        end
+-- Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
+--     if status == "EMULATE_WIELDER_SELFDAMAGE" then
+--         if originalStats ~= nil then
+--             emulateWielder(object, originalStats)
+--         end
 
-    end
+--     end
 
-end)
+-- end)
 
 -- Shout Aria
 Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 

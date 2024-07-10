@@ -192,94 +192,70 @@ function addExtraDescriptionRefined(target, weaponSlot, weaponUUID, meleeOrRange
 end
 
 -- function BST
-function makeTrace(insert,activeSpellContainer)
-    for i = 1,999,1 do
-        local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-        if observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-            -- copying over stats
-            insert.data.traceIndex = i
-            Ext.Loca.UpdateTranslatedString(insert.data.DisplayName, insert.data.DisplayName)
-            observedTraceTemplate:SetRawAttribute("DisplayName", insert.data.DisplayName)
-            observedTraceTemplate.Icon = insert.data.Icon
-            observedTraceTemplate:SetRawAttribute("SpellProperties", insert.data.spellProperties)
-            observedTraceTemplate:SetRawAttribute("Sheathing", insert.data.meleeOrRanged)
-            observedTraceTemplate.UseCosts = insert.data.UseCosts
-
-            if insert.data.tooltipApply ~= nil then
-                observedTraceTemplate:SetRawAttribute("TooltipStatusApply", insert.data.tooltipApply)
-                observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. insert.data.wielderStrength .. ";" .. insert.data.wielderDexterity .. ";" .. insert.data.wielderMovementSpeed)
-            else
-                observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. insert.data.wielderStrength .. ";" .. insert.data.wielderDexterity .. ";" .. insert.data.wielderMovementSpeed)
-            end
-
-            observedTraceTemplate:Sync()
-            print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
-            activeSpellContainer = activeSpellContainer .. ";Shout_TraceWeapon_Template" .. insert.data.traceIndex
-            break
-        end
-    end
-
-    return {insert,activeSpellContainer}
-
-end
-
-
-function insertBST(pointer, insert, activeSpellContainer)
+function insertBST(pointer, insert)
     -- if pointer doesn't exist
     if pointer == nil or pointer == {} or next(pointer) == nil then
         print("Adding root " .. insert.data.DisplayName .. " into weaponCatalog")
-        local makeOutput = makeTrace(insert, activeSpellContainer)
-
-        return {makeOutput[1], makeOutput[2]}
-    end
-
-    activeSpellContainer = activeSpellContainer .. ";Shout_TraceWeapon_Template" .. pointer.data.traceIndex
-    -- if pointer exists
-
-    if type(insert) == table and type(pointer) == table then
-        if insert:key() > pointer:key() then
-            if pointer.right == nil then -- if found and empty
-                print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
-                local makeOutput = makeTrace(insert, activeSpellContainer)
-                pointer.right = makeOutput[1]
-                activeSpellContainer = makeOutput[2]
-            else -- if not found
-                local insertOutput = insertBST(pointer.left, insert, activeSpellContainer)
-                pointer.right = insertOutput[1]
-                activeSpellContainer = insertOutput[2]     
-            end
-        elseif insert:key() < pointer:key() then
-            if insert.left == nil then -- if found and empty
-                print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
-                local makeOutput = makeTrace(insert, activeSpellContainer)
-                pointer.left = makeOutput[1]
-                activeSpellContainer = makeOutput[2]
-            else -- if not found
-                local insertOutput = insertBST(pointer.left, insert, activeSpellContainer)
-                pointer.left = insertOutput[1]
-                activeSpellContainer = insertOutput[2]
-            end
-        else -- found, equal to and not empty
-            if pointer.data.finesseWeapon ~= nil or pointer.data.meleeOrRanged == "Ranged" then -- if finesse weapon
-                if pointer.data.wielderDexterity < insert.wielderDexterity then -- if dexterity is higher for the finesse weapon, then...
-                    print("Dexterity of " .. pointer.data.wielderDexterity .. " is being replaced with " .. insert.data.wielderDexterity)
-                    pointer.data.wielderDexterity = insert.wielderDexterity
-                    pointer.data.wielderStrength = insert.wielderStrength
-                    pointer.data.wielderMovementSpeed = insert.wielderMovementSpeed
-                    pointer.data.DisplayName = insert.DisplayName
-                end 
-            elseif pointer.data.wielderStrength < insert.Strength then -- if strength is higher for strength weapon then...
-                print("Strength of " .. pointer.data.wielderStrength .. " is being replaced with " .. insert.data.wielderStrength)
-                pointer.data.wielderStrength = insert.wielderStrength
-                pointer.data.wielderDexterity = insert.wielderDexterity
-                pointer.data.wielderMovementSpeed = insert.wielderMovementSpeed
-                pointer.data.DisplayName = insert.DisplayName
-            end
-        end
         
-
-        return {pointer,activeSpellContainer}
+        return insert
     end
+
+    -- if pointer exists
+    if insert.key > pointer.key then
+        print("Insert is greater than pointer")
+        if pointer.right == nil or pointer.right == null  then -- if found and empty
+            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
+            pointer.right = insert
+        else -- if not found
+            pointer.right = insertBST(pointer.right, insert) 
+        end
+    elseif insert.key < pointer.key then
+        print("Insert is greater than pointer")
+        if insert.left == nil or insert.left == null then -- if found and empty
+            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
+            pointer.left = insert
+        else -- if not found
+            pointer.left = insertBST(pointer.left, insert)
+        end
+    else -- found, equal to and not empty
+        print("Weapon found in weaponCatalog")
+        if pointer.data.finesseWeapon ~= nil or pointer.data.meleeOrRanged == "Ranged" then -- if finesse weapon
+            if pointer.data.wielderDexterity < insert.data.wielderDexterity then -- if dexterity is higher for the finesse weapon, then...
+                print("Dexterity of " .. pointer.data.wielderDexterity .. " is being replaced with " .. insert.data.wielderDexterity)
+                pointer.data.wielderDexterity = insert.data.wielderDexterity
+                pointer.data.wielderStrength = insert.data.wielderStrength
+                pointer.data.wielderMovementSpeed = insert.data.wielderMovementSpeed
+                pointer.data.DisplayName = insert.data.DisplayName
+            end 
+        elseif pointer.data.wielderStrength < insert.data.Strength then -- if strength is higher for strength weapon then...
+            print("Strength of " .. pointer.data.wielderStrength .. " is being replaced with " .. insert.data.wielderStrength)
+            pointer.data.wielderStrength = insert.data.wielderStrength
+            pointer.data.wielderDexterity = insert.data.wielderDexterity
+            pointer.data.wielderMovementSpeed = insert.data.wielderMovementSpeed
+            pointer.data.DisplayName = insert.data.DisplayName
+        end
+    end
+        
+    -- if pointer.key == insert.key then
+    --     print("Weapon found in weaponCatalog")
+    --     if pointer.data.finesseWeapon ~= nil or pointer.data.finesseWeapon ~= null or pointer.data.meleeOrRanged == "Ranged" then -- if finesse weapon
+    --         if pointer.data.wielderDexterity < insert.wielderDexterity then -- if dexterity is higher for the finesse weapon, then...
+    --             print("Dexterity of " .. pointer.data.wielderDexterity .. " is being replaced with " .. insert.data.wielderDexterity)
+    --             pointer.data.wielderDexterity = insert.wielderDexterity
+    --             pointer.data.wielderStrength = insert.wielderStrength
+    --             pointer.data.wielderMovementSpeed = insert.wielderMovementSpeed
+    --             pointer.data.DisplayName = insert.DisplayName
+    --         end 
+    --     elseif pointer.data.wielderStrength < insert.Strength then -- if strength is higher for strength weapon then...
+    --         print("Strength of " .. pointer.data.wielderStrength .. " is being replaced with " .. insert.data.wielderStrength)
+    --         pointer.data.wielderStrength = insert.wielderStrength
+    --         pointer.data.wielderDexterity = insert.wielderDexterity
+    --         pointer.data.wielderMovementSpeed = insert.wielderMovementSpeed
+    --         pointer.data.DisplayName = insert.DisplayName
+    --     end
+    -- end
+
+    return pointer
 end
 
 
@@ -351,26 +327,27 @@ end
     -- end
 --
 
-function inorderTraversal(wepTypeRarity)
+function inorderTraversal(wepTypeRarity, traceIndices)
     if wepTypeRarity ~= nil and wepTypeRarity ~= {} then
         
         -- left
-        if (wepTypeRarity.left ~= nil) then
-            inorderTraversal(wepTypeRarity.left, makeSpell)
-        end
+            if (wepTypeRarity.left ~= nil) then
+                traceIndices = inorderTraversal(wepTypeRarity.left, traceIndices)
+            end
 
         -- parent
-            -- local activeSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
-            -- activeSpellContainer = activeSpellContainer .. "Shout_TraceWeapon_Template" .. wepTypeRarity.data.traceIndex .. ";"
-            -- Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer = activeSpellContainer
-            -- print(activeSpellContainer)
-        --
+            traceIndices = traceIndices+1
+            print("Making spell for " .. wepTypeRarity.key .. " inside Shout_TraceWeapon_Template" .. traceIndices)
+            if traceIndices < 10 then
+                observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template00" .. traceIndices) -- getting trace template
+            elseif traceIndices < 100 then
+                observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template0" .. traceIndices) -- getting trace template
+            else
+                observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. traceIndices) -- getting trace template
+            end
+            
 
-        -- if assigning the table to the template spells
-        print("Making spell for Shout_TraceWeapon_Template" .. wepTypeRarity.data.traceIndex )
-        local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. wepTypeRarity.data.traceIndex) -- getting trace template
-
-        -- changing template
+            -- changing template
             Ext.Loca.UpdateTranslatedString(wepTypeRarity.data.DisplayName, wepTypeRarity.data.DisplayName) -- creating handle for display name
             observedTraceTemplate:SetRawAttribute("DisplayName", wepTypeRarity.data.DisplayName) -- setting display name
             observedTraceTemplate.Icon = wepTypeRarity.data.Icon -- setting icon
@@ -381,15 +358,18 @@ function inorderTraversal(wepTypeRarity)
                 observedTraceTemplate:SetRawAttribute("TooltipStatusApply", wepTypeRarity.data.tooltipApply) -- adding statuses if dual
                 observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed) -- setting descriptionparams
             else
+                observedTraceTemplate:SetRawAttribute("TooltipStatusApply", "  ")
                 observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed)
             end
 
             observedTraceTemplate:Sync()  -- syncing template changes
             
         -- right
-        if (wepTypeRarity.right ~= nil) then
-            inorderTraversal(wepTypeRarity.right, makeSpell)
-        end
+            if (wepTypeRarity.right ~= nil) then
+                traceIndices = inorderTraversal(wepTypeRarity.right, traceIndices)
+            end
+
+            return traceIndices
 
     end
 
@@ -422,76 +402,30 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
 
     -- adding user variable
     Ext.Vars.RegisterUserVariable("weaponCatalog", {})
-    Ext.Vars.RegisterUserVariable("activeSpellContainer", {})
     Ext.Vars.RegisterUserVariable("targetTimer", {})
+    Ext.Vars.RegisterUserVariable("emulateBoostVar", {})
 
     local entity = Ext.Entity.Get(fakerCharacter)
     local localWeaponCatalog = entity.Vars.weaponCatalog or {}
-    local localactiveSpellContainer = entity.Vars.activeSpellContainer or {}
 
     print("localWeaponCatalog is:")
     _D(localWeaponCatalog)
     if localWeaponCatalog ~= {} and localWeaponCatalog ~= nil then -- if trace table has data
         if next(localWeaponCatalog) ~= nil then
             
-            local meleeContainer = ""
-            local rangedContainer = ""
-            for rarity = 5,1,-1 do -- cycles through each rarity
-
-                -- melee
-                for weaponKey = 1,26,1 do
-                    -- spellcontainer = ""
-                    local wepTypeRarity = localWeaponCatalog[weaponKey][rarity] -- gets the weapon type and rarity in the table
-                    if next(wepTypeRarity) ~= nil then
-                        inorderTraversal(wepTypeRarity, true)
-                    end
-                    
-                    if localactiveSpellContainer[weaponKey][rarity] ~= nil then
-                        meleeContainer = meleeContainer .. localactiveSpellContainer[weaponKey][rarity] .. ";"
-                    end
-
-                end
-            
-                -- ranged
-                for weaponKey = 27,33,1 do
-                    -- spellcontainer = ""
-                    local wepTypeRarity = localWeaponCatalog[weaponKey][rarity] -- gets the weapon type and rarity in the table
-                    if next(wepTypeRarity) ~= nil then
-                        inorderTraversal(wepTypeRarity, true)
-                    end
-
-                    if localactiveSpellContainer[weaponKey][rarity] ~= nil then
-                        rangedContainer = rangedContainer .. localactiveSpellContainer[weaponKey][rarity] .. ";"
-                    end
-                end
-            
-            end
-
-            -- syncing hopefully sorted container spells
-
-            traceMelee.ContainerSpells = meleeContainer
-            traceRanged.ContainerSpells = rangedContainer
-            traceMelee:Sync()
-            traceRanged:Sync()
-            Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon_Melee",1)
-            Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon_Ranged",1)
-            -- Osi.AddSpell(fakerCharacter, "Shout_TraceWeapon_Melee", 0, 1)
-            -- Osi.AddSpell(fakerCharacter, "Shout_TraceWeapon_Ranged", 0, 1)
+            -- melee
+            replaceContainer("Melee")
+        
+            -- ranged
+            replaceContainer("Ranged")
 
         else
+            print("Generating weapon catalog")
             local localWeaponCatalog = {}
             for weaponType = 1,33,1 do
                 localWeaponCatalog[weaponType] = {}
                 for rarity = 1,5,1 do
                     localWeaponCatalog[weaponType][rarity] = {}
-                end
-            end
-
-            local activeSpellContainer = {}
-            for weaponType = 1,33,1 do
-                activeSpellContainer[weaponType] = {}
-                for rarity = 1,5,1 do
-                    activeSpellContainer[weaponType][rarity] = "Empty"
                 end
             end
 
@@ -566,9 +500,9 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                 -- localWeaponCatalog[33] = Sling
 
             entity.Vars.weaponCatalog = localWeaponCatalog
-            entity.Vars.activeSpellContainer = activeSpellContainer
         end
     else
+        print("Generating weapon catalog")
         local localWeaponCatalog = {}
         for weaponType = 1,33,1 do
             localWeaponCatalog[weaponType] = {}
@@ -576,15 +510,7 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                 localWeaponCatalog[weaponType][rarity] = {}
             end
         end
-
-        local activeSpellContainer = {}
-        for weaponType = 1,33,1 do
-            activeSpellContainer[weaponType] = {}
-            for rarity = 1,5,1 do
-                activeSpellContainer[weaponType][rarity] = "Empty"
-            end
-        end
-
+        
             -- order
                 -- Battleaxes = {}
                 -- Clubs = {}
@@ -656,7 +582,6 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                 -- localWeaponCatalog[33] = Sling
 
             entity.Vars.weaponCatalog = localWeaponCatalog
-            entity.Vars.activeSpellContainer = activeSpellContainer
 
     end
 
@@ -671,43 +596,70 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
     end
     if timer == "Copy Weapon Timer" then
         copyWeaponTimer = nil
-    end
+    end 
     
 end)
 
 function replaceContainer(weaponType)
-    local localactiveSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
+    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
 
     local spellContainer = ""
+    local traceIndices = 0
     if weaponType == "Melee" then
+        traceIndices = 0
         traceSpellName = "Shout_TraceWeapon_Melee"
+        local isFilled = false
 
         for rarity = 5,1,-1 do -- cycles through each rarity
             for weaponKey = 1,26,1 do
-                if localactiveSpellContainer[weaponKey][rarity] ~= "Empty"  then
-                    spellContainer = spellContainer .. localactiveSpellContainer[weaponKey][rarity] .. ";"
-                    if spellContainer:len() == 1 then
-                        spellContainer = ""
-                    elseif spellContainer:find(";") == 1 then
-                        spellContainer = spellContainer:sub(2)
+                if localWeaponCatalog[weaponKey][rarity] ~= nil  then
+                    if next(localWeaponCatalog[weaponKey][rarity]) ~= nil then
+                        -- print("Weapon catalog of type " .. weaponKey .. " and rarity " .. rarity .. " is:")
+                        -- _D(localWeaponCatalog[weaponKey][rarity])
+                        traceIndices = inorderTraversal(localWeaponCatalog[weaponKey][rarity], traceIndices)
+                        isFilled = true
                     end
                 end
             end
         end
 
+        if isFilled == true then
+            for i = 1,traceIndices,1 do
+                if i < 10 then
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template00" .. i .. ";"
+                elseif i < 100 then
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template0" .. i .. ";"
+                else
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template" .. i .. ";"
+                end
+            end
+        end
+
     else
+        traceIndices = 699
         traceSpellName = "Shout_TraceWeapon_Ranged"
+        local isFilled = false
 
         for rarity = 5,1,-1 do -- cycles through each rarity
             for weaponKey = 27,33,1 do
-                if localactiveSpellContainer[weaponKey][rarity] ~= "Empty"  then
-                    spellContainer = spellContainer .. localactiveSpellContainer[weaponKey][rarity] .. ";"
-                    if spellContainer:len() == 1 then
-                        spellContainer = ""
-                    elseif spellContainer:find(";") == 1 then
-                        spellContainer = spellContainer:sub(2)
+                if localWeaponCatalog[weaponKey][rarity] ~= nil then
+                    if next(localWeaponCatalog[weaponKey][rarity]) ~= nil then
+                        traceIndices = inorderTraversal(localWeaponCatalog[weaponKey][rarity], traceIndices)
+                        isFilled = true
                     end
                 end
+            end
+        end
+
+        if isFilled == true then
+            for i = 700,traceIndices,1 do
+                if i < 10 then
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template00" .. i .. ";"
+                elseif i < 100 then
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template0" .. i .. ";"
+                else
+                    spellContainer = spellContainer .. "Shout_TraceWeapon_Template" .. i .. ";"
+                end        
             end
         end
 
@@ -777,19 +729,20 @@ function copyWeaponVision(character)
                     DisplayName = wielderName .. "'s " .. weaponName
                 end
 
-                local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
-                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                print("traceInsert is...")
-                _D(traceInsertMelee)
-                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee,"") -- inserts into BST
+                if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then
 
-                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[1]
-                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-                
-                local localactiveSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
-                localactiveSpellContainer[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[2]
-                Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer = localactiveSpellContainer
-                replaceContainer("Melee")
+                    local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
+                    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                    print("traceInsert, dual melee weapons, is...")
+                    _D(traceInsertMelee)
+                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
+
+                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                    replaceContainer(meleeOrRanged)
+
+                end
 
             else -- if lone weapon
                 local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
@@ -797,19 +750,20 @@ function copyWeaponVision(character)
                 spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",3,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE)"
                 local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
 
-                local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
-                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                print("traceInsert is...")
-                _D(traceInsertMelee)
-                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee,"") -- inserts into BST
+                if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
 
-                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[1]
-                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-                
-                local localactiveSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
-                localactiveSpellContainer[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[2]
-                Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer = localactiveSpellContainer
-                replaceContainer("Melee")
+                    local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
+                    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                    print("traceInsert, lone melee weapon, is...")
+                    _D(traceInsertMelee)
+                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
+
+                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                    replaceContainer(meleeOrRanged)
+
+                end
 
             end
 
@@ -843,19 +797,20 @@ function copyWeaponVision(character)
                     local DisplayName = wielderName .. "'s " .. weaponName
                 end
 
-                local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
-                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                print("traceInsert ranged is...")
-                _D(traceInsertRanged)
-                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged,"") -- inserts into BST
+                if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then -- check if usable by player
 
-                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[1]
-                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-                
-                local localactiveSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
-                localactiveSpellContainer[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[2]
-                Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer = localactiveSpellContainer
-                replaceContainer("Ranged")
+                    local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
+                    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                    print("traceInsert, dual ranged weapons, is...")
+                    _D(traceInsertRanged)
+                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
+
+                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                    replaceContainer(meleeOrRanged)
+
+                end
 
             else -- if lone weapon
                 local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
@@ -863,19 +818,21 @@ function copyWeaponVision(character)
                 spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",3,1,true,true,true,,,REPRODUCTION_RANGED, REPRODUCTION_RANGED)"
                 local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
 
-                local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
-                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                print("traceInsert ranged is...")
-                _D(traceInsertRanged)
-                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged,"") -- inserts into BST
+                if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
 
-                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[1]
-                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+                    local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
+                    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                    print("traceInsert. lone ranged weapon, is...")
+                    _D(traceInsertRanged)
+                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
+
+                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                    replaceContainer(meleeOrRanged)
+
+                end
                 
-                local localactiveSpellContainer = Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer
-                localactiveSpellContainer[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput[2]
-                Ext.Entity.Get(fakerCharacter).Vars.activeSpellContainer = localactiveSpellContainer
-                replaceContainer("Ranged")
             end
         end
 

@@ -389,7 +389,7 @@ function emulateWielder(character, originalStats)
     emulateBoost = emulateBoost or ""
     Osi.RemoveBoosts(character, emulateBoost, 1, "Emulate Wielder", "")
     emulateBoost = "Ability(Strength," .. strengthIncrease .. "); Ability(Dexterity," .. dexterityIncrease .. "); ActionResource(Movement," .. movementSpeedIncrease .. ",0)"
-    emulateWielderOwner = character
+    print(emulateBoost)
     Osi.TimerLaunch("Emulate Wielder Timer", 125)
 end
 

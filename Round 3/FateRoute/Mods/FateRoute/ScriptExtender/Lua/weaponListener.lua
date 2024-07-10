@@ -1,98 +1,98 @@
 Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID)
     local fakerCharacter = object
     
-    if status == "FAKER_MELEE" then
-        local mainWeapon = GetEquippedItem(fakerCharacter, "Melee Main Weapon")
-        if mainWeapon ~= nil then
-            local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
-            if mainWeaponTemplate ~= nil then
-                Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
-                Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
-                print("Attempted to remove " .. mainWeaponTemplate)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Osi.UnloadItem(mainWeaponTemplate)
-            end
-        else
-            if mainWeaponTemplate ~= nil then
-                Osi.UnloadItem(mainWeaponTemplate)
-            end
-        end
+    -- if status == "FAKER_MELEE" then
+    --     local mainWeapon = GetEquippedItem(fakerCharacter, "Melee Main Weapon")
+    --     if mainWeapon ~= nil then
+    --         local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
+    --         if mainWeaponTemplate ~= nil then
+    --             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
+    --             Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
+    --             print("Attempted to remove " .. mainWeaponTemplate)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+    --             Osi.UnloadItem(mainWeaponTemplate)
+    --         end
+    --     else
+    --         if mainWeaponTemplate ~= nil then
+    --             Osi.UnloadItem(mainWeaponTemplate)
+    --         end
+    --     end
 
-        local offhandWeapon = GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")
-        if offhandWeapon ~= nil then
-            local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
-            if offhandWeaponTemplate ~= nil then
-                Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
-                Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
-                Osi.UnloadItem(offhandWeaponTemplate)
-                print("Attempted to remove " .. offhandWeaponTemplate)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Osi.UnloadItem(offhandWeaponTemplate)
-            end
-        else
-            if offhandWeaponTemplate ~= nil then
-                Osi.UnloadItem(offhandWeaponTemplate)
-            end
-        end
+    --     local offhandWeapon = GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")
+    --     if offhandWeapon ~= nil then
+    --         local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
+    --         if offhandWeaponTemplate ~= nil then
+    --             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
+    --             Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
+    --             Osi.UnloadItem(offhandWeaponTemplate)
+    --             print("Attempted to remove " .. offhandWeaponTemplate)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+    --             Osi.UnloadItem(offhandWeaponTemplate)
+    --         end
+    --     else
+    --         if offhandWeaponTemplate ~= nil then
+    --             Osi.UnloadItem(offhandWeaponTemplate)
+    --         end
+    --     end
         
-        local entity = Ext.Entity.Get(fakerCharacter)
-        entity.Vars.traceVariables = {}
+    --     local entity = Ext.Entity.Get(fakerCharacter)
+    --     entity.Vars.traceVariables = {}
 
-        wielderStrength = 0
-        wielderDexterity = 0
-        wielderMovementSpeed = 0
-        wielderName = ""
-        offhandWeaponTemplate = nil
-        mainWeaponTemplate = nil
-    end
+    --     wielderStrength = 0
+    --     wielderDexterity = 0
+    --     wielderMovementSpeed = 0
+    --     wielderName = ""
+    --     offhandWeaponTemplate = nil
+    --     mainWeaponTemplate = nil
+    -- end
 
-    if status == "FAKER_RANGED" then 
-        local mainWeaponRanged = GetEquippedItem(fakerCharacter, "Ranged Main Weapon")
-        if mainWeaponRanged ~= nil then
-            local mainWeaponTemplateRanged = Osi.GetTemplate(mainWeaponRanged)
-            if mainWeaponTemplateRanged ~= nil then    
-                Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter))
-                Osi.TemplateRemoveFrom(mainWeaponTemplateRanged, fakerCharacter, 1)
-                print("Attempted to remove " .. mainWeaponTemplateRanged)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Osi.UnloadItem(mainWeaponTemplateRanged)
-            end
-        else
-            if mainWeaponTemplateRanged ~= nil then
-                Osi.UnloadItem(mainWeaponTemplateRanged)
-            end
-        end
+    -- if status == "FAKER_RANGED" then 
+    --     local mainWeaponRanged = GetEquippedItem(fakerCharacter, "Ranged Main Weapon")
+    --     if mainWeaponRanged ~= nil then
+    --         local mainWeaponTemplateRanged = Osi.GetTemplate(mainWeaponRanged)
+    --         if mainWeaponTemplateRanged ~= nil then    
+    --             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter))
+    --             Osi.TemplateRemoveFrom(mainWeaponTemplateRanged, fakerCharacter, 1)
+    --             print("Attempted to remove " .. mainWeaponTemplateRanged)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+    --             Osi.UnloadItem(mainWeaponTemplateRanged)
+    --         end
+    --     else
+    --         if mainWeaponTemplateRanged ~= nil then
+    --             Osi.UnloadItem(mainWeaponTemplateRanged)
+    --         end
+    --     end
 
-        local offhandWeaponRanged = GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")
-        if offhandWeaponRanged ~= nil then
-            local offhandWeaponTemplateRanged = Osi.GetTemplate(offhandWeaponRanged)
-            if offhandWeaponTemplateRanged ~= nil then
-                Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter))
-                Osi.TemplateRemoveFrom(offhandWeaponTemplateRanged, fakerCharacter, 1)
-                print("Attempted to remove " .. offhandWeaponTemplateRanged)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Osi.UnloadItem(offhandWeaponTemplateRanged)
-            end
-        else
-            if offhandWeaponTemplateRanged ~= nil then
-                Osi.UnloadItem(offhandWeaponTemplateRanged)
-            end
-        end
+    --     local offhandWeaponRanged = GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")
+    --     if offhandWeaponRanged ~= nil then
+    --         local offhandWeaponTemplateRanged = Osi.GetTemplate(offhandWeaponRanged)
+    --         if offhandWeaponTemplateRanged ~= nil then
+    --             Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter))
+    --             Osi.TemplateRemoveFrom(offhandWeaponTemplateRanged, fakerCharacter, 1)
+    --             print("Attempted to remove " .. offhandWeaponTemplateRanged)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+    --             Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+    --             Osi.UnloadItem(offhandWeaponTemplateRanged)
+    --         end
+    --     else
+    --         if offhandWeaponTemplateRanged ~= nil then
+    --             Osi.UnloadItem(offhandWeaponTemplateRanged)
+    --         end
+    --     end
         
-        local entity = Ext.Entity.Get(fakerCharacter)
-        entity.Vars.traceVariablesRanged = {}
+    --     local entity = Ext.Entity.Get(fakerCharacter)
+    --     entity.Vars.traceVariablesRanged = {}
 
-        wielderStrengthRanged = 0
-        wielderDexterityRanged = 0
-        wielderMovementSpeedRanged = 0
-        wielderNameRanged = ""
-        offhandWeaponTemplateRanged = nil
-        mainWeaponTemplateRanged = nil
-    end
+    --     wielderStrengthRanged = 0
+    --     wielderDexterityRanged = 0
+    --     wielderMovementSpeedRanged = 0
+    --     wielderNameRanged = ""
+    --     offhandWeaponTemplateRanged = nil
+    --     mainWeaponTemplateRanged = nil
+    -- end
 
 end)
 

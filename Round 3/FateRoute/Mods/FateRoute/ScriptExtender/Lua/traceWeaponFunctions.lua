@@ -6,7 +6,7 @@ function locateFaker()
             for fakerCheckKey, fakerCheckEntry in pairs(entityFake.Classes.Classes) do
                 if fakerCheckEntry.SubClassUUID == "fcbaa6ae-07d7-4134-a81d-360d23e6050f" then
                     fakerCharacter = guid
-                    print("Faker (general listener) found to be " .. fakerCharacter)
+                    print("Faker found to be " .. fakerCharacter)
                     return fakerCharacter
                 end
             end
@@ -19,11 +19,27 @@ function cooldownHelper(equipmentSlot)
     local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.Boosts
     local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.BoostsOnEquipMainHand
     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.BoostsOnEquipOffHand
+
+    if Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 1 then
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_UNCOMMON", -1, 100, fakerCharacter)
+
+    elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 2 then
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_RARE", -1, 100, fakerCharacter)
+
+    elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 3 then
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_VERYRARE", -1, 100, fakerCharacter)
+
+    elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 4 then
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_LEGENDARY", -1, 100, fakerCharacter)
+
+    end
+
     resetWeaponCooldowns(fakerCharacter, boosts,mainhandBoosts,offhandBoosts)
 
     local mainWeaponTemplate = Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, equipmentSlot))
     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
     Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
+
     print("Reset cooldown of reproduced mainhand melee weapon")
 end
 
@@ -139,11 +155,17 @@ function emulateWielder(character, originalStats)
         movementSpeedIncrease = movementSpeed - originalStats[3]
     end
 
-    emulateBoost = emulateBoost or ""
+    emulateBoost = Ext.Entity.Get(fakerCharacter).Vars.emulateBoostVar or ""
+    if type(emulateBoost) ~= string then
+        emulateBoost = ""
+    end
     Osi.RemoveBoosts(character, emulateBoost, 1, "Emulate Wielder", "")
     emulateBoost = "Ability(Strength," .. strengthIncrease .. "); Ability(Dexterity," .. dexterityIncrease .. "); ActionResource(Movement," .. movementSpeedIncrease .. ",0)"
-    emulateWielderOwner = character
-    Osi.TimerLaunch("Emulate Wielder Timer", 125)
+    Ext.Entity.Get(fakerCharacter).Vars.emulateBoostVar = emulateBoost
+    print("emulateboost is: " .. emulateBoost)
+    Ext.Timer.WaitFor(250,function()
+        Osi.AddBoosts(fakerCharacter, emulateBoost, "Emulate Wielder", "")
+    end)
 end
 
 print("Functions loaded")

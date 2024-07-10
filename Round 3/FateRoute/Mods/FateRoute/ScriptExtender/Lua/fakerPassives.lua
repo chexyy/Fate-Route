@@ -5,7 +5,7 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
         bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or 0
 
         if entity.Health.Hp <= entity.Health.MaxHp*0.10 then
-            if bladeReconstitutionTurnCheck ~= Ext.Stats.Get("Shout_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
+            if bladeReconstitutionTurnCheck ~= Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
                 if Osi.HasActiveStatus(defender, "DOWNED") == 1 and Osi.IsDead(defender) == 0 then
                     Osi.RemoveStatus(defender, "DOWNED", defender)
                 end
@@ -14,11 +14,11 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
                 savingThrowTimer = true
                 bladeReconstitutionTurnCheck = bladeReconstitutionTurnCheck + 1
                 entity.Vars.bladeReconstitutionTurnCheck = bladeReconstitutionTurnCheck
-            elseif bladeReconstitutionTurnCheck == Ext.Stats.Get("Shout_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
+            elseif bladeReconstitutionTurnCheck == Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
                 Osi.ObjectTimerLaunch(defender, "Blade Reconstitution Timer", 1, 1)
                 print("Blade Reconstitution on cooldown")
             end
-            print("Blade reconstitution triggered on being attacked, and its cooldown is " .. bladeReconstitutionTurnCheck)
+            print("Blade reconstitution triggered on being attacked. Its cooldown is " .. bladeReconstitutionTurnCheck .. " and its max uses per round is " .. Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams)
         end
     end
 
@@ -30,7 +30,7 @@ Ext.Osiris.RegisterListener("TurnStarted", 1, "before", function(object)
         bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or 0
 
         if entity.Health.Hp <= entity.Health.MaxHp*0.10 and savingThrowTimer == nil then
-            if bladeReconstitutionTurnCheck ~= Ext.Stats.Get("Shout_BladeReconstitution").ExtraDescriptionParams then
+            if bladeReconstitutionTurnCheck ~= Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams then
                 if Osi.HasActiveStatus(object, "DOWNED") == 1 and Osi.IsDead(object) == 0 then
                     Osi.RemoveStatus(object, "DOWNED", object)
                 end
@@ -39,11 +39,11 @@ Ext.Osiris.RegisterListener("TurnStarted", 1, "before", function(object)
                 savingThrowTimer = true
                 bladeReconstitutionTurnCheck = bladeReconstitutionTurnCheck + 1
                 entity.Vars.bladeReconstitutionTurnCheck = bladeReconstitutionTurnCheck
-            elseif bladeReconstitutionTurnCheck == Ext.Stats.Get("Shout_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
+            elseif bladeReconstitutionTurnCheck == Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams and savingThrowTimer == nil then
                 Osi.ObjectTimerLaunch(object, "Blade Reconstitution Timer", 1, 1)
                 print("Blade Reconstitution on cooldown")
             end
-            print("Blade reconstitution triggered on turn start, and its cooldown is " .. bladeReconstitutionTurnCheck)
+            print("Blade reconstitution triggered on turn start. Its cooldown is " .. bladeReconstitutionTurnCheck .. " and its max uses per round is " .. Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams)
         end
     end
 
@@ -106,6 +106,7 @@ end)
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
     if status == "EMULATE_WIELDER_CHECK" then
+        print("Status emulate applied")
         local entity = Ext.Entity.Get(object)
         originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
         
@@ -120,7 +121,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         emulateWielderCheck = true
     end
 
-    if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true then
+    if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true and caliburnCheck == nil then
         emulateWielder(object, originalStats)
         print("Attempted to reapply emulate wielder")
     end
@@ -133,14 +134,5 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
     if status == "EMULATE_WIELDER_CHECK" then
         emulateWielderCheck = nil
     end
-
-end)
-
-Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
-    if timer == "Emulate Wielder Timer" then
-        emulateBoost = emulateBoost or ""
-        Osi.AddBoosts(emulateWielderOwner, emulateBoost, "Emulate Wielder", "")
-        emulateWielderOwner = nil
-    end 
 
 end)
