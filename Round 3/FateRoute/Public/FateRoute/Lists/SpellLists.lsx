@@ -11,7 +11,7 @@
 				</node>
 				<node id="SpellList">
 					<attribute id="Comment" type="LSString" value="Trace Weapon" />
-					<attribute id="Spells" type="LSString" value="Shout_TraceWeapon_Melee;Shout_TraceWeapon_Ranged;Shout_TraceWeapon_NoblePhantasm" />
+					<attribute id="Spells" type="LSString" value="Shout_TraceWeapon_Melee;Shout_TraceWeapon_Ranged;Shout_TraceWeapon_NoblePhantasm;Shout_DispelWeapon_Melee;Shout_DispelWeapon_Ranged" />
 					<attribute id="UUID" type="guid" value="49e80ff0-76f1-41c4-9a30-963915e796fd" />
 				</node>
 				<node id="SpellList">

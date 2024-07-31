@@ -99,3 +99,19 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
     Ext.IO.SaveFile("Nightsong.json", Ext.DumpExport(entity:GetAllComponents()))
 
 end)
+
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+    print("Defender is " .. defender)
+    print("Attack owner is " .. attackerOwner)
+    print("Attacker2 is " .. attacker2)
+    print("Damage type is " .. damageType)
+    print("Damage amount is " .. damageAmount)
+    print("Damage cause is " .. damageCause)
+    print("Story action ID is " .. storyActionID)
+
+end)
+
+Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
+    if caster == 
+
+end)

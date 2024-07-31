@@ -120,10 +120,10 @@
 				<!-- Emiya -->
 				<node id="Progression">
 					<attribute id="Level" type="uint8" value="1"/>
-					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 10, 0);Proficiency(Longbows);Proficiency(Shortbows)"/>
+					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 10, 0);Proficiency(Longbows);Proficiency(Shortbows);Proficiency(Slings);Proficiency(HandCrossbows);Proficiency(HeavyCrossbows);Proficiency(LightCrossbows);Proficiency(Clubs)"/>
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment;Passive_BladeReconstitution;Passive_TraceOn;Passive_WeaponCatalog;Passive_ImageFailure_Melee;Passive_ImageFailure_Ranged"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_ElementalUnalignment;Passive_BladeReconstitution;Passive_TraceOn;Passive_WeaponCatalog;Passive_ImageFailure_Melee;Passive_ImageFailure_Ranged;Passive_OutofThinAir_Melee;Passive_OutofThinAir_Ranged"/>
 					<attribute id="Selectors" type="LSString" value="AddSpells(49e80ff0-76f1-41c4-9a30-963915e796fd,FakerMagecraft,Constitution,7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0,AlwaysPrepared)"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="f8a4e9b0-b2ac-4c5f-bab6-046e94a42c40"/>
@@ -133,7 +133,7 @@
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="FightingStyle_Archery"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_AlltheWorldsEvil;FightingStyle_Archery"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="a7ab62e6-d908-4565-a4b2-4e9bc89a6773"/>
 				</node>
@@ -189,7 +189,7 @@
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 4, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_AlltheWorldsEvil;Passive_Aria_Four"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_TriggerOff_Melee;Passive_TriggerOff_Ranged;Passive_Aria_Four"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="99a1149e-7460-46a2-be31-3a142a33d607"/>
 				</node>

@@ -32,6 +32,7 @@
     -- Longbows - 31
     -- Shortbows - 32
     -- Sling - 33
+    -- Arrows - 34
 --
 
 treeNode = {}

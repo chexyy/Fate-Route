@@ -18,7 +18,7 @@
 	<content contentuid="h0db8fbd4g49cdg4d72gafe3g4d16817cc525" version="1">Weapon Traced</content>
 	<content contentuid="h6d59fc23g6429g4b7agb156g989fa516781f" version="1">The spellcaster traced this creature active weapon.</content>
 	<content contentuid="hd53022dc920d4db09a87d293b786b6d5e903" version="1">Faker (Melee)</content>
-	<content contentuid="h43268fc359934e3da5d8ca06b59d84e90abf" version="1">Has traced a creature's active melee weapon.</content>
+	<content contentuid="h43268fc359934e3da5d8ca06b59d84e90abf" version="1">This creature's traced ranged weapons suffer a slight degradation, resulting in a -[1] attack roll penalty with attacks using the weapon. Negated when the skills of the weapon's original wielder is emulated.</content>
     <content contentuid="h766959fcd81e4fde804fcfb0f3f3d8180447" version="1">Trace this weapon.</content>
 	<content contentuid="hc0c5f647ge23ag4125gaabfg15645d6ee811" version="1">Trace a weapon previously copied, whose cost is dependent on the weapon's rarity.</content>
     <content contentuid="hb2e96d7a77c34ea7a6dcbf669f8296c0cd00" version="1">Trace Weapon: Reproduction</content>
@@ -41,7 +41,7 @@
     <content contentuid="hd0a09a0f573e40bd997a3fcccd65ff949g5b" version="1">Sympathize Experience</content>
     <content contentuid="hf74c14bc6049473d9fd42b7bcd9d9c2ad70g" version="1">Depending on your currently traced weapon, gain the appropriate Fighting Style if you do not possess it already.</content>
     <content contentuid="hb542de732d8c48ee90224d3fde2b87ad2b2a" version="1">Weapon Catalog</content>
-    <content contentuid="hb8ee8e5b67ef43859d52520e4cebc6d503gg" version="1">Because of your unique constitution, you can remember any weapons that you lay your eyes on and reproduce them using &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Melee"&gt;Trace Weapon: Melee&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Ranged"&gt;Trace Weapon: Ranged&lt;/LSTag&gt;.</content>
+    <content contentuid="hb8ee8e5b67ef43859d52520e4cebc6d503gg" version="1">Because of your unique constitution, you can remember any weapons that you lay your eyes on within [1] and reproduce them using &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Melee"&gt;Trace Weapon: Melee&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Ranged"&gt;Trace Weapon: Ranged&lt;/LSTag&gt;.</content>
     <content contentuid="h9786436ag6854g4471gb89cgb7966937b899" version="1">[1] wielded with [2] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [3] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [4] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
     <content contentuid="hd0849cd124b549e5b2e562b96c3ffbcb527g" version="1">Faker (Hidden)</content>
     <content contentuid="hb9d825e85c824fa2a9a4b2bcfaf4ceba068c" version="1">A hidden status used to check for tracing.</content>
@@ -1050,10 +1050,10 @@
     <content contentuid="h2mr9cyoo0sxewdbtf3e3plo7x4678xn8h27r" version="1">A reflection of &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_TemplateDescription999"&gt;[1]&lt;/LSTag&gt;.</content>
     <content contentuid="h26fcbb1f24fc496595580296b04853b85fc5" version="1">Allows for the &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; of the creature the weapon was traced from to be copied if it is higher than yours. The &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; of the creature the weapon was traced from to be copied if it is higher than yours. However, everytime an attack is then performed, upon failure of a &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, take [1] of &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt; maximum as Force damage.</content>
     <content contentuid="hf854933aeef447e6b961f28a335a59e0ae5d" version="1">Emulate Wielder: Overload</content>
-    <content contentuid="h647af9710f534f708ca961122999de63926f" version="1">You need to toggle this feature after tracing a weapon in order to active this effect. If you have both a ranged and melee traced weapon active, the highest stats between the owners of the two are used.</content>
+    <content contentuid="h647af9710f534f708ca961122999de63926f" version="1">You need to toggle this feature after tracing a weapon in order to active this effect. If you have both a ranged and melee traced weapon active, the stats you copy depend on the weapon action being performed.</content>
     <content contentuid="h2221cb2ac91a454097f1e4a59180b90720ae" version="1">This creature is emulating the physical parameters of the weapon's original wielder, and may take damage as a result of overloading their body's limits.</content>
     <content contentuid="h1989a02d1b364af38e3aa0327ea117eag46d" version="1">Faker (Ranged)</content>
-    <content contentuid="hcebaec09298446eba349f1b66c9d225b86bb" version="1">Has traced a creature's active ranged weapon.</content>
+    <content contentuid="hcebaec09298446eba349f1b66c9d225b86bb" version="1">This creature's traced ranged weapons suffer a slight degradation, resulting in a -[1] attack roll penalty with attacks using the weapon. Negated when the skills of the weapon's original wielder is emulated.</content>
     <content contentuid="hd54f2d58820c4354b74291f16461ba88e71f" version="1">Every turn after tracing a melee weapon, a successful &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; will grant the appropriate fighting style (&lt;LSTag Type="Passive" Tooltip="FightingStyle_Dueling"&gt;Dueling&lt;/LSTag&gt;, &lt;LSTag Type="Passive" Tooltip="FightingStyle_TwoWeaponFighting"&gt;Two-Weapon Fighting&lt;/LSTag&gt;, or &lt;LSTag Type="Passive" Tooltip="FightingStyle_GreatWeaponFighting"&gt;Great Weapon Fighting&lt;/LSTag&gt;) of your current traced melee weapon(s).</content>
     <content contentuid="hc21d9b8ca7fd45619556031241b65d17a521" version="1">Sympathize Experience</content>
     <content contentuid="h6d094691d2634fbebb0e28a0f2f0933fbd7c" version="1">You can make an additional free attack with a weapon of a respective type (melee or ranged) after making an attack with a traced weapon of that type.</content>
@@ -1067,7 +1067,7 @@
     <content contentuid="h3b3871e9cbfe410ab448a7419dfbd7f8034f" version="1">You use Reinforcement Magecraft to enhance a traced melee weapon to become more arrow-like, allowing it to be fired as a projectile from a bow.</content>
     <content contentuid="h35c573a57ae14774855715773f0491dbded3" version="1">Overedge and Overdraw Remover</content>
     <content contentuid="h2091282348d042808a8f666e9cc5bf892aff" version="1">Takes [1] at the start of each turn and has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. Turns into regular &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;bleeding&lt;/LSTag&gt; after [2] turn[3], allowing it to be removed by healing.</content>
-    <content contentuid="hd868e82490194b888082ad12a8f1497aba81" version="1">Has the ability to trigger while &lt;LSTag Type="Status" Tooltip="DOWNED"&gt;downed&lt;/LSTag&gt; and can only trigger [1] time per round.</content>
+    <content contentuid="hd868e82490194b888082ad12a8f1497aba81" version="1">Has the ability to trigger while &lt;LSTag Type="Status" Tooltip="DOWNED"&gt;downed&lt;/LSTag&gt;, but deals 20% more damage when failed. If the damage taken is greater than your hitpoints, become &lt;LSTag Type="Status" Tooltip="DOWNED"&gt;downed&lt;/LSTag&gt; and fail a Death Saving Throw. Can only trigger [1] time per round.</content>
     <content contentuid="h5cf742054dd64083b0c24789eb03c692ec57" version="1">Internal Bleeding</content>
     <content contentuid="h404561aa153149828aaa16885c6ec2a60d4d" version="1">Basic Magecraft</content>
     <content contentuid="h4d3de7a36bff4f9e8a7428f48fda7ba8gc85" version="1">Magecraft that is expected for all magi to eventually know. These are &lt;LSTag Tooltip="AlwaysPrepared"&gt;Always Prepared&lt;/LSTag&gt;.</content>
@@ -1075,14 +1075,14 @@
     <content contentuid="hb7d66db6d9b543749f097ae162a8c160e62d" version="1">An aria that aids in the self-hypnosis necessary to control your magic circuits.</content>
     <content contentuid="h69fc26e8999747ccbf0832b5c3a6a374caca" version="1">Magecraft that you are specialized in, revolving around Reinforcement and Projection because of your unique Origin and Element. These are &lt;LSTag Tooltip="AlwaysPrepared"&gt;Always Prepared&lt;/LSTag&gt;.</content>
     <content contentuid="h61d4091194bf46d7a04a7125844901449a52" version="1">Magecraft Specialization</content>
-    <content contentuid="h8c17b2eaf2ba40bfb7e4a7ddcf3870b65309" version="1">The fired arrow deals the same damage as the weapon plus [1] of the damage of your main-hand bow and disappears after landing, unless it is &lt;LSTag Type="Passive" Tooltip="MAG_HomingWeapon_Passive"&gt;homing&lt;/LSTag&gt;.</content>
+    <content contentuid="h8c17b2eaf2ba40bfb7e4a7ddcf3870b65309" version="1">The fired arrow deals the same damage as the weapon plus [1] of the damage of your main-hand bow and needs to be retrieved after landing unless replaced by a new weapon or dismissed.</content>
     <content contentuid="h8cb70edb465648b6a983b041e48e55953a03" version="1">"--Do not forget. What you must imagine is always that you yourself are the strongest. You do not need outside enemies. For you, the one you have to fight is none other than your own image."</content>
     <content contentuid="h669608f31eec4da68edda8ed388428cda590" version="1">You've taken the final words spoken by Archer to heart. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; and a [1] bonus on &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
     <content contentuid="h4d12bbc8f3c34709930fa03e51ee29c57701" version="1">All the World's Evil</content>
     <content contentuid="h2d4d9de707b043478efaee3a4f959f671744" version="1">Your prior experience in overcoming the mud of the grail grants you &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; against being Frightened.</content>
     <content contentuid="h3ea471e3f486431787bfd63cf7ce8af612ae" version="1">One's Image</content>
     <content contentuid="h86f79e56d3764bd5ac9ed992d8ce1fb1260g" version="1">Mind's Eye</content>
-    <content contentuid="hc833377f88214707ba72a3392efed0921cf2" version="1">Your experience in surmounting overwhelming odds has honed your instincts. When you are about to be hit by a creature’s melee attack, attempt to parry it with your traced melee weapon(s).</content>
+    <content contentuid="hc833377f88214707ba72a3392efed0921cf2" version="1">Your experience in surmounting overwhelming odds has honed your instincts. When you are about to be hit by a creature’s melee attack, attempt to parry it with your traced melee weapon and strike back.</content>
     <content contentuid="h558397ba878f4cdf88b49f84340e3c2cgae8" version="1">Upon success of an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, reduce the damage of the unarmed attack or weapon attack by [1] and attempt to counterattack with a powerful strike that deals an additional [2]. However, upon failure, the image of your traced weapon(s) fail and break.</content>
     <content contentuid="hf1353833a63e4a1fa40a27f3f12a68d3abb7" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;LSTag&gt; is increased by [1].</content>
     <content contentuid="hf639302d33174ea9a7b25b9276d262dea4e7" version="1">Retaliation</content>
@@ -1131,7 +1131,7 @@
     <content contentuid="hb6687af5c9954d908f484c67e78e27ae6g13" version="1">This creature tried to block with their traced melee weapons, but the reality of the weapons' failure couldn't be recounciled with weapons' image so they disappeared.</content>
     <content contentuid="h5d24716fc4a947edb399db538327d7d8f691" version="1">Mana Burst Conduit</content>
     <content contentuid="hac7a69e8bdbc48358ee6da598d7fd068269b" version="1">With a minimum of 10 &lt;LSTag Type="ActionResource" Tooltip="MagicalEnergy"&gt;Magical Energy&lt;/LSTag&gt;, this weapon's wielder can pour all of their magical energy into the blade and then immediately expend it to release a Mana Burst. The damage of the beam scales with the amount invested.</content>
-    <content contentuid="h0b70deafa6964f7f9b5a267f10eff5ec6314" version="1">The experiences of this weapon automatically flow into its wielder regardless of will.</content>
+    <content contentuid="h0b70deafa6964f7f9b5a267f10eff5ec6314" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; The experiences of this weapon automatically flow into its wielder regardless of will, and are required to wield it.</content>
     <content contentuid="h5e60ec07f3fe43c8b351cef341fbeb187g31" version="1">Seen by special eyes, the weapon(s) wielded by this creature have been catalogued.</content>
     <content contentuid="h5c9325ba1c4a4fb3847d68be684d811df7f3" version="1">Weapon Copied</content>
     <content contentuid="h560659c750d94707b266c08c0c8dc5f5g27b" version="1">You remember every weapon within [1] of you.</content>
@@ -1142,7 +1142,7 @@
     <content contentuid="h478aaf564667469fa804a0fae5c34449dbdg" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set of melee or ranged weapons at a time.</content>
     <content contentuid="h5a42c8e19f57468d99487d79119824d4f360" version="1">Trace a melee weapon that you've seen before.</content>
     <content contentuid="h98bca29667e044f689a705e39d99c9dbb06b" version="1">Trace Weapon: Ranged</content>
-    <content contentuid="h209b718fc03d49a0b1e6246979b912330660" version="1">Trace a ranged weapon that you've seen before.</content>
+    <content contentuid="h209b718fc03d49a0b1e6246979b912330660" version="1">Trace a ranged weapon or arrow that you've seen before.</content>
     <content contentuid="h9bb0b9092fd949898950b810ea8016d90d49" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set melee weapons at a time.</content>
     <content contentuid="h76ed5b6ed7844dcf8ad963d412b53c2022a2" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt;  You can only trace one set ranged weapons at a time.</content>
     <content contentuid="hbf4523d8d1064c8bb50c533788c0676881a5" version="1">Trace Weapon: Noble Phantasm</content>
@@ -1158,4 +1158,30 @@
     <content contentuid="h94a32c3692ba470ebe1d59a5f8cb31370078" version="1">Projection Master</content>
     <content contentuid="hb0cb6a8da91840a6aa8032c3e733c8181gf9" version="1">The image of this creature's traced weapons had to be validated after missing.</content>
     <content contentuid="h3b7b90813f894bbfab894dda58a526dfec65" version="1">Image Failure</content>
+    <content contentuid="h078d0fe4a67a407998696de191f6546e0184" version="1">Dispel Melee Weapon</content>
+    <content contentuid="h9bf8d334e1a64494ac941fc2c87e65c8f422" version="1">Dispel your traced [1] weapon by willing its image away.</content>
+    <content contentuid="h1d18a336dda14fb3b74de45189a1fa937643" version="1">Dispel Ranged Weapon</content>
+    <content contentuid="h3864bf24ceb644c1a1b40e23bc3037463481" version="1">Out of Thin Air (Melee)</content>
+    <content contentuid="h4c2f06f8e73c49378536b328913cffde671e" version="1">Having created a [1] weapon out of thin air, this creature surprised their opponent, if only briefly. Attacks using the newly traced weapon gain a +[2] attack roll bonus.</content>
+    <content contentuid="h284ef6dbb8634ea5959f43d9efb185f58432" version="1">Out of Thin Air (Ranged)</content>
+    <content contentuid="h1a009d53bc674805b6912fafb974fe1ff8c1" version="1">Performing the mana burst depletes all your remaining magical energy, but has increased damage depending on how much extra magical energy was used to charge it.</content>
+    <content contentuid="h583f6963bc924f6595ee9e3482809116035b" version="1">Body of Steel</content>
+    <content contentuid="h1f6560d63675412ba4d4528ee7310267bd73" version="1">Blades began to stitch together this creature's body, granting &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; to non-magical Slashing and Piercing damage.</content>
+    <content contentuid="hac0254206c074c798a5bff1a907fba638958" version="1">'I am the bone of my sword.'</content>
+    <content contentuid="h96b0ba7a22fd425499cc11b16756072edcdd" version="1">'Steel is my body, and fire is my blood.'</content>
+    <content contentuid="hab0b99def3124840accc3c41711843edcgdg" version="1">'I have created over a thousand blades.'</content>
+    <content contentuid="h3dfc5b44822b495984d86b6f26d414dd9331" version="1">'Unaware of beginning...'</content>
+    <content contentuid="h20f1aeb5f1264ad7841d9397d3767b127d5a" version="1">'Nor aware of end.'</content>
+    <content contentuid="h7f80ea750a454477848083667767bc336cg3" version="1">'Withstood pain to create many weapons, seeking that parted starlight.'</content>
+    <content contentuid="hc5bc9bef61f14896876ef58ca96b82aff6f9" version="1">'I have no regrets, this is the only path.'</content>
+    <content contentuid="hd3352179b9124364a7f6f1eabb7d8c75g019" version="1">'My whole life was Unlimited Blade Works.'</content>
+    <content contentuid="hf6000e9c0fad457891b70cc00f5c00d4c908" version="1">Reinforcement: Arrow - Applied Effects</content>
+    <content contentuid="h23def12c84f048aa98a1c2d647330d5beg2f" version="1">Attempt to apply the effects of your shot arrow.</content>
+    <content contentuid="h98e05d35ba7a4e44a0681c2a824e3a13547c" version="1">Trigger, Off</content>
+    <content contentuid="hb918bc3ae7584c25abc4e518b8711e653cae" version="1">With your experience with Projection Magecraft, you seamlessly flow from one weapon to another. Once per turn, after projecting a weapon, the actions associated with the weapon do not cost an action.</content>
+    <content contentuid="h7618101057584c2abcc6db53d30c09e94e59" version="1">Functions when this passive is toggled and the desired spell for deletion is being actively prepared, but not yet cast.</content>
+    <content contentuid="h926ecada40e84c9ab490b3ee05d771465c5a" version="1">Clear your mind of redundant images, erasing them from the selection of &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Melee"&gt;Trace Weapon (Melee)&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Ranged"&gt;Trace Weapon (Ranged)&lt;/LSTag&gt;.</content>
+    <content contentuid="h98e140a8c4fb40478a02e47da7d0f345g6c7" version="1">Erase Image</content>
+    <content contentuid="h126e49c537994a93b4de19cb9375eb83e757" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Cleared weapons cannot be reacquired after deletion unless seen again.</content>
+    <content contentuid="h9e233a6154ba4f89b2497a0562825fbe30fc" version="1">This creature is ready to clear their mind of redundant images, permanently clearing prepared projections from being cast unless reacquired.</content>
 </contentList>

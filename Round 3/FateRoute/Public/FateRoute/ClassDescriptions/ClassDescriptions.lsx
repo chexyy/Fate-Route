@@ -9,7 +9,7 @@
           <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8" />
           <attribute id="DisplayName" type="TranslatedString" handle="hb2cc69a2gaebbg4509g90adgbaf65e403db2" version="1" />
 					<attribute id="Description" type="TranslatedString" handle="h8235e249gbc09g4191g9bf9g5ff981ab5581" version="1" />
-          <attribute id="HpPerLevel" type="int32" value="5" />
+          <attribute id="HpPerLevel" type="int32" value="6" />
           <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_Warlock" />
           <attribute id="ClassHotbarColumns" type="int32" value="5" />
           <attribute id="CommonHotbarColumns" type="int32" value="9" />

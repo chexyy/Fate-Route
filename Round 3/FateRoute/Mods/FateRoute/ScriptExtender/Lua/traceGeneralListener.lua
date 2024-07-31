@@ -2,6 +2,9 @@
 function syncAllVariables(character)
     Ext.Vars.RegisterUserVariable("extraDescriptionTable", {})
     Ext.Vars.RegisterUserVariable("bladeReconstitutionTurnCheck", {})
+    Ext.Vars.RegisterUserVariable("originalStats", {})
+    Ext.Vars.RegisterUserVariable("meleeStats", {})
+    Ext.Vars.RegisterUserVariable("rangedStats", {})
     -- Ext.Vars.RegisterUserVariable("statusApplyTable", {})
 
     local entity = Ext.Entity.Get(character)
@@ -11,7 +14,7 @@ function syncAllVariables(character)
     
     if localextraDescriptionTable ~= {} then
         if next(localextraDescriptionTable) ~= nil then
-            _D(localextraDescriptionTable)
+            -- _D(localextraDescriptionTable)
             for key, entry in pairs(localextraDescriptionTable) do
                 for i = 1,999,1 do
                     local observedDescriptionTemplate = Ext.Stats.Get("Shout_TraceWeapon_TemplateDescription" .. i)
@@ -19,6 +22,7 @@ function syncAllVariables(character)
                         print("Description check found at index #" .. i)
                         break
                     elseif observedDescriptionTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+                        -- print("Sync for " .. entry.weaponIcon .. " for template descritpion spell: Shout_TraceWeapon_TemplateDescription" .. i)
                         observedDescriptionTemplate:SetRawAttribute("DisplayName", entry.weaponDisplayName)
                         observedDescriptionTemplate:SetRawAttribute("Description", entry.weaponDescription)
                         observedDescriptionTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
@@ -65,13 +69,13 @@ end)
 
 -- apply reproduced trace stats and summon dual weapons if there
 Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
-    local spellName = spell:match("Shout_TraceWeapon_")
-    if spellName == "Shout_TraceWeapon_" then
+    local spellName = spell:match("TWT")
+    if spellName == "TWT" then
         print(spell .. " found to be a template")
         local observedTraceTemplate = Ext.Stats.Get(spell)
         local entity = Ext.Entity.Get(caster)
 
-        entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount = entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount - 1 
+        -- entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount = entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount - 1 
 
         local descriptionParams = observedTraceTemplate.DescriptionParams
         local params = {}
@@ -80,39 +84,83 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
         end
         print("Params found to be:")
         _D(params)
+
+        if Osi.HasPassive(fakerCharacter, "Passive_ProjectionPractitioner") == 1 and Osi.HasActiveStatus(fakerCharacter, "PROJECTION_PRACTITIONER") == 0 then
+            Osi.ApplyStatus(fakerCharacter, "PROJECTION_PRACTITIONER", 5, 100, fakerCharacter)
+        end
+        if Osi.HasPassive(fakerCharacter, "Passive_ProjectionExpert") == 1 and Osi.HasActiveStatus(fakerCharacter, "PROJECTION_PRACTITIONER") == 1 and Osi.HasActiveStatus(fakerCharacter, "PROJECTION_EXPERT") == 0 then
+            Osi.ApplyStatus(fakerCharacter, "PROJECTION_EXPERT", 5, 100, fakerCharacter)
+        end
+        if Osi.HasPassive(fakerCharacter, "Passive_ProjectionMaster") == 1 and Osi.HasActiveStatus(fakerCharacter, "PROJECTION_EXPERT") == 1 then
+            Osi.ApplyStatus(fakerCharacter, "PROJECTION_MASTER", 5, 100, fakerCharacter)
+        end
         
         local templateNum = spell:match("%d+")
         if templateNum ~= nil then
-            if observedTraceTemplate.Sheathing == "Melee" then
-                wielderStrength = params[1]
-                wielderDexterity = params[2]
-                wielderMovementSpeed = params[3]
+            if observedTraceTemplate.Sheathing == "Melee" then -- melee
+                -- wielderStrength = params[1]
+                -- wielderDexterity = params[2]
+                -- wielderMovementSpeed = params[3]
+                local meleeStats = {params[1], params[2], params[3]}
+                Ext.Entity.Get(fakerCharacter).Vars.meleeStats = meleeStats
                 print("Stats of melee reproduction traced weapon tracked")
-            else
-                wielderStrengthRanged = params[1]
-                wielderDexterityRanged = params[2]
-                wielderMovementSpeedRanged = params[3]
+
+                if observedTraceTemplate.TooltipStatusApply ~= "" then
+                    Ext.Timer.WaitFor(750, function()
+                        trackTemplate({"Melee Main Weapon", "Melee Offhand Weapon"}, caster)
+                    end)
+
+                else -- lone weapon
+                    Ext.Timer.WaitFor(750, function()
+                        trackTemplate({"Melee Main Weapon", nil}, caster)
+                    end)
+
+                end
+            else -- ranged
+                -- wielderStrengthRanged = params[1]
+                -- wielderDexterityRanged = params[2]
+                -- wielderMovementSpeedRanged = params[3]
+                local rangedStats = {params[1], params[2], params[3]}
+                Ext.Entity.Get(fakerCharacter).Vars.rangedStats = rangedStats
                 print("Stats of ranged reproduction traced weapon tracked")
+
+                if observedTraceTemplate.TooltipStatusApply ~= "" then
+                    Ext.Timer.WaitFor(750, function()
+                        trackTemplate({"Ranged Main Weapon", "Ranged Offhand Weapon"}, caster)
+                    end)
+
+                else -- lone ranged weapon
+                    Ext.Timer.WaitFor(750, function()
+                        trackTemplate({"Ranged Main Weapon", nil}, caster)
+                    end)
+
+                end
             end
             if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
-                emulateWielder(caster, originalStats) 
+                emulateWielder(caster) 
             end
         end
         if spell == "Shout_TraceWeapon_Caliburn" then
             print("Caliburn cast")
-            originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
-            wielderStrength = params[1]
-            wielderDexterity = params[2]
-            wielderMovementSpeed = params[3]
-            
-            caliburnCheck = true
-
+            local originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
             if Osi.HasActiveStatus(caster, "DASH") == 1 then
                 originalStats[3] = originalStats[3]/2
             end
             if Osi.HasActiveStatus(caster, "LONGSTRIDER") == 1 then
                 originalStats[3] = originalStats[3] - 3
             end
+
+            Ext.Entity.Get(fakerCharacter).Vars.originalStats = originalStats
+
+            
+            local meleeStats = {params[1], params[2], params[3]}
+            Ext.Entity.Get(fakerCharacter).Vars.meleeStats = meleeStats
+            
+            -- wielderStrength = params[1]
+            -- wielderDexterity = params[2]
+            -- wielderMovementSpeed = params[3]
+            
+            -- caliburnCheck = true
 
             emulateWielderCheck = true
             print("Stats of melee reproduction traced weapon tracked")
@@ -124,6 +172,36 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
     end
 
 end)
+
+function trackTemplate(weaponSlot, character)
+    if weaponSlot[1]:match("Melee") == "Melee" then
+        local mainWeapon = GetEquippedItem(character, "Melee Main Weapon")
+
+        if weaponSlot[2] ~= nil then
+            local offhandWeapon = GetEquippedItem(fakerCharacter, "Melee Offhand Weapon")
+            Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker = {mainWeapon, offhandWeapon}
+            print("Main and offhand melee weapons assigned") 
+        else
+            Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker = {mainWeapon, nil}
+            print("Main melee weapon assigned")
+        end
+
+    else
+        local mainWeaponRanged = GetEquippedItem(character, "Ranged Main Weapon")
+
+        if weaponSlot[2] ~= nil then
+            local offhandWeaponRanged = GetEquippedItem(fakerCharacter, "Ranged Offhand Weapon")
+            Ext.Entity.Get(fakerCharacter).Vars.rangedWeaponTracker = {mainWeaponRanged, offhandWeaponRanged}
+            print("Main and offhand ranged weapons assigned")
+        else
+            Ext.Entity.Get(fakerCharacter).Vars.rangedWeaponTracker = {mainWeaponRanged, nil}
+            print("Main ranged weapon assigned")
+        end
+
+    end
+    
+
+end
 
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID)
     if status == "FAKER_MELEE" then
@@ -160,7 +238,7 @@ end)
 -- Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
 --     if status == "EMULATE_WIELDER_SELFDAMAGE" then
 --         if originalStats ~= nil then
---             emulateWielder(object, originalStats)
+--             emulateWielder(object)
 --         end
 
 --     end

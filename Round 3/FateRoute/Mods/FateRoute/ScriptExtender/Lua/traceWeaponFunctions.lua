@@ -21,16 +21,16 @@ function cooldownHelper(equipmentSlot)
     local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.BoostsOnEquipOffHand
 
     if Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 1 then
-        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_UNCOMMON", -1, 100, fakerCharacter)
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_UNCOMMON", -1, 100, fakerCharacter)
 
     elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 2 then
-        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_RARE", -1, 100, fakerCharacter)
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_RARE", -1, 100, fakerCharacter)
 
     elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 3 then
-        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_VERYRARE", -1, 100, fakerCharacter)
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_VERYRARE", -1, 100, fakerCharacter)
 
     elseif Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Value.Rarity == 4 then
-        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_MELEE_LEGENDARY", -1, 100, fakerCharacter)
+        ApplyStatus(Osi.GetEquippedItem(fakerCharacter, equipmentSlot), "REPRODUCTION_LEGENDARY", -1, 100, fakerCharacter)
 
     end
 
@@ -39,6 +39,17 @@ function cooldownHelper(equipmentSlot)
     local mainWeaponTemplate = Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, equipmentSlot))
     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
     Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
+    Ext.Timer.WaitFor(50, function()
+        local boosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.Boosts
+        local mainhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.BoostsOnEquipMainHand
+        local offhandBoosts = Ext.Entity.Get(Osi.GetEquippedItem(fakerCharacter, equipmentSlot)).Use.BoostsOnEquipOffHand
+        resetWeaponCooldowns(fakerCharacter, boosts,mainhandBoosts,offhandBoosts)
+        
+        Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
+        Ext.Timer.WaitFor(50, function()
+            Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
+        end)
+    end)
 
     print("Reset cooldown of reproduced mainhand melee weapon")
 end
@@ -53,6 +64,8 @@ function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, off
                     if entrySpellbook.SpellId.OriginatorPrototype == entry.Params then
                         entity.SpellBookCooldowns.Cooldowns[keySpellbook] = {}
                         print("Reset " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
+
+                        -- add trigger off passive here
                         break
                     end
                 end
@@ -94,15 +107,44 @@ function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, off
 end
 
 -- emulate wielder
-function emulateWielder(character, originalStats)
-    
-    local strength = tonumber(wielderStrength) or 0
-    local dexterity = tonumber(wielderDexterity) or 0
-    local movementSpeed = tonumber(wielderMovementSpeed) or 0
+function emulateWielder(character)
 
-    local strengthRanged = tonumber(wielderStrengthRanged) or 0
-    local dexterityRanged = tonumber(wielderDexterityRanged) or 0
-    local movementSpeedRanged = tonumber(wielderMovementSpeedRanged) or 0
+    local originalStats = Ext.Entity.Get(fakerCharacter).Vars.originalStats
+    local meleeStats = Ext.Entity.Get(fakerCharacter).Vars.meleeStats or nil
+    local rangedStats = Ext.Entity.Get(fakerCharacter).Vars.rangedStats or nil
+    
+    local strength = 0
+    local dexterity = 0
+    local movementSpeed = 0
+
+    local strengthRanged = 0
+    local dexterityRanged = 0
+    local movementSpeedRanged = 0
+
+
+    if meleeStats ~= nil then 
+        print("Melee stats not nil")
+        strength = tonumber(meleeStats[1])
+        dexterity = tonumber(meleeStats[2])
+        movementSpeed = tonumber(meleeStats[3])
+    else
+        print("Melee stats nil")
+        strength = 0
+        dexterity = 0
+        movementSpeed = 0
+    end
+
+    if rangedStats ~= nil then 
+        print("Ranged stats not nil")
+        strengthRanged = tonumber(rangedStats[1])
+        dexterityRanged = tonumber(rangedStats[2])
+        movementSpeedRanged = tonumber(rangedStats[3])
+    else
+        print("Ranged stats nil")
+        strengthRanged = 0
+        dexterityRanged = 0
+        movementSpeedRanged = 0
+    end
 
     local strengthIncrease = 0;
     local dexterityIncrease = 0;
@@ -142,6 +184,115 @@ function emulateWielder(character, originalStats)
         dexterity = dexterityRanged
     end
     if movementSpeed < movementSpeedRanged then
+        movementSpeed = movementSpeedRanged
+    end
+
+    if strength > originalStats[1] then
+        strengthIncrease = strength - originalStats[1];
+    end
+    if dexterity > originalStats[2] then
+        dexterityIncrease = dexterity - originalStats[2]
+    end
+    if movementSpeed > originalStats[3] then
+        movementSpeedIncrease = movementSpeed - originalStats[3]
+    end
+
+    emulateBoost = Ext.Entity.Get(fakerCharacter).Vars.emulateBoostVar or ""
+    if type(emulateBoost) ~= string then
+        emulateBoost = ""
+    end
+    Osi.RemoveBoosts(character, emulateBoost, 1, "Emulate Wielder", "")
+    emulateBoost = "Ability(Strength," .. strengthIncrease .. "); Ability(Dexterity," .. dexterityIncrease .. "); ActionResource(Movement," .. movementSpeedIncrease .. ",0)"
+    Ext.Entity.Get(fakerCharacter).Vars.emulateBoostVar = emulateBoost
+    print("emulateboost is: " .. emulateBoost)
+    Ext.Timer.WaitFor(250,function()
+        Osi.AddBoosts(fakerCharacter, emulateBoost, "Emulate Wielder", "")
+    end)
+end
+
+function emulateWielderChange(character, meleeOrRanged)
+    
+    if meleeOrRanged == "Melee" then
+        if HasActiveStatus(Osi.GetEquippedWeapon(character), "REPRODUCTION_MELEE") == 0 then
+            print("Reproduced melee weapon not equipped, detoggling Emulate Wielder")
+            Osi.TogglePassive(character, "Passive_EmulateWielder_Toggle")
+            return
+        end
+    else
+        if HasActiveStatus(Osi.GetEquippedWeapon(character), "REPRODUCTION_RANGED") == 0 then
+            print("Reproduced ranged weapon not equipped, detoggling Emulate Wielder")
+            Osi.TogglePassive(character, "Passive_EmulateWielder_Toggle")
+            return
+        end
+    end
+
+    local originalStats = Ext.Entity.Get(fakerCharacter).Vars.originalStats
+    local meleeStats = Ext.Entity.Get(fakerCharacter).Vars.meleeStats or nil
+    local rangedStats = Ext.Entity.Get(fakerCharacter).Vars.rangedStats or nil
+    
+    local strength = 0
+    local dexterity = 0
+    local movementSpeed = 0
+
+    local strengthRanged = 0
+    local dexterityRanged = 0
+    local movementSpeedRanged = 0
+
+
+    if meleeStats ~= nil then 
+        print("Melee stats not nil")
+        strength = tonumber(meleeStats[1])
+        dexterity = tonumber(meleeStats[2])
+        movementSpeed = tonumber(meleeStats[3])
+    else
+        print("Melee stats nil")
+        strength = 0
+        dexterity = 0
+        movementSpeed = 0
+    end
+
+    if rangedStats ~= nil then 
+        print("Ranged stats not nil")
+        strengthRanged = tonumber(rangedStats[1])
+        dexterityRanged = tonumber(rangedStats[2])
+        movementSpeedRanged = tonumber(rangedStats[3])
+    else
+        print("Ranged stats nil")
+        strengthRanged = 0
+        dexterityRanged = 0
+        movementSpeedRanged = 0
+    end
+
+
+    if type(strength) ~= "number" then
+        print("Replaced strengh: " .. strength .. " with 0.")
+        local strength = 0
+    end
+    if type(dexterity) ~= "number" then
+        print("Replaced dexterity: " .. dexterity .. " with 0.")
+        local dexterity = 0
+    end
+    if type(movementSpeed) ~= "number" then
+        print("Replaced movementSpeed: " .. movementSpeed .. " with 0.")
+        local strength = 0
+    end
+    if type(strengthRanged) ~= "number" then
+        print("Replaced strengthRanged: " .. strengthRanged .. " with 0.")
+        local strength = 0
+    end
+    if type(dexterityRanged) ~= "number" then
+        print("Replaced dexterityRanged: " .. dexterityRanged .. " with 0.")
+        local strength = 0
+    end
+    if type(movementSpeedRanged) ~= "number" then
+        print("Replaced movementSpeedRanged: " .. movementSpeedRanged .. " with 0.")
+        local strength = 0
+    end
+
+
+    if meleeOrRanged == "Ranged" then
+        strength = strengthRanged
+        dexterity = dexterityRanged
         movementSpeed = movementSpeedRanged
     end
 

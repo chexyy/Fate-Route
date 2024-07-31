@@ -4,7 +4,6 @@
 	<region id="Templates">
 		<node id="Templates">
 			<children>	
-
 				<node id="GameObjects">
 					<attribute id="DisplayName" type="TranslatedString" handle="ha8f4bcbecd7a46df8f44c3a1ace4775a14ed" version="1" />
 					<attribute id="Description" type="TranslatedString" handle="h0254c8c8gf9d5g4ac7g95b4gbe7d50c20c64" version="1" />
@@ -30,6 +29,54 @@
 							</node>
 						</children>
 					</node>
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h3990f21dg3c18g4ecag8a0bgc2677117541e" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h7cd55263gacddg4cd2g9af6g3a88891dca4e" version="1" />
+					<attribute id="EquipmentTypeID" type="guid" value="4df07ab5-44a3-421e-b4bc-598c49d6cfc8" />
+					<attribute id="Flag" type="int32" value="0" />
+					<attribute id="Icon" type="FixedString" value="Item_WPN_Ogre_Greatclub_A" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="818e760b-152a-478f-b6bd-a08bb5b1aa78" />
+					<attribute id="Name" type="LSString" value="WPN_Ogre_Greatclub_A_Traced" />
+					<attribute id="ParentTemplateId" type="FixedString" value="7c749dd0-f750-4d6d-8ea0-5401b3c6b13d" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="14839536-bce7-21f0-b4f3-aa60892b7961" />
+					<attribute id="ReadinessFlags" type="uint32" value="129" />
+					<attribute id="Stats" type="FixedString" value="WPN_Ogre_Greatclub_Traced" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="014da86e-e9b2-20fa-68b9-949bca279092" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115188075855902" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.0765833" />
+									<attribute id="Max" type="fvec3" value="0.0830991 0.075195 0.1644289" />
+									<attribute id="Min" type="fvec3" value="-0.094110295 -0.0533603 -1.0668" />
+									<attribute id="Radius" type="float" value="0.283448" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.0765833" />
+									<attribute id="Max" type="fvec3" value="0.0830991 0.18744507 0.597679" />
+									<attribute id="Min" type="fvec3" value="-0.094110295 -0.03801024 -1.22285" />
+									<attribute id="Radius" type="float" value="0.283448" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.0765833" />
+									<attribute id="Max" type="fvec3" value="0.04154955 0.075195 0.08221445" />
+									<attribute id="Min" type="fvec3" value="-0.047055148 -0.0533603 -0.5334" />
+									<attribute id="Radius" type="float" value="0.141724" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+							</children>
+						</node>
+					</children>
 				</node> 
 			</children>
 		</node>

@@ -1,0 +1,6 @@
+new entry "Target_Slam_Ogre_Traced"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Slam_Ogre"
+data "TooltipDamageList" "DealDamage(1d10+UnarmedMeleeAbilityModifier, Bludgeoning)"
+data "SpellSuccess" "IF(not SavingThrow(Ability.Dexterity, SourceSpellDC())):ApplyStatus(PRONE,100,2);DealDamage(1d10+UnarmedMeleeAbilityModifier, Bludgeoning); Force(2)"

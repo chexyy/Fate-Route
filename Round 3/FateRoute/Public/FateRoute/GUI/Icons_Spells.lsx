@@ -127,6 +127,13 @@
                    <attribute id="V2" type="float" value="0.250"/> Bottom
                </node>
                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_TraceDelete_Icon"/> 8
+                   <attribute id="U1" type="float" value="0.875"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.125"/> Top
+                   <attribute id="V2" type="float" value="0.250"/> Bottom
+               </node>
+               <node id="IconUV">
                    <attribute id="MapKey" type="FixedString" value="Spell_Trace_Reproduction_Icon"/> 1
                    <attribute id="U1" type="float" value="0.0"/> Left
                    <attribute id="U2" type="float" value="0.125"/> Right
@@ -225,6 +232,20 @@
                    <attribute id="V2" type="float" value="0.50"/> Bottom
                </node>
                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_DispelWeapon_Melee_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> Left
+                   <attribute id="U2" type="float" value="0.875"/> Right
+                   <attribute id="V1" type="float" value="0.375"/> Top
+                   <attribute id="V2" type="float" value="0.50"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_DispelWeapon_Ranged_Icon"/> 8
+                   <attribute id="U1" type="float" value="0.875"/> Left
+                   <attribute id="U2" type="float" value="1.0"/> Right
+                   <attribute id="V1" type="float" value="0.375"/> Top
+                   <attribute id="V2" type="float" value="0.50"/> Bottom
+               </node>
+               <node id="IconUV">
                    <attribute id="MapKey" type="FixedString" value="Status_FakerMelee_Icon"/> 1
                    <attribute id="U1" type="float" value="0.0"/> Left
                    <attribute id="U2" type="float" value="0.125"/> Right
@@ -242,6 +263,13 @@
                    <attribute id="MapKey" type="FixedString" value="Passive_MindBattle_Icon"/> 3
                    <attribute id="U1" type="float" value="0.25"/> Left
                    <attribute id="U2" type="float" value="0.375"/> Right
+                   <attribute id="V1" type="float" value="0.50"/> Top
+                   <attribute id="V2" type="float" value="0.625"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_BladeReconstitution_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.375"/> Left
+                   <attribute id="U2" type="float" value="0.50"/> Right
                    <attribute id="V1" type="float" value="0.50"/> Top
                    <attribute id="V2" type="float" value="0.625"/> Bottom
                </node>
@@ -272,6 +300,20 @@
                    <attribute id="U2" type="float" value="1.0"/> Right
                    <attribute id="V1" type="float" value="0.50"/> Top
                    <attribute id="V2" type="float" value="0.625"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_TriggerOff_Icon"/> 1
+                   <attribute id="U1" type="float" value="0.0"/> Left
+                   <attribute id="U2" type="float" value="0.125"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_TriggerOff_Icon"/> 2
+                   <attribute id="U1" type="float" value="0.125"/> Left
+                   <attribute id="U2" type="float" value="0.25"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
                </node>
            </children>
        </node>
