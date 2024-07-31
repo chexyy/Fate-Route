@@ -1117,6 +1117,7 @@ function inorderSuccessor(pointer)
         return inorderSuccessor(pointer.left)
     end
 
+    print("Inorder successor is " .. pointer.key)
     return pointer
 
 end
@@ -1124,33 +1125,52 @@ end
 function deleteBST(pointer,searchKey)
     if searchKey == pointer.key then -- key found
         print("Searched and found " .. searchKey)
-        _D(pointer)
+        -- _D(pointer)
         if pointer.left == nil and pointer.right == nil then -- no children
+            print("No children")
             return nil
 
         elseif pointer.left ~= nil and pointer.right == nil then -- only left child
+            print("Only left child")
             return pointer.left
 
         elseif pointer.left == nil and pointer.right ~= nil then -- only right child
+            print("Only right child")
             return pointer.right
 
         else
-            return inorderSuccessor(pointer.right)
+            print("Both children, finding inorder successor")
+            -- return inorderSuccessor(pointer.right)
+
+            pointer.key = pointer.right.key
+            pointer.data = pointer.right.data
+            pointer.right = deleteBST(pointer.right, pointer.key)
 
         end
 
     elseif searchKey > pointer.key then -- greater than 
         print("Delete, going right")
-        _D(pointer)
-        pointer.right = deleteBST(pointer.right, searchKey) 
+        -- _D(pointer.right.key)
+        local previous = pointer.right.key
+        local replaced = deleteBST(pointer.right, searchKey) 
+        if replaced ~= nil then
+            print("Replacing " .. previous .. " with " .. replaced.key)
+        end
+        pointer.right = replaced
 
     elseif searchKey < pointer.key then -- less than
         print("Delete, going left")
-        _D(pointer)
-        pointer.left = deleteBST(pointer.left, searchKey) 
+        -- _D(pointer.left.key)
+        local previous = pointer.left.key
+        local replaced = deleteBST(pointer.left, searchKey) 
+        if replaced ~= nil then
+            print("Replacing " .. previous .. " with " .. replaced.key)
+        end
+        pointer.left = replaced
 
     end
 
+    -- _D(pointer)
     return pointer
 end
 
@@ -1169,15 +1189,22 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(caste
             local meleeOrRanged = observedTraceTemplate.Sheathing
 
             beginningIndex, endingIndex = Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName):find("'s")
-            local searchKey = Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName):sub(endingIndex+1)
+            local searchKey = Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName):sub(endingIndex+2)
             print("Looking for " .. searchKey .. " which is of weapon type " .. weaponKey .. " and rarity " .. rarity)
 
             local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-            _D(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)])
-            localWeaponCatalog[weaponKey][rarity] = deleteBST(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)], searchKey)
+            -- _D(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)])
+            -- _D(deleteBST(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)], searchKey))
+            localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)] = deleteBST(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)], searchKey)
             Ext.Entity.Get(caster).Vars.weaponCatalog = localWeaponCatalog
 
             replaceContainer(meleeOrRanged)
+            Ext.Timer.WaitFor(150, function()
+                Osi.Freeze(fakerCharacter)
+                Ext.Timer.WaitFor(150, function()
+                    Osi.Unfreeze(fakerCharacter)
+                end)
+            end)
 
         end
 
