@@ -33,7 +33,7 @@ Ext.Osiris.RegisterListener("TurnStarted", 1, "before", function(object)
             if bladeReconstitutionTurnCheck < tonumber(Ext.Stats.Get("Passive_BladeReconstitution").ExtraDescriptionParams) then
                 if Osi.HasActiveStatus(object, "DOWNED") == 1 and Osi.IsDead(object) == 0 then
                     Osi.RemoveStatus(object, "DOWNED", object)
-                    if Osi.HasActiveStatus(Os)
+                    -- if Osi.HasActiveStatus(Os) then
                     fakerDowned = true
                 end
                 Osi.UseSpell(object,"Shout_BladeReconstitution",object)

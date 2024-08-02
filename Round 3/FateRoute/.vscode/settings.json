@@ -1,0 +1,24 @@
+{
+    "bg3ModHelper.rootModPath": "c:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute",
+    "bg3ModHelper.modDestPath": "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Release",
+    "bg3ModHelper.excludedFiles": [
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Calls.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Events.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Osi.Events.lua",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Osi.lua",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Unique_Boosts.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\References\\Useful Commands.lua",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\loca_file.asv",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\loca_file.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\Spell_TraceTemplate.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\Spell_TraceTemplateDescription.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\Status_WeaponDescriptions.txt",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\statusAutomater.m",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\templateAutomater.m",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\templateDescriptionAutomater.m",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\tester.m",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\FateRoute\\Tools\\tester2.m"
+    ]
+}

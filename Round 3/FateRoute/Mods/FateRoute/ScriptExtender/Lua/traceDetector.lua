@@ -499,6 +499,7 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     Ext.Vars.RegisterUserVariable("emulateBoostVar", {})
     Ext.Vars.RegisterUserVariable("meleeWeaponTracker", {})
     Ext.Vars.RegisterUserVariable("rangedWeaponTracker", {})
+    Ext.Vars.RegisterUserVariable("addedTags", {})
 
     local entity = Ext.Entity.Get(fakerCharacter)
     local localWeaponCatalog = entity.Vars.weaponCatalog or {}
@@ -897,200 +898,214 @@ function UUIDInaccessibleChecker(weaponUUID)
 end
 
 function copyWeaponVision(character)
-    local targetEntity = Ext.Entity.Get(character)
-    local localTargetTimer = targetEntity.Vars.targetTimer
-    
-    if localTargetTimer == nil then
+    Ext.Timer.WaitFor(1500, function()
+        local targetEntity = Ext.Entity.Get(character)
+        local localTargetTimer = targetEntity.Vars.targetTimer
+        
+        if localTargetTimer == nil and Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle) ~= Osi.ResolveTranslatedString(Ext.Entity.Get(fakerCharacter).DisplayName.NameKey.Handle.Handle) then
 
-        -- attributes of trace character
-            local strength = targetEntity.Stats.Abilities[2]
-            local dexterity =  targetEntity.Stats.Abilities[3]
-            local movementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
-            local wielderName = Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle)
+            -- attributes of trace character
+                local strength = targetEntity.Stats.Abilities[2]
+                local dexterity =  targetEntity.Stats.Abilities[3]
+                local movementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
+                local wielderName = Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle)
 
-        -- melee
-        if Osi.HasMeleeWeaponEquipped(character, "Any") == 1 then
-            local mainWeapon = Osi.GetEquippedItem(character, "Melee Main Weapon")
-            if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") ~= 1 then -- checks if reproduced weapon
-                print("Main melee weapon of " .. character .. " is " .. mainWeapon)
+            -- melee
+            if Osi.HasMeleeWeaponEquipped(character, "Any") == 1 then
+                local mainWeapon = Osi.GetEquippedItem(character, "Melee Main Weapon")
+                if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") ~= 1 then -- checks if reproduced weapon
+                    print("Main melee weapon of " .. character .. " is " .. mainWeapon)
 
-                -- more attributes
-                    local icon = Ext.Entity.Get(mainWeapon).Icon.Icon
-                    local spellProperties = "ApplyStatus(FAKER_MELEE,100,-1);"
-                    local meleeOrRanged = "Melee"
-                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(mainWeapon).DisplayName.NameKey.Handle.Handle) 
-                    local rarity = Ext.Entity.Get(mainWeapon).Value.Rarity + 1
+                    -- more attributes
+                        local icon = Ext.Entity.Get(mainWeapon).Icon.Icon
+                        local spellProperties = "ApplyStatus(FAKER_MELEE,100,-1);"
+                        local meleeOrRanged = "Melee"
+                        local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(mainWeapon).DisplayName.NameKey.Handle.Handle) 
+                        local rarity = Ext.Entity.Get(mainWeapon).Value.Rarity + 1
 
-                -- check if finesse
-                    for key, entry in pairs(Ext.Stats.Get(Ext.Entity.Get(mainWeapon).ServerItem.Stats)["Weapon Properties"]) do
-                        if entry == "Finesse" then
-                            finesse = true
-                            break
-                        end
-                    end
-
-                if Osi.HasMeleeWeaponEquipped(character, "Offhand") == 1 or Osi.GetEquippedShield(character) ~= nil then -- if offhand or shield
-                    local offWeapon = Osi.GetEquippedItem(character, "Melee Offhand Weapon")
-                    if (Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND") ~= 1 or Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_SHIELD") ~= 1) then
-                        local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, Ext.Entity.Get(offWeapon).ServerItem.Template.Id}
-                        -- weaponUUID = UUIDInaccessibleChecker(weaponUUID)
-                
-                        if Osi.HasMeleeWeaponEquipped(character, "Offhand") == 1 then -- if offhand
-                            spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE_OFFHAND, REPRODUCTION_MELEE_OFFHAND)"
-                        else -- if shield
-                            spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE_OFFHAND, REPRODUCTION_MELEE_SHIELD)"
+                    -- check if finesse
+                        for key, entry in pairs(Ext.Stats.Get(Ext.Entity.Get(mainWeapon).ServerItem.Stats)["Weapon Properties"]) do
+                            if entry == "Finesse" then
+                                finesse = true
+                                break
+                            end
                         end
 
-                        local magicalEnergyCost = "MagicalEnergy:" .. rarity*2 + (Ext.Entity.Get(offWeapon).Value.Rarity)
-                        local extraSpellNum = addExtraDescriptionRefined(character, {"Melee Main Weapon", "Melee Offhand Weapon"}, weaponUUID, meleeOrRanged)
-                        local tooltipApply = "ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[1] .. ",100,-1);ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[2] .. ",100,-1)"
-
-                        local offWeaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(offWeapon).DisplayName.NameKey.Handle.Handle) 
-                        if offWeaponName == weaponName then
-                            weaponName = weaponName .. "s"
-                            DisplayName = wielderName .. "'s " .. weaponName
-                        else
-                            weaponName = weaponName .. " and " .. offWeaponName
-                            DisplayName = wielderName .. "'s " .. weaponName
-                        end
-
-                        if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then
-
-                            local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
-                            local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                            print("traceInsert, dual melee weapons, is...")
-                            _D(traceInsertMelee)
-                            local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
-
-                            localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
-                            Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-
-                            replaceContainer(meleeOrRanged)
-
-                        end
-                    end
-
-                else -- if lone weapon
-                    local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
-                    -- weaponUUID = UUIDInaccessibleChecker(weaponUUID)
-                    local DisplayName = wielderName .. "'s " .. weaponName
-                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE)"
-                    local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
-
-                    if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
-
-                        local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
-                        local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                        print("traceInsert, lone melee weapon, is...")
-                        _D(traceInsertMelee)
-                        local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
-
-                        localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
-                        Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-
-                        replaceContainer(meleeOrRanged)
-
-                    end
-
-                end
-
-            end
-        end
-        -- ranged
-        if Osi.HasRangedWeaponEquipped(character, "Any") == 1 then
-            local mainWeapon = Osi.GetEquippedItem(character, "Ranged Main Weapon")
-            if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_RANGED") ~= 1 then -- checks if reproduced weapon
-
-                -- more attributes
-                    local icon = Ext.Entity.Get(mainWeapon).Icon.Icon
-                    local spellProperties = "ApplyStatus(FAKER_RANGED,100,-1);"
-                    local meleeOrRanged = "Ranged"
-                    local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(mainWeapon).DisplayName.NameKey.Handle.Handle) 
-                    local rarity = Ext.Entity.Get(mainWeapon).Value.Rarity + 1
-
-                if Osi.HasRangedWeaponEquipped(character, "Offhand") == 1 then -- if offhand or shield
-                    local offWeapon = Osi.GetEquippedItem(character, "Ranged Offhand Weapon")
-                    if Osi.HasActiveStatus(offWeapon, "REPRODUCTION_RANGED_OFFHAND") ~= 1 then
-                        local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, Ext.Entity.Get(offWeapon).ServerItem.Template.Id}
-                        spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED, REPRODUCTION_RANGED);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED_OFFHAND, REPRODUCTION_RANGED_OFFHAND)"
-
-                        local magicalEnergyCost = "MagicalEnergy:" .. rarity*2 + (Ext.Entity.Get(offWeapon).Value.Rarity)
-                        local extraSpellNum = addExtraDescriptionRefined(character, {"Ranged Main Weapon", "Ranged Offhand Weapon"}, weaponUUID, meleeOrRanged)
-                        local tooltipApply = "ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[1] .. ",100,-1);ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[2] .. ",100,-1)"
-
-                        local offWeaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(offWeapon).DisplayName.NameKey.Handle.Handle) 
-                        if offWeaponName == weaponName then
-                            weaponName = weaponName .. "s"
-                            DisplayName = wielderName .. "'s " .. weaponName
-                        else
-                            weaponName = weaponName .. " and " .. offWeaponName
-                            DisplayName = wielderName .. "'s " .. weaponName
-                        end
-
-                        if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then -- check if usable by player
-
-                            local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
-                            local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                            print("traceInsert, dual ranged weapons, is...")
-                            _D(traceInsertRanged)
-                            local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
-
-                            localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
-                            Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-
-                            replaceContainer(meleeOrRanged)
-
-                        end
-                    end
-
-                else -- if lone weapon
-                    local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
-                    local DisplayName = wielderName .. "'s " .. weaponName
-                    spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED, REPRODUCTION_RANGED)"
-                    local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
-
-                    if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
-
-                        local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
-                        local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                        print("traceInsert, lone ranged weapon, is...")
-                        _D(traceInsertRanged)
-                        local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
-
-                        localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
-                        Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
-
-                        replaceContainer(meleeOrRanged)
-
-                    end
+                    if Osi.HasMeleeWeaponEquipped(character, "Offhand") == 1 or Osi.GetEquippedShield(character) ~= nil then -- if offhand or shield
+                        local offWeapon = Osi.GetEquippedItem(character, "Melee Offhand Weapon")
+                        if (Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND") ~= 1 or Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_SHIELD") ~= 1) then
+                            local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, Ext.Entity.Get(offWeapon).ServerItem.Template.Id}
+                            -- weaponUUID = UUIDInaccessibleChecker(weaponUUID)
                     
+                            if Osi.HasMeleeWeaponEquipped(character, "Offhand") == 1 then -- if offhand
+                                spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE_OFFHAND, REPRODUCTION_MELEE_OFFHAND)"
+                            else -- if shield
+                                spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE_OFFHAND, REPRODUCTION_MELEE_SHIELD)"
+                            end
+
+                            local magicalEnergyCost = "MagicalEnergy:" .. rarity*2 + (Ext.Entity.Get(offWeapon).Value.Rarity)
+                            local extraSpellNum = addExtraDescriptionRefined(character, {"Melee Main Weapon", "Melee Offhand Weapon"}, weaponUUID, meleeOrRanged)
+                            local tooltipApply = "ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[1] .. ",100,-1);ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[2] .. ",100,-1)"
+
+                            local offWeaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(offWeapon).DisplayName.NameKey.Handle.Handle) 
+                            if offWeaponName == weaponName then
+                                weaponName = weaponName .. "s"
+                                DisplayName = wielderName .. "'s " .. weaponName
+                            else
+                                weaponName = weaponName .. " and " .. offWeaponName
+                                DisplayName = wielderName .. "'s " .. weaponName
+                            end
+
+                            if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then
+
+                                local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
+                                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                                
+                                if weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags) ~= nil then
+                                    print("traceInsert, dual melee weapons, is...")
+                                    _D(traceInsertMelee)
+                                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
+
+                                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                                    replaceContainer(meleeOrRanged)
+                                end
+
+                            end
+                        end
+
+                    else -- if lone weapon
+                        local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
+                        -- weaponUUID = UUIDInaccessibleChecker(weaponUUID)
+                        local DisplayName = wielderName .. "'s " .. weaponName
+                        spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_MELEE, REPRODUCTION_MELEE)"
+                        local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
+
+                        if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
+
+                            local traceInsertMelee = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,finesse))
+                            local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                
+                            if weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags) ~= nil then
+                                print("traceInsert, lone melee weapon, is...")
+                                _D(traceInsertMelee)
+                                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertMelee) -- inserts into BST
+
+                                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                                replaceContainer(meleeOrRanged)
+                            end
+
+                        end
+
+                    end
+
                 end
             end
-        end
+            -- ranged
+            if Osi.HasRangedWeaponEquipped(character, "Any") == 1 then
+                local mainWeapon = Osi.GetEquippedItem(character, "Ranged Main Weapon")
+                if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_RANGED") ~= 1 then -- checks if reproduced weapon
 
-        -- tracking arrow
-        for _,item in pairs(targetEntity.InventoryOwner.PrimaryInventory.InventoryContainer.Items) do
-            if item.Item.ServerItem.Template.Stats:match("OBJ_ArrowOf") == "OBJ_ArrowOf" or item.Item.ServerItem.Template.Stats:match("OBJ_BarbedArrow") == "OBJ_BarbedArrow" then
-                local arrowStats = Ext.Stats.Get(item.Item.SpellBook.Spells[1].Id.OriginatorPrototype) 
-                local arrow = treeNode:new(Osi.ResolveTranslatedString(arrowStats.DisplayName), "Traced_" .. item.Item.SpellBook.Spells[1].Id.OriginatorPrototype)
-                
-                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
-                local rarity = item.Item.Value.Rarity + 1
+                    -- more attributes
+                        local icon = Ext.Entity.Get(mainWeapon).Icon.Icon
+                        local spellProperties = "ApplyStatus(FAKER_RANGED,100,-1);"
+                        local meleeOrRanged = "Ranged"
+                        local weaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(mainWeapon).DisplayName.NameKey.Handle.Handle) 
+                        local rarity = Ext.Entity.Get(mainWeapon).Value.Rarity + 1
 
-                print("Attempting to insert " .. Osi.ResolveTranslatedString(arrowStats.DisplayName))
-                _D(arrow)
-                local insertOutput = insertBSTArrow(localWeaponCatalog[34][rarity], arrow)
+                    if Osi.HasRangedWeaponEquipped(character, "Offhand") == 1 then -- if offhand or shield
+                        local offWeapon = Osi.GetEquippedItem(character, "Ranged Offhand Weapon")
+                        if Osi.HasActiveStatus(offWeapon, "REPRODUCTION_RANGED_OFFHAND") ~= 1 then
+                            local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, Ext.Entity.Get(offWeapon).ServerItem.Template.Id}
+                            spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED, REPRODUCTION_RANGED);AI_IGNORE:SummonInInventory(" .. weaponUUID[2] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED_OFFHAND, REPRODUCTION_RANGED_OFFHAND)"
 
-                localWeaponCatalog[34][rarity] = insertOutput
+                            local magicalEnergyCost = "MagicalEnergy:" .. rarity*2 + (Ext.Entity.Get(offWeapon).Value.Rarity)
+                            local extraSpellNum = addExtraDescriptionRefined(character, {"Ranged Main Weapon", "Ranged Offhand Weapon"}, weaponUUID, meleeOrRanged)
+                            local tooltipApply = "ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[1] .. ",100,-1);ApplyStatus(WEAPON_DESCRIPTION_TEMPLATE" .. extraSpellNum[2] .. ",100,-1)"
 
-                replaceContainer("Ranged")
+                            local offWeaponName = Ext.Loca.GetTranslatedString(Ext.Entity.Get(offWeapon).DisplayName.NameKey.Handle.Handle) 
+                            if offWeaponName == weaponName then
+                                weaponName = weaponName .. "s"
+                                DisplayName = wielderName .. "'s " .. weaponName
+                            else
+                                weaponName = weaponName .. " and " .. offWeaponName
+                                DisplayName = wielderName .. "'s " .. weaponName
+                            end
+
+                            if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" and Ext.Stats.Get(Ext.Entity.Get(offWeapon).Data.StatsId).UseConditions == "" then -- check if usable by player
+
+                                local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, tooltipApply, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
+                                local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+
+                                if weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags) ~= nil then
+                                    print("traceInsert, dual ranged weapons, is...")
+                                    _D(traceInsertRanged)
+                                    local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
+
+                                    localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                                    Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                                    replaceContainer(meleeOrRanged)
+                                end
+
+                            end
+                        end
+
+                    else -- if lone weapon
+                        local weaponUUID = {Ext.Entity.Get(mainWeapon).ServerItem.Template.Id, nil}
+                        DisplayName = wielderName .. "'s " .. weaponName
+                        spellProperties = spellProperties .. "AI_IGNORE:SummonInInventory(" .. weaponUUID[1] .. ",-1,1,true,true,true,,,REPRODUCTION_RANGED, REPRODUCTION_RANGED)"
+                        local magicalEnergyCost = "MagicalEnergy:" .. rarity*2
+
+                        if Ext.Stats.Get(Ext.Entity.Get(mainWeapon).Data.StatsId).UseConditions == "" then
+
+                            local traceInsertRanged = treeNode:new(weaponName,traceObject:new(DisplayName, icon, weaponUUID, spellProperties, magicalEnergyCost, nil, strength, dexterity, movementSpeed, meleeOrRanged, nil,nil))
+                            local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+
+                            if weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags) ~= nil then
+                                print("traceInsert, lone ranged weapon, is...")
+                                _D(traceInsertRanged)
+                                local insertOutput = insertBST(localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity],traceInsertRanged) -- inserts into BST
+                                localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
+                                Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
+
+                                replaceContainer(meleeOrRanged)
+                            end
+
+                        end
+                        
+                    end
+                end
             end
-        end 
 
-        targetEntity.Vars.targetTimer = 1
-        Ext.Timer.WaitFor(5000, targetTimerReset(character))
+            -- tracking arrow
+            for _,item in pairs(targetEntity.InventoryOwner.PrimaryInventory.InventoryContainer.Items) do
+                if item.Item.ServerItem.Template.Stats:match("OBJ_ArrowOf") == "OBJ_ArrowOf" or item.Item.ServerItem.Template.Stats:match("OBJ_BarbedArrow") == "OBJ_BarbedArrow" then
+                    local arrowStats = Ext.Stats.Get(item.Item.SpellBook.Spells[1].Id.OriginatorPrototype) 
+                    local arrow = treeNode:new(Osi.ResolveTranslatedString(arrowStats.DisplayName), "Traced_" .. item.Item.SpellBook.Spells[1].Id.OriginatorPrototype)
+                    
+                    local localWeaponCatalog = Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog
+                    local rarity = item.Item.Value.Rarity + 1
 
-    end
+                    print("Attempting to insert " .. Osi.ResolveTranslatedString(arrowStats.DisplayName))
+                    _D(arrow)
+                    local insertOutput = insertBSTArrow(localWeaponCatalog[34][rarity], arrow)
+
+                    localWeaponCatalog[34][rarity] = insertOutput
+
+                    replaceContainer("Ranged")
+                end
+            end 
+
+            targetEntity.Vars.targetTimer = 1
+            Ext.Timer.WaitFor(5000, targetTimerReset(character))
+
+        end
+    
+    end)
 end
 
 function targetTimerReset(character)
@@ -1213,14 +1228,3 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(caste
 end)
 
 print("Trace detector loaded")
-
---[[
-meleeTemplate = Osi.GetTemplate(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon"))
-createdObject = Osi.CreateAtObject(meleeTemplate, GetHostCharacter(), 1, 1, "UBW", 1)
-x, y, z = Osi.GetPosition(GetHostCharacter())
-Ext.Timer.WaitFor(100,function()
-    -- _D(Ext.Entity.Get(createdObject):GetAllComponents())
-    local heightDiff = Ext.Entity.Get(createdObject).Bound.Bound.AIBounds["Hit"].Size
-    Osi.ToTransform(createdObject, x, y+heightDiff*1.2, z, 1, 90, 90)
-end)
-]]--

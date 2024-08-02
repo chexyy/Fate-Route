@@ -173,69 +173,121 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
 
 end)
 
+function spawnClone(target)
+    local x, y, z = Osi.GetPosition(target)
+    local copiedChar = Osi.CreateOutOfSightAtDirection(Osi.GetTemplate(fakerCharacter), x, y, z, 60, 1, 1, "UBW")
+    print(copiedChar)
+    local copyEntity = Ext.Entity.Get(copiedChar)
+
+    Ext.Timer.WaitFor(500, function()
+        Ext.Entity.Get(copiedChar).LevelUp.LevelUps = Ext.Entity.Get(fakerCharacter).LevelUp.LevelUps
+        for key, class in pairs(Ext.Entity.Get(fakerCharacter).Classes.Classes) do -- classes
+            copyEntity.Classes.Classes[key] = class
+        end
+        Osi.SetLevel(copiedChar, Osi.GetLevel(fakerCharacter))
+
+        for key, entry in pairs(Ext.Entity.Get(fakerCharacter).Stats) do
+            Ext.Entity.Get(copiedChar).Stats[key] = entry 
+
+        end
+
+        Osi.SetStoryDisplayName(copiedChar, tostring(Ext.Entity.Get(fakerCharacter).ServerDisplayNameList.Names[2].Name))
+
+        for key, entry in pairs(Ext.Entity.Get(fakerCharacter).StatusContainer.Statuses) do
+            if Osi.HasActiveStatus(copiedChar, entry) == 0 and entry ~= "FAKER_MELEE" and entry ~= "FAKER_RANGED" and entry ~= "STRUCTURAL_GRASP" then
+                Osi.ApplyStatus(copiedChar, entry, 15, -1, copiedChar)
+            end
+
+        end
+        
+        for key, resource in pairs(Ext.Entity.Get(fakerCharacter).ActionResources.Resources) do
+            copyEntity.ActionResources.Resources[key] = resource
+        end
+
+        Osi.CopyCharacterEquipment(copiedChar, fakerCharacter)
+        local meleeWeaponTracker = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker
+        meleeWeaponTracker = meleeWeaponTracker or {}
+        Ext.Timer.WaitFor(500, function()
+            Osi.AddBoosts(copiedChar, "Invisibility()", "Apply Weapon Functors - Arrow", copiedChar)
+            if #meleeWeaponTracker == 2 then
+                local mainWeapon = Osi.GetTemplate(meleeWeaponTracker[1])
+                local offWeapon = Osi.GetTemplate(meleeWeaponTracker[2])
+
+                Osi.TemplateAddTo(mainWeapon,copiedChar,1,0)
+                Osi.TemplateAddTo(offWeapon,copiedChar,1,0)
+
+                Ext.Timer.WaitFor(500, function()
+                    Osi.Equip(copiedChar, GetItemByTemplateInInventory(mainWeapon,copiedChar),1,0)
+                    Osi.Equip(copiedChar, GetItemByTemplateInInventory(offWeapon,copiedChar),1,0)
+                    performFunctor(copiedChar,target)
+                end)
+            elseif #meleeWeaponTracker == 1 then
+                local mainWeapon = Osi.GetTemplate(meleeWeaponTracker[1])
+
+                Osi.TemplateAddTo(mainWeapon,copiedChar,1,0)
+
+                Ext.Timer.WaitFor(500, function()
+                    Osi.Equip(copiedChar, GetItemByTemplateInInventory(mainWeapon,copiedChar),1,0)
+                    performFunctor(copiedChar,target)
+                end)
+            end
+        end)
+
+    end)
+
+end
+
+function performFunctor(copiedChar, target)
+    Ext.Timer.WaitFor(100, function()
+        -- print("Name is " .. copyEntity.DisplayName.UnknownKey.)
+        Ext.Timer.WaitFor(100, function()
+            Osi.TeleportTo(copiedChar, target)
+            Ext.Timer.WaitFor(100, function()
+                print("Using Spell")
+                Osi.UseSpell(copiedChar, "Target_Alteration_Arrow_ApplyWeaponFunctor", target)
+                Ext.Timer.WaitFor(1000, function()
+                    Osi.TeleportToPosition(copiedChar, 1, 1, 1)
+                    Ext.Timer.WaitFor(2000, function()
+                        Osi.RequestDeleteTemporary(copiedChar)
+                    end)
+                end)
+            end)
+        end)
+    end)
+end
+
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spellName, spellType, spellElement, storyActionID) 
     if spellName == "Throw_Alteration_Arrow" then
-        if (Osi.HasPassive(caster, "MAG_HomingWeapon_Passive") == 0) then
-            -- if HasMeleeWeaponEquipped(caster, "Mainhand") == 1 then
-            --     mainWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
-            -- end
-            -- if HasMeleeWeaponEquipped(caster, "Offhand") == 1 then
-            --     offhandWeaponTemplateArrow = GetEquippedItem(GetHostCharacter(), "Melee Main Weapon")
-            -- end
-            -- print("Detected alteration arrow used")
-            -- Osi.TimerLaunch("Alteration Arrow", 4000)
-        -- else
-            -- Osi.TimerLaunch("Alteration Arrow: Returning", 4000)
 
-            Ext.Timer.WaitFor(4000, function()
-                if Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker ~= nil then
-                    mainWeapon = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[1]
-                    print("Main melee weapon is " .. mainWeapon)
-        
-                    if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") == 0 then
-                        Osi.ApplyStatus(mainWeapon, "REPRODUCTION_MELEE", -1, 100, fakerCharacter)
-                        print("Reapplied reproduction melee on main weapon: " .. mainWeapon)
-
-                        -- if Osi.GetEquippedItem(fakerCharacter, "Melee Main Weapon") ~= mainWeapon then
-                        --     print("Shot weapon not equipped")
-                        --     Osi.TemplateAddTo(Osi.GetTemplate(mainWeapon), fakerCharacter, 1, 0)
-                        --     Ext.Timer.WaitFor(50, function()
-                        --         Osi.Equip(fakerCharacter, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(mainWeapon), fakerCharacter), 1, 0, 1)
-                        --         Ext.Timer.WaitFor(50, function()
-                        --             local equippedWeapon = Osi.GetEquippedItem(fakerCharacter, "Melee Main Weapon")
-                        --             print("Attempting to case effect spell")
-                        --             UseSpell(caster, "Target_Alteration_Arrow_ApplyWeaponFunctor_Main", target)
-                        --             Ext.Timer.WaitFor(50, function()
-                        --                 Osi.Unequip(fakerCharacter, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(equippedWeapon), fakerCharacter))
-                        --                 Ext.Timer.WaitFor(50, function()
-                        --                     Osi.TemplateRemoveFrom(Osi.GetTemplate(equippedWeapon), fakerCharacter, 1)
-                        --                 end)
-                        --             end)
-                        --         end)
-                        --     end)
-                        -- end
-                    end
-
-                    if Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[2] ~= nil then
-                        offWeapon = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[2]
-                        print("Offhand melee weapon is " .. offWeapon)
-                        -- print(weaponTypeDictionary(Ext.Entity.Get(offWeapon).ServerTemplateTag.Tags))
-
-                        if weaponTypeDictionary(Ext.Entity.Get(offWeapon).ServerTemplateTag.Tags) ~= nil then
-                            if Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND") == 0 then
-                                Osi.ApplyStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND", -1, 100, fakerCharacter)
-                                print("Reapplied reproduction melee (offhand) on offhand weapon: " .. offWeapon)
-                            end
+        print("Target is " .. target)
+        Ext.Timer.WaitFor(3000, function()
+            local meleeWeaponTracker = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker
+            meleeWeaponTracker = meleeWeaponTracker or {}
+            if #meleeWeaponTracker > 0 then
+                mainWeapon = meleeWeaponTracker[1]
+                print("Main melee weapon is " .. mainWeapon)
     
-                        end
-                    end
+                if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") == 0 then
+                    Osi.ApplyStatus(mainWeapon, "REPRODUCTION_MELEE", -1, 100, fakerCharacter)
+                    print("Reapplied reproduction melee on main weapon: " .. mainWeapon)
                 end
+            end
+            if #meleeWeaponTracker == 2 then
+                offWeapon = meleeWeaponTracker[2]
+                print("Offhand melee weapon is " .. offWeapon)
 
-                
+                if weaponTypeDictionary(Ext.Entity.Get(offWeapon).ServerTemplateTag.Tags) ~= nil then
+                    if Osi.HasActiveStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND") == 0 then
+                        Osi.ApplyStatus(offWeapon, "REPRODUCTION_MELEE_OFFHAND", -1, 100, fakerCharacter)
+                        print("Reapplied reproduction melee (offhand) on offhand weapon: " .. offWeapon)
+                    end
 
-                
-            end)
-        end
+                end
+            end
+
+            spawnClone(target)
+        end)
+
     end
 end)
 
@@ -264,14 +316,28 @@ Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
 end)
 
 -- manaburst damage increase
-Ext.Osiris.RegisterListener("CastSpell", 5, "before", function(caster, spell, spellType, spellElement, storyActionID)
+Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function(caster, spell, spellType, spellElement, storyActionID)
     if spell == "Zone_ManaBurst_Caliburn" then
-        local magicalEnergy = entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
-        Osi.AddBoosts(caster, "RollBonus(Damage," .. magicalEnergy .. ")", "Mana Burst Drain", caster)
-        entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergy
+        magicalEnergyExpended = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
+        print("Adding RollBonus(Damage," .. magicalEnergyExpended .. ")")
+        Osi.AddBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", "Mana Burst Drain", caster)
+        Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
 
         Ext.Timer.WaitFor(1250, function()
-            Osi.RemoveBoosts(caster, "RollBonus(Damage," .. magicalEnergy .. ")", 1, "Mana Burst Drain", caster)
+            Osi.RemoveBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", 1, "Mana Burst Drain", caster)
+        end)
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("AttackedBy", 7, "before", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+    if attackOwner == fakerCharacter or attacker2 == fakerCharacter and damageType == "Radiant" and damageAmount > 10 then
+        Ext.Timer.WaitFor(1250, function()
+            if magicalEnergyExpended ~= nil then
+                print("Attempting to apply damage from Mana Burst: " .. magicalEnergyExpended)
+                Osi.ApplyDamage(defender, magicalEnergyExpended, "Radiant", fakerCharacter)
+            end
         end)
 
     end

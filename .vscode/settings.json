@@ -1,0 +1,8 @@
+{
+    "bg3ModHelper.rootModPath": "c:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods",
+    "bg3ModHelper.excludedFiles": [
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\.vscode",
+        "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Round 3\\.vscode\\settings.json"
+    ],
+    "bg3ModHelper.modDestPath": "C:\\Users\\0ylxe\\Documents\\BG3 Modding\\src\\Mods\\Release"
+}

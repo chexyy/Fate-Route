@@ -64,6 +64,8 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
         addAria(fakerCharacter)
     end
 
+    Osi.ObjectSetTitle(fakerCharacter, "Hero of Justice")
+
     
 end)
 
@@ -104,6 +106,7 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                 local meleeStats = {params[1], params[2], params[3]}
                 Ext.Entity.Get(fakerCharacter).Vars.meleeStats = meleeStats
                 print("Stats of melee reproduction traced weapon tracked")
+                _D(meleeStats)
 
                 if observedTraceTemplate.TooltipStatusApply ~= "" then
                     Ext.Timer.WaitFor(750, function()
@@ -116,6 +119,7 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                     end)
 
                 end
+
             else -- ranged
                 -- wielderStrengthRanged = params[1]
                 -- wielderDexterityRanged = params[2]
@@ -140,7 +144,7 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
                 emulateWielder(caster) 
             end
         end
-        if spell == "Shout_TraceWeapon_Caliburn" then
+        if spell == "TWT_Caliburn" then
             print("Caliburn cast")
             local originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
             if Osi.HasActiveStatus(caster, "DASH") == 1 then
@@ -163,6 +167,9 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
             -- caliburnCheck = true
 
             emulateWielderCheck = true
+            Ext.Timer.WaitFor(500, function()
+                emulateWielder(caster) 
+            end)
             print("Stats of melee reproduction traced weapon tracked")
         end
 
@@ -173,6 +180,66 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
 
 end)
 
+-- adding appropriate tags
+function stringSplitter(inputstr, delim)
+    if delim == nil then
+        delim = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(inputstr, "([^"..delim.."]+)") do
+      table.insert(t, str)
+    end
+    return t
+end
+
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(object, combatGuid)
+    if object == fakerCharacter then
+        local meleeWeaponTracker = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker
+        meleeWeaponTracker = meleeWeaponTracker or {}
+        if #meleeWeaponTracker > 0 then
+            for weapon = 1,#meleeWeaponTracker do
+                local stats = Ext.Stats.Get(Ext.Entity.Get(meleeWeaponTracker[weapon]).ServerItem.Stats)
+                if stats.PassivesOnEquip:match("Githborn") == "Githborn" then
+                    if Osi.IsTagged(object, "GITHYANKI") == 0 then
+                        Osi.SetTag(object, "GITHYANKI")
+                        print("Added Githyanki tag")
+                    end
+                else
+                    if stats.PassivesOnEquip ~= "" then
+                        local passiveList = stringSplitter(stats.PassivesOnEquip, ";")
+                        for key, passive in pairs(passiveList) do
+                            if Ext.Stats.Get(passive).Using ~= nil then
+                                if Ext.Stats.Get(passive).Using:match("Githborn") == "Githborn" then
+                                    if Osi.IsTagged(object, "GITHYANKI") == 0 then
+                                        Osi.SetTag(object, "GITHYANKI")
+                                        print("Added Githyanki tag")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+
+        end
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("LeftCombat", 2, "after", function(object, combatGuid)
+    if object == fakerCharacter then
+        if Osi.IsTagged(object, "GITHYANKI") == 1 and Osi.IsTagged(object, "REALLY_GITHYANKI") == 0 then
+            Osi.ClearTag(object, "GITHYANKI")
+            print("Removed Githyanki")
+        end
+
+    end
+
+end)
+
+
+--
 function trackTemplate(weaponSlot, character)
     if weaponSlot[1]:match("Melee") == "Melee" then
         local mainWeapon = GetEquippedItem(character, "Melee Main Weapon")

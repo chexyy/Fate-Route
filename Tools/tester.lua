@@ -115,3 +115,70 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, sp
     if caster == 
 
 end)
+
+--[[
+meleeTemplate = Osi.GetTemplate(Osi.GetEquippedItem(GetHostCharacter(), "Melee Main Weapon"))
+createdObject = Osi.CreateAtObject(meleeTemplate, GetHostCharacter(), 1, 1, "UBW", 1)
+x, y, z = Osi.GetPosition(GetHostCharacter())
+Ext.Timer.WaitFor(100,function()
+    -- _D(Ext.Entity.Get(createdObject):GetAllComponents())
+    local heightDiff = Ext.Entity.Get(createdObject).Bound.Bound.AIBounds["Hit"].Size
+    Osi.ToTransform(createdObject, x, y+heightDiff*1.2, z, 1, 90, 90)
+end)
+]]--
+
+
+copiedChar = Osi.CreateAtObject(Osi.GetTemplate(GetHostCharacter()), GetHostCharacter(), 1, 1, "UBW", 1)
+equipmentSlots = {"Amulet", "Boots", "Breast", "Cloak", "Helmet", "Ring", "Ring2"}
+for key, slot in pairs(equipmentSlots) do
+    local item = Osi.GetEquippedItem(GetHostCharacter(), slot)
+    if item ~= nil then
+        Osi.TemplateAddTo(Osi.GetTemplate(item), copiedChar, 1, 0)
+        Ext.Timer.WaitFor(150, function()
+            Osi.Equip(copiedChar, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(item), copiedChar), 0, 0, 1)
+        end)
+    end
+end
+
+meleeWeaponTracker = _C().Vars.meleeWeaponTracker
+if meleeWeaponTracker ~= nil then
+    local item = meleeWeaponTracker[1]
+    Osi.TemplateAddTo(Osi.GetTemplate(item), copiedChar, 1, 0)
+    Ext.Timer.WaitFor(150, function()
+        Osi.Equip(copiedChar, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(item), copiedChar), 0, 0, 1)
+    end)
+
+    if meleeWeaponTracker[2] ~= nil then
+        local item = meleeWeaponTracker[2]
+        Osi.TemplateAddTo(Osi.GetTemplate(item), copiedChar, 1, 0)
+        Ext.Timer.WaitFor(150, function()
+            Osi.Equip(copiedChar, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(item), copiedChar), 0, 0, 1)
+        end)
+
+    end
+
+end
+
+rangedWeaponTracker = _C().Vars.rangedWeaponTracker
+if rangedWeaponTracker ~= nil then
+    local item = rangedWeaponTracker[1]
+    Osi.TemplateAddTo(Osi.GetTemplate(item), copiedChar, 1, 0)
+    Ext.Timer.WaitFor(150, function()
+        Osi.Equip(copiedChar, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(item), copiedChar), 0, 0, 1)
+    end)
+
+    if rangedWeaponTracker[2] ~= nil then
+        local item = rangedWeaponTracker[2]
+        Osi.TemplateAddTo(Osi.GetTemplate(item), copiedChar, 1, 0)
+        Ext.Timer.WaitFor(150, function()
+            Osi.Equip(copiedChar, Osi.GetItemByTemplateInInventory(Osi.GetTemplate(item), copiedChar), 0, 0, 1)
+        end)
+
+    end
+
+end
+
+for key, class in pairs(_C().Classes.Classes) do
+    _D(class)
+
+end
