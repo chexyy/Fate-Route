@@ -199,6 +199,7 @@ Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(object, combat
         if #meleeWeaponTracker > 0 then
             for weapon = 1,#meleeWeaponTracker do
                 local stats = Ext.Stats.Get(Ext.Entity.Get(meleeWeaponTracker[weapon]).ServerItem.Stats)
+                print("PassivesOnEquip: " .. stats.PassivesOnEquip)
                 if stats.PassivesOnEquip:match("Githborn") == "Githborn" then
                     if Osi.IsTagged(object, "GITHYANKI") == 0 then
                         Osi.SetTag(object, "GITHYANKI")
@@ -208,8 +209,9 @@ Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(object, combat
                     if stats.PassivesOnEquip ~= "" then
                         local passiveList = stringSplitter(stats.PassivesOnEquip, ";")
                         for key, passive in pairs(passiveList) do
-                            if Ext.Stats.Get(passive).Using ~= nil then
+                            if Ext.Stats.Get(passive).Using ~= "" then
                                 if Ext.Stats.Get(passive).Using:match("Githborn") == "Githborn" then
+                                    print("Using: " .. Ext.Stats.Get(passive).Using)
                                     if Osi.IsTagged(object, "GITHYANKI") == 0 then
                                         Osi.SetTag(object, "GITHYANKI")
                                         print("Added Githyanki tag")
