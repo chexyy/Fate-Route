@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="328"/>
+    <region id="FeatDescriptions">
+        <node id="root">
+            <children>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h66f9f8bea6b443139be15e6af6ff49cb9e9d" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9bfd9a1a0e9c46318da8af35df1d22928719" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="Magus_Feat_MartialMagi"/>
+                    <attribute id="FeatId" type="guid" value="9c061de2-e8d7-48c4-8b42-b1b7e7966908"/>
+                    <attribute id="UUID" type="guid" value="b3f70ac4-f87d-4ee8-800f-37d8210a2738"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

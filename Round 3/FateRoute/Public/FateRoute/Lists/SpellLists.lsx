@@ -39,6 +39,11 @@
 					<attribute id="Spells" type="LSString" value="Throw_Alteration_Arrow" />
 					<attribute id="UUID" type="guid" value="eb9bfb76-628c-4eb8-9fbb-3377ca55cc0b" />
 				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Alteration: Broken Phantasm" />
+					<attribute id="Spells" type="LSString" value="Throw_Alteration_BrokenPhantasm" />
+					<attribute id="UUID" type="guid" value="6d6c0ea1-b541-4c6e-a8cd-f05c22cb462b" />
+				</node>
 			</children>
 		</node>
 	</region>

@@ -7,11 +7,21 @@
         <node id="ActionResourceDefinition">
           <attribute id="DisplayName" type="TranslatedString" handle="h1bcbdffbgde7dg49a7g8dfegbf217d7df689" version="1" />
           <attribute id="Description" type="TranslatedString" handle="h507b2239g004ag441cgbac6g131ac76e4c94" version="1" />
-          <attribute id="MaxLevel" type="uint32" value="10" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
           <attribute id="Name" type="FixedString" value="MagicalEnergy" />
           <attribute id="ReplenishType" type="FixedString" value="Rest" />
           <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
           <attribute id="UUID" type="guid" value="7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0" />
+        </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h0ca3e5668b1747a08bdbcaf5dea45579186f" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="hfd597632f731438293d108a60f513357fg41" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="ArrowBlocker" />
+          <attribute id="ReplenishType" type="FixedString" value="Rest" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="UUID" type="guid" value="b916be0d-9ed8-4228-9d85-22f1815784a2" />
         </node>
       </children>
     </node>

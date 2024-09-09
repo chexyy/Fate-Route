@@ -192,7 +192,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
 end)
 
 Ext.Osiris.RegisterListener("UsingSpell", 4, "after", function(caster, spell, spellType, spellElement, storyActionID) 
-    if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") then
+    if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
         print("Attempting to switch stats")
         local spell = Ext.Stats.Get(spell)
         if spell.PreviewCursor == "Melee" then
@@ -204,5 +204,95 @@ Ext.Osiris.RegisterListener("UsingSpell", 4, "after", function(caster, spell, sp
         end
 
     end
+
+end)
+
+-- Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID) 
+--     if Osi.HasActiveStatus(attackerOwner, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+--         if Osi.HasActiveStatus(attackerOwner, "NOBLEPHANTASM_EXPERIENCE") == 1 then
+
+
+
+--         print("Applied take damage")
+--     end
+
+-- end)
+
+-- martial magi
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(object, combatGuid) 
+    if HasActiveStatus(object, "MARTIALMAGI_TRIGGER") == 1 then
+        Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - 1
+        Ext.Entity.Get(fakerCharacter).ActionResources.Resources["45ff0f48-b210-4024-972f-b64a44dc6985"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["45ff0f48-b210-4024-972f-b64a44dc6985"][1].Amount - 1
+        UseSpell(object, "Shout_ReinforceBody_Interrupt", object)
+
+    end
+
+end)
+
+-- trigger off
+Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+    if Osi.HasActiveStatus(caster, "TRIGGEROFF_MELEE") == 1 then
+        local triggerOff = Ext.Entity.Get(caster).Vars.meleeTriggerOff
+        if triggerOff ~= nil then
+            if triggerOff:match(spell) == spell then
+                Osi.RemoveBoosts(caster, triggerOff, 0, "Trigger Off (Melee)", caster)
+                Ext.Entity.Get(caster).Vars.meleeTriggerOff = nil
+                Osi.RemoveStatus(caster, "TRIGGEROFF_MELEE", caster)
+                print("Triggeroff melee removed 1")
+            end
+        end
+    end
+
+    if Osi.HasActiveStatus(caster, "TRIGGEROFF_RANGED") == 1 then
+        local triggerOff = Ext.Entity.Get(caster).Vars.rangedTriggerOff
+        if triggerOff ~= nil then
+            if triggerOff:match(spell) == spell then
+                Osi.RemoveBoosts(caster, triggerOff, 0, "Trigger Off (Ranged)", caster)
+                Ext.Entity.Get(caster).Vars.rangedTriggerOff = nil
+                Osi.RemoveStatus(caster, "TRIGGEROFF_RANGED", caster)
+                print("Triggeroff ranged removed 1")
+            end
+        end
+    end
+
+    if Osi.HasActiveStatus(caster, "TRIGGEROFF_MELEE") == 0 then
+        local triggerOff = Ext.Entity.Get(caster).Vars.meleeTriggerOff
+        if triggerOff ~= nil then
+            Osi.RemoveBoosts(caster, triggerOff, 0, "Trigger Off (Melee)", caster)
+            Ext.Entity.Get(caster).Vars.meleeTriggerOff = nil
+            print("Triggeroff melee removed 2")
+        end
+    end
+
+    if Osi.HasActiveStatus(caster, "TRIGGEROFF_RANGED") == 0 then
+        local triggerOff = Ext.Entity.Get(caster).Vars.rangedTriggerOff
+        if triggerOff ~= nil then
+            Osi.RemoveBoosts(caster, triggerOff, 0, "Trigger Off (Ranged)", caster)
+            Ext.Entity.Get(caster).Vars.rangedTriggerOff = nil
+            print("Triggeroff ranged removed 2")
+        end
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, applyStoryActionID) 
+    if status == "TRIGGEROFF_MELEE" and object == fakerCharacter then
+        local triggerOff = Ext.Entity.Get(fakerCharacter).Vars.meleeTriggerOff
+        if triggerOff ~= nil then
+            Ext.Entity.Get(object).Vars.meleeTriggerOff = nil
+            Osi.RemoveBoosts(object, triggerOff, 0, "Trigger Off (Melee)", object)
+            print("Triggeroff melee removed 3")
+        end
+    end
+
+    if status == "TRIGGEROFF_RANGED" and object == fakerCharacter then
+        local triggerOff = Ext.Entity.Get(fakerCharacter).Vars.rangedTriggerOff
+        if triggerOff ~= nil then
+            Ext.Entity.Get(object).Vars.rangedTriggerOff = nil
+            Osi.RemoveBoosts(object, triggerOff, 0, "Trigger Off (Ranged)", object)
+            print("Triggeroff ranged removed 3")
+        end
+    end
+
 
 end)

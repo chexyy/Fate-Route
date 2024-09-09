@@ -44,7 +44,7 @@
           <attribute id="PrimaryAbility" type="uint8" value="3"/>
           <attribute id="ProgressionTableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
           <attribute id="SoundClassType" type="FixedString" value="Wizard"/>
-          <attribute id="SpellCastingAbility" type="uint8" value="3"/>
+          <attribute id="SpellCastingAbility" type="uint8" value="4"/>
           <attribute id="UUID" type="guid" value="fcbaa6ae-07d7-4134-a81d-360d23e6050f"/>
           <children>
             <node id="Tags">

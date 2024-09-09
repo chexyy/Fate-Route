@@ -1,6 +1,6 @@
 new entry "TraceContainer"
 using "_Container"
-data "RootTemplate" "4b7571cf-67ed-4c01-9368-5d6970b43134
+data "RootTemplate" "4b7571cf-67ed-4c01-9368-5d6970b43134"
 // 3c58b217-730f-4f69-b77d-5dcdff26776a
 data "ValueOverride" "1"
 data "Weight" "0.01"

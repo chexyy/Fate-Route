@@ -315,6 +315,41 @@
                    <attribute id="V1" type="float" value="0.625"/> Top
                    <attribute id="V2" type="float" value="0.750"/> Bottom
                </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_MartialMagi_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.25"/> Left
+                   <attribute id="U2" type="float" value="0.375"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_Reproduction_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.375"/> Left
+                   <attribute id="U2" type="float" value="0.50"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_BrokenPhantasm_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.5"/> Left
+                   <attribute id="U2" type="float" value="0.625"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_UnlimitedBladeWorks_Natural_Icon"/> 6
+                   <attribute id="U1" type="float" value="0.625"/> Left
+                   <attribute id="U2" type="float" value="0.75"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+                </node>
+                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_UnlimitedBladeWorks_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> Left
+                   <attribute id="U2" type="float" value="0.875"/> Right
+                   <attribute id="V1" type="float" value="0.625"/> Top
+                   <attribute id="V2" type="float" value="0.750"/> Bottom
+               </node>
            </children>
        </node>
    </region>

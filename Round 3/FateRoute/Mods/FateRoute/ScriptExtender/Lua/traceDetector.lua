@@ -203,8 +203,8 @@ function insertBST(pointer, insert)
     -- if pointer exists
     if insert.key > pointer.key then
         -- print("Insert is greater than pointer")
-        if pointer.right == nil or pointer.right == null  then -- if found and empty
-            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
+        if pointer.right == nil then -- if found and empty
+            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog, right of " .. pointer.key)
             pointer.right = insert
 
             if insert.data.meleeOrRanged == "Melee" then
@@ -223,8 +223,8 @@ function insertBST(pointer, insert)
         end
     elseif insert.key < pointer.key then
         -- print("Insert is greater than pointer")
-        if insert.left == nil or insert.left == null then -- if found and empty
-            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog")
+        if pointer.left == nil then -- if found and empty
+            print("Adding " .. insert.data.DisplayName .. " into weaponCatalog, left of " .. pointer.key)
             pointer.left = insert
 
             if insert.data.meleeOrRanged == "Melee" then
@@ -301,7 +301,7 @@ function insertBSTArrow(pointer, insert)
         end
     elseif insert.key < pointer.key then
         print("Insert is greater than pointer")
-        if insert.left == nil or insert.left == null then -- if found and empty
+        if pointer.left == nil or pointer.left == null then -- if found and empty
             print("Adding arrow: " .. insert.key .. " into weaponCatalog")
             pointer.left = insert
         else -- if not found
@@ -427,6 +427,10 @@ function inorderTraversal(wepTypeRarity, traceIndices, weaponType, rarity)
             spellProperties = string.gsub(spellProperties, "FAKER_MELEE,100,3", "FAKER_MELEE,100,-1")
             spellProperties = string.gsub(spellProperties, "FAKER_RANGED,100,3", "FAKER_RANGED,100,-1")
             spellProperties = string.gsub(spellProperties, "3,1,true,true", "-1,1,true,true")
+            
+            -- updating problematic weapons
+            spellProperties = string.gsub(spellProperties, "e26f0c19%-6185%-43a7%-b7f7%-7155b936c59c", "96a35552-0c05-4df0-9974-2a8f142e4be6") -- the blood of lathander
+            
             wepTypeRarity.data.spellProperties = spellProperties
 
             -- updating use cost
@@ -441,18 +445,18 @@ function inorderTraversal(wepTypeRarity, traceIndices, weaponType, rarity)
             observedTraceTemplate:SetRawAttribute("DisplayName", wepTypeRarity.data.DisplayName) -- setting display name
             observedTraceTemplate.Icon = wepTypeRarity.data.Icon -- setting icon
             observedTraceTemplate:SetRawAttribute("SpellProperties", wepTypeRarity.data.spellProperties) -- setting spell properties
-            observedTraceTemplate:SetRawAttribute("Sheathing", wepTypeRarity.data.meleeOrRanged) -- setting sheathing
+            observedTraceTemplate.Sheathing = wepTypeRarity.data.meleeOrRanged -- setting sheathing
             observedTraceTemplate.UseCosts = wepTypeRarity.data.UseCosts -- setting usecosts
             observedTraceTemplate.ExtraDescriptionParams = weaponType .. ";" .. rarity
             if wepTypeRarity.data.tooltipApply ~= nil then -- checking if it's dual weapons
                 local tooltipApply = wepTypeRarity.data.tooltipApply
                 tooltipApply = string.gsub(tooltipApply, "100,3", "100,-1")
                 wepTypeRarity.data.tooltipApply = tooltipApply
-                observedTraceTemplate:SetRawAttribute("TooltipStatusApply", wepTypeRarity.data.tooltipApply) -- adding statuses if dual
-                observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed) -- setting descriptionparams
+                observedTraceTemplate.TooltipStatusApply = wepTypeRarity.data.tooltipApply -- adding statuses if dual
+                observedTraceTemplate.DescriptionParams = "These weapons were;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed -- setting descriptionparams
             else
-                observedTraceTemplate:SetRawAttribute("TooltipStatusApply", "  ")
-                observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed)
+                observedTraceTemplate.TooltipStatusApply = ""
+                observedTraceTemplate.DescriptionParams = "This weapon was;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed
             end
 
             observedTraceTemplate:Sync()  -- syncing template changes
@@ -497,9 +501,11 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     Ext.Vars.RegisterUserVariable("weaponCatalog", {})
     Ext.Vars.RegisterUserVariable("targetTimer", {})
     Ext.Vars.RegisterUserVariable("emulateBoostVar", {})
+    
     Ext.Vars.RegisterUserVariable("meleeWeaponTracker", {})
     Ext.Vars.RegisterUserVariable("rangedWeaponTracker", {})
-    Ext.Vars.RegisterUserVariable("addedTags", {})
+
+    Ext.Vars.RegisterUserVariable("attackTimer", {})
 
     local entity = Ext.Entity.Get(fakerCharacter)
     local localWeaponCatalog = entity.Vars.weaponCatalog or {}
@@ -558,7 +564,7 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
             end
         end
 
-        if Osi.HasActiveStatus(fakerCharacter, "FAKER_RANGED") == 1 then -- has a traced melee weapon
+        if Osi.HasActiveStatus(fakerCharacter, "FAKER_RANGED") == 1 then -- has a traced ranged weapon
             print("Faker has a traced ranged weapon")
             if Osi.HasRangedWeaponEquipped(fakerCharacter, "Any") == 1 then -- is holding it
                 mainWeapon = Osi.GetEquippedItem(fakerCharacter, "Ranged Main Weapon")
@@ -898,17 +904,27 @@ function UUIDInaccessibleChecker(weaponUUID)
 end
 
 function copyWeaponVision(character)
-    Ext.Timer.WaitFor(1500, function()
+    Ext.Timer.WaitFor(math.random(3000), function()
+        stackVerifier = false
         local targetEntity = Ext.Entity.Get(character)
-        local localTargetTimer = targetEntity.Vars.targetTimer
+        if targetEntity ~= nil then
+            local localTargetTimer = targetEntity.Vars.targetTimer
+        else 
+            stackVerifier = true
+            return
+        end
         
-        if localTargetTimer == nil and Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle) ~= Osi.ResolveTranslatedString(Ext.Entity.Get(fakerCharacter).DisplayName.NameKey.Handle.Handle) then
+        if localTargetTimer == nil and Osi.ResolveTranslatedString(Osi.GetDisplayName(character)) ~= Osi.ResolveTranslatedString(Osi.GetDisplayName(fakerCharacter)) then
 
             -- attributes of trace character
                 local strength = targetEntity.Stats.Abilities[2]
                 local dexterity =  targetEntity.Stats.Abilities[3]
-                local movementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
-                local wielderName = Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle)
+                local movementSpeed = 9
+                    if targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"] ~= nil then
+                        local movementSpeed = targetEntity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount
+                    end
+                -- local wielderName = Osi.ResolveTranslatedString(targetEntity.DisplayName.NameKey.Handle.Handle)
+                local wielderName = Osi.ResolveTranslatedString(Osi.GetDisplayName(character))
 
             -- melee
             if Osi.HasMeleeWeaponEquipped(character, "Any") == 1 then
@@ -969,7 +985,9 @@ function copyWeaponVision(character)
                                     localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                     Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                    replaceContainer(meleeOrRanged)
+                                    Ext.Timer.WaitFor(math.random(5000), function()
+                                        replaceContainer(meleeOrRanged)
+                                    end)
                                 end
 
                             end
@@ -995,7 +1013,9 @@ function copyWeaponVision(character)
                                 localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                 Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                replaceContainer(meleeOrRanged)
+                                Ext.Timer.WaitFor(math.random(5000), function()
+                                    replaceContainer(meleeOrRanged)
+                                end)
                             end
 
                         end
@@ -1048,7 +1068,9 @@ function copyWeaponVision(character)
                                     localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                     Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                    replaceContainer(meleeOrRanged)
+                                    Ext.Timer.WaitFor(math.random(5000), function()
+                                        replaceContainer(meleeOrRanged)
+                                    end)
                                 end
 
                             end
@@ -1072,7 +1094,9 @@ function copyWeaponVision(character)
                                 localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                 Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                replaceContainer(meleeOrRanged)
+                                Ext.Timer.WaitFor(math.random(5000), function()
+                                    replaceContainer(meleeOrRanged)
+                                end)
                             end
 
                         end
@@ -1083,6 +1107,7 @@ function copyWeaponVision(character)
 
             -- tracking arrow
             for _,item in pairs(targetEntity.InventoryOwner.PrimaryInventory.InventoryContainer.Items) do
+                -- print(item.Item.ServerItem.Template.Stats)
                 if item.Item.ServerItem.Template.Stats:match("OBJ_ArrowOf") == "OBJ_ArrowOf" or item.Item.ServerItem.Template.Stats:match("OBJ_BarbedArrow") == "OBJ_BarbedArrow" then
                     local arrowStats = Ext.Stats.Get(item.Item.SpellBook.Spells[1].Id.OriginatorPrototype) 
                     local arrow = treeNode:new(Osi.ResolveTranslatedString(arrowStats.DisplayName), "Traced_" .. item.Item.SpellBook.Spells[1].Id.OriginatorPrototype)
@@ -1102,7 +1127,7 @@ function copyWeaponVision(character)
 
             targetEntity.Vars.targetTimer = 1
             Ext.Timer.WaitFor(5000, targetTimerReset(character))
-
+            stackVerifier = true
         end
     
     end)
@@ -1115,18 +1140,24 @@ function targetTimerReset(character)
 
 end
 
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, storyActionID)
-    if status == "WEAPON_COPIED" then
-        -- if copyWeaponTimer == nil then
-            Ext.Timer.WaitFor(math.random(5000), copyWeaponVision(character))
-            -- Osi.TimerLaunch("Copy Weapon Timer", 25)
-            -- copyWeaponTimer = 1
-        -- end
+Ext.Timer.WaitFor(5000, function()
+    stackVerifier = true
+    Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, storyActionID)
+        if status == "WEAPON_COPIED" then
+            if stackVerifier == true then
+                copyWeaponVision(character)
+            else
+                while stackVerifier == false do
 
-    end
+                end
+                Ext.Timer.WaitFor(math.random(500), copyWeaponVision(character))
+            end
+        end
 
+    end)
 end)
 
+-- deleting spell
 function inorderSuccessor(pointer)
     if pointer.left ~= nil then
         return inorderSuccessor(pointer.left)
@@ -1155,7 +1186,7 @@ function deleteBST(pointer,searchKey)
 
         else
             print("Both children, finding inorder successor")
-            -- return inorderSuccessor(pointer.right)
+            -- return inorderSuccessor(pointer.right)   
 
             pointer.key = pointer.right.key
             pointer.data = pointer.right.data
@@ -1213,7 +1244,9 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(caste
             localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)] = deleteBST(localWeaponCatalog[tonumber(weaponKey)][tonumber(rarity)], searchKey)
             Ext.Entity.Get(caster).Vars.weaponCatalog = localWeaponCatalog
 
-            replaceContainer(meleeOrRanged)
+            Ext.Timer.WaitFor(math.random(5000), function()
+                replaceContainer(meleeOrRanged)
+            end)
             Ext.Timer.WaitFor(150, function()
                 Osi.Freeze(fakerCharacter)
                 Ext.Timer.WaitFor(150, function()

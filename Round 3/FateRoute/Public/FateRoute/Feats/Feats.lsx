@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="322"/>
+    <region id="Feats">
+        <node id="root">
+            <children>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="Magus_Feat_MartialMagi"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Passive_MartialMagi"/>
+                    <attribute id="Selectors" type="LSString" value="SelectAbilities(a3879716-ea1b-4a60-b680-f41ae0c2e15b,1,1,MartialMagi)"/>
+                    <attribute id="UUID" type="guid" value="9c061de2-e8d7-48c4-8b42-b1b7e7966908"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -49,12 +49,56 @@ function cooldownHelper(equipmentSlot)
         Ext.Timer.WaitFor(50, function()
             Osi.Equip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter),1,0)
         end)
+
+        local meleeOrRanged = equipmentSlot:match("Melee") or equipmentSlot:match("Ranged")
+        triggerOffAdd(fakerCharacter, boosts, meleeOrRanged)
     end)
 
     print("Reset cooldown of reproduced mainhand melee weapon")
 end
 
-function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, offhandBoolean)
+function triggerOffAdd(character, boost, meleeOrRanged)
+    local entity = Ext.Entity.Get(character)
+    local triggerOff = {}
+
+    for key, entry in pairs(boost) do
+        if entry ~= nil then
+            if meleeOrRanged == "Melee" and HasActiveStatus(character, "TRIGGEROFF_MELEE") == 1 then
+                table.insert(triggerOff, "SpellId('" .. entry.Params .. "')")
+
+            elseif meleeOrRanged == "Ranged" and HasActiveStatus(character, "TRIGGEROFF_RANGED") == 1 then
+                table.insert(triggerOff, "SpellId('" .. entry.Params .. "')")
+
+            end
+        end
+    end 
+
+    
+    if #triggerOff > 0 then
+        triggerBoost = "UnlockSpellVariant("
+        for key, entry in pairs(triggerOff) do
+            if key > 1 and key ~=  #triggerOff then
+                triggerBoost = triggerBoost .. " or "
+            end
+            triggerBoost = triggerBoost .. entry            
+        end
+        triggerBoost = triggerBoost .. ",ModifyUseCosts(Replace,ActionPoint,0,0,ActionPoint),ModifyIconGlow(),ModifyTooltipDescription())"
+        if meleeOrRanged == "Melee" then
+            print("Added melee boost: " .. triggerBoost)
+            entity.Vars.meleeTriggerOff = triggerBoost
+            Osi.AddBoosts(character, triggerBoost, "Trigger Off (Melee)", character)
+
+        elseif meleeOrRanged == "Ranged" then
+            print("Added ranged boost: " .. boost)
+            entity.Vars.rangedTriggerOff = triggerBoost
+            Osi.AddBoosts(character, triggerBoost, "Trigger Off (Ranged)", character)
+
+        end
+    end
+
+end
+
+function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost)
     local entity = Ext.Entity.Get(character)
     for key, entry in pairs(boost) do
         if entry ~= nil then
@@ -65,6 +109,7 @@ function resetWeaponCooldowns(character, boost, mainhandBoost, offhandBoost, off
                         entity.SpellBookCooldowns.Cooldowns[keySpellbook] = {}
                         print("Reset " .. Osi.ResolveTranslatedString(weaponSpellData.DisplayName))
 
+                        
                         -- add trigger off passive here
                         break
                     end
@@ -317,6 +362,138 @@ function emulateWielderChange(character, meleeOrRanged)
     Ext.Timer.WaitFor(250,function()
         Osi.AddBoosts(fakerCharacter, emulateBoost, "Emulate Wielder", "")
     end)
+end
+
+
+-- Alteration Arrow / UBW
+function spawnClone(target, isBrokenPhantasm, alterationArrow, UBW)
+    -- local x, y, z = Osi.GetPosition(target)
+    if target ~= nil then
+        print("Trying to make clone at " .. target)
+        local copiedChar = Osi.CreateOutOfSightAtDirectionFromObject(Osi.GetTemplate(fakerCharacter), fakerCharacter, fakerCharacter, 1, 0, "UBW")
+        print("Clone successful")
+        -- local copiedChar = Osi.CreateAtObject(Osi.GetTemplate(fakerCharacter), target, 1, 1, "UBW", 1)
+        -- print(copiedChar)
+
+        Ext.Timer.WaitFor(200, function()
+            -- local copyEntity = Ext.Entity.Get(copiedChar)
+            -- Ext.Entity.Get(copiedChar).LevelUp.LevelUps = Ext.Entity.Get(fakerCharacter).LevelUp.LevelUps
+            -- for key, class in pairs(Ext.Entity.Get(fakerCharacter).Classes.Classes) do -- classes
+            --     copyEntity.Classes.Classes[key] = class
+            -- end
+            Osi.SetLevel(copiedChar, Osi.GetLevel(fakerCharacter))
+            Osi.SetImmortal(copiedChar, 1)
+            Osi.ApplyStatus(copiedChar, "INVULNERABLE", -1, 100)
+            Osi.SetStoryDisplayName(copiedChar, tostring(Ext.Entity.Get(fakerCharacter).ServerDisplayNameList.Names[2].Name))
+
+            -- for key, entry in pairs(Ext.Entity.Get(fakerCharacter).StatusContainer.Statuses) do
+            --     if Osi.HasActiveStatus(copiedChar, entry) == 0 and entry ~= "FAKER_MELEE" and entry ~= "FAKER_RANGED" and entry ~= "STRUCTURAL_GRASP" then
+            --         Osi.ApplyStatus(copiedChar, entry, 15, -1, copiedChar)
+            --     end
+
+            -- end
+
+            Osi.CopyCharacterEquipment(copiedChar, fakerCharacter)
+            -- local slots = {"Amulet", "Boots", "Breast", "Cloak", "Gloves", "Helmet", "Ring", "Ring2"}
+            -- for key, slot in pairs(slots) do
+            --     if Osi.GetEquippedItem(fakerCharacter, slot) ~= nil then
+            --         Osi.TemplateAddTo(Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, slot)), copiedChar, 1, 0)
+            --         Ext.Timer.WaitFor(100, function()
+            --             Osi.Equip(copiedChar, Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, slot)), 1, 0, 1)
+            --             print("Equipped " .. Osi.GetTemplate(Osi.GetEquippedItem(fakerCharacter, slot)) .. " on clone")
+            --         end)
+            --     end
+
+            -- end
+
+            local slots = {"Melee Offhand Weapon", "Melee Main Weapon", "Ranged Offhand Weapon", "Ranged Main Weapon"}
+            for key, slot in pairs(slots) do
+                if Osi.GetEquippedItem(copiedChar, slot) ~= nil then
+                    Osi.Unequip(copiedChar, Osi.GetEquippedItem(copiedChar, slot))
+                end
+
+            end
+
+            local meleeWeaponTracker = Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker
+            meleeWeaponTracker = meleeWeaponTracker or {}
+            Ext.Timer.WaitFor(50, function()
+                Osi.AddBoosts(copiedChar, "Invisibility()", "Apply Weapon Functors - Arrow", copiedChar)
+                if #meleeWeaponTracker == 2 then
+                    local mainWeapon = Osi.GetTemplate(meleeWeaponTracker[1])
+                    local offWeapon = Osi.GetTemplate(meleeWeaponTracker[2])
+
+                    Osi.TemplateAddTo(mainWeapon,copiedChar,1,0)
+                    Osi.TemplateAddTo(offWeapon,copiedChar,1,0)
+
+                    Ext.Timer.WaitFor(200, function()
+                        Osi.Equip(copiedChar, GetItemByTemplateInInventory(mainWeapon,copiedChar),1,0)
+                        Osi.Equip(copiedChar, GetItemByTemplateInInventory(offWeapon,copiedChar),1,0)
+                        print("Equipped " .. mainWeapon .. " and " .. offWeapon)
+                        if alterationArrow == true then
+                            performFunctor(copiedChar,target,isBrokenPhantasm)
+                        elseif UBW == true then
+                            Ext.TImer.WaitFor(1000, function()
+                                TeleportTo(copiedChar, fakerCharacter)
+                            end)
+                        end
+                    end)
+                elseif #meleeWeaponTracker == 1 then
+                    local mainWeapon = Osi.GetTemplate(meleeWeaponTracker[1])
+
+                    Osi.TemplateAddTo(mainWeapon,copiedChar,1,0)
+
+                    Ext.Timer.WaitFor(200, function()
+                        Osi.Equip(copiedChar, GetItemByTemplateInInventory(mainWeapon,copiedChar),1,0)
+                        print("Equipped " .. mainWeapon)
+                        if alterationArrow == true then
+                            performFunctor(copiedChar,target,isBrokenPhantasm)
+                        elseif UBW == true then
+                            Ext.TImer.WaitFor(1000, function()
+                                TeleportTo(copiedChar, fakerCharacter)
+                            end)
+                        end
+                    end)
+                end
+            end)
+
+            print("Returning " .. copiedChar)
+            return copiedChar
+        end)
+
+    end
+
+end
+
+function performFunctor(copiedChar, target, isBrokenPhantasm)
+    -- Ext.Timer.WaitFor(100, function()
+        print("Performing functor")
+        -- Ext.Timer.WaitFor(50, function()
+            -- Osi.TeleportTo(copiedChar, target)
+            -- Osi.AppearOutOfSightTo(copiedChar, target, fakerCharacter, 0, 0)
+            -- Ext.Timer.WaitFor(100, function()
+                print("Using Spell")
+                Osi.UseSpell(copiedChar, "Target_Alteration_Arrow_ApplyWeaponFunctor", target)
+                print("Explode deletion true")
+                if isBrokenPhantasm == true then
+                    Osi.CreateProjectileStrikeAt(target, "Projectile_BrokenPhantasm_Explosion")
+                    Osi.CreateProjectileStrikeAt(target, "Projectile_BrokenPhantasm_Explosion_2")
+                end
+                Ext.Timer.WaitFor(550, function()
+                    -- Osi.TeleportToPosition(copiedChar, 1, 1, 1)
+                    -- Ext.Timer.WaitFor(3500, function()
+                        Osi.RequestDeleteTemporary(copiedChar)
+                        print("Attempted to delete copychar")
+                        Osi.RequestDeleteTemporary(copiedChar)
+                        -- throwTarget = nil
+
+                        if isBrokenPhantasm == true then
+                            Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
+                        end
+                    -- end)
+                end)
+            -- end)
+        -- end)
+    -- end)
 end
 
 print("Functions loaded")

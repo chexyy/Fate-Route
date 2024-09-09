@@ -8,6 +8,10 @@
           <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma" />
           <attribute id="UUID" type="guid" value="85c1d4d0-bcca-42aa-8068-a22f62ea27f8" />
         </node>
+        <node id="AbilityList">
+          <attribute id="Abilities" type="LSString" value="Strength, Dexterity, Constitution" />
+          <attribute id="UUID" type="guid" value="a3879716-ea1b-4a60-b680-f41ae0c2e15b" />
+        </node>
       </children>
     </node>
   </region>

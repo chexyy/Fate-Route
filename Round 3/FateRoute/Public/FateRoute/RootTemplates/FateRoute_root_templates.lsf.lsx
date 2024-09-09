@@ -78,7 +78,76 @@
 						</node>
 					</children>
 				</node> 
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="he94055cd65a04a3981d3a82fa0310d15aegg" version="1" />
+					<attribute id="Description" type="TranslatedString" handle="h517b7835bcf9444eaf44f0c68006566c373f" version="1" />
+					<attribute id="MapKey" type="FixedString" value="4567ecad-2304-42db-b8ed-0ca6bb8edfb5" />
+					<attribute id="Name" type="LSString" value="RealityMarbleUBW" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e419b771-2ea2-439d-a9e9-c2796398dd09" />
+					<attribute id="VisualTemplate" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="0785b2a6-1566-f110-f210-c8d0f5e3a8c5" />
+					<attribute id="Icon" type="FixedString" value="Spell_UnlimitedBladeWorks_Icon" />
+					<attribute id="Stats" type="FixedString" value="OBJ_UnlimitedBladeWorks" />
+					<attribute id="CanBeMoved" type="bool" value="False" />
+					<attribute id="CanClickThrough" type="bool" value="False" />
+					<attribute id="CanShootThrough" type="bool" value="False" />
+					<attribute id="CanClimbOn" type="bool" value="False" />
+					<attribute id="CanBeImprovisedWeapon" type="bool" value="False" />
+					<attribute id="CanFight" type="bool" value="False" />
+					<attribute id="WalkThrough" type="bool" value="True" />
+					<attribute id="BlockAoEDamage" type="bool" value="True" />
+					<attribute id="GravityType" type="uint8" value="0" />
+					<attribute id="CoverAmount" type="uint8" value="1" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="UBW_INVINCIBILITY_AURA" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_PUSHPULL_OUTER" />
+								</node>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_PUSHPULL_INNER" />
+								</node>
+							</children>
+						</node>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+
 			</children>
 		</node>
 	</region>
 </save>
+

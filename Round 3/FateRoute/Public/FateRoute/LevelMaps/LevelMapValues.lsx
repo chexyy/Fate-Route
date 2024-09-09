@@ -39,18 +39,50 @@
                 <node id="LevelMapSeries">
                     <attribute id="Level1" type="LSString" value="2d4"/>
                     <attribute id="Level2" type="LSString" value="2d4"/>
-                    <attribute id="Level3" type="LSString" value="2d4"/>
-                    <attribute id="Level4" type="LSString" value="2d4"/>
-                    <attribute id="Level5" type="LSString" value="2d4"/>
-                    <attribute id="Level6" type="LSString" value="3d4"/>
-                    <attribute id="Level7" type="LSString" value="3d4"/>
-                    <attribute id="Level8" type="LSString" value="3d4"/>
-                    <attribute id="Level9" type="LSString" value="4d4"/>
-                    <attribute id="Level10" type="LSString" value="4d4"/>
-                    <attribute id="Level11" type="LSString" value="5d4"/>
-                    <attribute id="Level12" type="LSString" value="5d4"/>
+                    <attribute id="Level3" type="LSString" value="3d4"/>
+                    <attribute id="Level4" type="LSString" value="4d4"/>
+                    <attribute id="Level5" type="LSString" value="4d4"/>
+                    <attribute id="Level6" type="LSString" value="5d4"/>
+                    <attribute id="Level7" type="LSString" value="6d4"/>
+                    <attribute id="Level8" type="LSString" value="6d4"/>
+                    <attribute id="Level9" type="LSString" value="7d4"/>
+                    <attribute id="Level10" type="LSString" value="8d4"/>
+                    <attribute id="Level11" type="LSString" value="9d4"/>
+                    <attribute id="Level12" type="LSString" value="9d4"/>
                     <attribute id="Name" type="FixedString" value="BladeReconstitutionHP"/>
                     <attribute id="UUID" type="guid" value="484b0709-2060-4e70-999c-0011d74448f6"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d6"/>
+                    <attribute id="Level2" type="LSString" value="1d6"/>
+                    <attribute id="Level3" type="LSString" value="1d6"/>
+                    <attribute id="Level4" type="LSString" value="1d6"/>
+                    <attribute id="Level5" type="LSString" value="2d6"/>
+                    <attribute id="Level6" type="LSString" value="2d6"/>
+                    <attribute id="Level7" type="LSString" value="2d6"/>
+                    <attribute id="Level8" type="LSString" value="3d6"/>
+                    <attribute id="Level9" type="LSString" value="3d6"/>
+                    <attribute id="Level10" type="LSString" value="3d6"/>
+                    <attribute id="Level11" type="LSString" value="4d6"/>
+                    <attribute id="Level12" type="LSString" value="4d6"/>
+                    <attribute id="Name" type="FixedString" value="BladeReconstitutionHPRestore"/>
+                    <attribute id="UUID" type="guid" value="cd6acd19-1ab6-4f38-b72c-3a4ff33a44d6"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d4"/>
+                    <attribute id="Level2" type="LSString" value="2d4"/>
+                    <attribute id="Level3" type="LSString" value="2d4"/>
+                    <attribute id="Level4" type="LSString" value="3d4"/>
+                    <attribute id="Level5" type="LSString" value="3d4"/>
+                    <attribute id="Level6" type="LSString" value="3d4"/>
+                    <attribute id="Level7" type="LSString" value="4d4"/>
+                    <attribute id="Level8" type="LSString" value="4d4"/>
+                    <attribute id="Level9" type="LSString" value="5d4"/>
+                    <attribute id="Level10" type="LSString" value="5d4"/>
+                    <attribute id="Level11" type="LSString" value="6d4"/>
+                    <attribute id="Level12" type="LSString" value="6d4"/>
+                    <attribute id="Name" type="FixedString" value="EmulateWielderHP"/>
+                    <attribute id="UUID" type="guid" value="4a889a44-87b9-4ff6-97f2-74979e9a32b7"/>
                 </node>
             </children>
         </node>

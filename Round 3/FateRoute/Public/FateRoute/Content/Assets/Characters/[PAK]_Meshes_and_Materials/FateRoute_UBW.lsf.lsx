@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="6" build="101" lslib_meta="v1,bswap_guids" />
+	<region id="MaterialBank">
+		<node id="MaterialBank">
+			<children>
+				<node id="Resource">
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="UBW_Texture" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Atmosphere/ATM_Vista_Unlit_AlphaBlend.lsf" />
+					<!-- <attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Base/Base.lsf" /> -->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="3500" />
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="EmissiveMultiplier" />
+							<attribute id="Value" type="float" value="1750" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="Texture Map" />
+							<attribute id="ID" type="FixedString" value="152b0585-670b-40a8-8b9c-15b1d09159a6" />
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="ID" type="FixedString" value="152b0585-670b-40a8-8b9c-15b1d09159a6" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="FateRoute_UBW_BM" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="SourceFile" type="LSString" value="Generated\Public\FateRoute\Assets\FateRoute_UBW_BaseMap_BM.DDS" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="4096" />
+					<attribute id="Height" type="int32" value="4096" />
+				</node>
+			</children>
+		</node>
+	</region>
+	<region id="VisualBank">
+		<node id="VisualBank">
+			<children>
+                <node id="Resource">
+					<attribute id="AttachBone" type="FixedString" value="" />
+					<attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+					<attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+					<attribute id="BoundsMax" type="fvec3" value="17.77 17.77 17.77" />
+					<attribute id="BoundsMin" type="fvec3" value="-17.77 -17.77 -17.77" />
+					<attribute id="Center" type="fvec3" value="0.0 0.0 4.4" />
+					<attribute id="ID" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="UBW_Mesh" />
+					<attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+					<attribute id="Radius" type="float" value="30.88" />
+					<attribute id="Slot" type="FixedString" value="Unassigned" />
+					<attribute id="SoftbodyResourceID" type="FixedString" value="" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_UnlimitedBladeWorks_MESH.GR2" />
+					<attribute id="SupportsVertexColorMask" type="bool" value="False" />
+					<attribute id="Template" type="FixedString" value="Generated/Public/FateRoute/Assets/FateRoute_UnlimitedBladeWorks_MESH.Dummy_Root.0" />
+					<children>
+						<node id="AnimationWaterfall">
+							<attribute id="Object" type="FixedString" value="" />
+						</node>
+						<node id="Base" />
+
+						<node id="Objects">
+							<attribute id="LOD" type="uint8" value="0" />
+							<attribute id="MaterialID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" />
+							<attribute id="ObjectID" type="FixedString" value="FateRoute_UnlimitedBladeWorks_MESH.Sphere.0" />
+							<attribute id="Physics" type="FixedString" value="" />
+							<attribute id="Slot" type="FixedString" value="" />
+						</node>
+
+						<node id="Objects">
+							<attribute id="LOD" type="uint8" value="0" />
+							<attribute id="MaterialID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" />
+							<attribute id="ObjectID" type="FixedString" value="FateRoute_UnlimitedBladeWorks_MESH.Sphere_LOD1.1" />
+							<attribute id="Physics" type="FixedString" value="" />
+							<attribute id="Slot" type="FixedString" value="" />
+						</node>
+
+						<node id="Objects">
+							<attribute id="LOD" type="uint8" value="0" />
+							<attribute id="MaterialID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" />
+							<attribute id="ObjectID" type="FixedString" value="FateRoute_UnlimitedBladeWorks_MESH.Sphere_LOD2.2" />
+							<attribute id="Physics" type="FixedString" value="" />
+							<attribute id="Slot" type="FixedString" value="" />
+						</node>
+
+						<node id="Objects">
+							<attribute id="LOD" type="uint8" value="0" />
+							<attribute id="MaterialID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" />
+							<attribute id="ObjectID" type="FixedString" value="FateRoute_UnlimitedBladeWorks_MESH.Sphere_LOD3.3" />
+							<attribute id="Physics" type="FixedString" value="" />
+							<attribute id="Slot" type="FixedString" value="" />
+						</node>
+
+						<node id="Objects">
+							<attribute id="LOD" type="uint8" value="0" />
+							<attribute id="MaterialID" type="FixedString" value="2b200783-36ae-4472-ac45-5f1513ebb51f" />
+							<attribute id="ObjectID" type="FixedString" value="FateRoute_UnlimitedBladeWorks_MESH.Sphere_LOD4.4" />
+							<attribute id="Physics" type="FixedString" value="" />
+							<attribute id="Slot" type="FixedString" value="" />
+						</node>
+					
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="3.000001" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_UBW_Root_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="58980e41-1f0f-42c4-bd7b-9ad60296a4ce" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_UBW_Root_Textkey_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/FateRoute/Assets/Effects/Effects_bank/Status/VFX_Status_UBW_Root_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6c35d21d-8c18-d1a3-5568-2d7819fcfab4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a639806b-3315-21c1-d786-9919081d03d1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ebfbf452-11ae-460a-96e5-5d1afaae10c3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d5f87828-7bd2-2ad0-f056-a4bed753c649" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ba28c032-be1a-cd7b-12bf-81502e11cc8f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3baa4db5-49da-1eda-78d9-410798f2a043" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="44192e18-75cf-4d16-1747-81ed534b8247" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="317bf423-2205-46f1-6932-c1e980336040" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="37d57802-deb2-20c9-c1a4-539fd8a6e6bb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2ebf5677-d7fd-f1a6-8c5e-5892a4215d9f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c189fd60-7f63-478a-b030-c3efb0c00e0c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="22913db7-c16d-8259-8539-311f6c14aa27" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
