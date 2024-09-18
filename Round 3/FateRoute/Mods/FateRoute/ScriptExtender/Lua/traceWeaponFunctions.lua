@@ -385,6 +385,7 @@ function spawnClone(target, isBrokenPhantasm, alterationArrow, UBW)
             Osi.SetImmortal(copiedChar, 1)
             Osi.ApplyStatus(copiedChar, "INVULNERABLE", -1, 100)
             Osi.SetStoryDisplayName(copiedChar, tostring(Ext.Entity.Get(fakerCharacter).ServerDisplayNameList.Names[2].Name))
+            Osi.SetCharacterOnPortraitPainting(copiedChar, fakerCharacter)
 
             -- for key, entry in pairs(Ext.Entity.Get(fakerCharacter).StatusContainer.Statuses) do
             --     if Osi.HasActiveStatus(copiedChar, entry) == 0 and entry ~= "FAKER_MELEE" and entry ~= "FAKER_RANGED" and entry ~= "STRUCTURAL_GRASP" then
@@ -418,6 +419,7 @@ function spawnClone(target, isBrokenPhantasm, alterationArrow, UBW)
             meleeWeaponTracker = meleeWeaponTracker or {}
             Ext.Timer.WaitFor(50, function()
                 Osi.AddBoosts(copiedChar, "Invisibility()", "Apply Weapon Functors - Arrow", copiedChar)
+                Osi.SetVisible(copiedChar, 0)
                 if #meleeWeaponTracker == 2 then
                     local mainWeapon = Osi.GetTemplate(meleeWeaponTracker[1])
                     local offWeapon = Osi.GetTemplate(meleeWeaponTracker[2])
@@ -472,7 +474,7 @@ function performFunctor(copiedChar, target, isBrokenPhantasm)
             -- Osi.AppearOutOfSightTo(copiedChar, target, fakerCharacter, 0, 0)
             -- Ext.Timer.WaitFor(100, function()
                 print("Using Spell")
-                Osi.UseSpell(copiedChar, "Target_Alteration_Arrow_ApplyWeaponFunctor", target)
+                Osi.UseSpell(copiedChar, "Target_Alteration_Arrow_ApplyWeaponFunctor", target,target,1)
                 print("Explode deletion true")
                 if isBrokenPhantasm == true then
                     Osi.CreateProjectileStrikeAt(target, "Projectile_BrokenPhantasm_Explosion")

@@ -87,20 +87,25 @@
 					<attribute id="LevelName" type="FixedString" value="" />
 					<attribute id="Type" type="FixedString" value="item" />
 					<attribute id="ParentTemplateId" type="FixedString" value="e419b771-2ea2-439d-a9e9-c2796398dd09" />
-					<attribute id="VisualTemplate" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" />
+					<!-- <attribute id="VisualTemplate" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" /> -->
 					<attribute id="PhysicsTemplate" type="FixedString" value="0785b2a6-1566-f110-f210-c8d0f5e3a8c5" />
 					<attribute id="Icon" type="FixedString" value="Spell_UnlimitedBladeWorks_Icon" />
 					<attribute id="Stats" type="FixedString" value="OBJ_UnlimitedBladeWorks" />
 					<attribute id="CanBeMoved" type="bool" value="False" />
 					<attribute id="CanClickThrough" type="bool" value="False" />
 					<attribute id="CanShootThrough" type="bool" value="False" />
+					<attribute id="CanShineThrough" type="bool" value="False" />
 					<attribute id="CanClimbOn" type="bool" value="False" />
 					<attribute id="CanBeImprovisedWeapon" type="bool" value="False" />
 					<attribute id="CanFight" type="bool" value="False" />
 					<attribute id="WalkThrough" type="bool" value="True" />
 					<attribute id="BlockAoEDamage" type="bool" value="True" />
 					<attribute id="GravityType" type="uint8" value="0" />
-					<attribute id="CoverAmount" type="uint8" value="1" />
+					<attribute id="CoverAmount" type="uint8" value="6" />
+					<attribute id="IsPortal" type="bool" value="False" />
+					<attribute id="IsSurfaceBlocker" type="bool" value="True" />
+					<attribute id="IsSurfaceCloudBlocker" type="bool" value="True" />
+					<attribute id="AttackableWhenClickThrough" type="bool" value="False" />
 					<children>
 						<node id="StatusList">
 							<children>

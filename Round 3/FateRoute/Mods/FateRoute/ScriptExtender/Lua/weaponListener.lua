@@ -218,6 +218,9 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function(caster, spell, s
                 Osi.ApplyStatus(mainWeapon, "RECENTLY_ALTERED_FIRED", 1, 100, fakerCharacter)
                 if spellName == "Throw_Alteration_BrokenPhantasm" then
                     Osi.ApplyStatus(mainWeapon, "RECENTLY_ALTERED_FIRED_BP", 1, 100, fakerCharacter)
+                    Ext.Timer.WaitFor(3500, function()
+                        Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
+                    end)
                 end
             end
             if #meleeWeaponTracker == 2 then
@@ -232,25 +235,22 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function(caster, spell, s
                     Osi.ApplyStatus(offWeapon, "RECENTLY_ALTERED_FIRED", 1, 100, fakerCharacter)
                     if spellName == "Throw_Alteration_BrokenPhantasm" then
                         Osi.ApplyStatus(mainWeapon, "RECENTLY_ALTERED_FIRED_BP", 1, 100, fakerCharacter)
+                        Ext.Timer.WaitFor(3500, function()
+                            Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
+                        end)
                     end
                 end
             end
 
         end)
-
-        Ext.Timer.WaitFor(3500, function()
-            Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
-        end)
     end
 end)
 
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spellName, spellType, spellElement, storyActionID) 
-    if spellName:match("Throw_Alteration") == "Throw_Alteration" then
-
-        throwTarget = target
-        explodeDetection = true
-        -- print("Trying to spawn clone")
-        -- spawnClone(target)
+Ext.Osiris.RegisterListener("OnThrown", 7, "before", function(thrownObject, thrownObjectTemplate, thrower, storyActionID, throwPosX, throwPosY, throwPosZ) 
+    if Osi.HasActiveStatus(thrownObject, "BROKEN_PHANTASM") == 1 then
+        Osi.CreateProjectileStrikeAtPosition(throwPosX, throwPosY, throwPosZ, "Projectile_BrokenPhantasm_Explosion")
+        Osi.CreateProjectileStrikeAtPosition(throwPosX, throwPosY, throwPosZ, "Projectile_BrokenPhantasm_Explosion_2")
+        Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
     end
 end)
 
@@ -351,6 +351,37 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, t
     end
 end)
 
+-- overedge and overdraw
+Ext.Osiris.RegisterListener("CharacterDisarmed", 3, "after", function(character, item, slotName) 
+    if Osi.HasActiveStatus(item, "REINFORCEMENT_OVEREDGE_VISUAL") == 1 then
+        Osi.RemoveStatus(character, "REINFORCEMENT_OVEREDGE")
+    end
+    if Osi.HasActiveStatus(item, "REINFORCEMENT_OVERDRAW_VISUAL") == 1 then
+        Osi.RemoveStatus(character, "REINFORCEMENT_OVERDRAW")
+    end
+end)
+
+Ext.Osiris.RegisterListener("Unequipped", 2, "after", function(character, item) 
+    if Osi.HasActiveStatus(item, "REINFORCEMENT_OVEREDGE_VISUAL") == 1 then
+        if Osi.GetEquippedItem(character, "Melee Main Weapon") ~= nil then
+            if Osi.HasActiveStatus(Osi.GetEquippedItem(character, "Melee Main Weapon")) == 0 then
+                Osi.RemoveStatus(character, "REINFORCEMENT_OVEREDGE")
+            end
+        else
+            Osi.RemoveStatus(character, "REINFORCEMENT_OVEREDGE")
+        end
+    end
+    if Osi.HasActiveStatus(item, "REINFORCEMENT_OVERDRAW_VISUAL") == 1 then
+        if Osi.GetEquippedItem(character, "Ranged Main Weapon") ~= nil then
+            if Osi.HasActiveStatus(Osi.GetEquippedItem(character, "Ranged Main Weapon")) == 0 then
+                Osi.RemoveStatus(character, "REINFORCEMENT_OVERDRAW")
+            end
+        else
+            Osi.RemoveStatus(character, "REINFORCEMENT_OVERDRAW")
+        end
+    end
+end)
+
 -- manaburst damage increase
 Ext.Osiris.RegisterListener("UsingSpellOnZoneWithTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
     if spell == "Zone_ManaBurst_Caliburn" then
@@ -374,7 +405,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, 
         Ext.Timer.WaitFor(150, function()
             -- local x,y,z = Osi.GetPosition(target)
             -- Osi.UseSpellAtPosition(caster, "Target_MainHandAttack_Caliburn_Followup", x, y, z)
-            Osi.UseSpell(caster, "Target_MainHandAttack_Caliburn_Followup", target)
+            Osi.UseSpell(caster, "Target_MainHandAttack_Caliburn_Followup", target,target,1)
             print("Trying to followup caliburn")
         end)
 

@@ -29,7 +29,7 @@
     <content contentuid="h2f0bf197e86a4d3a8546d4329ae3370fa31c" version="1">Blade Reconstitution</content>
     <content contentuid="ha2d3b62a7e4742ee88d3729b9cc20513acee" version="1">Your body is made out of swords. Upon falling or starting your turn under [1] of your hit point maximum, blades will forcibly attempt to stitch up your wounds, automatically healing [2]. However, if a &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; is failed, you take [3] damage and start &lt;LSTag Type="Status" Tooltip="BODYOFSWORDS"&gt;bleeding internally&lt;/LSTag&gt; for 2 turns.</content>
     <content contentuid="h07207be73bda459a9daea30dad2beb346015" version="1">Reinforcement: Eyes</content>
-    <content contentuid="hfda5043fc91446528129b12642867ffc817a" version="1">You use Reinforcement Magecraft to enhance your vision and senses, increasing your &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt; by [1] and allowing you to see in the dark out to a range of [2] and search for &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures up to [3] away.</content>
+    <content contentuid="hfda5043fc91446528129b12642867ffc817a" version="1">You use Reinforcement Magecraft to enhance your vision and senses, granting &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Perception &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; as well as allowing you to see in the dark out to a range of [1] and search for &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures up to [2] away.</content>
     <content contentuid="h798ffd7fba77442591e2d05640cfd793412d" version="1">Can see in the dark up to a range of [1] and attempts to detect &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures up to [2] away, who must succeed a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or lose their invisibility.</content>
     <content contentuid="h394b42bde9b64d3e8225122ffa85b674ac6b" version="1">Reinforcement: Legs</content>
     <content contentuid="h057698fa2eb443e590f0d3f31689bf1411af" version="1">You use Reinforcement Magecraft to strengthen your legs, increasing your &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; by [1], doubling your jumping distance, and allowing you to resist 33% of Falling damage during this turn.</content>
@@ -1051,7 +1051,7 @@
     <content contentuid="h26fcbb1f24fc496595580296b04853b85fc5" version="1">Allows for the &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; of the creature the weapon was traced from to be copied if it is higher than yours. However, everytime an attack is performed, upon failure of a &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, take [1] and [2] as a result of pushing your body past its limits.</content>
     <content contentuid="hf854933aeef447e6b961f28a335a59e0ae5d" version="1">Emulate Wielder: Overload</content>
     <content contentuid="h647af9710f534f708ca961122999de63926f" version="1">You need to toggle this feature after tracing a weapon in order to active this effect. If you have both a ranged and melee traced weapon active, the stats you copy depend on the weapon action being performed.</content>
-    <content contentuid="h2221cb2ac91a454097f1e4a59180b90720ae" version="1">This creature is emulating the physical parameters of the weapon's original wielder, and may take [1] as a result of overloading their body's limits.</content>
+    <content contentuid="h2221cb2ac91a454097f1e4a59180b90720ae" version="1">This creature is emulating the physical parameters of the weapon's original wielder, and may take [1] and [2] as a result of overloading their body's limits.</content>
     <content contentuid="h1989a02d1b364af38e3aa0327ea117eag46d" version="1">Faker (Ranged)</content>
     <content contentuid="hcebaec09298446eba349f1b66c9d225b86bb" version="1">This creature's traced ranged weapons suffer a slight degradation, resulting in a -[1] attack roll penalty with attacks using the weapon. Negated when the skills of the weapon's original wielder is emulated.</content>
     <content contentuid="hd54f2d58820c4354b74291f16461ba88e71f" version="1">Every turn after tracing a melee weapon, a successful &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; will grant the appropriate fighting style (&lt;LSTag Type="Passive" Tooltip="FightingStyle_Dueling"&gt;Dueling&lt;/LSTag&gt;, &lt;LSTag Type="Passive" Tooltip="FightingStyle_TwoWeaponFighting"&gt;Two-Weapon Fighting&lt;/LSTag&gt;, or &lt;LSTag Type="Passive" Tooltip="FightingStyle_GreatWeaponFighting"&gt;Great Weapon Fighting&lt;/LSTag&gt;) of your current traced melee weapon(s).</content>
@@ -1121,7 +1121,7 @@
     <content contentuid="h4a52d7b308d34e92b97415d94e9e51db9ffe" version="1">You've discovered more words that resonate in your very being: 'Have withstood pain to create many weapons.'</content>
     <content contentuid="hd8eed3839e2b4dcfabef4d97230aa22513e1" version="1">You've discovered more words that resonate in your very being: 'Always seeking that parted starlight.'</content>
     <content contentuid="h3de79c75970d4bc7928eacb3fe8150dd401e" version="1">Without a doubt, you've discovered the final words that ties together your very being: 'My whole life was Unlimited Blade Works.'</content>
-    <content contentuid="h7a4e6ccf362e48c5b2b6c638f83452ea4fb8" version="1">With each line spoken, gain an alternating +[1] bonus to damage or &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; which stacks with previous lines spoken.</content>
+    <content contentuid="h7a4e6ccf362e48c5b2b6c638f83452ea4fb8" version="1">With each line spoken, gain an alternating +[1] bonus to damage or &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; which stacks with previous lines spoken. Can be cast for a second time during a turn as a bonus action.</content>
     <content contentuid="ha9bc4fe486724708ae2e208dc829acf7c4bb" version="1">Resonating within, these words are meant to connect you.</content>
     <content contentuid="h4eb657cdcfc049ddb168b726a0373684d762" version="1">Self Reflecting Aria</content>
     <content contentuid="hdae76cca4dbb4173953cb597ce8fa80033cd" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; You must be wielding a traced melee weapon, see the attacker, and not be Incapacitated or Restrained.</content>
@@ -1226,4 +1226,27 @@
     <content contentuid="h4bbfa2aeb6a047819a6035b20715bb7aa8gg" version="1">Reality Marble: Contain</content>
     <content contentuid="h2e18e06717d64d5a960ca9cf4948dad94eg9" version="1">Reality Marble: Pull</content>
     <content contentuid="he6f5b8a87ad940f7a5cc3725f7673eb8c2df" version="1">Having actualized their Reality Marble, this creature has can trace weapons in it at no cost and gains a +[1] bonus to damage and attack rolls. However, their Magical Energy drains by [2] per turn and if the creature runs out of Magical Energy, dismisses their Reality Marble, or leaves the Reality Marble, the Reality Marble will disappear.</content>
+    <content contentuid="h4565886ba91743eb964b031ccc42bc01bbce" version="1">Replicated Within</content>
+    <content contentuid="heecc9c02a65344278be328da10ceb982be4d" version="1">This replicated weapon only exists in this inner world, now brought into reality.</content>
+    <content contentuid="h61180f56db1d47538f35c1e15980d1c66267" version="1">｢Unlimited Blade Works｣ Infinite Sword Dance</content>
+    <content contentuid="hf14194cb5b4d4587b4fe16b1c9b4471ffdb8" version="1">Manipulate seven random weapons stored in ｢Unlimited Blade Works｣ to rain down upon a target inside the Reality Marble.</content>
+    <content contentuid="hb4cb933e9e584ad1ba1464eed26f3466b110" version="1">Each weapon deals its original damage and will reappear at their original location after being manipulated.</content>
+    <content contentuid="h4093596c1ebb4868a1610507cc7d9afb1013" version="1">Having marked weapons in ｢Unlimited Blade Works｣ to be fired, you can mark a creature to be the target of the sword volley.</content>
+    <content contentuid="h9223876954f4434685e29fb50f013758e6c9" version="1">｢Unlimited Blade Works｣ Infinite Sword Dance: Fire</content>
+    <content contentuid="h266b157c4f2244c09468462bb10813ba1c8a" version="1">Sword Barrel: Loaded</content>
+    <content contentuid="h958f2ed8f84d4a9093ae011e92c00e954593" version="1">This weapon has been marked and is ready to be rained upon an enemy.</content>
+    <content contentuid="hdb676a8901dc413cb42f57d3c7e7dfb6b579" version="1">Infinite Sword Dance: Fire</content>
+    <content contentuid="h15fe711b9d344025908eee447243d17eb7d8" version="1">This creature can mark a target for their sword volley.</content>
+    <content contentuid="hc513adc605c54157a40a1fe78fe5e427cfaf" version="1">Target in Sight</content>
+    <content contentuid="hd12e5d9373c74ea9a8d5d3e18d3246bdd6ce" version="1">This creature will be the target of a sword volley.</content>
+    <content contentuid="h418ca529a8e94fd886860cded806ae6d1d3c" version="1">You can mark up to [1] weapons stored in ｢Unlimited Blade Works｣ to be rained down on a creature to deal the damage of each weapon.</content>
+    <content contentuid="hd5c38c9cbdda44799ee6e20c0ba76d8a61f0" version="1">｢Unlimited Blade Works｣ Infinite Sword Dance: Trigger</content>
+    <content contentuid="h2f29fafea0e0424cb6e464d6265cf1981a92" version="1">Inner World</content>
+    <content contentuid="hf2c84dd17e094fc6a1bda12c8f0c683632c7" version="1">In ｢Unlimited Blade Works｣, you can trace weapons for no cost.</content>
+    <content contentuid="hbeb8c12889854b3ba9ae23e24d2823fegcf4" version="1">Aria: Cast One</content>
+    <content contentuid="h7e7a89fdfaf44628920c13dceeba08b892g4" version="1">Aria: Cast Two</content>
+    <content contentuid="h34eed8b03c1a451c9fedc31a7728e3ae40ed" version="1">Allows aria to be used once a turn.</content>
+    <content contentuid="hcabdb8b0bfdb420f9999bad1da8b914c008f" version="1">Allows aria to be used for a second time during a turn.</content>
+    <content contentuid="h03c727d7a0ee465b963f42e841bf9c14027a" version="1">Aria: Replace Cost</content>
+    <content contentuid="ha9c017553f3441998584430327f6b2bad3a6" version="1">Aria can be cast again during a turn using a bonus action.</content>
 </contentList>

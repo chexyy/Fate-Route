@@ -90,3 +90,21 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, 
     print("Spelltype is " .. spellType)
 
 end)
+
+weapon = "d2fe9a24-affd-464a-b757-a48d6f50dd7d"
+x,y,z = Osi.GetPosition(GetHostCharacter())
+createdObject = Osi.CreateAt(weapon, x, y, z, 1, 1, "UBW")
+Ext.Timer.WaitFor(100, function()
+    local rarity = Ext.Entity.Get(createdObject).Value.Rarity + 1
+    if rarity == 5 then
+    Osi.ApplyStatus(createdObject, "REPRODUCTION_LEGENDARY", -1, 100, createdObject)                        
+    elseif rarity == 4 then
+        Osi.ApplyStatus(createdObject, "REPRODUCTION_VERYRARE", -1, 100, createdObject)
+    elseif rarity == 3 then
+        Osi.ApplyStatus(createdObject, "REPRODUCTION_RARE", -1, 100, createdObject)
+    elseif rarity == 2 then
+        Osi.ApplyStatus(createdObject, "REPRODUCTION_UNCOMMON", -1, 100, createdObject)
+    end
+    Osi.ApplyStatus(createdObject, "REPRODUCTION_MELEE", -1, 100, createdObject)
+end)
+Osi.ToTransform(createdObject, x, y, z, 1, 90, 90)

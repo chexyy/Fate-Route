@@ -23,6 +23,29 @@
           <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
           <attribute id="UUID" type="guid" value="b916be0d-9ed8-4228-9d85-22f1815784a2" />
         </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="hbeb8c12889854b3ba9ae23e24d2823fegcf4" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="h34eed8b03c1a451c9fedc31a7728e3ae40ed" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="AriaCastOne" />
+          <attribute id="ReplenishType" type="FixedString" value="Turn" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="IsHidden" type="bool" value="True" />
+          <attribute id="UUID" type="guid" value="72df9896-c4b6-4512-8ec5-c5a902b0422e" />
+          
+        </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h7e7a89fdfaf44628920c13dceeba08b892g4" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="hcabdb8b0bfdb420f9999bad1da8b914c008f" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="AriaCastTwo" />
+          <attribute id="ReplenishType" type="FixedString" value="Turn" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="IsHidden" type="bool" value="True" />
+          <attribute id="UUID" type="guid" value="39b73e4e-bf8b-41dc-befe-9f86b19dd1d0" />
+        </node>
       </children>
     </node>
   </region>

@@ -14,11 +14,13 @@
 					<children>
 						<node id="ScalarParameters">
 							<attribute id="BaseValue" type="float" value="3500" />
+							<attribute id="Value" type="float" value="1750" />
+							<!-- <attribute id="BaseValue" type="float" value="500" />
+							<attribute id="Value" type="float" value="250" /> -->
 							<attribute id="Enabled" type="bool" value="True" />
 							<attribute id="ExportAsPreset" type="bool" value="True" />
 							<attribute id="GroupName" type="FixedString" value="" />
 							<attribute id="ParameterName" type="FixedString" value="EmissiveMultiplier" />
-							<attribute id="Value" type="float" value="1750" />
 						</node>
 						<node id="Texture2DParameters">
 							<attribute id="Enabled" type="bool" value="True" />
@@ -195,6 +197,114 @@
 						</node>
 					</children>
 				</node>
+					
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="18.5 18.5 18.5" />
+					<attribute id="BoundsMin" type="fvec3" value="-18.5 -18.5 -18.5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="12.5" />
+					<attribute id="EffectName" type="FixedString" value="UnlimitedBladeWorks_Effect" />
+					<attribute id="ID" type="FixedString" value="11746d2f-93d6-44c3-9b80-44929199f1da" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="UnlimitedBladeWorks_Effect" />
+					<attribute id="SourceFile" type="LSString" value="Public/FateRoute/Assets/Effects/Effects_bank/Status/UnlimitedBladeWorks_Effect.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="62800f11-67f1-3071-1c3c-4035af8f1c70" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e5b1d85c-4e97-77fa-98bb-f2d3d025cf27" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="edf1fc30-bdda-11bd-32b3-7438ca4458a1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97e0bedd-c913-bb23-6852-8cf7f4b46725" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e2920432-876c-bc5a-bff9-fb3da97e8bdc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="82581abf-21a9-ac60-968a-1d2319494dc2" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="46c923b6-be35-70e8-4521-2b3d947bee46" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="89d4ef98-35d3-ab77-476c-66886ab0c905" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c189fd60-7f63-478a-b030-c3efb0c00e0c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d5f87828-7bd2-2ad0-f056-a4bed753c649" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3baa4db5-49da-1eda-78d9-410798f2a043" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="317bf423-2205-46f1-6932-c1e980336040" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="37d57802-deb2-20c9-c1a4-539fd8a6e6bb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2ebf5677-d7fd-f1a6-8c5e-5892a4215d9f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="de2d85ce-a0f4-9006-fd86-fcc78ad1a5a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="03296a40-6fac-272a-34af-c00c243a8c7a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ebfbf452-11ae-460a-96e5-5d1afaae10c3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="22bdf834-9c45-8876-b4e6-bb56d31fdac1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7f529093-83ec-ea78-2d7d-71bb5fa5d73c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ce9ec693-ae2c-ebe2-cbea-3e36ae441c4b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="19c24792-a865-5490-9e83-c7e90e3d04fb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ae68383d-b1ad-1968-3616-5d2ea373dfbe" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca3fdf34-ccbe-c0dc-5c21-f3b280b01f95" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5a16ee62-64d5-9401-ee6c-729199c1c13e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="44192e18-75cf-4d16-1747-81ed534b8247" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+
 			</children>
 		</node>
 	</region>

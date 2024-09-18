@@ -1,5 +1,5 @@
 {
-    "RequiredVersion": 16,
+    "RequiredVersion": 20,
     "ModTable": "FateRoute",
     "FeatureFlags": ["Lua"],
     "UUID": "d80c56b3-5b89-4789-86a2-cbef2d7e1fa5"

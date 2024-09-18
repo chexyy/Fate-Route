@@ -89,6 +89,10 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
         local entity = Ext.Entity.Get(caster)
 
         -- entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount = entity.ActionResources.Resources["420c8df5-45c2-4253-93c2-7ec44e127930"][1].Amount - 1 
+        -- if Osi.HasActiveStatus(caster, "APPLY_ARIA_8") == 1 then
+        --     local magicalEnergyCost = :match("MagicalEnergy:%d+"):match("%d")
+        --     Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount + magicalEnergyCost
+        -- end
 
         local descriptionParams = observedTraceTemplate.DescriptionParams
         local params = {}

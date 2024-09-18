@@ -1,97 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <save>
-	<version major="4" minor="7" revision="1" build="1" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<version major="4" minor="1" revision="1" build="1" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
 	<region id="config">
 		<node id="config">
 			<children>
 				<node id="entries">
 					<children>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="80" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="80" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Highlight/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Highlight/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="80" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="80" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Missing/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Missing/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="80" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="80" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Used/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/ActionResources_c/Icons/Resources/Used/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="80" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="80" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/CC/icons_resources/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/CC/icons_resources/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="128" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="128" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="48" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="48" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Highlight/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Highlight/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="48" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="48" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Used/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Used/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="48" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="48" />
 								</node>
 							</children>
 						</node>
 						<node id="Object">
-							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Missing/MagicalEnergy.DDS" />
+							<attribute id="MapKey" type="FixedString" value="Assets/Shared/Resources/Missing/MagicalEnergy.png" />
 							<children>
 								<node id="entries">
 									<attribute id="h" type="int16" value="48" />
-									<attribute id="mipcount" type="int8" value="7" />
+									<attribute id="mipcount" type="int8" value="1" />
 									<attribute id="w" type="int16" value="48" />
 								</node>
 							</children>

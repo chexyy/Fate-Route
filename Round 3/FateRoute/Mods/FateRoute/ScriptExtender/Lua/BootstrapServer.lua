@@ -1,6 +1,6 @@
 Ext.Require("traceClasses.lua")
-Ext.Require("traceGeneralListener.lua")
 Ext.Require("traceWeaponFunctions.lua")
+Ext.Require("traceGeneralListener.lua")
 Ext.Require("fakerPassives.lua")
 Ext.Require("traceDetector.lua")
 Ext.Require("weaponListener.lua")

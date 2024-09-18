@@ -15681,7 +15681,7 @@
 								</node>
 							</children>
 						</node>
-						<node id="EffectComponent">
+						<!-- <node id="EffectComponent">
 							<attribute id="EndTime" type="float" value="2" />
 							<attribute id="ID" type="guid" value="272f493f-a2be-497f-ab6a-9faff6d69fb6" />
 							<attribute id="Name" type="LSString" value="Decal" />
@@ -16105,7 +16105,7 @@
 									</children>
 								</node>
 							</children>
-						</node>
+						</node> -->
 						<node id="EffectComponent">
 							<attribute id="EndTime" type="float" value="1" />
 							<attribute id="ID" type="guid" value="e44253a8-07ca-4fa8-95ee-f2df85e17fed" />
