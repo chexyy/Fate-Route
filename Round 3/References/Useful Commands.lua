@@ -1,5 +1,8 @@
 AddBoosts(GetHostCharacter(), "ActionResource(MagicalEnergy,5,0)", "", "")
-AddBoosts(GetHostCharacter(), "ActionResource(ActionPoint,20,0)", "", "")
+AddBoosts(GetHostCharacter(), "ActionResource(KiPoint,20,0)", "", "")
+AddBoosts(GetHostCharacter(), "ActionResource(BonusActionPoint,1,0)", "", "")
+
+AddBoosts(GetHostCharacter(), "RestoreResource(BonusActionPoint,100%,0)", "Test", GetHostCharacter())
 
 TemplateAddTo("fce90430-b99f-4981-bfa6-390bb3be1e63", GetHostCharacter(), 1)
 TemplateAddTo("4567ecad-2304-42db-b8ed-0ca6bb8edfb5", GetHostCharacter(), 1) -- UBW
@@ -25,3 +28,19 @@ Osi.AddBoosts(GetHostCharacter(), "Invulnerable()", "Console", GetHostCharacter(
 local x, y, z = Osi.GetPosition(GetHostCharacter())
 Osi.PlayLoopEffectAtPosition("58980e41-1f0f-42c4-bd7b-9ad60296a4ce", x, y, z, 2)
 ]]--
+
+local level = 10
+for position, partymember in pairs(Osi.DB_Players:Get(nil)) do
+    for _, guid in pairs(partymember) do
+        Osi.SetLevel(guid, level)
+    end   
+end
+
+local exp = 27500
+for position, partymember in pairs(Osi.DB_Players:Get(nil)) do
+    for _, guid in pairs(partymember) do
+        Osi.AddExplorationExperience(guid, exp)
+    end   
+end
+
+Osi.SetFaction(GetHostCharacter(),"64321d50-d516-b1b2-cfac-2eb773de1ff6")

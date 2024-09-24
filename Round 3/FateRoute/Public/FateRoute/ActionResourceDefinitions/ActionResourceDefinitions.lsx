@@ -46,6 +46,17 @@
           <attribute id="IsHidden" type="bool" value="True" />
           <attribute id="UUID" type="guid" value="39b73e4e-bf8b-41dc-befe-9f86b19dd1d0" />
         </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h0552d76ae8f44c3fa2919c3ae4350d456f35" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="h4b813b7097e441cdb2632fed218282d8d8b1" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="ManaBurstLocked" />
+          <attribute id="ReplenishType" type="FixedString" value="Turn" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="IsHidden" type="bool" value="True" />
+          <attribute id="UUID" type="guid" value="7c08f749-01dd-4c99-aaab-8bb458f41849" />
+        </node>
       </children>
     </node>
   </region>

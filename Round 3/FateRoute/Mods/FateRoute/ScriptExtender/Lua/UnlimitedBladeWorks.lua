@@ -437,43 +437,51 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, sp
     if spell:match("Shout_Aria") == "Shout_Aria" and spell ~= "Shout_Aria_Dismiss_UBW" then
         print(spell .. " detected")
 
-        if Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_8") == 0 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_1", 10, 100, caster)
+        -- if Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 0 and Osi.HasActiveStatus(caster, "APPLY_ARIA_8") == 0 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_1", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 1 and Osi.HasPassive(caster, "Passive_Aria_Two") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_2", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_1") == 1 and Osi.HasPassive(caster, "Passive_Aria_Two") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_2", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 1 and Osi.HasPassive(caster, "Passive_Aria_Three") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_3", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_2") == 1 and Osi.HasPassive(caster, "Passive_Aria_Three") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_3", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 1 and Osi.HasPassive(caster, "Passive_Aria_Four") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_4", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_3") == 1 and Osi.HasPassive(caster, "Passive_Aria_Four") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_4", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 1 and Osi.HasPassive(caster, "Passive_Aria_Five") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_5", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_4") == 1 and Osi.HasPassive(caster, "Passive_Aria_Five") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_5", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 1 and Osi.HasPassive(caster, "Passive_Aria_Six") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_6", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_5") == 1 and Osi.HasPassive(caster, "Passive_Aria_Six") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_6", 10, 100, caster)
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 1 and Osi.HasPassive(caster, "Passive_Aria_Seven") == 1 then
-            Osi.ApplyStatus(caster, "APPLY_ARIA_7", 10, 100, caster)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_6") == 1 and Osi.HasPassive(caster, "Passive_Aria_Seven") == 1 then
+        --     Osi.ApplyStatus(caster, "APPLY_ARIA_7", 10, 100, caster)
 
-            if Osi.HasPassive(caster, "Passive_Aria_Eight") == 1 then
-                print("UBW!")
-                Osi.RemoveSpell(caster, "Shout_Aria_8")
-                Ext.Timer.WaitFor(150, function()
-                    Osi.AddSpell(caster, "Shout_Aria_8_UBW", 0)
-                end)
+        --     if Osi.HasPassive(caster, "Passive_Aria_Eight") == 1 then
+        --         print("UBW!")
+        --         Osi.RemoveSpell(caster, "Shout_Aria_8")
+        --         Ext.Timer.WaitFor(150, function()
+        --             Osi.AddSpell(caster, "Shout_Aria_8_UBW", 0)
+        --         end)
                 
-            end
+        --     end
 
-        elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 1 then
-            print("Granting aria 8")
-            Osi.RemoveStatus(caster, "APPLY_ARIA_7", caster)
-            Ext.Timer.WaitFor(50, function()
-                Osi.ApplyStatus(caster, "APPLY_ARIA_8", -1, 100, caster)
-            end)
+        -- elseif Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 1 then
+        --     print("Granting aria 8")
+        --     Osi.RemoveStatus(caster, "APPLY_ARIA_7", caster)
+        --     Ext.Timer.WaitFor(50, function()
+        --         Osi.ApplyStatus(caster, "APPLY_ARIA_8", -1, 100, caster)
+        --     end)
 
+        --     Osi.RemoveSpell(caster, "Shout_Aria_8_UBW")
+        --     Ext.Timer.WaitFor(50, function()
+        --         Osi.AddSpell(caster, "Shout_Aria_Dismiss_UBW", 0)
+        --     end)
+
+        -- end
+
+        if Osi.HasActiveStatus(caster, "APPLY_ARIA_7") == 1 then
             Osi.RemoveSpell(caster, "Shout_Aria_8_UBW")
             Ext.Timer.WaitFor(50, function()
                 Osi.AddSpell(caster, "Shout_Aria_Dismiss_UBW", 0)

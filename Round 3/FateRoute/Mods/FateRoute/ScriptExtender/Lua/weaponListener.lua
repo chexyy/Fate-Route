@@ -383,22 +383,23 @@ Ext.Osiris.RegisterListener("Unequipped", 2, "after", function(character, item)
 end)
 
 -- manaburst damage increase
-Ext.Osiris.RegisterListener("UsingSpellOnZoneWithTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
-    if spell == "Zone_ManaBurst_Caliburn" then
-        magicalEnergyExpended = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
-        Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
-        print("Manaburst (Caliburn) detected on " .. target)
-        -- print("Adding RollBonus(Damage," .. magicalEnergyExpended .. ")")
-        -- Osi.AddBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", "Mana Burst Drain", caster)
-        -- Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
+-- Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
+--     if spell == "Zone_ManaBurst_Caliburn" then
+--         magicalEnergyExpended = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
+--         Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
+--         Osi.ApplyDamage(target, magicalEnergyExpended, "Radiant", caster)
+--         print("Manaburst (Caliburn) detected on " .. target)
+--         -- print("Adding RollBonus(Damage," .. magicalEnergyExpended .. ")")
+--         -- Osi.AddBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", "Mana Burst Drain", caster)
+--         -- Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
 
-        -- Ext.Timer.WaitFor(1250, function()
-        --     Osi.RemoveBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", 1, "Mana Burst Drain", caster)
-        -- end)
+--         -- Ext.Timer.WaitFor(1250, function()
+--         --     Osi.RemoveBoosts(caster, "RollBonus(Damage," .. magicalEnergyExpended .. ")", 1, "Mana Burst Drain", caster)
+--         -- end)
 
-    end
+--     end
 
-end)
+-- end)
 
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
     if spell == "Target_MainHandAttack_Caliburn" then
@@ -416,23 +417,47 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, 
 
 end)
 
-Ext.Osiris.RegisterListener("AttackedBy", 7, "before", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
-    if (attackOwner == fakerCharacter or attacker2 == fakerCharacter) and damageType == "Radiant" and damageAmount > 10 then
+Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
+    if spell == "Shout_Charge_ManaBurst" then
+        local magicalEnergyExpended = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
+        Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
+        ApplyStatus(caster, "MANABURST_CHANNELING_" .. Osi.RealToInteger(magicalEnergyExpended), 1, 100, caster)
         Ext.Timer.WaitFor(50, function()
-            if magicalEnergyExpended ~= nil and Ext.Entity.Get(defender).Vars.attackTimer == nil then
-                print("Attempting to apply damage from Mana Burst: " .. magicalEnergyExpended)
-                Osi.ApplyDamage(defender, magicalEnergyExpended, "Radiant", fakerCharacter)
-                Ext.Timer.WaitFor(10000, function()
-                    local targetEntity = Ext.Entity.Get(character)
-                    local localTargetTimer = nil
-                    targetEntity.Vars.targetTimer = localTargetTimer
-                
-                end)
-            end
+            Osi.Freeze(caster)
+            Ext.Timer.WaitFor(100, function()
+                Osi.Unfreeze(caster)
+            end)
         end)
+        print("Manaburst (Caliburn) detected on " .. caster .. " with extra magical energy: " .. Osi.RealToInteger(magicalEnergyExpended))
 
     end
 
 end)
+
+-- Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID) 
+--     if Osi.HasActiveStatus(attackerOwner, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+        
+--     end
+
+-- end)
+
+-- Ext.Osiris.RegisterListener("AttackedBy", 7, "before", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+--     if (attackOwner == fakerCharacter or attacker2 == fakerCharacter) and damageType == "Radiant" and damageAmount > 10 then
+--         Ext.Timer.WaitFor(50, function()
+--             if magicalEnergyExpended ~= nil and Ext.Entity.Get(defender).Vars.attackTimer == nil then
+--                 print("Attempting to apply damage from Mana Burst: " .. magicalEnergyExpended)
+--                 Osi.ApplyDamage(defender, magicalEnergyExpended, "Radiant", fakerCharacter)
+--                 Ext.Timer.WaitFor(10000, function()
+--                     local targetEntity = Ext.Entity.Get(character)
+--                     local localTargetTimer = nil
+--                     targetEntity.Vars.targetTimer = localTargetTimer
+                
+--                 end)
+--             end
+--         end)
+
+--     end
+
+-- end)
 
 print("Weapon listeners loaded")

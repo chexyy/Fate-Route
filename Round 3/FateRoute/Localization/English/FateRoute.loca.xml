@@ -18,7 +18,7 @@
 	<content contentuid="h0db8fbd4g49cdg4d72gafe3g4d16817cc525" version="1">Weapon Traced</content>
 	<content contentuid="h6d59fc23g6429g4b7agb156g989fa516781f" version="1">The spellcaster traced this creature active weapon.</content>
 	<content contentuid="hd53022dc920d4db09a87d293b786b6d5e903" version="1">Faker (Melee)</content>
-	<content contentuid="h43268fc359934e3da5d8ca06b59d84e90abf" version="1">This creature's traced ranged weapons suffer a slight degradation, resulting in a -[1] attack roll penalty with attacks using the weapon. Negated when the skills of the weapon's original wielder is emulated.</content>
+	<content contentuid="h43268fc359934e3da5d8ca06b59d84e90abf" version="1">This creature's traced melee weapons suffer a slight degradation, resulting in a -[1] attack roll penalty with attacks using the weapon. Negated when the skills of the weapon's original wielder is emulated.</content>
     <content contentuid="h766959fcd81e4fde804fcfb0f3f3d8180447" version="1">Trace this weapon.</content>
 	<content contentuid="hc0c5f647ge23ag4125gaabfg15645d6ee811" version="1">Trace a weapon previously copied, whose cost is dependent on the weapon's rarity.</content>
     <content contentuid="hb2e96d7a77c34ea7a6dcbf669f8296c0cd00" version="1">Trace Weapon: Reproduction</content>
@@ -42,7 +42,6 @@
     <content contentuid="hf74c14bc6049473d9fd42b7bcd9d9c2ad70g" version="1">Depending on your currently traced weapon, gain the appropriate Fighting Style if you do not possess it already.</content>
     <content contentuid="hb542de732d8c48ee90224d3fde2b87ad2b2a" version="1">Weapon Catalog</content>
     <content contentuid="hb8ee8e5b67ef43859d52520e4cebc6d503gg" version="1">Because of your unique constitution, you can remember any weapons that you lay your eyes on within [1] and reproduce them using &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Melee"&gt;Trace Weapon: Melee&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_Ranged"&gt;Trace Weapon: Ranged&lt;/LSTag&gt;.</content>
-    <content contentuid="h9786436ag6854g4471gb89cgb7966937b899" version="1">[1] wielded with [2] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [3] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [4] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
     <content contentuid="hd0849cd124b549e5b2e562b96c3ffbcb527g" version="1">Faker (Hidden)</content>
     <content contentuid="hb9d825e85c824fa2a9a4b2bcfaf4ceba068c" version="1">A hidden status used to check for tracing.</content>
     <content contentuid="hbb03389153034c47a5c18ce5f66198fc42d7" version="1">Weapon Status Placeholder</content>
@@ -1083,7 +1082,7 @@
     <content contentuid="h3ea471e3f486431787bfd63cf7ce8af612ae" version="1">One's Image</content>
     <content contentuid="h86f79e56d3764bd5ac9ed992d8ce1fb1260g" version="1">Mind's Eye</content>
     <content contentuid="hc833377f88214707ba72a3392efed0921cf2" version="1">Your experience in surmounting overwhelming odds has honed your instincts. When you are about to be hit by a creature’s melee attack, attempt to parry it with your traced melee weapon and strike back.</content>
-    <content contentuid="h558397ba878f4cdf88b49f84340e3c2cgae8" version="1">Upon success of an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, reduce the damage of the unarmed attack or weapon attack by [1] and attempt to counterattack with a powerful strike that deals an additional [2]. However, upon failure, the image of your traced weapon(s) fail and break.</content>
+    <content contentuid="h558397ba878f4cdf88b49f84340e3c2cgae8" version="1">Upon success of an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, reduce the damage of the unarmed attack or weapon attack by [1] and attempt to counterattack with a powerful strike that deals an additional [2] damage. However, upon failure, the image of your traced weapon(s) fail and break.</content>
     <content contentuid="hf1353833a63e4a1fa40a27f3f12a68d3abb7" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;LSTag&gt; is increased by [1].</content>
     <content contentuid="hf639302d33174ea9a7b25b9276d262dea4e7" version="1">Retaliation</content>
     <content contentuid="h82db595b362244789db5f705a53b693d9e88" version="1">Strike back with a formidable strike after parrying a creature's melee attack.</content>
@@ -1092,7 +1091,7 @@
     <content contentuid="ha8f4bcbecd7a46df8f44c3a1ace4775a14ed" version="1">Caliburn</content>
 	<content contentuid="h0254c8c8gf9d5g4ac7g95b4gbe7d50c20c64" version="1">The symbol of the king, this golden sword changed her fate forever. Its image has protected me long since we parted ways.</content>
     <content contentuid="h8a91fb7ed62b451a8e17c28a4a1579a81711" version="1">Artoria's Caliburn</content>
-    <content contentuid="h8be6519e6eb643b99157881f9906ab3c821f" version="1">She wielded this blade with [1] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [2] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [3] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
+    <content contentuid="h8be6519e6eb643b99157881f9906ab3c821f" version="1">[1] wielded with [2] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [3] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [4] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
     <content contentuid="h01797205b80a4e928debaea6e35e5f039g68" version="1">King's Step</content>
     <content contentuid="h87835022edbe468aac7c6fb37651a91a4089" version="1">Make two melee attacks in succession with your equipped weapon using Artoria's immense agility and precision, with the second having a higher chance to critically strike.</content>
     <content contentuid="hdd5b24fbb9664160926372f2f24bd42ea4fa" version="1">Mana Burst</content>
@@ -1202,7 +1201,7 @@
     <content contentuid="hfd597632f731438293d108a60f513357fg41" version="1">Prevents weapon skills aside from Reinforcement: Arrow from being used.</content>
     <content contentuid="h49abe1408d71431ab40fc641bcdf70f9bb51" version="1">Arrow-like</content>
     <content contentuid="h1278a075888644be9d76e8ab9cdac52920cb" version="1">This weapon has been altered by Reinforcement Magecraft to become more arrowlike, thus losing its original functions as a weapon.</content>
-    <content contentuid="hf5c74f5bf11a41e99aa8689bc8c95ad80039" version="1">You overload a weapon, enhanced to become more arrow-like through Reinforcement Magecraft, with magical energy, causing it to detonate into a devastating explosion upon impact.</content>
+    <content contentuid="hf5c74f5bf11a41e99aa8689bc8c95ad80039" version="1">You overload a weapon with magical energy, causing it to detonate into a devastating explosion upon impact when fired as an arrow.</content>
     <content contentuid="h06a360bd578441718fb217566621539f17eg" version="1">The fired arrow deals the damages of the fired weapon and your main-hand bow as force damage to targets caught in a [1] radius as well as additional damage scaling with the rarity of the fired weapon. Additionally, the forceful impact can possibly knock enemies &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
     <content contentuid="he9d2dfd4005a4058b6fbc87ffbaecb000efe" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Overloaded with magical energy, the fired weapon will explode and disappear upon impact.</content>
     <content contentuid="h228b1d43873942c68ef5873a10e5e8d32b40" version="1">Upon speaking the final line of your aria, you project your inner world onto reality with your Reality Marble ｢Unlimited Blade Works｣.</content>
@@ -1249,4 +1248,22 @@
     <content contentuid="hcabdb8b0bfdb420f9999bad1da8b914c008f" version="1">Allows aria to be used for a second time during a turn.</content>
     <content contentuid="h03c727d7a0ee465b963f42e841bf9c14027a" version="1">Aria: Replace Cost</content>
     <content contentuid="ha9c017553f3441998584430327f6b2bad3a6" version="1">Aria can be cast again during a turn using a bonus action.</content>
+    <content contentuid="hadd9225d80754be8a4940335d532213fe2cg" version="1">Mana Burst: Channeled</content>
+    <content contentuid="hccfebb95f6eb4b118078735d3460c40ba367" version="1">Mana Burst: Charge</content>
+    <content contentuid="h92564b252b1b4400889e1d1b8b88d14e8ced" version="1">Fill your Noble Phantasm with every drop of Magical Energy that you have in preparation of performing a &lt;LSTag Type="Spell" Tooltip="Zone_ManaBurst_Caliburn"&gt;Mana Burst&lt;/LSTag&gt;.</content>
+    <content contentuid="hbd94bc20c01840ad996187501675def5b556" version="1">Any extra Magical Energy consumed will strengthen following attack.</content>
+    <content contentuid="h88fdf1b6b8ac4ee08f60b797b1ed8788e8b3" version="1">Having charged their weapon with Magical Energy, this creature is primed to perform a Mana Burst.</content>
+    <content contentuid="h0552d76ae8f44c3fa2919c3ae4350d456f35" version="1">Mana Burst: Locked In</content>
+    <content contentuid="h4b813b7097e441cdb2632fed218282d8d8b1" version="1">This creature is locked into doing a Mana Burst this turn.</content>
+    <content contentuid="h0317125dd2784509abeef76e6ed9d603ec80" version="1">Having charged their weapon with an excess amount of Magical Energy, this creature is primed to perform a Mana Burst that deals an additional [1].</content>
+    <content contentuid="hee48433611594a818ee0666509401bf3af72" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Overloaded with magical energy, the Noble Phantasm will break upon release of the Mana Burst.</content>
+    <content contentuid="h077bb00-e743-42d1-a8d8-5d92b606c73f" version="1">Rulebreaker</content>
+	<content contentuid="h1181eb5-8b4c-4033-b20b-c8aa931e2041" version="1">A sinister, warped dagger unsuited for killing. It well embodies the nature of that black-hooded witch.</content>
+    <content contentuid="h1c3eac4818e748b99ec36661918ab3b33d79" version="1">Medea's Rulebreaker</content>
+    <content contentuid="h8f50d5d85dac40f793f236b10b64cfa43304" version="1">[1] with [2] &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;, [3] &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt;, and [4] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
+    <content contentuid="hf159693feb0b494e8aedd23526c9a9ea696c" version="1">All Spells Must Be Broken</content>
+    <content contentuid="h2765725b0ebf40e0ba2a9396cb97d1b442g1" version="1">Golden Sword of the Victorious</content>
+    <content contentuid="h116770d06e93462888f903efbf525ccfe8e9" version="1">Betrayal</content>
+    <content contentuid="ha6a18b83e34849fbb8a2549d5d3aecd06ee4" version="1">Lash out with an unseen strike after feigning an opening. Avoid the oncoming attack and attack with &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;, scoring a &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hit&lt;/LSTag&gt; upon landing.</content>
+    <content contentuid="hc72a2dc936bd44e5a5c695e8ae48eca3472c" version="1">As the ultimate anti-magic Noble Phantasm, attacks with this weapon dispel any kind of magic. Summoned creatures will cease to exist, and the &lt;LSTag Tooltip="Concentration"&gt;Concentration&lt;/LSTag&gt; of spellcasters will be interrupted.</content>
 </contentList>

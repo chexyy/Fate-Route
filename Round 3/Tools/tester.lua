@@ -182,3 +182,5 @@ for key, class in pairs(_C().Classes.Classes) do
     _D(class)
 
 end
+
+Osi.GiveInspirationPoints(GetHostCharacter(), 1, "A Thousand Blades", "Recreated a total of 1000 weapons seen previously.")

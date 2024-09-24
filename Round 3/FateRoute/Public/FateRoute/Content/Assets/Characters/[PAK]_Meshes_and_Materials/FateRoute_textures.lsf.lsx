@@ -46,6 +46,301 @@
 					<attribute id="Template" type="FixedString" value="" />
 					<attribute id="Type" type="int32" value="1" />
 				</node>
+
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_Details_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="a6c59c73-cb77-4dd4-9839-a73aff10639b" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_Details_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_Border_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="7b1f8b28-c63d-469c-ad39-cf7282ab2f44" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_Border_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Blade_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="4b9215f4-71c5-43dc-9db7-add7a3b26eb3" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Blade_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Ring_Holder_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="9f2d4319-e538-4a16-bdc4-3667b0aa4d96" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Ring_Holder_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="2c8dd458-7373-44ff-8e96-c455ac8d7c55" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Blade_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="f3b9c143-6a57-468f-839f-49a40b1dcd92" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Blade_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Ring_Holder_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="46457e07-39db-4f4d-974a-458ee2dc2d54" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Ring_Holder_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="1dc90632-5f8f-4da0-abf1-9f0cfcbef2a9" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_Details_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="2ade2222-8041-49e4-b081-a577bb7fdebd" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_Details_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_Details_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="34d4b2e8-2f0f-402c-9fc5-7cc63eca4d9f" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_Details_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="98ad5ccb-8536-48ed-ab1d-237be5694d03" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Handle_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="7bcd356d-56d8-4a3d-82e0-284e36a00e2f" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Handle_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="287b30a4-8e92-4c1f-8f91-dbb6d2184176" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Rings_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="1156e1b2-65b6-4476-b4c0-0bbd4ac97298" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Rings_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Blade_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="1394f01f-3a7e-42d7-a6f4-7b75b65ed8d2" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Blade_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Rings_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="0bd28f55-5001-41fb-aa4d-2355ee1fc030" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Rings_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Rings_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="c3d9b063-0c41-4beb-9daf-00e876c8d407" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Rings_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_NormalMap_NM" />
+					<attribute id="ID" type="FixedString" value="bc35e644-e7ca-462b-8e38-6175023b26a6" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_NormalMap_NM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Ring_Holder_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="0bb7760b-910a-4493-88c5-b06904adb677" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Ring_Holder_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_Border_BaseMap_BM" />
+					<attribute id="ID" type="FixedString" value="0cd3e240-3254-419a-9a02-b19eac939df4" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_Border_BaseMap_BM.DDS" />
+					<attribute id="Format" type="uint32" value="64" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
+				<node id="Resource">
+					<attribute id="Name" type="LSString" value="Hilt_Border_PhysicalMap_PM" />
+					<attribute id="ID" type="FixedString" value="8ebe592f-9966-461e-8ac2-63e7bfaa4878" />
+					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/Assets/FateRoute_Hilt_Border_PhysicalMap_PM.DDS" />
+					<attribute id="Format" type="uint32" value="62" />
+					<attribute id="Width" type="int32" value="2048" />
+					<attribute id="Height" type="int32" value="2048" />
+					<attribute id="Depth" type="int32" value="1" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="SRGB" type="bool" value="False" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="" />
+					<attribute id="Type" type="int32" value="1" />
+				</node>
 						
 			</children>
 		</node>

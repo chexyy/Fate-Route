@@ -58,7 +58,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     
                     Ext.Loca.UpdateTranslatedString(displayName, displayName) -- display name
                     observedTraceTemplate:SetRawAttribute("DisplayName", displayName) -- display name
-                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899") -- description
+                    observedTraceTemplate:SetRawAttribute("Description", "h8be6519e6eb643b99157881f9906ab3c821f") -- description
                     observedTraceTemplate.Icon = wielderIcon -- icon
                     observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param
                     
@@ -79,7 +79,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     
                     Ext.Loca.UpdateTranslatedString(displayName, displayName) -- display name
                     observedTraceTemplate:SetRawAttribute("DisplayName", displayName) -- display name
-                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899")
+                    observedTraceTemplate:SetRawAttribute("Description", "h8be6519e6eb643b99157881f9906ab3c821f")
                     observedTraceTemplate.Icon = wielderIcon -- icon
                     observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param
 
@@ -108,7 +108,7 @@ function addTraceSpell(character, weaponSlot, wielderStrength, wielderDexterity,
                     end
                     Ext.Loca.UpdateTranslatedString(displayName, displayName)
                     observedTraceTemplate:SetRawAttribute("DisplayName", displayName)
-                    observedTraceTemplate:SetRawAttribute("Description", "h9786436ag6854g4471gb89cgb7966937b899")
+                    observedTraceTemplate:SetRawAttribute("Description", "h8be6519e6eb643b99157881f9906ab3c821f")
 
                     observedTraceTemplate.Icon = wielderIcon -- icon
                     observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. wielderStrength .. ";" .. wielderDexterity .. ";" .. wielderMovementSpeed) -- description param

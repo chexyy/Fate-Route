@@ -1,0 +1,42 @@
+<save>
+   <version major="4" minor="0" revision="9" build="328" />
+   <region id="TextureAtlasInfo"> 
+       <node id="root">
+           <children>
+               <node id="TextureAtlasIconSize">
+                   <attribute id="Height" type="int64" value="64"/>
+                   <attribute id="Width" type="int64" value="64"/>
+               </node>
+               <node id="TextureAtlasPath">
+                   <attribute id="Path" type="LSString" value="Assets/Textures/Icons/FateRoute_Icons_Items.dds"/>
+                   <attribute id="UUID" type="FixedString" value="a778c49e-d963-48a0-956b-3fb0cc5c36ee"/>
+               </node>
+               <node id="TextureAtlasTextureSize">
+                   <attribute id="Height" type="int64" value="512"/>
+                   <attribute id="Width" type="int64" value="512"/>
+               </node>
+           </children>
+       </node>
+   </region>
+   <region id="IconUVList">
+       <node id="root">
+           <children>
+                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Caliburn_Icon"/> 6
+                   <attribute id="U1" type="float" value="0.625"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.75"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.125"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.250"/> <!--Bottom-->
+               </node>
+
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Rulebreaker_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.375"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.50"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
+           </children>
+       </node>
+   </region>
+</save>
