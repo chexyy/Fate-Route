@@ -76,6 +76,10 @@
                     <attribute id="Text" type="TranslatedString" handle="h126e49c537994a93b4de19cb9375eb83e757" version="1"/>
                     <attribute id="UUID" type="guid" value="ef118c22-c4d1-4935-9b2b-dcd9b8628bbf"/>
                 </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="h502c01a5bde04ce69b6137a59297c0063d51" version="1"/>
+                    <attribute id="UUID" type="guid" value="49c14c15-5f18-463b-aad9-09ad7197a2a5"/>
+                </node>
             </children>
         </node>
     </region>

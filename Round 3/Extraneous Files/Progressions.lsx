@@ -280,7 +280,7 @@
 					<attribute id="Name" type="LSString" value="Emiya"/>
 					<attribute id="Boosts" type="LSString" value="ActionResource(MagicalEnergy, 2, 0)"/>
 					<attribute id="ProgressionType" type="uint8" value="1"/>
-					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Seven;Passive_ProjectionMaster"/>
+					<attribute id="PassivesAdded" type="LSString" value="Passive_Aria_Seven;Passive_ProjectionMaster;Passive_Projection_Volley"/>
 					<attribute id="TableUUID" type="guid" value="01865e3f-243e-4810-a82e-bb0f9e526bd0"/>
 					<attribute id="UUID" type="guid" value="7a507049-addb-441a-828a-3ee342588593"/>
 				</node>

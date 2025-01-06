@@ -57,6 +57,17 @@
           <attribute id="IsHidden" type="bool" value="True" />
           <attribute id="UUID" type="guid" value="7c08f749-01dd-4c99-aaab-8bb458f41849" />
         </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h6579b13060f24f5fa68fe048bb58e049cf7c" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="h5428c2f896754743880b2c586b560a31g5cg" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="ProjectionVolleyCheck" />
+          <attribute id="ReplenishType" type="FixedString" value="Turn" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="IsHidden" type="bool" value="True" />
+          <attribute id="UUID" type="guid" value="d25a8aec-f9f9-451e-92a3-a6634bdbadbc" />
+        </node>
       </children>
     </node>
   </region>

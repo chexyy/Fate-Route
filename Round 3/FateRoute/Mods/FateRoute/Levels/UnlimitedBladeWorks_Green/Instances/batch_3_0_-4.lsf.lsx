@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Batches">
+		<node id="Batches">
+			<children>
+				<node id="InstanceBatch">
+					<attribute id="GridIndexes" type="ivec3" value="16 -1 -17" />
+					<attribute id="StorageIndices" type="ivec3" value="3 0 -4" />
+					<attribute id="GroupId" type="FixedString" value="55cdc39a-47d6-7a24-f5ed-8fdf21fcead1" />
+					<attribute id="BoundsMin" type="fvec3" value="191.359 -6.860442 -194.54875" />
+					<attribute id="BoundsMax" type="fvec3" value="196.5723 -5.8527584 -190.68587" />
+					<children>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.64 -6.73 -193.45 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.65 -6.71 -193.21 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.41 -6.69 -192.63 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.54 -6.72 -192.73 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.02 -6.69 -191.88 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.68 -6.69 -191.74 &#xD;&#xA;" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

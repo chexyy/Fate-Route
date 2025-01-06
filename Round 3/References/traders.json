@@ -1,0 +1,410 @@
+[
+  {
+    "LevelName": "Wilderness",
+    "LevelId": "WLD_Main_A",
+    "Traders": [
+      {
+        "TraderName": "Okta",
+        "TraderId": "S_DEN_Tiefling_FoodTrader_001",
+        "TraderTreasureTables": [
+          "DEN_Trader_Food"
+        ]
+      },
+      {
+        "TraderName": "Lakrissa",
+        "TraderId": "S_DEN_Tiefling_010",
+        "TraderTreasureTables": [
+          "Supplies_Vendor_Poor"
+        ]
+      },
+      {
+        "TraderName": "Volo",
+        "TraderId": "S_GLO_Volo",
+        "TraderTreasureTables": [
+          "DEN_Volo_Trade"
+        ]
+      },
+      {
+        "TraderName": "Derryth Bonecloak",
+        "TraderId": "S_GLO_Derryth",
+        "TraderTreasureTables": [
+          "UND_MycoVillage_AlchemistDwarf_Trade"
+        ]
+      },
+      {
+        "TraderName": "Roah Moonglow",
+        "TraderId": "S_GOB_Quartermaster",
+        "TraderTreasureTables": [
+          "GOB_Quartermaster"
+        ]
+      },
+      {
+        "TraderName": "Baelen Bonecloak",
+        "TraderId": "S_GLO_Baelen",
+        "TraderTreasureTables": [
+          "UND_MushroomHunter"
+        ]
+      },
+      {
+        "TraderName": "Auntie Ethel",
+        "TraderId": "S_HAG_Hag",
+        "TraderTreasureTables": [
+          "DEN_Ethel"
+        ]
+      },
+      {
+        "TraderName": "Blurg",
+        "TraderId": "S_GLO_SocietyOfBrilliance_Hobgoblin",
+        "TraderTreasureTables": [
+          "UND_SocietyOfBrilliance_Hobgoblin"
+        ]
+      },
+      {
+        "TraderName": "Mattis",
+        "TraderId": "S_DEN_PickpocketTrader",
+        "TraderTreasureTables": [
+          "DEN_Thieflings_Pickpocket_Trade"
+        ]
+      },
+      {
+        "TraderName": "Dammon",
+        "TraderId": "S_DEN_Weaponsmith",
+        "TraderTreasureTables": [
+          "DEN_Weaponsmith_Trade"
+        ]
+      },
+      {
+        "TraderName": "Arron",
+        "TraderId": "S_DEN_ServantPlight_005",
+        "TraderTreasureTables": [
+          "DEN_Entrance_Trade"
+        ]
+      },
+      {
+        "TraderName": "Elder Brithvar",
+        "TraderId": "S_UND_DuergarRebelGreedy",
+        "TraderTreasureTables": [
+          "UND_Duergar_Generic"
+        ]
+      },
+      {
+        "TraderName": "Grat the Trader",
+        "TraderId": "S_GOB_Festivities_Trader",
+        "TraderTreasureTables": [
+          "GOB_Festivities_Trader"
+        ]
+      },
+      {
+        "TraderName": "Auntie Ethel",
+        "TraderId": "S_HAG_Hag_HumanDouble"
+      },
+      {
+        "TraderName": "Corsair Greymon",
+        "TraderId": "S_UND_DuergarRaftCaptain",
+        "TraderTreasureTables": [
+          "UND_KC_Trader_Weapons"
+        ]
+      },
+      {
+        "TraderName": "Brem",
+        "TraderId": "S_PLA_ZhentDungeon_Zhent03",
+        "TraderTreasureTables": [
+          "PLA_ZhentarimTrader_Common"
+        ]
+      },
+      {
+        "TraderName": "Cyrel",
+        "TraderId": "S_PLA_Refugee_003",
+        "TraderTreasureTables": [
+          "PLA_Tollhouse_SuppliesTrader"
+        ]
+      },
+      {
+        "TraderName": "Stonemason Kith",
+        "TraderId": "S_UND_DuergarRebelMason_01",
+        "TraderTreasureTables": [
+          "UND_KC_Trader_Utility"
+        ]
+      }
+    ]
+  },
+  {
+    "LevelName": "Wyrm\u0027s Crossing",
+    "LevelId": "BGO_Main_A",
+    "Traders": [
+      {
+        "TraderName": "Roberon Silt",
+        "TraderId": "S_WYR_SouthSpanMerchants_Merchant_001",
+        "TraderTreasureTables": [
+          "WYR_Bridge_Trader_Art"
+        ]
+      },
+      {
+        "TraderName": "Stylin\u0027 Horst",
+        "TraderId": "S_WYR_Bridge_AlchemyMerchant",
+        "TraderTreasureTables": [
+          "WYR_AlchemyTrader"
+        ]
+      },
+      {
+        "TraderName": "Entharl Danthelon",
+        "TraderId": "S_WYR_Danthelon",
+        "TraderTreasureTables": [
+          "WYR_Danthelon_Trader"
+        ]
+      },
+      {
+        "TraderName": "Thodric Shedeveer",
+        "TraderId": "S_WYR_SouthSpanMerchants_Merchant_004",
+        "TraderTreasureTables": [
+          "Supplies_Vendor_Fish",
+          "Gold_Trader_Poor"
+        ]
+      },
+      {
+        "TraderName": "Velson Oakes",
+        "TraderId": "S_WYR_SouthSpanMerchants_Merchant_002",
+        "TraderTreasureTables": [
+          "WYR_Bridge_Trader_Supplies"
+        ]
+      },
+      {
+        "TraderName": "Queelia Arvis",
+        "TraderId": "S_WYR_Flophouse_Cook",
+        "TraderTreasureTables": [
+          "WYR_Flophouse_Cook"
+        ]
+      },
+      {
+        "TraderName": "Bumpnagel",
+        "TraderId": "S_WYR_Ironhand_Merchant",
+        "TraderTreasureTables": [
+          "WYR_Ironhand_Merchant"
+        ]
+      },
+      {
+        "TraderName": "Hoots Hooligan",
+        "TraderId": "S_WYR_SharessCaress_Bartender",
+        "TraderTreasureTables": [
+          "WYR_SharessCaress_Bartender_Trade"
+        ]
+      },
+      {
+        "TraderName": "Exxvikyap",
+        "TraderId": "S_WYR_Rivington_ArmoryShopkeeper",
+        "TraderTreasureTables": [
+          "WYR_OrinsImpersonation_Smith"
+        ]
+      },
+      {
+        "TraderName": "Glynda Oltower",
+        "TraderId": "S_WYR_SouthSpanMerchants_Merchant_005",
+        "TraderTreasureTables": [
+          "WYR_Bridge_Trader_Tools"
+        ]
+      }
+    ]
+  },
+  {
+    "LevelName": "Githyanki Cr\u00E8che",
+    "LevelId": "CRE_Main_A",
+    "Traders": [
+      {
+        "TraderName": "Lady Esther",
+        "TraderId": "S_GLO_Expeditioner",
+        "TraderTreasureTables": [
+          "CRE_Expeditioner_Trade",
+          "CRE_Expeditioner_Magic_Trade"
+        ]
+      },
+      {
+        "TraderName": "A\u0027jak\u0027nir Jeera",
+        "TraderId": "S_CRE_Quartermistress",
+        "TraderTreasureTables": [
+          "CRE_GithQuartermistress_Trade",
+          "CRE_MagicItem_Gith_Trader"
+        ]
+      }
+    ]
+  },
+  {
+    "LevelName": "Shadow-Cursed Lands",
+    "LevelId": "SCL_Main_A",
+    "Traders": [
+      {
+        "TraderName": "Araj Oblodra",
+        "TraderId": "S_MOO_InfernalVendor",
+        "TraderTreasureTables": [
+          "MOO_InfernalTrader_Trade"
+        ]
+      },
+      {
+        "TraderName": "Sister Lidwin",
+        "TraderId": "S_TWN_Hospital_Reception_CorpseTender",
+        "TraderTreasureTables": [
+          "TWN_Hospital_CorpseTender"
+        ]
+      },
+      {
+        "TraderName": "Lann Tarv",
+        "TraderId": "S_MOO_BugBearVendor",
+        "TraderTreasureTables": [
+          "MOO_BugBearvendor_Trade"
+        ]
+      },
+      {
+        "TraderName": "Quartermaster Talli",
+        "TraderId": "S_HAV_HavenOutcasts_HarperQuartermaster",
+        "TraderTreasureTables": [
+          "HAV_HarperQuarterMaster",
+          "HAV_HarperQuarterMaster_Magic_Trade"
+        ]
+      },
+      {
+        "TraderName": "Hoarding Merregon",
+        "TraderId": "S_SHA_Merregon_000",
+        "TraderTreasureTables": [
+          "SHA_MerregonTrader"
+        ]
+      }
+    ]
+  },
+  {
+    "LevelName": "Baldur\u0027s Gate",
+    "LevelId": "CTY_Main_A",
+    "Traders": [
+      {
+        "TraderId": "S_LOW_FatherCarrion",
+        "TraderTreasureTables": [
+          "LOW_MysticCarrion_Trade"
+        ]
+      },
+      {
+        "TraderName": "News Hawker Jason",
+        "TraderId": "S_LOW_BaldursMouth_PaperBoy",
+        "TraderTreasureTables": [
+          "BG_Commoner_Poor"
+        ]
+      },
+      {
+        "TraderName": "Helsik",
+        "TraderId": "S_LOW_DevilsFee_Helsik",
+        "TraderTreasureTables": [
+          "LOW_DevilsFee_Diabolist_Trade"
+        ]
+      },
+      {
+        "TraderName": "Sticky Dondo",
+        "TraderId": "S_LOW_Guildhall_FetchersBrat_002",
+        "TraderTreasureTables": [
+          "LOW_Guildhall_FetchersBrat_Trade"
+        ]
+      },
+      {
+        "TraderName": "Fytz the Firecracker",
+        "TraderId": "S_LOW_SteepsTrader_Weapons",
+        "TraderTreasureTables": [
+          "LOW_SteepsTrader_Weapons"
+        ]
+      },
+      {
+        "TraderName": "Figaro \u0027Facemaker\u0027 Pennygood",
+        "TraderId": "S_LOW_Figaro",
+        "TraderTreasureTables": [
+          "LOW_Figaro_Trade"
+        ]
+      },
+      {
+        "TraderName": "Sally Flymm",
+        "TraderId": "S_LOW_GortashFamilyHome_GortashMother",
+        "TraderTreasureTables": [
+          "LOW_GortashParent_Trade"
+        ]
+      },
+      {
+        "TraderName": "News Hawker Chalara",
+        "TraderId": "S_LOW_BaldursMouth_PaperBoy_SteepsStrake"
+      },
+      {
+        "TraderName": "Echo of Abazigal",
+        "TraderId": "S_LOW_MurderTribunal_MurderMerchant",
+        "TraderTreasureTables": [
+          "LOW_MurderTribunal_Merchant",
+          "Gold_Stash_Wealthy"
+        ]
+      },
+      {
+        "TraderName": "Nansi Gretta",
+        "TraderId": "S_LOW_SteepsTrader_BooksAndScrolls",
+        "TraderTreasureTables": [
+          "LOW_SteepsTrader_BooksAndScrolls"
+        ]
+      },
+      {
+        "TraderName": "News Hawker Jonah",
+        "TraderId": "S_LOW_BaldursMouth_PaperBoy_Docks",
+        "TraderTreasureTables": [
+          "BG_Commoner_Poor"
+        ]
+      },
+      {
+        "TraderName": "Ghost of Murders Past",
+        "TraderId": "S_LOW_MurderTribunal_MurderVictim",
+        "TraderTreasureTables": [
+          "LOW_MurderTribunal_Merchant",
+          "Gold_Stash_Wealthy"
+        ]
+      },
+      {
+        "TraderName": "Oliver Tefoco",
+        "TraderId": "S_LOW_SteepsTrader_Consumables",
+        "TraderTreasureTables": [
+          "LOW_SteepsTrader_Consumables"
+        ]
+      },
+      {
+        "TraderName": "News Hawker Luan",
+        "TraderId": "S_LOW_BaldursMouth_PaperBoy_Stormshore",
+        "TraderTreasureTables": [
+          "BG_Commoner_Poor"
+        ]
+      },
+      {
+        "TraderName": "Thomas C. Quirkilious",
+        "TraderId": "S_LOW_Traders_MusicVendor",
+        "TraderTreasureTables": [
+          "LOW_MusicTrader"
+        ]
+      },
+      {
+        "TraderName": "Dravo Flymm",
+        "TraderId": "S_LOW_GortashFamilyHome_GortashFather",
+        "TraderTreasureTables": [
+          "LOW_GortashParent_Trade"
+        ]
+      },
+      {
+        "TraderName": "Omotola",
+        "TraderId": "S_LOW_Traders_JewelVendor",
+        "TraderTreasureTables": [
+          "LOW_JewelTrader"
+        ]
+      },
+      {
+        "TraderName": "Gloomy Fentonson",
+        "TraderId": "S_LOW_SteepsTrader_Armor",
+        "TraderTreasureTables": [
+          "LOW_SteepsTrader_Armor"
+        ]
+      },
+      {
+        "TraderName": "Old Troutman",
+        "TraderId": "S_LOW_BeachSahuagin_Civilian_Fishmonger",
+        "TraderTreasureTables": [
+          "Supplies_Vendor_Fish",
+          "Gold_Trader_Poor"
+        ]
+      }
+    ]
+  }
+]

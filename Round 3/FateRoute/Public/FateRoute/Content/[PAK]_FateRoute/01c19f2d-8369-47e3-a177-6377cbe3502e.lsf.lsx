@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="VirtualTextureBank">
+		<node id="VirtualTextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="01c19f2d-8369-47e3-a177-6377cbe3502e" />
+					<attribute id="Name" type="LSString" value="FateRoute_BaseMap_BM" />
+					<attribute id="SourceFile" type="LSString" value="" />
+					<attribute id="VirtualTextureLayerConfig" type="uint32" value="3" />
+					<attribute id="GTexFileName" type="FixedString" value="40bdd5db616e929a1ed8024e508f6d5a" />
+					<attribute id="Prefetch" type="bool" value="False" />
+					<attribute id="PrefetchMipLevel" type="int8" value="-1" />
+					<attribute id="TileSetFileName" type="FixedString" value="" />
+					<attribute id="ReferencedColorSpaces" type="uint32" value="6" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

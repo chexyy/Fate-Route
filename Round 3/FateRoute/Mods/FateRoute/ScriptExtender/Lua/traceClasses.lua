@@ -90,3 +90,14 @@ function extraDescription:new(weaponDisplayName, weaponDescription, weaponIcon, 
     instance.weaponTemplate = weaponTemplate
     return instance
 end
+
+UBWWeaponObject = {}
+UBWWeaponObject.__index = UBWWeaponObject
+
+function UBWWeaponObject:new(objectUUID,objectPosition)
+    local instance = setmetatable({}, UBWWeaponObject)
+    instance.objectUUID = objectUUID
+    instance.objectPosition = objectPosition
+
+    return instance
+end

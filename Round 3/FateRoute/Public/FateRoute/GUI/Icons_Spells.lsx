@@ -378,6 +378,27 @@
                    <attribute id="V1" type="float" value="0.750"/> <!--Top-->
                    <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
                </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Projection_Volley_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.375"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.50"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Discerning_Eyes_Icon"/> 5
+                   <attribute id="U1" type="float" value="0.5"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.625"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Passive_Clairovoyance_Icon"/> 6
+                   <attribute id="U1" type="float" value="0.625"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.75"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
            </children>
        </node>
    </region>

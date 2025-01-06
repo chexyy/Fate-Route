@@ -108,3 +108,25 @@ Ext.Timer.WaitFor(100, function()
     Osi.ApplyStatus(createdObject, "REPRODUCTION_MELEE", -1, 100, createdObject)
 end)
 Osi.ToTransform(createdObject, x, y, z, 1, 90, 90)
+
+Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+    if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+        print("Attempting to switch stats")
+        local spell = Ext.Stats.Get(spell)
+        if spell.PreviewCursor == "Melee" then
+            print("Switched to melee")
+        elseif spell.PreviewCursor == "Ranged" then
+            print("Switched to ranged")
+        end
+
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
+    print("Caster is " .. caster)
+    print("Target is " .. target)
+    print("Spell is " .. spell)
+    print("Spelltype is " .. spellType)
+
+end)

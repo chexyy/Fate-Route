@@ -7078,6 +7078,156 @@
 								</node>
 							</children>
 						</node>
+												<node id="EffectComponent">
+							<attribute id="EndTime" type="float" value="1" />
+							<attribute id="ID" type="guid" value="b6fda4aa-3586-4bfa-b728-569348132154" />
+							<attribute id="Name" type="LSString" value="Sound" />
+							<attribute id="StartTime" type="float" value="0" />
+							<attribute id="Track" type="uint32" value="1" />
+							<attribute id="Type" type="LSString" value="Sound" />
+							<children>
+								<node id="Properties">
+									<children>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Name" />
+											<attribute id="FullName" type="FixedString" value="Name" />
+											<attribute id="Type" type="uint8" value="7" />
+											<attribute id="Value" type="LSString" value="Sound" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Play On" />
+											<attribute id="FullName" type="FixedString" value="Play On" />
+											<attribute id="Type" type="uint8" value="1" />
+											<attribute id="Value" type="int32" value="0" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Enter Event" />
+											<attribute id="FullName" type="FixedString" value="Enter Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="ef15530c-68f1-4a4c-9dfe-2dfcff45850f" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Resume Event" />
+											<attribute id="FullName" type="FixedString" value="Resume Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Leave Event" />
+											<attribute id="FullName" type="FixedString" value="Leave Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="f93bc15e-cb3a-488e-a9b4-c73660ff432a" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Activation Range" />
+											<attribute id="FullName" type="FixedString" value="Activation Range" />
+											<attribute id="Type" type="uint8" value="4" />
+											<attribute id="Value" type="float" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="EffectComponent">
+							<attribute id="EndTime" type="float" value="1" />
+							<attribute id="ID" type="guid" value="2afdc002-ba51-4546-8911-492d5ba523f2" />
+							<attribute id="Name" type="LSString" value="Sound" />
+							<attribute id="StartTime" type="float" value="0" />
+							<attribute id="Track" type="uint32" value="1" />
+							<attribute id="Type" type="LSString" value="Sound" />
+							<children>
+								<node id="Properties">
+									<children>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Name" />
+											<attribute id="FullName" type="FixedString" value="Name" />
+											<attribute id="Type" type="uint8" value="7" />
+											<attribute id="Value" type="LSString" value="Sound" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Play On" />
+											<attribute id="FullName" type="FixedString" value="Play On" />
+											<attribute id="Type" type="uint8" value="1" />
+											<attribute id="Value" type="int32" value="0" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Enter Event" />
+											<attribute id="FullName" type="FixedString" value="Enter Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="d0d13ca3-7e78-d9be-987f-18fee45eea0e" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Resume Event" />
+											<attribute id="FullName" type="FixedString" value="Resume Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Leave Event" />
+											<attribute id="FullName" type="FixedString" value="Leave Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="f93bc15e-cb3a-488e-a9b4-c73660ff432a" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Activation Range" />
+											<attribute id="FullName" type="FixedString" value="Activation Range" />
+											<attribute id="Type" type="uint8" value="4" />
+											<attribute id="Value" type="float" value="-1" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="EffectComponent">
+							<attribute id="EndTime" type="float" value="1.002684" />
+							<attribute id="ID" type="guid" value="d52af88a-1f28-4a23-bdc2-21786d1d3ad1" />
+							<attribute id="Name" type="LSString" value="Sound" />
+							<attribute id="StartTime" type="float" value="0.1266548" />
+							<attribute id="Track" type="uint32" value="1" />
+							<attribute id="Type" type="LSString" value="Sound" />
+							<children>
+								<node id="Properties">
+									<children>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Name" />
+											<attribute id="FullName" type="FixedString" value="Name" />
+											<attribute id="Type" type="uint8" value="7" />
+											<attribute id="Value" type="LSString" value="Sound" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Play On" />
+											<attribute id="FullName" type="FixedString" value="Play On" />
+											<attribute id="Type" type="uint8" value="1" />
+											<attribute id="Value" type="int32" value="0" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Enter Event" />
+											<attribute id="FullName" type="FixedString" value="Enter Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="0cff8af4-39b7-8e22-b34d-ca911ce18be6" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Leave Event" />
+											<attribute id="FullName" type="FixedString" value="Leave Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="5d2bee24-f07e-319e-bfb1-d61fe8fb98c7" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Activation Range" />
+											<attribute id="FullName" type="FixedString" value="Activation Range" />
+											<attribute id="Type" type="uint8" value="4" />
+											<attribute id="Value" type="float" value="-1" />
+										</node>
+										<node id="Property">
+											<attribute id="AttributeName" type="FixedString" value="Resume Event" />
+											<attribute id="FullName" type="FixedString" value="Resume Event" />
+											<attribute id="Type" type="uint8" value="10" />
+											<attribute id="Value" type="FixedString" value="" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
 						<node id="EffectComponent">
 							<attribute id="EndTime" type="float" value="3" />
 							<attribute id="ID" type="guid" value="dd70b34e-9b8e-48e6-8d26-a86db41a1175" />
@@ -32573,6 +32723,15 @@
 				</node>
 				<node id="DependentResource">
 					<attribute id="Object" type="FixedString" value="22913db7-c16d-8259-8539-311f6c14aa27" />
+				</node>
+				<node id="DependentResource">
+					<attribute id="Object" type="FixedString" value="d0d13ca3-7e78-d9be-987f-18fee45eea0e" />
+				</node>
+				<node id="DependentResource">
+					<attribute id="Object" type="FixedString" value="0cff8af4-39b7-8e22-b34d-ca911ce18be6" />
+				</node>
+				<node id="DependentResource">
+					<attribute id="Object" type="FixedString" value="5d2bee24-f07e-319e-bfb1-d61fe8fb98c7" />
 				</node>
 			</children>
 		</node>

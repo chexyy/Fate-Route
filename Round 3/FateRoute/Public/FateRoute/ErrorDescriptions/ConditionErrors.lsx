@@ -12,6 +12,13 @@
 					<attribute id="UUID" type="guid" value="e9b7329b-e35c-4ded-a64b-9d213f420b09"/>
 				</node>
 
+				<node id="ConditionErrors">
+					<attribute id="DisplayName" type="TranslatedString" handle="hbfd8f63d656b4d49b2beccdcbbecc4051e08" version="1"/>
+					<attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+					<attribute id="Identifier" type="FixedString" value="RealityMarble_Inside"/>
+					<attribute id="UUID" type="guid" value="036d5aa0-07d8-42fe-aee3-434ed47c5435"/>
+				</node>
+
 			</children>
 		</node>
 	</region>

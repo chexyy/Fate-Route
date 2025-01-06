@@ -1,0 +1,120 @@
+    <content contentuid="hl9hrq4a3tbsqrxs183pd8n233vl1rsrpgk66" version="1">Weapon Oil: Absolute Power</content>
+    <content contentuid="hrvzfuhcc8sfxvlyohinbmtucurx3g9t7xfba" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_GOB_GoblinKing_ForceAttack_WeaponAttack_WeaponOil"&gt;Absolute Power&lt;/LSTag&gt;.</content>
+    <content contentuid="hhsfct0fffczqsv6ekcfcg27s5ipnz8h2s26i" version="1">Coated in Weapon Oil: Absolute Power</content>
+    <content contentuid="h8au7gplu4ow9449gy14ylbek57q0b5t06fmc" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_GOB_GoblinKing_ForceAttack_WeaponAttack_WeaponOil&gt;Absolute Power&lt;/LSTag&gt;.</content>
+    <content contentuid="h3v9w6e40i7y1y3t2s7e5g2qvno196v9w27id" version="1">Weapon Oil: Blood Sacrifice</content>
+    <content contentuid="h4p18klttxvfpnci073etby47fk3rt60amt19" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Shout_GOB_PainPriest_DaggerSpell_WeaponOil"&gt;Blood Sacrifice&lt;/LSTag&gt;.</content>
+    <content contentuid="hzj97q1u0o67n177cbuaha3g924pky5675rrc" version="1">Coated in Weapon Oil: Blood Sacrifice</content>
+    <content contentuid="hqvdmjupobjizxeec1u5djbxjzesbdqzvhwzl" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Shout_GOB_PainPriest_DaggerSpell_WeaponOil&gt;Blood Sacrifice&lt;/LSTag&gt;.</content>
+    <content contentuid="h3yty9w4g2ho3obhbxjpg6mh3abt8vvx8h6b4" version="1">Weapon Oil: Gargantuan Cleave</content>
+    <content contentuid="hbovh3hgw8xh7nbi76uuaeh4nljkpguxym9i1" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Zone_UNI_SuperheavyWeapon_Spell_WeaponOil"&gt;Gargantuan Cleave&lt;/LSTag&gt;.</content>
+    <content contentuid="ho5nzm62ponpncpvkodrka6hyf0s71rvms3jk" version="1">Coated in Weapon Oil: Gargantuan Cleave</content>
+    <content contentuid="hm6dhkm16bcagaqi8zrctxvpd4is3sk6c17qq" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Zone_UNI_SuperheavyWeapon_Spell_WeaponOil&gt;Gargantuan Cleave&lt;/LSTag&gt;.</content>
+    <content contentuid="hpky92w21v2ovikamfof41d4idx94wljpm6az" version="1">Weapon Oil: Hush You!</content>
+    <content contentuid="hmkx870ce0dy8f6ami053735l1xkm7bzh4hdw" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_SilencingBlade_WeaponOil"&gt;Hush You!&lt;/LSTag&gt;.</content>
+    <content contentuid="hd37lkar01lv3eu6yimtcoir4nsd7hnx2gs0z" version="1">Coated in Weapon Oil: Hush You!</content>
+    <content contentuid="hcbrqrfm61p7dg9dnkchpkzi9kft3p0pki9io" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_SilencingBlade_WeaponOil&gt;Hush You!&lt;/LSTag&gt;.</content>
+    <content contentuid="hyi00km033w4q4eszitn3y08ucog0s6xqd9wf" version="1">Weapon Oil: Revitalising Strike</content>
+    <content contentuid="ho6ttpgiktuo7kxkjm4tvidx0dga5rq7ptzcs" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_RevitalizingStrike_WeaponOil"&gt;Revitalising Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hr5wevfot6x3es7dwcozd4w7woxrdw9rvviyf" version="1">Coated in Weapon Oil: Revitalising Strike</content>
+    <content contentuid="h2hg1jfwjj5odgn6vjm67qjtg5igalt43anrq" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_RevitalizingStrike_WeaponOil&gt;Revitalising Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hv9obkb6pdeii62mnvtm5j8oyjb8tyv201502" version="1">Weapon Oil: Searing Blood</content>
+    <content contentuid="hflbz911gmuq54lqyveaeiqt0z0bw9j97h1gd" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_SearingBlood_WeaponOil"&gt;Searing Blood&lt;/LSTag&gt;.</content>
+    <content contentuid="hlmoklz9dkv43uby5cmjpl9eh7womx119bpaz" version="1">Coated in Weapon Oil: Searing Blood</content>
+    <content contentuid="h3uaa0h4mqd3qkmrpzyacq24wn6jc12729t90" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_SearingBlood_WeaponOil&gt;Searing Blood&lt;/LSTag&gt;.</content>
+    <content contentuid="h2vukt0ryr1hidz531ds55njeytaop34vfv1p" version="1">Weapon Oil: Colossal Onslaught</content>
+    <content contentuid="hhj0r4v49xwxc87zlmcsv1agqn989hfuvzlom" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Zone_Mag_WeaponAction_GiantBlade_WeaponOil"&gt;Colossal Onslaught&lt;/LSTag&gt;.</content>
+    <content contentuid="hedtl01uz0p775bmkwen6jb0vip1upvg44r2o" version="1">Coated in Weapon Oil: Colossal Onslaught</content>
+    <content contentuid="h1fsyfcmq2e7hnp0g6tl7tq4m9t2yh56bwj1r" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Zone_Mag_WeaponAction_GiantBlade_WeaponOil&gt;Colossal Onslaught&lt;/LSTag&gt;.</content>
+    <content contentuid="hqlhf7c9zaa5q5h4i08t7w3ug7s0nh1le6y8p" version="1">Weapon Oil: Corrosive Strike</content>
+    <content contentuid="h43m7kfqiawxxy5byuy7jcl3rpgjy4zu0qrjx" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_CorrosiveStrike_WeaponOil"&gt;Corrosive Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hokv392vqfhz9w7hyla4pd8ovixnromj2i98j" version="1">Coated in Weapon Oil: Corrosive Strike</content>
+    <content contentuid="hijiip4wg40f5iplpldybhrjpvb65dgavz2h9" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_CorrosiveStrike_WeaponOil&gt;Corrosive Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="h8aunnayt23ihnzepacz377wec21w1h30piry" version="1">Weapon Oil: Phalar Aluve: Melody</content>
+    <content contentuid="h59ezcdesrq3tyrlj0j3rlwac8747y2yhq3au" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Shout_MAG_Harpers_SingingSword_Container_WeaponOil"&gt;Phalar Aluve: Melody&lt;/LSTag&gt;.</content>
+    <content contentuid="hpcp5w18l16psxqgioa2cptvpckc1mxrnldnn" version="1">Coated in Weapon Oil: Phalar Aluve: Melody</content>
+    <content contentuid="hr3y5s5qjwutopeka8v7potvsve2xmljfm4ic" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Shout_MAG_Harpers_SingingSword_Container_WeaponOil&gt;Phalar Aluve: Melody&lt;/LSTag&gt;.</content>
+    <content contentuid="hxuo8m9bpzzsw13mu5vs5ydsap7b9gnhdpjdr" version="1">Weapon Oil: Razor Gale</content>
+    <content contentuid="himutpnnkgea2sz2jgcpz0tbuktpen28y9exn" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Zone_Mag_WeaponAction_RazorGale_WeaponOil"&gt;Razor Gale&lt;/LSTag&gt;.</content>
+    <content contentuid="huhommnes4mreusm6mqi2jst68b0wchmp27w9" version="1">Coated in Weapon Oil: Razor Gale</content>
+    <content contentuid="h2s54e2wo5bd9ot7mx1itqvtsk6849sexg58d" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Zone_Mag_WeaponAction_RazorGale_WeaponOil&gt;Razor Gale&lt;/LSTag&gt;.</content>
+    <content contentuid="hx0kt8f3d6s021ahjc14mex4yfnys0j6nec1n" version="1">Weapon Oil: Soulbreaker</content>
+    <content contentuid="hnkkjq0n8g825vdqxcak8s6n6t7dhznanlogh" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_Mindcrush_WeaponOil"&gt;Soulbreaker&lt;/LSTag&gt;.</content>
+    <content contentuid="hvvg8chs2f8pcyk39yrdktakvggyut9wls605" version="1">Coated in Weapon Oil: Soulbreaker</content>
+    <content contentuid="hm18yrkvm9p9yz985f4qks4tjmgmg5nal5k3t" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_Mindcrush_WeaponOil&gt;Soulbreaker&lt;/LSTag&gt;.</content>
+    <content contentuid="h4wy4kxbtt6g80lwsqmmcoirze484rxqpb8br" version="1">Weapon Oil: Poison Mist</content>
+    <content contentuid="hnt07a3ro460h6lo4npdy1km10zdqwsfj038m" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_PoisonMist_WeaponOil"&gt;Poison Mist&lt;/LSTag&gt;.</content>
+    <content contentuid="hhymp75o1kkka8yir3nh12yw2slaughfsaqbp" version="1">Coated in Weapon Oil: Poison Mist</content>
+    <content contentuid="hfu4diimoeoytmxyep8uu2iykuwoi8qtwypgy" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_PoisonMist_WeaponOil&gt;Poison Mist&lt;/LSTag&gt;.</content>
+    <content contentuid="hc4gb2tlu5xptgihj8x4ng16mg09f8piejtcv" version="1">Weapon Oil: Blood Money</content>
+    <content contentuid="hbql8kpxnedk4wh0p5taa3qk6xkxjgnt81fae" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_Taxblade_WeaponOil"&gt;Blood Money&lt;/LSTag&gt;.</content>
+    <content contentuid="h8ye9ernqclji9b7nx9dyoerq6xkxx76mp386" version="1">Coated in Weapon Oil: Blood Money</content>
+    <content contentuid="hrv8fnj4cktwojpndevx5rlgbinuu3vdxcnk1" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_Taxblade_WeaponOil&gt;Blood Money&lt;/LSTag&gt;.</content>
+    <content contentuid="h3td6jql2336dysmvmhjdflvfca2yezfeyfce" version="1">Weapon Oil: Crowning Strike</content>
+    <content contentuid="hagcblso0pf31dqkop6zaaiv8mpdzz38b3qkb" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_Mindoverload_WeaponOil"&gt;Crowning Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="h3725mgnjakihmtegro1k472mzbwebba9s2v1" version="1">Coated in Weapon Oil: Crowning Strike</content>
+    <content contentuid="hl5re4ynzpcvkovlf0dmb8n0tughrh8j94mam" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_Mindoverload_WeaponOil&gt;Crowning Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hhey724inp8dtwkhonf7pyhqbrjy1ou1wucnb" version="1">Weapon Oil: Moonlight Butterflies</content>
+    <content contentuid="hoxu0p3uasohip8lknr4iakk4e45taszz7z8a" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_MoonlightButterfly_WeaponOil"&gt;Moonlight Butterflies&lt;/LSTag&gt;.</content>
+    <content contentuid="h4bsx2kv6x3ro6z4adt5j2w172hbfzehqqdsc" version="1">Coated in Weapon Oil: Moonlight Butterflies</content>
+    <content contentuid="hf1mk409uikyuh9mfle23vcg2m5ezgom85w6h" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_MoonlightButterfly_WeaponOil&gt;Moonlight Butterflies&lt;/LSTag&gt;.</content>
+    <content contentuid="h6mqgqqex7pgkccatuk2y8rs3u28hvqwhyai7" version="1">Weapon Oil: Shadowsoaked Blow</content>
+    <content contentuid="h2tcha94q03reh4l1f1bze0vjp8scxqf2td76" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_ShadowBlade_WeaponOil"&gt;Shadowsoaked Blow&lt;/LSTag&gt;.</content>
+    <content contentuid="hcx7myqqa68ru0oh6ygagh7zepxlvhghzjjrh" version="1">Coated in Weapon Oil: Shadowsoaked Blow</content>
+    <content contentuid="hmw1rwlkf5k7ewkstbph8yemlku3q3p1m92a2" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_ShadowBlade_WeaponOil&gt;Shadowsoaked Blow&lt;/LSTag&gt;.</content>
+    <content contentuid="hwcxgw9ylqas01ovusfksfov4qy2gw2pprh4s" version="1">Weapon Oil: Profane Scourge</content>
+    <content contentuid="hdn4ex1zd9pudrflemxs3uci770l0wxv3vngc" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_UndyingSubjugation_WeaponOil"&gt;Profane Scourge&lt;/LSTag&gt;.</content>
+    <content contentuid="hfna9l9bokn3qcbt2w832lsxsxi0do0rwa21h" version="1">Coated in Weapon Oil: Profane Scourge</content>
+    <content contentuid="hojchrs5oo9mez8rsag3v35yc4euua8wypzqo" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_UndyingSubjugation_WeaponOil&gt;Profane Scourge&lt;/LSTag&gt;.</content>
+    <content contentuid="hcy15t5b2y6lsqg5bsi7td5bfh2ma5n36yt7d" version="1">Weapon Oil: Commander's Strike</content>
+    <content contentuid="hdblf0o2y27lhcvtxvqf20f46cr114tumta15" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_CommanderStrike_Attack_D8_WeaponOil"&gt;Commander's Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="h5b7d5saevzbgiz2v6q0jyvkky4cn490ppmq2" version="1">Coated in Weapon Oil: Commander's Strike</content>
+    <content contentuid="h20hnzfl4hlqmcsjuawpxlkpteeiddgyts8wz" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_CommanderStrike_Attack_D8_WeaponOil&gt;Commander's Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hhkkpr85k916sb9yc0k9ga65mdwo86w7hjadv" version="1">Weapon Oil: Grand Slam</content>
+    <content contentuid="hk2xgkeuf5b5i2czg0stjnssqfhxvg6s0k9v2" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_GrandSlam_WeaponOil"&gt;Grand Slam&lt;/LSTag&gt;.</content>
+    <content contentuid="hcv7st3xqu1sej8vt8j7u1yf0pcd0urxhziw9" version="1">Coated in Weapon Oil: Grand Slam</content>
+    <content contentuid="h192sqwlpx4lxsfkd6y49wsu0w5raitdrgldp" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_GrandSlam_WeaponOil&gt;Grand Slam&lt;/LSTag&gt;.</content>
+    <content contentuid="hrth1jh6abpc0wxlrah5cl4w76i9q6qva1oev" version="1">Weapon Oil: Part the Flesh</content>
+    <content contentuid="ha8yj2xktcy8qn8a8y45dztslflysv2fr2k5y" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_Fleshrend_WeaponOil"&gt;Part the Flesh&lt;/LSTag&gt;.</content>
+    <content contentuid="hlt5iavti88rzskakxfi6vxch3wcxs9a1oyc2" version="1">Coated in Weapon Oil: Part the Flesh</content>
+    <content contentuid="hbxst1ji29fnd8313unf672nrxkflmfhubpz6" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_Fleshrend_WeaponOil&gt;Part the Flesh&lt;/LSTag&gt;.</content>
+    <content contentuid="hxc8gdkyh0brxocwhwo363zpxcnpoji162btv" version="1">Weapon Oil: Dawnburst Strike</content>
+    <content contentuid="hio4kr3q4yd0uhdcamu5wvhjxlseq0ockt1lr" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_FlashingDawn_WeaponOil"&gt;Dawnburst Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hw2ye7nt094p4qnzigikbt83iza2ll2nhuhfo" version="1">Coated in Weapon Oil: Dawnburst Strike</content>
+    <content contentuid="hapabghviutm0f53saj0zhxeu3odvxe6rjlxs" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_FlashingDawn_WeaponOil&gt;Dawnburst Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hwfuobeoql5vhf2xmcpqt40ng0y8wxnbv1xcf" version="1">Weapon Oil: Hellflame Cleave</content>
+    <content contentuid="h2rnkg9oftbto2fqvdr2ez4sam0f2mkto8mej" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Zone_MAG_Automaton_Human_Steelwatcher_HellfireCleave_WeaponOil"&gt;Hellflame Cleave&lt;/LSTag&gt;.</content>
+    <content contentuid="hf4wxxtkd4lvqxjky0k5752j9552r58a1qv05" version="1">Coated in Weapon Oil: Hellflame Cleave</content>
+    <content contentuid="h0mjlmtk7y3gfcwvnafs3283qmeuhe2q1dpu5" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Zone_MAG_Automaton_Human_Steelwatcher_HellfireCleave_WeaponOil&gt;Hellflame Cleave&lt;/LSTag&gt;.</content>
+    <content contentuid="hugo0m7zbryofu9905x662fcsdpln069jb4yv" version="1">Weapon Oil: Perfectly Balanced Strike</content>
+    <content contentuid="hhtcpgl85jn13ahcz6jyfn5zz5kxk93413oef" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_PHB_ScimitarOfSpeed_BonusAttack_WeaponOil"&gt;Perfectly Balanced Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="h4bt49qcshk0f2mrdc6c6opmb1mx2yr4cbpf4" version="1">Coated in Weapon Oil: Perfectly Balanced Strike</content>
+    <content contentuid="hadpi9nrjus0x5dpbv1ycylm1djpvlpl7xgxb" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_PHB_ScimitarOfSpeed_BonusAttack_WeaponOil&gt;Perfectly Balanced Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hbkecua5crfp6x9oo37ygljizl06w6lwwkud3" version="1">Weapon Oil: Whirlwind Attack</content>
+    <content contentuid="h6xb8cinof8e2xle94foq1601w5n737pc7w2u" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Shout_Whirlwind_WeaponOil"&gt;Whirlwind Attack&lt;/LSTag&gt;.</content>
+    <content contentuid="h0fzgcwt2bbu2gtuvbjgs18b45qncgyvyq3q7" version="1">Coated in Weapon Oil: Whirlwind Attack</content>
+    <content contentuid="hcw4lt6t3v6pd8psybm3abjm3goy4t78w77m0" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Shout_Whirlwind_WeaponOil&gt;Whirlwind Attack&lt;/LSTag&gt;.</content>
+    <content contentuid="hhhpu7lkwhgasauuco2uosoc32uwvwi3z1ea1" version="1">Weapon Oil: Dueller's Enthusiasm</content>
+    <content contentuid="h4ucl85ygycuqxpbpqavk47jkd1zwnwsx6lub" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_TheDueller_BonusAttack_WeaponOil"&gt;Dueller's Enthusiasm&lt;/LSTag&gt;.</content>
+    <content contentuid="hh3kczwx6fynykxm7ny2hy31gd4027vqbv34i" version="1">Coated in Weapon Oil: Dueller's Enthusiasm</content>
+    <content contentuid="h1y9obllrcdi36wljb6i0etn37n7eb78vc65u" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_TheDueller_BonusAttack_WeaponOil&gt;Dueller's Enthusiasm&lt;/LSTag&gt;.</content>
+    <content contentuid="hfstw9uu8cxdv3bskxvc79gc0p2869kz764b7" version="1">Weapon Oil: Edge of Darkness</content>
+    <content contentuid="hwu1s6fxvsi07xdsrcn33eo3jvby4zmrkj2vt" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_DEN_Apprentice_DaggerOfShar_Spell_WeaponOil"&gt;Edge of Darkness&lt;/LSTag&gt;.</content>
+    <content contentuid="h02v3tcr5oitn22m9mgdl9whlm7su3mh4ccl5" version="1">Coated in Weapon Oil: Edge of Darkness</content>
+    <content contentuid="hrlqyu5cjyplblpwi568uk2swydzkilkjeyki" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_DEN_Apprentice_DaggerOfShar_Spell_WeaponOil&gt;Edge of Darkness&lt;/LSTag&gt;.</content>
+    <content contentuid="hxojvw2ikakmxv267csb3lijfg511jebjxwuh" version="1">Weapon Oil: Topple the Big Folk</content>
+    <content contentuid="hok526p1c9yj1r6luieinybyj5tqfjo9se7q7" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_WeaponAction_GiantSubjugation_WeaponOil"&gt;Topple the Big Folk&lt;/LSTag&gt;.</content>
+    <content contentuid="hk3ch2z7vt2675yobian7k6flph2i6kg197z4" version="1">Coated in Weapon Oil: Topple the Big Folk</content>
+    <content contentuid="h66iwip3zi1759f522qndqfkn8gxogb3l1vk4" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_WeaponAction_GiantSubjugation_WeaponOil&gt;Topple the Big Folk&lt;/LSTag&gt;.</content>
+    <content contentuid="haiv00w9niuuk65x1jefymw211ciq7tc32sa0" version="1">Weapon Oil: Unshackling Strike</content>
+    <content contentuid="hi7qcdnsnazmxgwpyg6fd27ivcj5yrmhi2o4s" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Target_MAG_OrphicHammer_ChainBreaker_WeaponOil"&gt;Unshackling Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hdb8w0r0uiee1egomqdgx3nl71ogb8pvs7gdc" version="1">Coated in Weapon Oil: Unshackling Strike</content>
+    <content contentuid="hbyr8o6z8rpssq95kz5lfc1tq3hl1qoju4bfr" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Target_MAG_OrphicHammer_ChainBreaker_WeaponOil&gt;Unshackling Strike&lt;/LSTag&gt;.</content>
+    <content contentuid="hk7xpwv02z6au9tcuipde3jrsa6q0u6iefch6" version="1">Weapon Oil: Zephyr Break</content>
+    <content contentuid="h28cc0s3lero7fhf91hxhq8ufwgchsyqhh7kj" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Zone_MAG_ZephyrBreak_WeaponOil"&gt;Zephyr Break&lt;/LSTag&gt;.</content>
+    <content contentuid="h7exll4tx5vlhwj0f38qwo9x2ofr5yqrfzhye" version="1">Coated in Weapon Oil: Zephyr Break</content>
+    <content contentuid="hv2uypj0911xdt5h4hrkm8bznvl65tbt4uhlc" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Zone_MAG_ZephyrBreak_WeaponOil&gt;Zephyr Break&lt;/LSTag&gt;.</content>
+    <content contentuid="hfq1off7mf631ro6g84yq60b4xqu3w3copxw6" version="1">Weapon Oil: Zephyr Flash</content>
+    <content contentuid="hww622ehe5nqca9f8icydczafjlzusuamtdjv" version="1">Coats your active weapon in crystalized experiences, allowing you to perform &lt;LSTag Type="Spell" Tooltip="Rush_MAG_ZephyrFlash_WeaponOil"&gt;Zephyr Flash&lt;/LSTag&gt;.</content>
+    <content contentuid="habnfljlvt3n2xt5pu2t0dknriliaa3a7hvsz" version="1">Coated in Weapon Oil: Zephyr Flash</content>
+    <content contentuid="hm2s2n87tsgv16r2gae53ggyo8rogmpe0p34i" version="1">Allows this weapon's user to perform &lt;LSTag Type="Spell" Tooltip=Rush_MAG_ZephyrFlash_WeaponOil&gt;Zephyr Flash&lt;/LSTag&gt;.</content>

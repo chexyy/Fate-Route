@@ -837,6 +837,526 @@
 						</node>
 					</children>
 				</node>
+				<node id="Resource"> 
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="56daa7b3-8775-4dfc-90c0-87a6f750ae60" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="ARCHERS_BOW_TEXTURE" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Characters/CHAR_BASE.lsf" /> <!--Changes depending on material need-->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.7" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Dirt_Sharpness" />
+							<attribute id="Value" type="float" value="0.7" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Blood_Sharpness" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Reflectance" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="e45e3949-c122-4274-82fb-cacc8f441c1f" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="normalmap" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="6d14fc1e-cabb-4195-83db-a08c2033c29c" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="fcf94847-05b8-49ea-8e70-d6bea82c8b2e" /> <!--Points to physical map (PM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="physicalmap" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="DirtColor" />
+							<attribute id="Value" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_Color" />
+							<attribute id="Value" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+						</node>
+					</children>
+				</node>
+				<node id="Resource"> 
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="6e717600-9024-48c8-a3ba-e5f8a8eea4e7" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="KANSHOU_TEXTURE" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Characters/CHAR_BASE.lsf" /> <!--Changes depending on material need-->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.7" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Dirt_Sharpness" />
+							<attribute id="Value" type="float" value="0.7" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Blood_Sharpness" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Reflectance" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="6b39d6ea-09dc-4fe8-92bb-a74e007d3602" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="normalmap" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="fdd6ea2b-10cc-466a-b515-9801c5a2d68c" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="361e6567-22e4-4549-a002-4ba8f3107766" /> <!--Points to physical map (PM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="physicalmap" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="DirtColor" />
+							<attribute id="Value" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_Color" />
+							<attribute id="Value" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+						</node>
+					</children>
+				</node>
+				<node id="Resource"> 
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="de30572d-f8aa-48b3-bfbd-e13daf040fcb" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="BAKUYA_TEXTURE" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Characters/CHAR_BASE.lsf" /> <!--Changes depending on material need-->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.7" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Dirt_Sharpness" />
+							<attribute id="Value" type="float" value="0.7" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Blood_Sharpness" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Reflectance" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="34a5aca9-1963-45da-be70-d8f163e0db23" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="normalmap" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="e0d50c85-9c4f-416a-86f9-644545e35c31" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="a3c6a2d3-1768-476c-93d2-15dbfc2f3426" /> <!--Points to physical map (PM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="physicalmap" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="DirtColor" />
+							<attribute id="Value" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_Color" />
+							<attribute id="Value" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+						</node>
+					</children>
+				</node>
+				<node id="Resource"> 
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="72e04a90-45fb-4302-9b21-4cb5032b1991" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="KANSHOU_OVEREDGE_TEXTURE" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Characters/CHAR_BASE.lsf" /> <!--Changes depending on material need-->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.7" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Dirt_Sharpness" />
+							<attribute id="Value" type="float" value="0.7" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Blood_Sharpness" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Reflectance" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="e651cdd9-509c-4b8b-b880-771733927193" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="normalmap" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="7a894acd-a0fe-48c9-a6c2-866d94c2f90d" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="361e6567-22e4-4549-a002-4ba8f3107766" /> <!--Points to physical map (PM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="physicalmap" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="DirtColor" />
+							<attribute id="Value" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_Color" />
+							<attribute id="Value" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+						</node>
+					</children>
+				</node>
+				<node id="Resource"> 
+					<attribute id="DiffusionProfileUUID" type="FixedString" value="" /> 
+					<attribute id="ID" type="FixedString" value="8dfe6d57-da86-4029-a083-ea43a8fee237" /> <!--Generate new UUID-->
+					<attribute id="MaterialType" type="uint8" value="22" />
+					<attribute id="Name" type="LSString" value="BAKUYA_OVEREDGE_TEXTURE" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Characters/CHAR_BASE.lsf" /> <!--Changes depending on material need-->
+					<children>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.7" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Dirt_Sharpness" />
+							<attribute id="Value" type="float" value="0.7" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Armor_Blood_Sharpness" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="4" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="False" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_AO_Sharpness" />
+							<attribute id="Value" type="float" value="4" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Dirt" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Blood" />
+							<attribute id="Value" type="float" value="0" />
+						</node>
+						<node id="ScalarParameters">
+							<attribute id="BaseValue" type="float" value="0.5" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="" />
+							<attribute id="ParameterName" type="FixedString" value="Reflectance" />
+							<attribute id="Value" type="float" value="0.5" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="e5cd0c75-af68-4f43-af2c-f7e8ffbf2b2d" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="normalmap" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="651dcf75-ca29-4216-ac59-f0491c773620" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ParameterName" type="FixedString" value="basecolor" />
+						</node>
+						<node id="Texture2DParameters">
+							<attribute id="Enabled" type="bool" value="True" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
+							<attribute id="ID" type="FixedString" value="651dcf75-ca29-4216-ac59-f0491c773620" /> <!--Points to physical map (PM) UUID in textures.lsx-->
+							<attribute id="ParameterName" type="FixedString" value="physicalmap" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="DirtColor" />
+							<attribute id="Value" type="fvec3" value="0.1176471 0.06666667 0.04705882" />
+						</node>
+						<node id="Vector3Parameters">
+							<attribute id="BaseValue" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+							<attribute id="Enabled" type="bool" value="False" />
+							<attribute id="ExportAsPreset" type="bool" value="True" />
+							<attribute id="GroupName" type="FixedString" value="08Dirt&amp;Blood&amp;Sweat" />
+							<attribute id="IsColor" type="bool" value="True" />
+							<attribute id="ParameterName" type="FixedString" value="Blood_Color" />
+							<attribute id="Value" type="fvec3" value="0.1294118 0.007843138 0.003921569" />
+						</node>
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="9c661ffc-c025-b05a-5847-4961d2f301fe" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Cast_Intent_Summon_ShoutSelf_TraceWeapon_R_HandFX" />
+					<attribute id="SourceFile" type="LSString" value="Mods/FateRoute/Assets/Effects/Effects_Banks/VFX_Spells_Cast_Intent_Summon_ShoutSelf_TraceWeapon_R_HandFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Cast_Intent_Summon_ShoutSelf_TraceWeapon_R_HandFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.4433757 -1.4433757 -1.4433757" />
+					<attribute id="BoundsMax" type="fvec3" value="1.4433757 1.4433757 1.4433757" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1.5" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="83fe3c2c-7557-b45f-e7c2-c988dc149799" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9acfb87b-b0b3-50a7-7408-414d4246d2b4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="44192e18-75cf-4d16-1747-81ed534b8247" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

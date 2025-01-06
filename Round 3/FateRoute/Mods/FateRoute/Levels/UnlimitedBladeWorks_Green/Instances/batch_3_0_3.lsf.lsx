@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Batches">
+		<node id="Batches">
+			<children>
+				<node id="InstanceBatch">
+					<attribute id="GridIndexes" type="ivec3" value="16 -1 17" />
+					<attribute id="StorageIndices" type="ivec3" value="3 0 3" />
+					<attribute id="GroupId" type="FixedString" value="55cdc39a-47d6-7a24-f5ed-8fdf21fcead1" />
+					<attribute id="BoundsMin" type="fvec3" value="191.00397 -6.6792836 202.91977" />
+					<attribute id="BoundsMax" type="fvec3" value="196.61578 -5.215854 214.66988" />
+					<children>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.06 -6.10 213.00 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.93 -6.05 213.46 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.38 -6.05 213.62 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.36 -6.38 207.30 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.77 -6.17 211.48 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;193.07 -6.42 206.75 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.00 -6.38 207.25 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.59 -6.39 207.06 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;193.81 -6.24 210.00 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.20 -6.17 211.64 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.21 -6.55 204.02 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.42 -6.54 204.30 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.23 -6.40 207.42 &#xD;&#xA;" />
+						</node>
+					</children>
+				</node>
+				<node id="InstanceBatch">
+					<attribute id="GridIndexes" type="ivec3" value="16 -1 16" />
+					<attribute id="StorageIndices" type="ivec3" value="3 0 3" />
+					<attribute id="GroupId" type="FixedString" value="55cdc39a-47d6-7a24-f5ed-8fdf21fcead1" />
+					<attribute id="BoundsMin" type="fvec3" value="190.9506 -6.9826527 193.26636" />
+					<attribute id="BoundsMax" type="fvec3" value="196.70288 -5.7237215 205.03044" />
+					<children>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.96 -6.68 199.93 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.67 -6.66 200.70 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.16 -6.69 200.07 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.00 -6.56 203.98 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.62 -6.57 202.94 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.83 -6.77 197.01 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.03 -6.68 199.86 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.01 -6.86 194.36 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.49 -6.84 194.92 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.99 -6.76 197.71 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;193.88 -6.65 200.93 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.20 -6.57 202.97 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.20 -6.80 196.55 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;194.92 -6.62 201.70 &#xD;&#xA;" />
+						</node>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;195.00 -6.68 200.08 &#xD;&#xA;" />
+						</node>
+					</children>
+				</node>
+				<node id="InstanceBatch">
+					<attribute id="GridIndexes" type="ivec3" value="16 0 17" />
+					<attribute id="StorageIndices" type="ivec3" value="3 0 3" />
+					<attribute id="GroupId" type="FixedString" value="55cdc39a-47d6-7a24-f5ed-8fdf21fcead1" />
+					<attribute id="BoundsMin" type="fvec3" value="191.78114 -6.1216574 213.69615" />
+					<attribute id="BoundsMax" type="fvec3" value="193.86406 -5.161624 215.84772" />
+					<children>
+						<node id="InstanceTransform">
+							<attribute id="WorldMatrix" type="mat4x3" value=" 1.00  0.00  0.00 &#xD;&#xA; 0.00  1.00  0.00 &#xD;&#xA; 0.00  0.00  1.00 &#xD;&#xA;192.83 -6.00 214.79 &#xD;&#xA;" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

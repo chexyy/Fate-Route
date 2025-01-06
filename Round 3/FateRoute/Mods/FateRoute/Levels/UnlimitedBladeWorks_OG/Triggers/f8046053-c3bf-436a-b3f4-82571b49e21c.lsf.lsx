@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="f8046053-c3bf-436a-b3f4-82571b49e21c" />
+					<attribute id="Name" type="LSString" value="LightingTrigger_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks_Original" />
+					<attribute id="Type" type="FixedString" value="trigger" />
+					<attribute id="TemplateName" type="FixedString" value="1a4cfe92-0a55-4253-b856-44cd0b0e8f8f" />
+					<attribute id="Flag" type="uint8" value="1" />
+					<attribute id="PhysicsType" type="int32" value="2" />
+					<attribute id="FadeTime" type="float" value="4" />
+					<attribute id="Extents" type="fvec3" value="200 20 200" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="0 5 0" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+											<children>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="20440c41-7462-22dd-fcde-cd015bbb0be3" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="ResourceIDs">
+							<children>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="eae653d3-6e8e-7ffb-dab3-9f7f18265114" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="84670275-55d2-edbc-e026-eff6af06567e" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="021ec9ba-0071-55fb-f582-580363ac5ef1" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="b63740f5-31d5-8b31-6b83-1ce3254632d7" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="72bfa493-4ab9-4f95-188a-bd1ac3ccd8d0" />
+								</node>
+							</children>
+						</node>
+						<node id="FadeChildren" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

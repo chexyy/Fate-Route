@@ -52,6 +52,8 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
     Ext.Vars.RegisterUserVariable("meleeTriggerOff", {})
     Ext.Vars.RegisterUserVariable("rangedTriggerOff", {})
 
+    Ext.Vars.RegisterUserVariable("lastTargetedEnemy", {})
+
     fakerCharacter = locateFaker()
     syncAllVariables(fakerCharacter)
     local entity = Ext.Entity.Get(fakerCharacter)
@@ -72,8 +74,9 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
         if entity.Vars.rangedTriggerOff ~= nil then
             Osi.AddBoosts(fakerCharacter, entity.Vars.rangedTriggerOff, "Trigger Off (Ranged)", fakerCharacter)
         end
-
     end
+
+    addNoblePhantasms(fakerCharacter)
 
     Osi.ObjectSetTitle(fakerCharacter, "Hero of Justice")
 
@@ -355,6 +358,24 @@ end)
 Ext.Osiris.RegisterListener("TimerFinished", 1, "after", function(timer)
     if timer == "Fate Saving Throw Timer" then
         savingThrowTimer = nil
+    end
+
+end)
+
+-- Refill Magical Energy
+Ext.Osiris.RegisterListener("Shortrested", 1, "before", function(character)
+    if character == fakerCharacter then
+        local entity = Ext.Entity.Get(character)
+        local maxMagicalEnergy = entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].MaxAmount
+
+        if math.floor(maxMagicalEnergy*0.25) + entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount >= maxMagicalEnergy then
+            entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = maxMagicalEnergy
+        else
+            entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = math.floor(maxMagicalEnergy*0.25) + entity.ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
+        end
+
+        AddBoosts(character, "ActionResource(MagicalEnergy,1,0)", "Magical Energy Regenerate Helper", character)
+        Ext.Timer.WaitFor(250, Osi.RemoveBoosts(character, "ActionResource(MagicalEnergy,1,0)", 1, "Magical Energy Regenerate Helper", character))
     end
 
 end)

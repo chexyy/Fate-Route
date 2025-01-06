@@ -1,12 +1,12 @@
 -- variable sync
 function syncAllVariables(character)
-    Ext.Vars.RegisterUserVariable("traceTable", {})
+    -- Ext.Vars.RegisterUserVariable("traceTable", {})
     Ext.Vars.RegisterUserVariable("extraDescriptionTable", {})
     Ext.Vars.RegisterUserVariable("bladeReconstitutionTurnCheck", {})
     -- Ext.Vars.RegisterUserVariable("statusApplyTable", {})
 
     local entity = Ext.Entity.Get(character)
-    local localTraceTable = entity.Vars.traceTable or {}
+    -- local localTraceTable = entity.Vars.traceTable or {}
     local localextraDescriptionTable = entity.Vars.extraDescriptionTable or {}
     local bladeReconstitutionTurnCheck = entity.Vars.bladeReconstitutionTurnCheck or 0
     -- local localstatusApplyTable = entity.Vars.statusApplyTable or {}
@@ -42,57 +42,57 @@ function syncAllVariables(character)
         end
     end
 
-    if localTraceTable ~= {} then
-        if next(localTraceTable) ~= nil then
-            _D(localTraceTable)
-            for key, entry in ipairs(localTraceTable) do
-                for i=1,999,1 do
-                    local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
-                    if observedTraceTemplate.DisplayName == entry.DisplayName then
-                        print("Found at index #" .. i)
-                        break
-                    elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
-                        -- copying over stats
-                        Ext.Loca.UpdateTranslatedString(entry.DisplayName, entry.DisplayName)
-                        observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
-                        observedTraceTemplate.Icon = entry.Icon
-                        observedTraceTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
-                        observedTraceTemplate:SetRawAttribute("Sheathing", entry.meleeOrRanged)
-                        observedTraceTemplate.UseCosts = entry.UseCosts
+    -- if localTraceTable ~= {} then
+    --     if next(localTraceTable) ~= nil then
+    --         _D(localTraceTable)
+    --         for key, entry in ipairs(localTraceTable) do
+    --             for i=1,999,1 do
+    --                 local observedTraceTemplate = Ext.Stats.Get("Shout_TraceWeapon_Template" .. i)
+    --                 if observedTraceTemplate.DisplayName == entry.DisplayName then
+    --                     print("Found at index #" .. i)
+    --                     break
+    --                 elseif observedTraceTemplate.DisplayName == "h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" then
+    --                     -- copying over stats
+    --                     Ext.Loca.UpdateTranslatedString(entry.DisplayName, entry.DisplayName)
+    --                     observedTraceTemplate:SetRawAttribute("DisplayName", entry.DisplayName)
+    --                     observedTraceTemplate.Icon = entry.Icon
+    --                     observedTraceTemplate:SetRawAttribute("SpellProperties", entry.spellProperties)
+    --                     observedTraceTemplate:SetRawAttribute("Sheathing", entry.meleeOrRanged)
+    --                     observedTraceTemplate.UseCosts = entry.UseCosts
 
-                        if entry.tooltipApply ~= nil then
-                            observedTraceTemplate:SetRawAttribute("TooltipStatusApply", entry.tooltipApply)
-                            observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
-                        else
-                            observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
-                        end
+    --                     if entry.tooltipApply ~= nil then
+    --                         observedTraceTemplate:SetRawAttribute("TooltipStatusApply", entry.tooltipApply)
+    --                         observedTraceTemplate:SetRawAttribute("DescriptionParams", "These weapons were;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
+    --                     else
+    --                         observedTraceTemplate:SetRawAttribute("DescriptionParams", "This weapon was;" .. entry.wielderStrength .. ";" .. entry.wielderDexterity .. ";" .. entry.wielderMovementSpeed)
+    --                     end
 
-                        -- adding to spell
-                        local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                        local containerList = baseSpell.ContainerSpells
-                        if containerList == "" then
-                            containerList = "Shout_TraceWeapon_Template" .. i
-                        else
-                            containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
-                        end
+    --                     -- adding to spell
+    --                     local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+    --                     local containerList = baseSpell.ContainerSpells
+    --                     if containerList == "" then
+    --                         containerList = "Shout_TraceWeapon_Template" .. i
+    --                     else
+    --                         containerList = containerList .. ";Shout_TraceWeapon_Template" .. i
+    --                     end
                         
         
-                        observedTraceTemplate:Sync()       
-                        baseSpell.ContainerSpells = containerList
-                        baseSpell:Sync()
+    --                     observedTraceTemplate:Sync()       
+    --                     baseSpell.ContainerSpells = containerList
+    --                     baseSpell:Sync()
         
-                        print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
-                        break
-                    end
-                end
+    --                     print("This sync produced a spell for " .. Osi.ResolveTranslatedString(observedTraceTemplate.DisplayName) .. " for template spell #" .. i) 
+    --                     break
+    --                 end
+    --             end
 
-                local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
-                baseSpell:Sync() 
+    --             local baseSpell = Ext.Stats.Get("Shout_TraceWeapon")
+    --             baseSpell:Sync() 
 
-                Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
-            end
-        end
-    end
+    --             Osi.RemoveSpell(GetHostCharacter(),"Shout_TraceWeapon",0)
+    --         end
+    --     end
+    -- end
 
 end
 
@@ -124,6 +124,8 @@ Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function()
                     if Osi.HasPassive(fakerCharacter, "Passive_Aria_One") == 1 then
                         addAria(fakerCharacter)
                     end
+
+                    addNoblePhantasms(character)
 
                     -- local entity = Ext.Entity.Get(faker)
                     -- for key, entry in pairs(entity.SpellBook.Spells) do

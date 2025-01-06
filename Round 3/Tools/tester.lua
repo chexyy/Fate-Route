@@ -184,3 +184,59 @@ for key, class in pairs(_C().Classes.Classes) do
 end
 
 Osi.GiveInspirationPoints(GetHostCharacter(), 1, "A Thousand Blades", "Recreated a total of 1000 weapons seen previously.")
+
+--[[
+local x, y, z = Osi.GetPosition(GetHostCharacter())
+Osi.UseSpellAtPosition(GetHostCharacter(), "Projectile_Jump", x,y+5,z, 1)
+Osi.UseSpell(GetHostCharacter(), "Throw_Throw", laezel, GetEquippedWeapon(GetHostCharacter()),1)
+]]--
+
+--[[
+local x, y, z = Osi.GetPosition(GetHostCharacter())
+Osi.UseSpellAtPosition(GetHostCharacter(), "Projectile_Jump", x,y+5,z, 1)
+Ext.Timer.WaitFor(100, function()
+   Osi.Freeze(GetHostCharacter()) 
+end)
+]]--
+
+test = true
+local x, y, z = Osi.GetPosition(GetHostCharacter())
+while test == true do
+    Osi.TeleportToPosition(GetHostCharacter(),x,y+5,z)
+end
+
+--[[
+local x,y,z = Osi.GetPosition(GetHostCharacter())
+Osi.PlayEffectAtPositionAndRotation("05c0e507-b7b3-df35-7aa9-7186bd880caf", x,y,z, 50, 0.75)
+]]--
+
+--[[
+local x,y,z = Osi.GetPosition(GetHostCharacter())
+Osi.PlayEffectAtPositionAndRotation("38529fa9-9bf8-05b5-d26b-d1fba6e23a02", x,y,z, 50, 0.35)
+]]--
+
+--[[
+local x,y,z = Osi.GetPosition(GetHostCharacter())
+Osi.PlayEffectAtPositionAndRotation("5123bb90-0084-e389-0cb5-332110a18fa6", x,y,z, 50, 0.65)
+]]--
+
+
+x,y,z = Osi.GetPosition(GetHostCharacter())
+spear = Osi.CreateAt("2eeabe97-8f29-4f4f-827e-6cfcd8fd1779", x,y,z, 1, 1, "Spawned")
+
+x2,y2,z2 = Osi.GetPosition(spear)
+Osi.ItemMoveToPosition(spear, x2, y2+2, z, 1, 1, "")
+
+height = y+3.5
+for i = 1,3 do
+    rho = heigh
+
+    height++
+end
+
+--[[
+local x,y,z = Osi.GetPosition(GetHostCharacter())
+print(Osi.FindValidPosition(x, y+50, z, 0.001, GetHostCharacter(), 0))
+]]--
+
+print(Osi.FindValidPosition(885, -50, -25, 1, GetHostCharacter(), 0))

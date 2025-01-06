@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="3"/>
+    <region id="Layers">
+        <node id="root"/>
+    </region>
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="ID" type="guid" value="de03c9fe-543f-6a41-304c-dced4fd8b22b"/>
+            <attribute id="LayerColor" type="int32" value="0"/>
+            <attribute id="Name" type="LSString" value="New Layer 1"/>
+        </node>
+    </region>
+</save>

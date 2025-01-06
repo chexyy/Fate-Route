@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="e817e28f-f7c1-49db-a617-666719360088" />
+					<attribute id="Name" type="LSString" value="TerrainRootTemplate_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="Type" type="FixedString" value="terrain" />
+					<attribute id="TemplateName" type="FixedString" value="da01152d-e3cf-43eb-8450-7b6421a4fefb" />
+					<attribute id="Flag" type="uint8" value="3" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="-8.5 0 -8.5" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="TerrainLayers">
+							<children>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="eb8f9974-0a57-c191-8fb4-d740a67db0d6" />
+									<attribute id="ParamOverridesMask" type="uint32" value="0" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0 0 0 0" />
+								</node>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="fb3a9727-34bf-9190-a4f4-fdae92af2a7f" />
+									<attribute id="ParamOverridesMask" type="uint32" value="0" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0 0 0 0" />
+								</node>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="bac9aaf0-069c-a98a-2648-40c5538f1b86" />
+									<attribute id="ParamOverridesMask" type="uint32" value="0" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0 0 0 0" />
+								</node>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="a647b74e-d7ca-9373-210f-8a6cc0971745" />
+									<attribute id="ParamOverridesMask" type="uint32" value="0" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0.28 0 0 0" />
+								</node>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="83d2755e-75ed-dcd2-6a74-7ccc6c1579b2" />
+									<attribute id="ParamOverridesMask" type="uint32" value="16" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0.9 0 0 0" />
+								</node>
+							</children>
+						</node>
+						<node id="Visual">
+							<attribute id="Width" type="int32" value="89" />
+							<attribute id="Height" type="int32" value="86" />
+							<attribute id="Data" type="LSString" value="e817e28f-f7c1-49db-a617-666719360088.data" />
+							<attribute id="Physics" type="LSString" value="e817e28f-f7c1-49db-a617-666719360088.bin" />
+							<children>
+								<node id="LocalBound">
+									<attribute id="BoundsMin" type="fvec3" value="-0.3199997 -0.02490902 -0.3199997" />
+									<attribute id="BoundsMax" type="fvec3" value="89.125 5.006693 86.11" />
+								</node>
+							</children>
+						</node>
+						<node id="TerrainBaseLayers" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

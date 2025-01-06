@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="b7a6dc25-bb34-4ef2-86de-9a3e073c8785" />
+					<attribute id="Name" type="LSString" value="AtmosphereTrigger_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="Type" type="FixedString" value="trigger" />
+					<attribute id="TemplateName" type="FixedString" value="14ec1f7b-dfb9-4001-af8f-469b06c1c70f" />
+					<attribute id="Flag" type="uint8" value="1" />
+					<attribute id="PhysicsType" type="int32" value="2" />
+					<attribute id="FadeTime" type="float" value="4" />
+					<attribute id="Extents" type="fvec3" value="200 20 200" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="0 5 0" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+											<children>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="20440c41-7462-22dd-fcde-cd015bbb0be3" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="ResourceIDs">
+							<children>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="2d7e104a-026e-a5bc-00c8-e16ab628590e" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="9d75ef19-e970-4525-9c18-86c7bf92e9b6" />
+								</node>
+							</children>
+						</node>
+						<node id="FadeChildren" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

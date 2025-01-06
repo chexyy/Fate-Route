@@ -44,6 +44,11 @@
 					<attribute id="Spells" type="LSString" value="Throw_Alteration_BrokenPhantasm" />
 					<attribute id="UUID" type="guid" value="6d6c0ea1-b541-4c6e-a8cd-f05c22cb462b" />
 				</node>
+				<node id="SpellList">
+					<attribute id="Comment" type="LSString" value="Minds Eye" />
+					<attribute id="Spells" type="LSString" value="Target_MindsEye_Counter" />
+					<attribute id="UUID" type="guid" value="37ef3ff1-4ba8-4c1c-bd4f-69e047aed50d" />
+				</node>
 			</children>
 		</node>
 	</region>

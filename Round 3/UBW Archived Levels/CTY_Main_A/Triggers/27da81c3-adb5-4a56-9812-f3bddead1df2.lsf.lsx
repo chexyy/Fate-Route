@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="27da81c3-adb5-4a56-9812-f3bddead1df2" />
+					<attribute id="Name" type="LSString" value="AiSeeder_075" />
+					<attribute id="LevelName" type="FixedString" value="CTY_Main_A" />
+					<attribute id="Type" type="FixedString" value="trigger" />
+					<attribute id="TemplateName" type="FixedString" value="d0c8d0d5-e2a0-4798-9ac6-67eaa606254c" />
+					<attribute id="Flag" type="uint8" value="1" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="-8.302048 493.3399 -67.03162" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="CTY_Main_A" />
+											<children>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="81aaa5cd-3bdf-a046-632b-6512d88beaf8" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="FadeChildren" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

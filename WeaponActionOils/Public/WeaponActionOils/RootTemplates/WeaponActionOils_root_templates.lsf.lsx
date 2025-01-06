@@ -1,0 +1,2409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hrvzfuhcc8sfxvlyohinbmtucurx3g9t7xfba" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hl9hrq4a3tbsqrxs183pd8n233vl1rsrpgk66" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="22f92658-e71a-80b3-7ba2-c009066fb233" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_AbsolutePower" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_AbsolutePower" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_ABSOLUTEPOWER" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h4p18klttxvfpnci073etby47fk3rt60amt19" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3v9w6e40i7y1y3t2s7e5g2qvno196v9w27id" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="7cd4884a-0718-5dc8-ff17-c6581b864673" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_BloodSacrifice" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_BloodSacrifice" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_BLOODSACRIFICE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hbovh3hgw8xh7nbi76uuaeh4nljkpguxym9i1" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3yty9w4g2ho3obhbxjpg6mh3abt8vvx8h6b4" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="c0921c9a-cfac-62fd-2cfe-86f4eee53bae" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_GargantuanCleave" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_GargantuanCleave" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_GARGANTUANCLEAVE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hmkx870ce0dy8f6ami053735l1xkm7bzh4hdw" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hpky92w21v2ovikamfof41d4idx94wljpm6az" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="de10934b-4921-b505-1546-5304568163f1" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_HushYou!" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_HushYou!" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_HUSHYOU!" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="ho6ttpgiktuo7kxkjm4tvidx0dga5rq7ptzcs" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hyi00km033w4q4eszitn3y08ucog0s6xqd9wf" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="a44e1ce7-ae02-c9ab-e79d-5808191ce590" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_RevitalisingStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_RevitalisingStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_REVITALISINGSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hflbz911gmuq54lqyveaeiqt0z0bw9j97h1gd" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hv9obkb6pdeii62mnvtm5j8oyjb8tyv201502" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="38992707-9280-fc84-02e5-94f21b493e97" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_SearingBlood" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_SearingBlood" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_SEARINGBLOOD" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hhj0r4v49xwxc87zlmcsv1agqn989hfuvzlom" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h2vukt0ryr1hidz531ds55njeytaop34vfv1p" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="734dfe80-4905-712b-7f80-2fa96206539a" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ColossalOnslaught" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ColossalOnslaught" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_COLOSSALONSLAUGHT" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h43m7kfqiawxxy5byuy7jcl3rpgjy4zu0qrjx" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hqlhf7c9zaa5q5h4i08t7w3ug7s0nh1le6y8p" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="2acf9af5-8a7a-ee94-36b9-3acea5a22e4e" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_CorrosiveStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_CorrosiveStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_CORROSIVESTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h59ezcdesrq3tyrlj0j3rlwac8747y2yhq3au" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h8aunnayt23ihnzepacz377wec21w1h30piry" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="2b1b6f45-56eb-5e9e-6ff4-9e06a863ffb2" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_PhalarAluve:Melody" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_PhalarAluve:Melody" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_PHALARALUVE:MELODY" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="himutpnnkgea2sz2jgcpz0tbuktpen28y9exn" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hxuo8m9bpzzsw13mu5vs5ydsap7b9gnhdpjdr" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="e722a446-b7d3-900e-7d85-b40876da2bc1" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_RazorGale" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_RazorGale" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_RAZORGALE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hnkkjq0n8g825vdqxcak8s6n6t7dhznanlogh" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hx0kt8f3d6s021ahjc14mex4yfnys0j6nec1n" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="c3e662cc-e575-ecd6-b209-47665e448ad0" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_Soulbreaker" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_Soulbreaker" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_SOULBREAKER" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hnt07a3ro460h6lo4npdy1km10zdqwsfj038m" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h4wy4kxbtt6g80lwsqmmcoirze484rxqpb8br" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="9f59252b-bb20-59be-0ac7-84306668009e" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_PoisonMist" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_PoisonMist" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_POISONMIST" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hbql8kpxnedk4wh0p5taa3qk6xkxjgnt81fae" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hc4gb2tlu5xptgihj8x4ng16mg09f8piejtcv" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="b7ddacdd-9eb7-54f6-defd-56afd9715640" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_BloodMoney" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_BloodMoney" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_BLOODMONEY" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hagcblso0pf31dqkop6zaaiv8mpdzz38b3qkb" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3td6jql2336dysmvmhjdflvfca2yezfeyfce" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="1b0dc33a-f401-6ac9-aa4f-d95f1dd997d4" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_CrowningStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_CrowningStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_CROWNINGSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hoxu0p3uasohip8lknr4iakk4e45taszz7z8a" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hhey724inp8dtwkhonf7pyhqbrjy1ou1wucnb" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="b533e88a-2028-31a3-99ec-af38597c0f46" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_MoonlightButterflies" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_MoonlightButterflies" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_MOONLIGHTBUTTERFLIES" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h2tcha94q03reh4l1f1bze0vjp8scxqf2td76" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h6mqgqqex7pgkccatuk2y8rs3u28hvqwhyai7" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="9fb8b393-a26e-92dd-865b-8259b4ab935d" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ShadowsoakedBlow" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ShadowsoakedBlow" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_SHADOWSOAKEDBLOW" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hdn4ex1zd9pudrflemxs3uci770l0wxv3vngc" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hwcxgw9ylqas01ovusfksfov4qy2gw2pprh4s" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="02b8ff18-3ad6-1edd-2aff-ee6c7ef5a769" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ProfaneScourge" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ProfaneScourge" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_PROFANESCOURGE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hdblf0o2y27lhcvtxvqf20f46cr114tumta15" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hcy15t5b2y6lsqg5bsi7td5bfh2ma5n36yt7d" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="1d977a95-03eb-1f80-af01-1b4c196d6ff2" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_Commander'sStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_Commander'sStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_COMMANDER'SSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hk2xgkeuf5b5i2czg0stjnssqfhxvg6s0k9v2" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hhkkpr85k916sb9yc0k9ga65mdwo86w7hjadv" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="6797f93e-cac9-b8c8-4d77-bc4fe74569b4" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_GrandSlam" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_GrandSlam" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_GRANDSLAM" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="ha8yj2xktcy8qn8a8y45dztslflysv2fr2k5y" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hrth1jh6abpc0wxlrah5cl4w76i9q6qva1oev" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="428f1c5a-d000-bd13-2537-64c5906d8c6a" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ParttheFlesh" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ParttheFlesh" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_PARTTHEFLESH" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hio4kr3q4yd0uhdcamu5wvhjxlseq0ockt1lr" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hxc8gdkyh0brxocwhwo363zpxcnpoji162btv" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="2f4a392f-7cb2-2663-dc12-09e833873af1" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_DawnburstStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_DawnburstStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_DAWNBURSTSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h2rnkg9oftbto2fqvdr2ez4sam0f2mkto8mej" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hwfuobeoql5vhf2xmcpqt40ng0y8wxnbv1xcf" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="9ffb5d81-2cb7-7285-cacf-67c7c6b1830f" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_HellflameCleave" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_HellflameCleave" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_HELLFLAMECLEAVE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hhtcpgl85jn13ahcz6jyfn5zz5kxk93413oef" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hugo0m7zbryofu9905x662fcsdpln069jb4yv" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="7a15a1c4-d19a-5e8e-1089-9cf658dfda5e" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_PerfectlyBalancedStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_PerfectlyBalancedStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_PERFECTLYBALANCEDSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h6xb8cinof8e2xle94foq1601w5n737pc7w2u" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbkecua5crfp6x9oo37ygljizl06w6lwwkud3" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="9f7fc654-de74-eed3-4bc3-33bc1675403e" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_WhirlwindAttack" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_WhirlwindAttack" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_WHIRLWINDATTACK" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h4ucl85ygycuqxpbpqavk47jkd1zwnwsx6lub" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hhhpu7lkwhgasauuco2uosoc32uwvwi3z1ea1" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="2b16328a-ecae-9c0c-2f58-eebc79536a95" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_Dueller'sEnthusiasm" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_Dueller'sEnthusiasm" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_DUELLER'SENTHUSIASM" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hwu1s6fxvsi07xdsrcn33eo3jvby4zmrkj2vt" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hfstw9uu8cxdv3bskxvc79gc0p2869kz764b7" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="4a8aee55-6e0e-3c9d-bf0d-e3515cba3943" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_EdgeofDarkness" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_EdgeofDarkness" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_EDGEOFDARKNESS" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hok526p1c9yj1r6luieinybyj5tqfjo9se7q7" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hxojvw2ikakmxv267csb3lijfg511jebjxwuh" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="94838a8b-c6d6-8d64-30cd-56f0af5acd89" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ToppletheBigFolk" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ToppletheBigFolk" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_TOPPLETHEBIGFOLK" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hi7qcdnsnazmxgwpyg6fd27ivcj5yrmhi2o4s" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="haiv00w9niuuk65x1jefymw211ciq7tc32sa0" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="9feba48f-fa18-ac8a-2893-847fb661faff" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_UnshacklingStrike" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_UnshacklingStrike" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_UNSHACKLINGSTRIKE" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h28cc0s3lero7fhf91hxhq8ufwgchsyqhh7kj" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hk7xpwv02z6au9tcuipde3jrsa6q0u6iefch6" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="fee2bb8b-e729-311b-6666-eaf96eccb1ed" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ZephyrBreak" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ZephyrBreak" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_ZEPHYRBREAK" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="hww622ehe5nqca9f8icydczafjlzusuamtdjv" version="4" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hfq1off7mf631ro6g84yq60b4xqu3w3copxw6" version="2" />
+                    <attribute id="Flag" type="int32" value="0" />
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Poison_vial_D_Sheathe" />
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="5eb1bb3d-a060-0208-e0bb-aefb60f75b69" />
+                    <attribute id="Name" type="LSString" value="CONS_Oil_ZephyrFlash" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="19a6fbb0-7123-460b-a4a8-643bb6cab5b5" />
+                    <attribute id="PhysicsTemplate" type="FixedString" value="685cc273-75b7-c745-5fb0-61ba5d60beff" />
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Oil_ZephyrFlash" />
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="" version="0" />
+                    <attribute id="TechnicalDescriptionParams" type="LSString" value="DealDamage(1d8,Poison)" />
+                    <attribute id="Type" type="FixedString" value="item" />
+                    <attribute id="VisualTemplate" type="FixedString" value="8f1dee8c-64db-48ce-d5c4-84b2fe29bb3e" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209020" />
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.0839899 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.457767E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="0" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="1" />
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1" />
+                                    <attribute id="Max" type="fvec3" value="0.08139521 0.08398992 0.1935836" />
+                                    <attribute id="Min" type="fvec3" value="-0.081395194 -9.45963E-05 -0.221449" />
+                                    <attribute id="Radius" type="float" value="0.433013" />
+                                    <attribute id="Shape" type="uint8" value="1" />
+                                    <attribute id="Type" type="uint8" value="2" />
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="" />
+                                            <attribute id="PlayOnHUD" type="bool" value="False" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="7" />
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value="" />
+                                            <attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+                                            <attribute id="Consume" type="bool" value="True" />
+                                            <attribute id="StatsId" type="FixedString" value="OIL_ZEPHYRFLASH" />
+                                            <attribute id="StatusDuration" type="int32" value="-1" />
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+			</children>
+		</node>
+	</region>
+</save>

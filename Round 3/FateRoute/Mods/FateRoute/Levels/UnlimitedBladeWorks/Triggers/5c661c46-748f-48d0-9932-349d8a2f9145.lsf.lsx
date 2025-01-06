@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="5c661c46-748f-48d0-9932-349d8a2f9145" />
+					<attribute id="Name" type="LSString" value="LightingTrigger_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="Type" type="FixedString" value="trigger" />
+					<attribute id="TemplateName" type="FixedString" value="1a4cfe92-0a55-4253-b856-44cd0b0e8f8f" />
+					<attribute id="Flag" type="uint8" value="1" />
+					<attribute id="PhysicsType" type="int32" value="2" />
+					<attribute id="FadeTime" type="float" value="4" />
+					<attribute id="Extents" type="fvec3" value="60 15 60" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="40 10 35" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="ResourceIDs">
+							<children>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="021ec9ba-0071-55fb-f582-580363ac5ef1" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="ce206645-ccf6-25d1-81a7-a1ef68521aed" />
+								</node>
+							</children>
+						</node>
+						<node id="FadeChildren" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

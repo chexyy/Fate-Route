@@ -22,13 +22,56 @@
        <node id="root">
            <children>
                 <node id="IconUV">
-                   <attribute id="MapKey" type="FixedString" value="Weapon_Caliburn_Icon"/> 6
-                   <attribute id="U1" type="float" value="0.625"/> <!--Left-->
-                   <attribute id="U2" type="float" value="0.75"/> <!--Right-->
-                   <attribute id="V1" type="float" value="0.125"/> <!--Top-->
-                   <attribute id="V2" type="float" value="0.250"/> <!--Bottom-->
+                    <attribute id="MapKey" type="FixedString" value="Weapon_Archers_Bow_Icon"/> 1
+                    <attribute id="U1" type="float" value="0.0"/> <!--Left-->
+                    <attribute id="U2" type="float" value="0.125"/> <!--Right-->
+                    <attribute id="V1" type="float" value="0.0"/> <!--Top-->
+                    <attribute id="V2" type="float" value="0.125"/> <!--Bottom-->
+                </node>
+
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="Weapon_Kanshou_and_Bakuya_Icon"/> 2
+                    <attribute id="U1" type="float" value="0.125"/> <!--Left-->
+                    <attribute id="U2" type="float" value="0.25"/> <!--Right-->
+                    <attribute id="V1" type="float" value="0.25"/> <!--Top-->
+                    <attribute id="V2" type="float" value="0.375"/> <!--Bottom-->
+                </node>
+                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Kanshou_Icon"/> 3
+                   <attribute id="U1" type="float" value="0.25"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.375"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.375"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.50"/> <!--Bottom-->
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Bakuya_Icon"/> 4
+                   <attribute id="U1" type="float" value="0.375"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.50"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.375"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.50"/> <!--Bottom-->
                </node>
 
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="Weapon_Caliburn_Icon"/> 6
+                    <attribute id="U1" type="float" value="0.625"/> <!--Left-->
+                    <attribute id="U2" type="float" value="0.75"/> <!--Right-->
+                    <attribute id="V1" type="float" value="0.125"/> <!--Top-->
+                    <attribute id="V2" type="float" value="0.250"/> <!--Bottom-->
+                </node>
+                <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Bakuya_Overedge_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.875"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.375"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.50"/> <!--Bottom-->
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Weapon_Kanshou_Overedge_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.875"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.625"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.750"/> <!--Bottom-->
+               </node>
                <node id="IconUV">
                    <attribute id="MapKey" type="FixedString" value="Weapon_Rulebreaker_Icon"/> 4
                    <attribute id="U1" type="float" value="0.375"/> <!--Left-->

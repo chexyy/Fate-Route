@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="ef2c3ba1-5771-4f48-b864-f7714e81ea53" />
+					<attribute id="Name" type="LSString" value="AtmosphereTrigger_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="Type" type="FixedString" value="trigger" />
+					<attribute id="TemplateName" type="FixedString" value="14ec1f7b-dfb9-4001-af8f-469b06c1c70f" />
+					<attribute id="Flag" type="uint8" value="1" />
+					<attribute id="PhysicsType" type="int32" value="2" />
+					<attribute id="FadeTime" type="float" value="4" />
+					<attribute id="Extents" type="fvec3" value="60 15 60" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="40 10 35" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="ResourceIDs">
+							<children>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="121ce79d-687f-3998-554a-b87182d023eb" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="73e03af9-7ab1-47a7-906b-a4e0362045ef" />
+								</node>
+								<node id="ResourceID">
+									<attribute id="Object" type="FixedString" value="0e1f1b41-83fc-0858-ef04-9a2b23c1916b" />
+								</node>
+							</children>
+						</node>
+						<node id="FadeChildren" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

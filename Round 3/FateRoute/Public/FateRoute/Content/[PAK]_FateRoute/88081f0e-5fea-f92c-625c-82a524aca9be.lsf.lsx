@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="VirtualTextureBank">
+		<node id="VirtualTextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="88081f0e-5fea-f92c-625c-82a524aca9be" />
+					<attribute id="Name" type="LSString" value="Kanshou_Texture" />
+					<attribute id="VirtualTextureLayerConfig" type="uint32" value="3" />
+					<attribute id="GTexFileName" type="FixedString" value="13a1794147850f838b55b5a63929d9b9" />
+					<attribute id="Prefetch" type="bool" value="False" />
+					<attribute id="PrefetchMipLevel" type="int8" value="-1" />
+					<attribute id="TileSetFileName" type="FixedString" value="" />
+					<attribute id="ReferencedColorSpaces" type="uint32" value="6" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

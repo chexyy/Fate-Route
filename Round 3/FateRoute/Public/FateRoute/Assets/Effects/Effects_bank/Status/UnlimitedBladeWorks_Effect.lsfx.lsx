@@ -5,13 +5,13 @@
 		<node id="Dependencies">
 			<children>
 				<node id="DependentResource">
-					<attribute id="Object" type="FixedString" value="62800f11-67f1-3071-1c3c-4035af8f1c70" />
+					<attribute id="Object" type="FixedString" value="45f1a1f0-c0dc-4605-9f0d-3985dd74039b" />
 				</node>
 				<node id="DependentResource">
 					<attribute id="Object" type="FixedString" value="e5b1d85c-4e97-77fa-98bb-f2d3d025cf27" />
 				</node>
 				<node id="DependentResource">
-					<attribute id="Object" type="FixedString" value="edf1fc30-bdda-11bd-32b3-7438ca4458a1" />
+					<attribute id="Object" type="FixedString" value="8cad6a89-31ea-4541-9995-958d0b830673" />
 				</node>
 				<node id="DependentResource">
 					<attribute id="Object" type="FixedString" value="97e0bedd-c913-bb23-6852-8cf7f4b46725" />
@@ -409,7 +409,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Mesh GUID" />
 											<attribute id="FullName" type="FixedString" value="Model Appearance.Mesh GUID" />
 											<attribute id="Type" type="uint8" value="10" />
-											<!-- <attribute id="Value" type="FixedString" value="62800f11-67f1-3071-1c3c-4035af8f1c70" /> -->
+											<!-- <attribute id="Value" type="FixedString" value="45f1a1f0-c0dc-4605-9f0d-3985dd74039b" /> -->
 											<attribute id="Value" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" />
 										</node>
 										<node id="Property">
@@ -1261,7 +1261,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Mesh GUID" />
 											<attribute id="FullName" type="FixedString" value="Model Appearance.Mesh GUID" />
 											<attribute id="Type" type="uint8" value="10" />
-											<attribute id="Value" type="FixedString" value="e5b1d85c-4e97-77fa-98bb-f2d3d025cf27" />
+											<!-- <attribute id="Value" type="FixedString" value="e5b1d85c-4e97-77fa-98bb-f2d3d025cf27" /> -->
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Axis Scale" />
@@ -1919,7 +1919,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Mesh GUID" />
 											<attribute id="FullName" type="FixedString" value="Model Appearance.Mesh GUID" />
 											<attribute id="Type" type="uint8" value="10" />
-											<attribute id="Value" type="FixedString" value="edf1fc30-bdda-11bd-32b3-7438ca4458a1" />
+											<attribute id="Value" type="FixedString" value="8cad6a89-31ea-4541-9995-958d0b830673" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Axis Scale" />
@@ -2782,7 +2782,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Mesh GUID" />
 											<attribute id="FullName" type="FixedString" value="Model Appearance.Mesh GUID" />
 											<attribute id="Type" type="uint8" value="10" />
-											<attribute id="Value" type="FixedString" value="62800f11-67f1-3071-1c3c-4035af8f1c70" />
+											<attribute id="Value" type="FixedString" value="45f1a1f0-c0dc-4605-9f0d-3985dd74039b" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Axis Scale" />

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+			<node id="GameObjects">
+					<attribute id="CanClimbOn" type="bool" value="False" />
+					<attribute id="CanShootThrough" type="bool" value="True" />
+					<attribute id="CastShadow" type="bool" value="False" />
+					<attribute id="CoverAmount" type="uint8" value="0" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h5b58a9a9g7632g4958g88fagd579fcea5423" version="0" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="43bc061f-b599-4714-a2a2-dc85d0cc804e" />
+					<attribute id="Name" type="LSString" value="VFX_Cinematic_Skybox_Fugue_Plane_02" />
+					<attribute id="ParentTemplateId" type="FixedString" value="5aee2809-a85e-4fb7-b288-c63d4d979e7b" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="" />
+					<attribute id="RecieveDecal" type="bool" value="False" />
+					<attribute id="Scale" type="float" value="325" />
+					<attribute id="Type" type="FixedString" value="scenery" />
+					<!-- <attribute id="VisualTemplate" type="FixedString" value="8cad6a89-31ea-4541-9995-958d0b830673" /> -->
+					<attribute id="WalkOn" type="bool" value="False" />
+					<attribute id="WalkThrough" type="bool" value="True" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144537400540922158" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_PUSHPULL_INNER_V2" />
+								</node>
+							</children>
+						</node>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="325" />
+							<attribute id="Position" type="fvec3" value="0 0 0" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="2.98232" />
+									<attribute id="Max" type="fvec3" value="0.75 2.98232 0.75" />
+									<attribute id="Min" type="fvec3" value="-0.75 0 -0.74116" />
+									<attribute id="Radius" type="float" value="0.64697" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="2.98232" />
+									<attribute id="Max" type="fvec3" value="1.5 2.98232 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 0 -1.48232" />
+									<attribute id="Radius" type="float" value="1.29394" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="2.98232" />
+									<attribute id="Max" type="fvec3" value="1.5 2.98232 1.5" />
+									<attribute id="Min" type="fvec3" value="-1.5 0 -1.48232" />
+									<attribute id="Radius" type="float" value="1.29394" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

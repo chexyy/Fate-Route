@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="ab6a54de-7a94-47fc-95f1-910ba0389b2a" />
+					<attribute id="Name" type="LSString" value="UBW" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="LevelTemplate" />
+					<attribute id="ParentTemplateId" type="FixedString" value="" />
+					<attribute id="Flag" type="uint8" value="0" />
+					<attribute id="GroupID" type="uint32" value="0" />
+					<attribute id="VisualTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsOpenTemplate" type="FixedString" value="" />
+					<attribute id="CameraOffset" type="fvec3" value="0 0 0" />
+					<attribute id="SubLevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="LevelTemplateType" type="uint8" value="0" />
+					<attribute id="StartingActive" type="bool" value="False" />
+					<attribute id="TemplateAfterDestruction" type="FixedString" value="" />
+					<attribute id="IsDynamicLayer" type="bool" value="False" />
+					<attribute id="IsMoving" type="bool" value="False" />
+					<attribute id="IsCinematic" type="bool" value="False" />
+					<attribute id="MovablePlatformStartSound" type="FixedString" value="" />
+					<attribute id="MovablePlatformStopSound" type="FixedString" value="" />
+					<attribute id="SoundActivationRange" type="float" value="-1" />
+					<attribute id="UseSoundOcclusion" type="bool" value="True" />
+					<attribute id="StartingLoaded" type="bool" value="True" />
+					<attribute id="IsScrollingObject" type="bool" value="False" />
+					<attribute id="ScrollingOrigin" type="fvec3" value="0 0 0" />
+					<attribute id="ScrollingDirection" type="fvec3" value="1 0 0" />
+					<attribute id="ScrollingSpeed" type="float" value="0" />
+					<attribute id="ScrollingDistance" type="float" value="0" />
+					<attribute id="ScrollingOffset" type="float" value="0" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

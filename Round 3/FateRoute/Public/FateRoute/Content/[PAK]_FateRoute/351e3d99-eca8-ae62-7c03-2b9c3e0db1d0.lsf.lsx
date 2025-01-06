@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="351e3d99-eca8-ae62-7c03-2b9c3e0db1d0" />
+					<attribute id="Name" type="LSString" value="VFX_Projectile_Kanshou_Flat" />
+					<attribute id="SourceFile" type="LSString" value="Mods/FateRoute/Assets/Effects/Effects_Banks/VFX_Projectile_Kanshou_v2.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Projectile_Kanshou_v2" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.5 -1.5 -1.5" />
+					<attribute id="BoundsMax" type="fvec3" value="1.5 1.5 1.5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1.32" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fe0a2ce8-e44a-4faf-b572-aaf8a29af513" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b197d2f9-785a-6d86-5d91-0d3eac96be73" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7445cc37-11e5-4ee4-d8a1-4e3a3baa5ead" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

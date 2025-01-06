@@ -151,7 +151,8 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
     if status == "EMULATE_WIELDER_CHECK" then
         print("Status emulate applied")
         local entity = Ext.Entity.Get(object)
-        originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
+        -- originalStats = {entity.Stats.Abilities[2], entity.Stats.Abilities[3], entity.ActionResources.Resources["d6b2369d-84f0-4ca4-a3a7-62d2d192a185"][1].MaxAmount}
+        originalStats = {Osi.GetAbility(object, "Strength"), Osi.GetAbility(object, "Dexterity"), Osi.GetActionResourceValuePersonal(object, "Movement", 0)}
         entity.Vars.originalStats = originalStats
         
         if Osi.HasActiveStatus(object, "DASH") == 1 then
@@ -165,46 +166,79 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
         emulateWielderCheck = true
     end
 
-    Ext.Timer.WaitFor(500, function()
-        if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true then
-            if Osi.HasMeleeWeaponEquipped(object, "Mainhand") == 1 then
-                if Osi.HasActiveStatus(GetEquippedItem(object, "Melee Main Weapon"), "NOBLEPHANTASM") == 0 then
-                    emulateWielder(object)
-                    print("Attempted to reapply emulate wielder")
-                end
-            else
-                emulateWielder(object)
-                print("Attempted to reapply emulate wielder")
-            end
-        end
-    end)
+    -- Ext.Timer.WaitFor(500, function()
+    --     if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateWielderCheck == true then
+    --         if Osi.HasMeleeWeaponEquipped(object, "Mainhand") == 1 then
+    --             if Osi.HasActiveStatus(GetEquippedItem(object, "Melee Main Weapon"), "NOBLEPHANTASM") == 0 then
+    --                 emulateWielder(object)
+    --                 print("Attempted to reapply emulate wielder")
+    --             end
+    --         else
+    --             emulateWielder(object)
+    --             print("Attempted to reapply emulate wielder")
+    --         end
+    --     end
+    -- end)
 
 end)
 
-Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, applyStoryActionID) 
-    if status == "EMULATE_WIELDER_SELFDAMAGE" and emulateBoost ~= nil then
-        Osi.RemoveBoosts(object, emulateBoost, 1, "Emulate Wielder", "")
-    end
-    if status == "EMULATE_WIELDER_CHECK" then
-        emulateWielderCheck = nil
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID) 
+    if status == "EMULATE_WIELDER_SELFDAMAGE" and Ext.Entity.Get(object).Vars.emulateBoostVar ~= nil then
+        Osi.RemoveBoosts(object, Ext.Entity.Get(object).Vars.emulateBoostVar, 0, "Emulate Wielder", object)
     end
 
 end)
 
-Ext.Osiris.RegisterListener("UsingSpell", 4, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(caster, spell, isMostPowerful, hasMultipleLevels) 
     if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
         print("Attempting to switch stats")
         local spell = Ext.Stats.Get(spell)
-        if spell.PreviewCursor == "Melee" then
-            emulateWielderChange(caster, originalStats, "Melee")
+        local originalStats = Ext.Entity.Get(caster).Vars.originalStats
+        if spell.PreviewCursor == "Melee" or string.find(spell.SpellRoll["Default"], "MeleeWeaponAttack") or spell.WeaponTypes == "Melee" then
+            Osi.RemoveBoosts(caster, Ext.Entity.Get(caster).Vars.emulateBoostVar, 0, "Emulate Wielder", caster)
+            emulateWielderChange(caster, "Melee")
             print("Switched to melee")
-        elseif spell.PreviewCursor == "Ranged" then
-            emulateWielderChange(caster, originalStats, "Ranged")
+        elseif spell.PreviewCursor == "Ranged" or string.find(spell.SpellRoll["Default"], "RangedWeaponAttack") or spell.WeaponTypes == "Ammunition" then
+            Osi.RemoveBoosts(caster, Ext.Entity.Get(caster).Vars.emulateBoostVar, 0, "Emulate Wielder", caster)
+            emulateWielderChange(caster, "Ranged")
             print("Switched to ranged")
         end
 
     end
 
+end)
+
+-- Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID) 
+--     if Osi.HasActiveStatus(caster, "EMULATE_WIELDER_SELFDAMAGE") == 1 then
+--         print("Attempting to switch stats")
+--         local spell = Ext.Stats.Get(spell)
+--         if spell.PreviewCursor == "Melee" then
+--             emulateWielderChange(caster, originalStats, "Melee")
+--             print("Switched to melee")
+--         elseif spell.PreviewCursor == "Ranged" then
+--             emulateWielderChange(caster, originalStats, "Ranged")
+--             print("Switched to ranged")
+--         end
+
+--     end
+
+-- end)
+
+-- Projection: Volley
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID) 
+    if Osi.HasPassive(caster,"Passive_WeaponCatalog") == 1 then
+        local entity = Ext.Entity.Get(caster)
+        entity.Vars.lastTargetedEnemy = target
+    end
+end)
+
+Ext.Osiris.RegisterListener("ReactionInterruptUsed", 3, "after", function(object, reactionInterruptPrototypeId, isAutoTriggered) 
+    if reactionInterruptPrototypeId == "Interrupt_Projection_Volley" then
+        local entity = Ext.Entity.Get(object)
+        local target = entity.Vars.lastTargetedEnemy
+        UseSpell(object, "Projectile_Projection_Volley", target, target, 1)
+        print("Following up on projection volley")
+    end
 end)
 
 -- Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID) 

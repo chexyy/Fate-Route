@@ -1,0 +1,354 @@
+// Act 1 - Wilderness
+new treasuretable "DEN_Weaponsmith_Trade"
+CanMerge 1
+new subtable "11,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+
+new treasuretable "DEN_Entrance_Trade"
+CanMerge 1
+new subtable "11,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+
+new treasuretable "UND_SocietyOfBrilliance_Hobgoblin"
+CanMerge 1
+new subtable "11,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+
+
+// Act 1.5 - Creche
+new treasuretable "CRE_Expeditioner_Magic_Trade"
+CanMerge 1
+new subtable "13,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+
+new treasuretable "CRE_MagicItem_Gith_Trader"
+CanMerge 1
+new subtable "13,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+
+// Act 2 - Shadow Cursed Land
+new treasuretable "HAV_HarperQuarterMaster_Magic_Trade"
+CanMerge 1
+new subtable "18,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+
+new treasuretable "HAV_Weaponsmith_Trade"
+CanMerge 1
+new subtable "18,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+
+// Act 3 - Wyrm's Crossing
+new treasuretable "WYR_OrinsImpersonation_Smith"
+CanMerge 1
+new subtable "32,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_WhirlwindAttack",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_EdgeofDarkness",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_UnshacklingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GrandSlam",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CommandersStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ParttheFlesh",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DawnburstStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HellflameCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PerfectlyBalancedStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ToppletheBigFolk",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ProfaneScourge",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DuellersEnthusiasm",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrBreak",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrFlash",1,0,0,0,0,0,0,0
+
+// Act 3 - City
+new treasuretable "LOW_Weaponsmith_Trade"
+CanMerge 1
+new subtable "32,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_WhirlwindAttack",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_EdgeofDarkness",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_UnshacklingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GrandSlam",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CommandersStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ParttheFlesh",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DawnburstStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HellflameCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PerfectlyBalancedStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ToppletheBigFolk",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ProfaneScourge",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DuellersEnthusiasm",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrBreak",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrFlash",1,0,0,0,0,0,0,0
+
+new treasuretable "LOW_SteepsTrader_Weapons"
+CanMerge 1
+new subtable "32,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_WhirlwindAttack",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_EdgeofDarkness",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_UnshacklingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GrandSlam",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CommandersStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ParttheFlesh",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DawnburstStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HellflameCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PerfectlyBalancedStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ToppletheBigFolk",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ProfaneScourge",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DuellersEnthusiasm",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrBreak",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrFlash",1,0,0,0,0,0,0,0
+
+new treasuretable "LOW_MurderTribunal_Merchant"
+CanMerge 1
+new subtable "32,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_WhirlwindAttack",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_EdgeofDarkness",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_UnshacklingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GrandSlam",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CommandersStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ParttheFlesh",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DawnburstStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HellflameCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PerfectlyBalancedStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ToppletheBigFolk",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ProfaneScourge",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DuellersEnthusiasm",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrBreak",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrFlash",1,0,0,0,0,0,0,0
+
+// Act 1 - Wilderness
+// Dammon
+// Arron
+// Blurg
+
+// Act 1.5 - Creche
+// Lady Esther
+// Quartermistress Ajaknir Jeera
+
+// Act 2 - Shadow Cursed Land
+// Quartermaster Talli
+// Act 2 Dammon
+
+// Act 3 - Wyrm's Crossing
+// Exxvikyap
+
+// Act 3 - City
+// Act 3 Dammon
+// Fytz the Firecracker
+// Echo of Abazigal
+
+// Act 1
+new treasuretable "CONS_Act1_WeaponOils"
+CanMerge 1
+new subtable "6,1"
+object category "I_OBJ_Oil_AbsolutePower",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GargantuanCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HushYou!",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RevitalisingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_SearingBlood",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ColossalOnslaught",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CorrosiveStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PhalarAluve:Melody",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodSacrifice",1,0,0,0,0,0,0,0
+
+// Act 1.5
+new treasuretable "CONS_Act15_WeaponOils"
+CanMerge 1
+new subtable "10,1"
+object category "T_CONS_Act1_WeaponOils",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_RazorGale",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_Soulbreaker",1,0,0,0,0,0,0,0
+
+// Act 2
+new treasuretable "CONS_Act2_WeaponOils"
+CanMerge 1
+new subtable "14,1"
+object category "T_CONS_Act15_WeaponOils",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PoisonMist",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_BloodMoney",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CrowningStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_MoonlightButterflies",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ShadowsoakedBlow",1,0,0,0,0,0,0,0
+
+// Act 3 - Wyrm's Crossing
+new treasuretable "CONS_Act31_WeaponOils"
+CanMerge 1
+new subtable "18,1"
+object category "T_CONS_Act2_WeaponOils",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_WhirlwindAttack",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_EdgeofDarkness",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_UnshacklingStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_GrandSlam",1,0,0,0,0,0,0,0
+
+// Act 3 - City
+new treasuretable "CONS_Act32_WeaponOils"
+CanMerge 1
+new subtable "22,1"
+object category "T_CONS_Act31_WeaponOils",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_CommandersStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ParttheFlesh",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DawnburstStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_HellflameCleave",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_PerfectlyBalancedStrike",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ToppletheBigFolk",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ProfaneScourge",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_DuellersEnthusiasm",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrBreak",1,0,0,0,0,0,0,0
+object category "I_OBJ_Oil_ZephyrFlash",1,0,0,0,0,0,0,0

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="0f4e62cc-7f7e-4a0c-a144-57aa91415b24" />
+					<attribute id="Name" type="LSString" value="TerrainRootTemplate_000" />
+					<attribute id="LevelName" type="FixedString" value="UnlimitedBladeWorks" />
+					<attribute id="Type" type="FixedString" value="terrain" />
+					<attribute id="TemplateName" type="FixedString" value="da01152d-e3cf-43eb-8450-7b6421a4fefb" />
+					<attribute id="Flag" type="uint8" value="3" />
+					<children>
+						<node id="Transform">
+							<attribute id="Scale" type="float" value="1" />
+							<attribute id="Position" type="fvec3" value="-174 -8.5 -195" />
+							<attribute id="RotationQuat" type="fvec4" value="0 0 0 1" />
+						</node>
+						<node id="LayerList">
+							<children>
+								<node id="Layers">
+									<children>
+										<node id="Object" key="MapKey">
+											<attribute id="MapKey" type="FixedString" value="UnlimitedBladeWorks" />
+											<children>
+												<node id="Layer">
+													<attribute id="Object" type="guid" value="20440c41-7462-22dd-fcde-cd015bbb0be3" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="TerrainLayers">
+							<children>
+								<node id="TerrainLayer">
+									<attribute id="TerrainBrushResource" type="FixedString" value="eb8f9974-0a57-c191-8fb4-d740a67db0d6" />
+									<attribute id="ParamOverridesMask" type="uint32" value="0" />
+									<attribute id="ParamOverrides1" type="fvec4" value="0 0 0 0" />
+									<attribute id="ParamOverrides2" type="fvec4" value="0 0 0 0" />
+								</node>
+							</children>
+						</node>
+						<node id="Visual">
+							<attribute id="Width" type="int32" value="370" />
+							<attribute id="Height" type="int32" value="411" />
+							<attribute id="Data" type="LSString" value="0f4e62cc-7f7e-4a0c-a144-57aa91415b24.data" />
+							<attribute id="Physics" type="LSString" value="0f4e62cc-7f7e-4a0c-a144-57aa91415b24.bin" />
+							<children>
+								<node id="LocalBound">
+									<attribute id="BoundsMin" type="fvec3" value="-0.32000732 0.017086029 -0.32000732" />
+									<attribute id="BoundsMax" type="fvec3" value="370.25 9.502203 411.135" />
+								</node>
+							</children>
+						</node>
+						<node id="TerrainBaseLayers" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -93,6 +93,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         print("Faker melee removed")
         if mainWeapon ~= nil then
             if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") == 1 then
+                Osi.PlayEffect(fakerCharacter, "11826893-d421-bdc0-baae-2b38e84a5400", "Dummy_R_HandFX",0.25)
                 local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
                 if GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter) ~= nil then
                     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
@@ -113,12 +114,13 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
 
         if offhandWeapon ~= nil then
             if Osi.HasActiveStatus(offhandWeapon, "REPRODUCTION_MELEE_OFFHAND") == 1 or Osi.HasActiveStatus(offhandWeapon, "REPRODUCTION_MELEE_SHIELD") == 1 then
+                Osi.PlayEffect(fakerCharacter, "11826893-d421-bdc0-baae-2b38e84a5400", "Dummy_L_HandFX",0.25)
                 local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
                 if GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter) ~= nil then
                     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
                 end
                 Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
-                Osi.UnloadItem(offWeapon)
+                -- Osi.UnloadItem(offWeapon)
                 print("Attempted to remove " .. offhandWeaponTemplate)
                 Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
                 Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
@@ -250,6 +252,13 @@ Ext.Osiris.RegisterListener("OnThrown", 7, "before", function(thrownObject, thro
     if Osi.HasActiveStatus(thrownObject, "BROKEN_PHANTASM") == 1 then
         Osi.CreateProjectileStrikeAtPosition(throwPosX, throwPosY, throwPosZ, "Projectile_BrokenPhantasm_Explosion")
         Osi.CreateProjectileStrikeAtPosition(throwPosX, throwPosY, throwPosZ, "Projectile_BrokenPhantasm_Explosion_2")
+        -- Osi.CreateProjectileStrikeAtPosition(throwPosX, throwPosY, throwPosZ, "Projectile_BrokenPhantasm_Explosion_3")
+        Osi.PlayEffectAtPosition("5123bb90-0084-e389-0cb5-332110a18fa6", throwPosX, throwPosY, throwPosZ, 2.75)
+        Osi.PlayEffectAtPositionAndRotation("5123bb90-0084-e389-0cb5-332110a18fa6", throwPosX, throwPosY, throwPosZ, 90, 2.75)
+        Osi.PlayEffectAtPositionAndRotation("5123bb90-0084-e389-0cb5-332110a18fa6", throwPosX, throwPosY, throwPosZ, 165, 2.75)
+        Osi.PlayEffectAtPositionAndRotation("5123bb90-0084-e389-0cb5-332110a18fa6", throwPosX, throwPosY, throwPosZ, 50, 2.75)
+        Osi.PlayEffectAtPositionAndRotation("05c0e507-b7b3-df35-7aa9-7186bd880caf", throwPosX, throwPosY, throwPosZ, 50, 0.75)
+        Osi.PlayEffectAtPositionAndRotation("38529fa9-9bf8-05b5-d26b-d1fba6e23a02", throwPosX, throwPosY, throwPosZ, 50, 0.35)
         Osi.RemoveStatus(fakerCharacter, "FAKER_MELEE", fakerCharacter)
     end
 end)
@@ -382,6 +391,112 @@ Ext.Osiris.RegisterListener("Unequipped", 2, "after", function(character, item)
     end
 end)
 
+-- kanshou and bakuya overedge
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, causee, storyActionID) 
+    if status == "REINFORCEMENT_OVEREDGE_VISUAL" and Osi.GetTemplate(object) == "MAG_Kanshou_6ed65431-193e-479a-a87d-77145d19ea96" then
+        kanshouBakuyaOveredgeAdder("Kanshou", object)
+    end
+    if status == "REINFORCEMENT_OVEREDGE_VISUAL" and Osi.GetTemplate(object) == "MAG_Bakuya_410ff2bf-ec38-44f0-82bc-e57dadceb701" then
+        kanshouBakuyaOveredgeAdder("Bakuya", object)
+    end
+
+end)
+
+function kanshouBakuyaOveredgeAdder(kanshouOrBakuya, kanshouOrBakuyaItem)
+
+    local template = ""
+    if kanshouOrBakuya == "Kanshou" then
+        template = "3834a058-2614-4e03-87ec-d2e76bf38f40"
+    elseif kanshouOrBakuya == "Bakuya" then
+        template = "6958d47b-d0fa-4b98-96b1-066086d01221"
+    end
+
+    Osi.TemplateAddTo(template, fakerCharacter, 1, 0)
+    Ext.Timer.WaitFor(90, Osi.SendToCampChest(kanshouOrBakuyaItem, fakerCharacter))
+    Ext.Timer.WaitFor(120, function()
+        if Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker == nil then
+            Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker = {}
+        end
+        local localkanshouBakuyaOveredgeTracker = Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker
+        local kanshouOrBakuyaOveredgeItem = Osi.GetItemByTemplateInInventory(template, fakerCharacter)
+        Osi.ApplyStatus(kanshouOrBakuyaOveredgeItem, "REINFORCEMENT_OVEREDGE_VISUAL", 25, 100,fakerCharacter)
+        Osi.ApplyStatus(fakerCharacter, "REINFORCEMENT_OVEREDGE", 25, 100,fakerCharacter)
+        table.insert(localkanshouBakuyaOveredgeTracker, kanshouOrBakuyaOveredgeItem)
+        Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker = localkanshouBakuyaOveredgeTracker
+        
+        Osi.Equip(fakerCharacter, kanshouOrBakuyaOveredgeItem, 1, 0, 1)
+    end)
+end
+
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID) 
+    if status == "FAKER_MELEE" and Osi.HasPassive(object, 'Passive_WeaponCatalog') == 1 then
+        if Ext.Entity.Get(object).Vars.kanshouBakuyaOveredgeTracker ~= nil then
+            local localkanshouBakuyaOveredgeTracker = Ext.Entity.Get(object).Vars.kanshouBakuyaOveredgeTracker
+            for key, entry in pairs(localkanshouBakuyaOveredgeTracker) do
+                local mainWeaponTemplate = Osi.GetTemplate(entry)
+                if GetItemByTemplateInInventory(mainWeaponTemplate,object) ~= nil then
+                    Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,object))
+                end
+                Osi.TemplateRemoveFrom(mainWeaponTemplate, object, 1)
+                print("Attempted to remove " .. mainWeaponTemplate)
+                Osi.SetWeaponUnsheathed(object, 0, 0)
+                Osi.SetWeaponUnsheathed(object, 1, 0)
+                Ext.Timer.WaitFor(1000, function()
+                    print("Attempting to unload Kanshou or Bakuya Overedge")
+                    Osi.UnloadItem(entry)
+                    Osi.UnloadItem(mainWeaponTemplate)
+                    Osi.UnloadItem(entry)
+                end)
+            end
+            localkanshouBakuyaOveredgeTracker = nil
+            Ext.Entity.Get(object).Vars.kanshouBakuyaOveredgeTracker = localkanshouBakuyaOveredgeTracker
+        end
+    end
+
+    if status == "REINFORCEMENT_OVEREDGE_VISUAL" then
+        if Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker ~= nil then
+            print("Overedge status expired on overedge weapon")
+            local localkanshouBakuyaOveredgeTracker = Ext.Entity.Get(fakerCharacter).Vars.kanshouBakuyaOveredgeTracker
+            for key, entry in pairs(localkanshouBakuyaOveredgeTracker) do
+                -- print(object)
+                if Osi.GetTemplate(object) == Osi.GetTemplate(entry) then
+                    local mainWeaponTemplate = Osi.GetTemplate(entry)
+                    if GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter) ~= nil then
+                        Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
+                    end
+                    Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
+                    print("Attempted to remove " .. mainWeaponTemplate)
+                    Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+                    Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+                    Ext.Timer.WaitFor(1000, function()
+                        print("Attempting to unload Kanshou or Bakuya Overedge")
+                        Osi.UnloadItem(entry)
+                        Osi.UnloadItem(mainWeaponTemplate)
+                        Osi.UnloadItem(entry)
+                    end)
+
+                    if string.find(mainWeaponTemplate, "Kanshou") ~= nil then
+                        Ext.Timer.WaitFor(125, function()
+                                Osi.Equip(fakerCharacter, Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[2],1,0,0)
+                                Osi.RemoveStatus(Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[2], "REINFORCEMENT_OVEREDGE_VISUAL", fakerCharacter)
+                        end)
+                    elseif string.find(mainWeaponTemplate, "Bakuya") ~= nil then
+                        Ext.Timer.WaitFor(125, function()
+                            Osi.Equip(fakerCharacter, Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[1],1,0,0)
+                            Osi.RemoveStatus(Ext.Entity.Get(fakerCharacter).Vars.meleeWeaponTracker[1], "REINFORCEMENT_OVEREDGE_VISUAL", fakerCharacter)
+                        end)
+                    end
+
+                    break
+                    
+                end
+            end
+
+        end
+    end
+
+end)
+
 -- manaburst damage increase
 -- Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
 --     if spell == "Zone_ManaBurst_Caliburn" then
@@ -403,11 +518,16 @@ end)
 
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
     if spell == "Target_MainHandAttack_Caliburn" then
+        Osi.ApplyStatus(caster,"CALIBURN_CRIT_BOOST",5, 100,caster)
         Ext.Timer.WaitFor(150, function()
             -- local x,y,z = Osi.GetPosition(target)
             -- Osi.UseSpellAtPosition(caster, "Target_MainHandAttack_Caliburn_Followup", x, y, z)
             Osi.UseSpell(caster, "Target_MainHandAttack_Caliburn_Followup", target,target,1)
             print("Trying to followup caliburn")
+
+            Ext.Timer.WaitFor(200, function()
+                Osi.RemoveStatus(caster, "CALIBURN_CRIT_BOOST", caster)
+            end)
         end)
 
     end
@@ -422,12 +542,12 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
         local magicalEnergyExpended = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount
         Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount = Ext.Entity.Get(fakerCharacter).ActionResources.Resources["7dd6369a-23d3-4cdb-ba9a-8e02e8161dc0"][1].Amount - magicalEnergyExpended
         ApplyStatus(caster, "MANABURST_CHANNELING_" .. Osi.RealToInteger(magicalEnergyExpended), 1, 100, caster)
-        Ext.Timer.WaitFor(50, function()
-            Osi.Freeze(caster)
-            Ext.Timer.WaitFor(100, function()
-                Osi.Unfreeze(caster)
-            end)
-        end)
+        -- Ext.Timer.WaitFor(50, function()
+        --     Osi.Freeze(caster)
+        --     Ext.Timer.WaitFor(100, function()
+        --         Osi.Unfreeze(caster)
+        --     end)
+        -- end)
         print("Manaburst (Caliburn) detected on " .. caster .. " with extra magical energy: " .. Osi.RealToInteger(magicalEnergyExpended))
 
     end

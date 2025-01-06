@@ -52,6 +52,131 @@
 				</node> 
 
 				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h59b355f5d2a143f193fab01ba6f531823149" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h6bba60716277496a860bb302f38d045923ea" version="2" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Archers_Bow_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="852ecfb2-f204-47d0-91ac-b6ead2d92393" />
+					<attribute id="Name" type="LSString" value="MAG_Archers_Bow" />
+					<attribute id="ParentTemplateId" type="FixedString" value="049173ec-636a-487e-a9ed-bfafeadf6bb7" />
+					<attribute id="Stats" type="FixedString" value="MAG_Archers_Bow" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="14d477f6-6d7c-415e-ad3d-f1be07044ea7" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+						</children>
+					</node>
+					</children>
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h4bfb1853efe1444b974a82c57567eef395d6" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="hb4d33e3dfce74bde861e2cffe3380835fff7" version="2" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Kanshou_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="6ed65431-193e-479a-a87d-77145d19ea96" />
+					<attribute id="Name" type="LSString" value="MAG_Kanshou" />
+					<attribute id="ParentTemplateId" type="FixedString" value="5193af64-48c1-406f-90bf-87f7f01b4684" />
+					<attribute id="Stats" type="FixedString" value="MAG_Kanshou" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="fe0a2ce8-e44a-4faf-b572-aaf8a29af513" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+						</children>
+					</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h869e8e842f9b458aa8e04b75c03c6919dfc7" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h5bac6411307a4d36a098aa74533dbc1801a3" version="2" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Bakuya_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="410ff2bf-ec38-44f0-82bc-e57dadceb701" />
+					<attribute id="Name" type="LSString" value="MAG_Bakuya" />
+					<attribute id="ParentTemplateId" type="FixedString" value="5193af64-48c1-406f-90bf-87f7f01b4684" />
+					<attribute id="Stats" type="FixedString" value="MAG_Bakuya" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="f39af97f-0d2c-4c5e-93e1-db1276602742" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+						</children>
+					</node>
+					</children>
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h4bfb1853efe1444b974a82c57567eef395d6" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="hf77e49a435b347cf87a54355b2b16c0dfd93" version="2" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Kanshou_Overedge_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="3834a058-2614-4e03-87ec-d2e76bf38f40" />
+					<attribute id="Name" type="LSString" value="MAG_Kanshou_Overedge" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e3b2adb6-7493-466e-9c65-4281fb74e83f" />
+					<attribute id="Stats" type="FixedString" value="MAG_Kanshou_Overedge" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="d5e0a1ed-e5ac-45b3-a566-1f5fb5538a80" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="REPRODUCTION_MELEE" />
+							</node>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="REPRODUCTION_LEGENDARY" />
+							</node>
+						</children>
+					</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="Description" type="TranslatedString" handle="h869e8e842f9b458aa8e04b75c03c6919dfc7" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="hf082f3fd559c4581954134f11bf058aaeed0" version="2" />
+					<attribute id="Icon" type="FixedString" value="Weapon_Bakuya_Overedge_Icon" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="6958d47b-d0fa-4b98-96b1-066086d01221" />
+					<attribute id="Name" type="LSString" value="MAG_Bakuya_Overedge" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e3b2adb6-7493-466e-9c65-4281fb74e83f" />
+					<attribute id="Stats" type="FixedString" value="MAG_Bakuya" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="f92f2127-4f1c-465a-94e3-c74045c805f3" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="REPRODUCTION_MELEE_OFFHAND" />
+							</node>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="REPRODUCTION_LEGENDARY" />
+							</node>
+						</children>
+					</node>
+					</children>
+				</node>
+
+				<node id="GameObjects">
 					<attribute id="Description" type="TranslatedString" handle="h3990f21dg3c18g4ecag8a0bgc2677117541e" version="1" />
 					<attribute id="DisplayName" type="TranslatedString" handle="h7cd55263gacddg4cd2g9af6g3a88891dca4e" version="1" />
 					<attribute id="EquipmentTypeID" type="guid" value="4df07ab5-44a3-421e-b4bc-598c49d6cfc8" />
@@ -100,6 +225,58 @@
 				</node> 
 
 				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="hc7d0b157ga2bfg41bfgaf2ag5d893df427f5" version="2" />
+					<attribute id="Icon" type="FixedString" value="Item_WPN_Flail_Air_Myrmidon_A" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="96161231-cc37-47d4-960d-fb762d0cd752" />
+					<attribute id="Name" type="LSString" value="WPN_Flail_Air_Myrmidon_Traced" />
+					<attribute id="ParentTemplateId" type="FixedString" value="71f5b932-137f-4e05-9392-e6b921e3aca6" />
+					<attribute id="Stats" type="FixedString" value="WPN_Flail_Air_Myrmidon_Traced" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209021" />
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="h3259e17eg5873g4c8cgaaf8g7428a6a98fcf" version="2" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="0c7af95e-ae26-4b2a-98c5-80ecb78dd727" />
+					<attribute id="Name" type="LSString" value="WPN_Scimitar_Fire_Myrmidon_Traced" />
+					<attribute id="ParentTemplateId" type="FixedString" value="1803db62-d4c8-4f36-a9b9-49e114d07570" />
+					<attribute id="Stats" type="FixedString" value="WPN_Scimitar_Fire_Myrmidon_Traced" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="h7a5f488bg5e91g48acg9aa7gc1bf30254453" version="2" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="223618a0-37fb-4746-8b68-23b5e5d2dd80" />
+					<attribute id="Name" type="LSString" value="WPN_Trident_Water_Myrmidon_Traced" />
+					<attribute id="ParentTemplateId" type="FixedString" value="c818edc1-85c4-4c4b-bd62-03ba59265922" />
+					<attribute id="Stats" type="FixedString" value="WPN_Trident_Water_Myrmidon_Traced" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="h6944286dcae243a2a11570ca64a1de932d14" version="2" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="8c77a7d6-c3dd-4f1e-8d91-86a305dbd174" />
+					<attribute id="Name" type="LSString" value="UBW_InfiniteSwordDance_Target" />
+					<attribute id="ParentTemplateId" type="FixedString" value="edca6656-dc8c-410b-9f16-fcc02d5ed803" />
+					<attribute id="Stats" type="FixedString" value="OBJ_UBW_InfiniteSwordDance_Target" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+					<node id="StatusList">
+						<children>
+							<node id="Status">
+								<attribute id="Object" type="FixedString" value="NOBLEPHANTASM" />
+							</node>
+						</children>
+					</node>
+				</node>
+
+				<node id="GameObjects">
 					<attribute id="DisplayName" type="TranslatedString" handle="he94055cd65a04a3981d3a82fa0310d15aegg" version="1" />
 					<attribute id="Description" type="TranslatedString" handle="h517b7835bcf9444eaf44f0c68006566c373f" version="1" />
 					<attribute id="MapKey" type="FixedString" value="4567ecad-2304-42db-b8ed-0ca6bb8edfb5" />
@@ -108,6 +285,7 @@
 					<attribute id="Type" type="FixedString" value="item" />
 					<attribute id="ParentTemplateId" type="FixedString" value="e419b771-2ea2-439d-a9e9-c2796398dd09" />
 					<!-- <attribute id="VisualTemplate" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" /> -->
+					<attribute id="VisualTemplate" type="FixedString" value="b3358aac-d287-be09-b906-8a78a08f2b67" />
 					<attribute id="PhysicsTemplate" type="FixedString" value="0785b2a6-1566-f110-f210-c8d0f5e3a8c5" />
 					<attribute id="Icon" type="FixedString" value="Spell_UnlimitedBladeWorks_Icon" />
 					<attribute id="Stats" type="FixedString" value="OBJ_UnlimitedBladeWorks" />
@@ -133,10 +311,80 @@
 									<attribute id="Object" type="FixedString" value="UBW_INVINCIBILITY_AURA" />
 								</node>
 								<node id="Status">
+									<attribute id="Object" type="FixedString" value="UBW_INVINCIBILITY_AURA_OUTSIDE" />
+								</node>
+								<node id="Status">
 									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_PUSHPULL_OUTER" />
 								</node>
 								<node id="Status">
 									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_PUSHPULL_INNER" />
+								</node>
+							</children>
+						</node>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="1" />
+									<attribute id="Max" type="fvec3" value="18 18 18" />
+									<attribute id="Min" type="fvec3" value="-18 -18 -18" />
+									<attribute id="Radius" type="float" value="18" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+
+				<node id="GameObjects">
+					<attribute id="DisplayName" type="TranslatedString" handle="he94055cd65a04a3981d3a82fa0310d15aegg" version="1" />
+					<attribute id="Description" type="TranslatedString" handle="h517b7835bcf9444eaf44f0c68006566c373f" version="1" />
+					<attribute id="MapKey" type="FixedString" value="ea2a4e37-cc00-4aa4-86f0-83582466ae87" />
+					<attribute id="Name" type="LSString" value="RealityMarbleUBW_Spawn_VFX" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="ParentTemplateId" type="FixedString" value="e419b771-2ea2-439d-a9e9-c2796398dd09" />
+					<!-- <attribute id="VisualTemplate" type="FixedString" value="3854b979-c331-457d-9e4e-b254d5eebad1" /> -->
+					<attribute id="VisualTemplate" type="FixedString" value="b3358aac-d287-be09-b906-8a78a08f2b67" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="0785b2a6-1566-f110-f210-c8d0f5e3a8c5" />
+					<attribute id="Icon" type="FixedString" value="Spell_UnlimitedBladeWorks_Icon" />
+					<attribute id="Stats" type="FixedString" value="OBJ_UnlimitedBladeWorks" />
+					<attribute id="CanBeMoved" type="bool" value="False" />
+					<attribute id="CanClickThrough" type="bool" value="False" />
+					<attribute id="CanShootThrough" type="bool" value="False" />
+					<attribute id="CanShineThrough" type="bool" value="False" />
+					<attribute id="CanClimbOn" type="bool" value="False" />
+					<attribute id="CanBeImprovisedWeapon" type="bool" value="False" />
+					<attribute id="CanFight" type="bool" value="False" />
+					<attribute id="WalkThrough" type="bool" value="True" />
+					<attribute id="BlockAoEDamage" type="bool" value="True" />
+					<attribute id="GravityType" type="uint8" value="0" />
+					<attribute id="CoverAmount" type="uint8" value="6" />
+					<attribute id="IsPortal" type="bool" value="False" />
+					<attribute id="IsSurfaceBlocker" type="bool" value="True" />
+					<attribute id="IsSurfaceCloudBlocker" type="bool" value="True" />
+					<attribute id="AttackableWhenClickThrough" type="bool" value="False" />
+					<children>
+						<node id="StatusList">
+							<children>
+								<node id="Status">
+									<attribute id="Object" type="FixedString" value="REALITY_MARBLE_SPAWN_VFX" />
 								</node>
 							</children>
 						</node>
