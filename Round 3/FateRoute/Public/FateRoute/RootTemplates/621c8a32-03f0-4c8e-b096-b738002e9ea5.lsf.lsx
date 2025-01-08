@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="621c8a32-03f0-4c8e-b096-b738002e9ea5" />
+					<attribute id="Name" type="LSString" value="VFX_Projectile_Kanshou_03" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="projectile" />
+					<attribute id="ParentTemplateId" type="FixedString" value="" />
+					<attribute id="Flag" type="uint8" value="0" />
+					<attribute id="GroupID" type="uint32" value="0" />
+					<attribute id="VisualTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsOpenTemplate" type="FixedString" value="" />
+					<attribute id="CameraOffset" type="fvec3" value="0 0 0" />
+					<attribute id="CastBone" type="FixedString" value="Dummy_FX" />
+					<attribute id="ImpactFX" type="FixedString" value="VFX_Projectiles_Arrow_Normal_Impact_01" />
+					<attribute id="GroundImpactFX" type="LSString" value="VFX_Combat_GroundImpact_Projectile_01" />
+					<attribute id="TrailFX" type="FixedString" value="VFX_Projectile_Kanshou_v2" />
+					<attribute id="DestroyTrailFXOnImpact" type="bool" value="True" />
+					<attribute id="PreviewPathMaterial" type="FixedString" value="dddaed1a-d6c6-e8c4-3711-bdd8e5ee02f4" />
+					<attribute id="PreviewPathImpactFX" type="FixedString" value="VFX_UI_DestinationBeam_Projectile_01" />
+					<attribute id="NeedsImpactSFX" type="bool" value="True" />
+					<attribute id="OffsetMin_Bezier3" type="fvec2" value="-2 0" />
+					<attribute id="ShiftMin_Bezier3" type="float" value="0.25" />
+					<attribute id="ShiftMax_Bezier3" type="float" value="0.25" />
+					<attribute id="ShiftBMin_Bezier4" type="float" value="0.25" />
+					<attribute id="ShiftBMax_Bezier4" type="float" value="0.25" />
+					<attribute id="VelocityMode" type="uint8" value="1" />
+					<attribute id="InitialSpeed" type="float" value="20" />
+					<children>
+						<node id="Bounds" />
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

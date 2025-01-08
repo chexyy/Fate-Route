@@ -28041,7 +28041,7 @@
 						</node>
 						<node id="Phase">
 							<attribute id="Duration" type="float" value="3.3" />
-							<attribute id="PlayCount" type="int32" value="1" />
+							<attribute id="PlayCount" type="int32" value="-1" />
 						</node>
 						<node id="Phase">
 							<attribute id="Duration" type="float" value="1.46" />

@@ -399,6 +399,20 @@
                    <attribute id="V1" type="float" value="0.750"/> <!--Top-->
                    <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
                </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Spell_CraneWings_Icon"/> 7
+                   <attribute id="U1" type="float" value="0.75"/> <!--Left-->
+                   <attribute id="U2" type="float" value="0.875"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
+               <node id="IconUV">
+                   <attribute id="MapKey" type="FixedString" value="Status_CraneWings_Hovering_Icon"/> 8
+                   <attribute id="U1" type="float" value="0.875"/> <!--Left-->
+                   <attribute id="U2" type="float" value="1.0"/> <!--Right-->
+                   <attribute id="V1" type="float" value="0.750"/> <!--Top-->
+                   <attribute id="V2" type="float" value="0.875"/> <!--Bottom-->
+               </node>
            </children>
        </node>
    </region>

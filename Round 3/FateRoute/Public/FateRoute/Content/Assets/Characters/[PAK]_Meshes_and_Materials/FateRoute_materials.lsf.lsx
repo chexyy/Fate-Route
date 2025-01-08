@@ -1320,14 +1320,14 @@
 							<attribute id="Enabled" type="bool" value="True" />
 							<attribute id="ExportAsPreset" type="bool" value="True" />
 							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
-							<attribute id="ID" type="FixedString" value="e5cd0c75-af68-4f43-af2c-f7e8ffbf2b2d" /> <!--Points to normal map (NM) UUID in textures.lsx-->
+							<attribute id="ID" type="FixedString" value="dc19320b-e351-48e0-9dcd-5031147ef139" /> <!--Points to normal map (NM) UUID in textures.lsx-->
 							<attribute id="ParameterName" type="FixedString" value="normalmap" />
 						</node>
 						<node id="Texture2DParameters">
 							<attribute id="Enabled" type="bool" value="True" />
 							<attribute id="ExportAsPreset" type="bool" value="True" />
 							<attribute id="GroupName" type="FixedString" value="01 Texture Map" />
-							<attribute id="ID" type="FixedString" value="651dcf75-ca29-4216-ac59-f0491c773620" /> <!--Points to base map (BM) UUID in textures.lsx -->
+							<attribute id="ID" type="FixedString" value="e5cd0c75-af68-4f43-af2c-f7e8ffbf2b2d" /> <!--Points to base map (BM) UUID in textures.lsx -->
 							<attribute id="ParameterName" type="FixedString" value="basecolor" />
 						</node>
 						<node id="Texture2DParameters">

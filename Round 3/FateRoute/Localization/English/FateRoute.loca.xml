@@ -14,7 +14,7 @@
 	<content contentuid="hf6f86f15g3f2dg4c96gabb1g126cf302d377" version="1">Increases the damage of unarmed attacks is increased by [1], &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; by [2], &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt; maximum by [3], and &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; by [4].</content>
 	<content contentuid="h08bf2cfeg4d3eg4f8agac64g5622cd9d5551" version="1">Trace Weapon</content>
 	<content contentuid="h2008f847g4182g4c9agbcc1geef592458443" version="1">Reproduce the weapon(s) of a chosen creature in sight with Projection Magecraft.</content>
-	<content contentuid="h2aad907fgaf0ag4241g880cg4ffea096ec0d" version="1">You become &lt;LSTag Tooltip="Proficiency"&gt;Proficient&lt;/LSTag&gt; with the weapon and any actions associated with the weapon can be performed again without having to take a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; or &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. However, as a result of being traced, you suffer a [1] &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; penalty and upon failure of one, if you then fail an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, your traced weapon will break and disappear.</content>
+	<content contentuid="h2aad907fgaf0ag4241g880cg4ffea096ec0d" version="1">You become &lt;LSTag Tooltip="Proficiency"&gt;Proficient&lt;/LSTag&gt; with the weapon and any actions associated with the weapon can be performed again without having to take a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; or &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. However, as a result of being traced, you suffer a [1] &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; penalty. Upon the failure of an attack roll, if you then fail an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, your traced weapon will break and disappear.</content>
 	<content contentuid="h0db8fbd4g49cdg4d72gafe3g4d16817cc525" version="1">Weapon Traced</content>
 	<content contentuid="h6d59fc23g6429g4b7agb156g989fa516781f" version="1">The spellcaster traced this creature active weapon.</content>
 	<content contentuid="hd53022dc920d4db09a87d293b786b6d5e903" version="1">Faker (Melee)</content>
@@ -1316,14 +1316,28 @@
     <content contentuid="h4bfb1853efe1444b974a82c57567eef395d6" version="1">A black sword, making up a pair of married swords. It appeared in the hand of Archer as he faced that black giant.</content>
     <content contentuid="h1a549a52e8ca4c6793d6ace23da4762ef9da" version="1">Archer's Kanshou and Bakuya</content>
     <content contentuid="had08ace71fb5420b95100fbd3d71a4f9d36d" version="1">Magical Energy Helper</content>
-    <content contentuid="h502c01a5bde04ce69b6137a59297c0063d51" version="1">This newfound experience with tracing prevents the experiences of Noble Phantasms from being forcefully emulated.</content>
+    <content contentuid="h502c01a5bde04ce69b6137a59297c0063d51" version="1">&lt;LSTag Type="Image" Info="Inspiration"/&gt; This newfound experience with tracing prevents the experiences of Noble Phantasms from being forcefully emulated.</content>
     <content contentuid="hf082f3fd559c4581954134f11bf058aaeed0" version="1">Bakuya Overedge</content>
     <content contentuid="hf77e49a435b347cf87a54355b2b16c0dfd93" version="1">Kanshou Overedge</content>
     <content contentuid="hd9f5be7222b9418abd132e975414499b15ge" version="1">A reflection of &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_TemplateDescription_Kanshou"&gt;Kanshou&lt;/LSTag&gt;.</content>
     <content contentuid="hf893d725274345baa2055c2b69ec0358985a" version="1">A reflection of &lt;LSTag Type="Spell" Tooltip="Shout_TraceWeapon_TemplateDescription_Bakuya"&gt;Bakuya&lt;/LSTag&gt;.</content>
-    <content contentuid="h55a7505e64174a3aadf1aca0368f8492eda4" version="1">When both Kanshou and Bakuya are wielded together, this creature reduces the damage of spells by 1d8 and gains a 1d4 damage boost against abberations and monstrosities.</content>
+    <content contentuid="h55a7505e64174a3aadf1aca0368f8492eda4" version="1">When both Kanshou and Bakuya are wielded together, this creature reduces the damage of spells by 1d8 and gains a 1d4 damage boost against Abberations and Monstrosities.</content>
     <content contentuid="h88b7253750154580871d5ab6303d5c5c0f3b" version="1">Married Blades</content>
     <content contentuid="h170af850581e4a5b94285eeca6c118a04399" version="1">Attack a creature with both the weapon in your main hand and the one in your off-hand, dealing half their damage each.</content>
     <content contentuid="h2271712f448a4b07b11993502f9b406cggc0" version="1">Triple-Linked Crane Wings</content>
-    <content contentuid="h5df930e3da1845598fcdf89517e797dc44dd" version="1">You throw Kanshou and Bakuya towards a creature, dealing their combined damage.</content>
+    <content contentuid="h5df930e3da1845598fcdf89517e797dc44dd" version="1">You use the experiences stored in the blades to throw Kanshou and Bakuya towards a creature at least [1] away, dealing their combined damage before projecting a new pair.</content>
+    <content contentuid="h25896b9eca044278a994ee6599afb5714548" version="1">This weapon ignores &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; to Slashing and Radiant damage.</content>
+    <content contentuid="hecfef0cd1eee427887ffea007bb55057ed99" version="1">Afterwards, the attraction of Kanshou and Bakuya keep them orbiting the targeted creature. Attacking with Kanshou and Bakuya in close proximity causes orbiting copies to home in on the targeted creature, dealing [1] per pair.</content>
+    <content contentuid="hba3d1bf403b64574a25178db4a902debf9e7" version="1">Make a melee attack with either Kanshou or Bakuya.</content>
+    <content contentuid="hcf3d4d6468fc45bda8bca37748888ea9gd80" version="1">The damage of the mana burst is multiplied by your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;.</content>
+    <content contentuid="h5c4db62c7a0a4fa2a99ccea7eef622681a95" version="1">If Dual Wielding is toggled, attack with both Kanshou and Bakuya without spending a bonus action once per turn.</content>
+    <content contentuid="h168061703bab44c2822b472e4944f32af4ea" version="1">Crane Wings: Hovering</content>
+    <content contentuid="h490d010e740846f5b0fa0626ed35bd115acc" version="1">A pair of Kanshou and Bakuya are orbiting around this creature. If attacked by a creature wielding Kanshou and Bakuya in melee range, the orbiting pair home back in. Only two pairs of Kanshou and Bakuya can be orbiting the same creature.</content>
+    <content contentuid="hf61399484ad049c59c470419b020c851g7d7" version="1">Recreate: Kanshou and Bakuya</content>
+    <content contentuid="h4e2c36eb42044667b7857d01f49e654aab57" version="1">With the experience you've gained in tracing weapons, you've learned how to recreate Archer's twin swords: Kanshou and Bakuya.</content>
+    <content contentuid="h7be76c116fc0492cad21e1b77cb8bf732488" version="1">Recreate: Caliburn</content>
+    <content contentuid="hb25cc3205e51426eb4b335caff8a689c9436" version="1">Having done so many times in the Fifth Holy Grail War, you can recreate Saber's old sword: Caliburn.</content>
+    <content contentuid="h61824abfebcb4469a172eb2babf8979ade37" version="1">Kanshou and Bakuya Free Dual Wield</content>
+    <content contentuid="h810b7890c26b416f9889d53e923f5346d22c" version="1">Allows this creature to attack with Kanshou and Bakuya together for free.</content>
+    <content contentuid="h91aa57cf502644aba55256ab4aec420c530f" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; The magnetism of Kanshou and Bakuya prevent throwing more blades when two pairs are orbiting the same creature.</content>
 </contentList>

@@ -30,7 +30,7 @@
 					<attribute id="Enabled" type="bool" value="True" />
 					<children>
 						<node id="TargetBone">
-							<attribute id="Value" type="LSString" value="Dummy_Root" />
+							<attribute id="Value" type="LSString" value="Dummy_BodyFX" />
 						</node>
 					</children>
 				</node>

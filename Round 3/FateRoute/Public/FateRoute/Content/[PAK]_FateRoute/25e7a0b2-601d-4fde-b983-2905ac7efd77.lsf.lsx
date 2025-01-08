@@ -5,7 +5,7 @@
 		<node id="VisualBank">
 			<children>
 				<node id="Resource">
-					<attribute id="ID" type="FixedString" value="f39af97f-0d2c-4c5e-93e1-db1276602742" />
+					<attribute id="ID" type="FixedString" value="25e7a0b2-601d-4fde-b983-2905ac7efd77" />
 					<attribute id="Name" type="LSString" value="FateRoute_BAKUYA" />
 					<attribute id="SourceFile" type="LSString" value="Generated/Public/FateRoute/FateRoute_BAKUYA.GR2" />
 					<attribute id="Slot" type="FixedString" value="Unassigned" />

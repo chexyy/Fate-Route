@@ -19,7 +19,7 @@
 					<attribute id="CastBone" type="FixedString" value="Dummy_FX" />
 					<attribute id="ImpactFX" type="FixedString" value="VFX_Projectiles_Arrow_Normal_Impact_01" />
 					<attribute id="GroundImpactFX" type="LSString" value="VFX_Combat_GroundImpact_Projectile_01" />
-					<attribute id="TrailFX" type="FixedString" value="VFX_Projectile_Bakuya" />
+					<attribute id="TrailFX" type="FixedString" value="VFX_Projectile_Bakuya_v2" />
 					<attribute id="DestroyTrailFXOnImpact" type="bool" value="True" />
 					<attribute id="PreviewPathMaterial" type="FixedString" value="dddaed1a-d6c6-e8c4-3711-bdd8e5ee02f4" />
 					<attribute id="PreviewPathImpactFX" type="FixedString" value="VFX_UI_DestinationBeam_Projectile_01" />

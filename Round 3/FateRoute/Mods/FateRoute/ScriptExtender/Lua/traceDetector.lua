@@ -212,11 +212,13 @@ function insertBST(pointer, insert)
                 Ext.Timer.WaitFor(1500, function()
                     Osi.RemoveBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Melee'), ModifyIconGlow())", 1, "New Weapon in Catalog (Melee)", fakerCharacter)
                 end)
+                Ext.Timer.WaitFor(4500,replaceContainer("Melee"))
             else
                 Osi.AddBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Ranged'), ModifyIconGlow())", "New Weapon in Catalog (Ranged)", fakerCharacter)
                 Ext.Timer.WaitFor(1500, function()
                     Osi.RemoveBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Ranged'), ModifyIconGlow())", 1, "New Weapon in Catalog (Ranged)", fakerCharacter)
                 end)
+                Ext.Timer.WaitFor(4500,replaceContainer("Ranged"))
             end
         else -- if not found
             pointer.right = insertBST(pointer.right, insert) 
@@ -232,11 +234,13 @@ function insertBST(pointer, insert)
                 Ext.Timer.WaitFor(1500, function()
                     Osi.RemoveBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Melee'), ModifyIconGlow())", 1, "New Weapon in Catalog (Melee)", fakerCharacter)
                 end)
+                Ext.Timer.WaitFor(4500,replaceContainer("Melee"))
             else
                 Osi.AddBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Ranged'), ModifyIconGlow())", "New Weapon in Catalog (Ranged)", fakerCharacter)
                 Ext.Timer.WaitFor(1500, function()
                     Osi.RemoveBoosts(fakerCharacter, "UnlockSpellVariant(SpellId('Shout_TraceWeapon_Ranged'), ModifyIconGlow())", 1, "New Weapon in Catalog (Ranged)", fakerCharacter)
                 end)
+                Ext.Timer.WaitFor(4500,replaceContainer("Ranged"))
             end
         else -- if not found
             pointer.left = insertBST(pointer.left, insert)
@@ -296,6 +300,7 @@ function insertBSTArrow(pointer, insert)
         if pointer.right == nil or pointer.right == null  then -- if found and empty
             print("Adding arrow: " .. insert.key .. " into weaponCatalog")
             pointer.right = insert
+            Ext.Timer.WaitFor(4500,replaceContainer("Ranged"))
         else -- if not found
             pointer.right = insertBSTArrow(pointer.right, insert) 
         end
@@ -304,6 +309,7 @@ function insertBSTArrow(pointer, insert)
         if pointer.left == nil or pointer.left == null then -- if found and empty
             print("Adding arrow: " .. insert.key .. " into weaponCatalog")
             pointer.left = insert
+            Ext.Timer.WaitFor(4500,replaceContainer("Ranged"))
         else -- if not found
             pointer.left = insertBSTArrow(pointer.left, insert)
         end
@@ -467,6 +473,7 @@ function inorderTraversal(wepTypeRarity, traceIndices, weaponType, rarity)
                 wepTypeRarity.data.tooltipApply = tooltipApply
                 observedTraceTemplate.TooltipStatusApply = wepTypeRarity.data.tooltipApply -- adding statuses if dual
                 observedTraceTemplate.DescriptionParams = "These weapons were;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed -- setting descriptionparams
+                observedTraceTemplate.CastEffect = "ef9920b1-6968-42ac-80c4-cd0e383e96ee"
             else
                 observedTraceTemplate.TooltipStatusApply = ""
                 observedTraceTemplate.DescriptionParams = "This weapon was;" .. wepTypeRarity.data.wielderStrength .. ";" .. wepTypeRarity.data.wielderDexterity .. ";" .. wepTypeRarity.data.wielderMovementSpeed
@@ -919,13 +926,13 @@ function UUIDInaccessibleChecker(weaponUUID)
 end
 
 function copyWeaponVision(character)
-    Ext.Timer.WaitFor(math.random(4500), function()
-        stackVerifier = false
+    -- Ext.Timer.WaitFor(math.random(4500), function()
+        -- stackVerifier = false
         local targetEntity = Ext.Entity.Get(character)
         if targetEntity ~= nil then
             local localTargetTimer = targetEntity.Vars.targetTimer
         else 
-            stackVerifier = true
+            -- stackVerifier = true
             return
         end
         
@@ -1006,9 +1013,9 @@ function copyWeaponVision(character)
                                         localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                         Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                        Ext.Timer.WaitFor(math.random(5000), function()
-                                            replaceContainer(meleeOrRanged)
-                                        end)
+                                        -- Ext.Timer.WaitFor(math.random(5000), function()
+                                        --     replaceContainer(meleeOrRanged)
+                                        -- end)
                                     end
 
                                 end
@@ -1034,9 +1041,9 @@ function copyWeaponVision(character)
                                     localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                     Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                    Ext.Timer.WaitFor(math.random(5000), function()
-                                        replaceContainer(meleeOrRanged)
-                                    end)
+                                    -- Ext.Timer.WaitFor(math.random(5000), function()
+                                    --     replaceContainer(meleeOrRanged)
+                                    -- end)
                                 end
 
                             end
@@ -1090,9 +1097,9 @@ function copyWeaponVision(character)
                                     localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                     Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                    Ext.Timer.WaitFor(math.random(5000), function()
-                                        replaceContainer(meleeOrRanged)
-                                    end)
+                                    -- Ext.Timer.WaitFor(math.random(5000), function()
+                                    --     replaceContainer(meleeOrRanged)
+                                    -- end)
                                 end
 
                             end
@@ -1116,9 +1123,9 @@ function copyWeaponVision(character)
                                 localWeaponCatalog[weaponTypeDictionary(Ext.Entity.Get(mainWeapon).ServerTemplateTag.Tags)][rarity] = insertOutput
                                 Ext.Entity.Get(fakerCharacter).Vars.weaponCatalog = localWeaponCatalog
 
-                                Ext.Timer.WaitFor(math.random(5000), function()
-                                    replaceContainer(meleeOrRanged)
-                                end)
+                                -- Ext.Timer.WaitFor(math.random(5000), function()
+                                --     replaceContainer(meleeOrRanged)
+                                -- end)
                             end
 
                         end
@@ -1143,16 +1150,19 @@ function copyWeaponVision(character)
 
                     localWeaponCatalog[34][rarity] = insertOutput
 
-                    replaceContainer("Ranged")
+                    -- replaceContainer("Ranged")
                 end
             end 
 
             targetEntity.Vars.targetTimer = 1
             Ext.Timer.WaitFor(5000, targetTimerReset(character))
-            stackVerifier = true
+            -- stackVerifier = true
         end
-    
-    end)
+
+        table.remove(characterStack,1)
+        Ext.Timer.WaitFor(math.random(2500),Osi.SetEntityEvent(fakerCharacter, "Copy Weapon Vision Stack", 1))
+        
+    -- end)
 end
 
 function targetTimerReset(character)
@@ -1162,18 +1172,57 @@ function targetTimerReset(character)
 
 end
 
+Ext.Osiris.RegisterListener("EntityEvent", 2, "after", function(object, event)
+    if event == "Copy Weapon Vision Stack" then
+        if #characterStack ~= 0 then
+            -- local startTime = Ext.Utils.MonotonicTime()
+            -- while Ext.Utils.MonotonicTime() - startTime < 1250 do
+            -- end
+            print("Moving along queue to " .. characterStack[1])
+            Ext.Timer.WaitFor(math.random(2000),copyWeaponVision(characterStack[1]))
+        else
+            print("Queue finished, deleting")
+            characterStack = nil
+        end
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("LeftLevel", 2, "after", function(object, level)
+    print("Left level, deleting weapon catalog queue")
+    characterStack = nil
+
+end)
+
 Ext.Timer.WaitFor(5000, function()
-    stackVerifier = true
+    -- stackVerifier = true
     Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, storyActionID)
         if status == "WEAPON_COPIED" and character ~= nil then
-            if stackVerifier == true then
-                copyWeaponVision(character)
-            else
-                while stackVerifier == false do
+            -- if stackVerifier == true then
+            --     copyWeaponVision(character)
+            -- else
+            --     while stackVerifier == false do
 
+            --     end
+            --     Ext.Timer.WaitFor(math.random(500), copyWeaponVision(character))
+            -- end
+
+            local targetEntity = Ext.Entity.Get(character)
+            if targetEntity ~= nil then
+                local localTargetTimer = targetEntity.Vars.targetTimer
+                if localTargetTimer == nil then
+                    if characterStack == nil then
+                        print("Creating queue")
+                        characterStack = {}
+                        table.insert(characterStack,character)
+                        Ext.Timer.WaitFor(math.random(4500),copyWeaponVision(characterStack[1]))
+                    else
+                        print("Adding " .. character .. " to queue")
+                        table.insert(characterStack,character)
+                    end
                 end
-                Ext.Timer.WaitFor(math.random(500), copyWeaponVision(character))
             end
+            
         end
 
     end)

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="f5118295-1350-4ecb-a9e5-ef288edb218a" />
+					<attribute id="Name" type="LSString" value="VFX_Projectile_Kanshou_Overedge_01" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="projectile" />
+					<attribute id="ParentTemplateId" type="FixedString" value="4071e0df-ea7c-47c1-9ba5-48820c4c8b6d" />
+					<attribute id="TrailFX" type="FixedString" value="VFX_Projectile_Kanshou_v2_Overedge" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

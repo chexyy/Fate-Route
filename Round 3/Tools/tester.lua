@@ -240,3 +240,4 @@ print(Osi.FindValidPosition(x, y+50, z, 0.001, GetHostCharacter(), 0))
 ]]--
 
 print(Osi.FindValidPosition(885, -50, -25, 1, GetHostCharacter(), 0))
+

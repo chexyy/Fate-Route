@@ -1389,8 +1389,8 @@
       <ids>
         <id value="1" />
       </ids>
-      <track name="Track" muted="False" locked="False" mutestateoverride="None">
-        <component class="Billboard" start="0" end="1.2" instancename="1747f620-19b7-44ce-bfcc-52f0ca3d7003">
+      <track name="Track" muted="False" locked="False" mutestateoverride="Unmuted">
+        <component class="Billboard" start="0.003222147" end="1.203222" instancename="1747f620-19b7-44ce-bfcc-52f0ca3d7003">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -1399,7 +1399,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1.2" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.003222147,1.203222" />
               </data>
             </property>
             <property id="743865b1-2100-483e-97d7-dcde81dc5069">
@@ -1428,8 +1428,8 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="0eb7bfda-4934-450c-a5f9-a08d0a0d409c">
                       <keyframes>
-                        <keyframe time="0" value="-16752826" />
-                        <keyframe time="1" value="-16770021" />
+                        <keyframe time="0" value="-16730113" />
+                        <keyframe time="1" value="-16759206" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="754d0452-189e-4469-8d70-b89d385a0871">
@@ -1699,7 +1699,7 @@
           </modules>
         </component>
       </track>
-      <track name="Track" muted="False" locked="False" mutestateoverride="None">
+      <track name="Track" muted="False" locked="False" mutestateoverride="Unmuted">
         <component class="ParticleSystem" start="0" end="0.35" instancename="5b12513e-0776-40ae-8520-a0d327986eda">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
@@ -2333,10 +2333,10 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="93b34a52-eef2-4f88-80f6-19e3126188ca">
                       <keyframes>
-                        <keyframe time="0" value="-16765416" />
-                        <keyframe time="0.2026022" value="-16760533" />
-                        <keyframe time="0.83829" value="-16711742" />
-                        <keyframe time="1" value="-16711724" />
+                        <keyframe time="0" value="-16767442" />
+                        <keyframe time="0.2026022" value="-16762559" />
+                        <keyframe time="0.83829" value="-16726017" />
+                        <keyframe time="1" value="-16726785" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -3185,7 +3185,7 @@
       <ids>
         <id value="7" />
       </ids>
-      <track name="Track" muted="False" locked="False" mutestateoverride="None">
+      <track name="Track" muted="False" locked="False" mutestateoverride="Unmuted">
         <component class="Light" start="0.1498298" end="0.6498298" instancename="b90aa6b7-785e-4f4a-8e20-cf429063ccb9">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
@@ -3234,9 +3234,9 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="16caf8e6-d471-43da-b704-c845b1437927">
                       <keyframes>
-                        <keyframe time="0" value="-10617088" />
-                        <keyframe time="0.126938" value="-16711779" />
-                        <keyframe time="1" value="-16770028" />
+                        <keyframe time="0" value="-16739073" />
+                        <keyframe time="0.126938" value="-16736769" />
+                        <keyframe time="1" value="-16771812" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -3463,7 +3463,7 @@
           </modules>
         </component>
       </track>
-      <track name="Track" muted="False" locked="False" mutestateoverride="None">
+      <track name="Track" muted="False" locked="False" mutestateoverride="Unmuted">
         <component class="ParticleSystem" start="0.1480639" end="0.498064" instancename="88161c3e-c17e-4f88-8dfd-7e60a888073a">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
@@ -3482,9 +3482,9 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="93b34a52-eef2-4f88-80f6-19e3126188ca">
                       <keyframes>
-                        <keyframe time="0" value="-16711799" />
-                        <keyframe time="0.2965368" value="-16711755" />
-                        <keyframe time="1" value="-16765397" />
+                        <keyframe time="0" value="-16735745" />
+                        <keyframe time="0.2965368" value="-16729089" />
+                        <keyframe time="1" value="-16770002" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -4936,7 +4936,7 @@
           </modules>
         </component>
       </track>
-      <track name="Track" muted="False" locked="False" mutestateoverride="None">
+      <track name="Track" muted="False" locked="False" mutestateoverride="Unmuted">
         <component class="ParticleSystem" start="0.148064" end="0.35" instancename="761f1bab-5cf7-4e77-9063-a2f6c124644a">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
@@ -5628,8 +5628,8 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="93b34a52-eef2-4f88-80f6-19e3126188ca">
                       <keyframes>
-                        <keyframe time="0" value="-16711766" />
-                        <keyframe time="1" value="-16765400" />
+                        <keyframe time="0" value="-12386305" />
+                        <keyframe time="1" value="-16369094" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>

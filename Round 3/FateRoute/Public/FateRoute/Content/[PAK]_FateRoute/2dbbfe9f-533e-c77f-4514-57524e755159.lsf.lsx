@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids,lsf_keys_adjacency" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="2dbbfe9f-533e-c77f-4514-57524e755159" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_TraceWeapon_KanshouBakuya_HandFX" />
+					<attribute id="SourceFile" type="LSString" value="Mods/FateRoute/Assets/Effects/Effects_Banks/VFX_Spells_Prepare_TraceWeapon_KanshouBakuya_HandFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_TraceWeapon_KanshouBakuya_HandFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -1.1547005 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 1.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0c5ef267-581e-3d1e-6645-20626faa15ab" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0fb917cc-128d-3eaa-0927-4c3a42f0101a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6d1997f3-03c7-a813-7efa-7f7e1edac10b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b2c001e7-33c3-af2b-2479-8bcd55bd86da" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fb21ca3c-3b37-b5b8-86cd-c7feaead109d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="8aa6ad00-a743-feae-c6fd-9993be42d6cd" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6262bb4b-ab0b-1def-b07a-90448ce4d125" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

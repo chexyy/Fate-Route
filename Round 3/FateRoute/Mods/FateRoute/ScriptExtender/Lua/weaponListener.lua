@@ -65,6 +65,17 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status
     end
 end)
 
+Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spellType, spellElement, storyActionID)
+    if spell == "Shout_DispelWeapon_Melee" then
+        Osi.RemoveStatus(caster, "FAKER_MELEE", caster)
+    end
+
+    if spell == "Shout_DispelWeapon_Ranged" then
+        Osi.RemoveStatus(caster, "FAKER_MELEE", caster)
+    end
+
+end)
+
 Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, storyActionID)
     
     if status == "FAKER_MELEE" then
@@ -93,42 +104,44 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         print("Faker melee removed")
         if mainWeapon ~= nil then
             if Osi.HasActiveStatus(mainWeapon, "REPRODUCTION_MELEE") == 1 then
-                Osi.PlayEffect(fakerCharacter, "11826893-d421-bdc0-baae-2b38e84a5400", "Dummy_R_HandFX",0.25)
-                local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
-                if GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter) ~= nil then
-                    Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
-                end
-                Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
-                print("Attempted to remove " .. mainWeaponTemplate)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Ext.Timer.WaitFor(1000, function()
-                    print("Attempting to unload")
-                    Osi.UnloadItem(mainWeapon)
-                    Osi.UnloadItem(mainWeaponTemplate)
-                    Osi.UnloadItem(mainWeapon)
-                end)
+                Osi.PlayEffect(fakerCharacter, "40126f74-d57d-e88a-8d6d-2c731f3300e9", "Dummy_R_HandFX",1)
+                deleteTracedWeapon(fakerCharacter, mainWeapon)
+                -- local mainWeaponTemplate = Osi.GetTemplate(mainWeapon)
+                -- if GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter) ~= nil then
+                --     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplate,fakerCharacter))
+                -- end
+                -- Osi.TemplateRemoveFrom(mainWeaponTemplate, fakerCharacter, 1)
+                -- print("Attempted to remove " .. mainWeaponTemplate)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+                -- Ext.Timer.WaitFor(1000, function()
+                --     print("Attempting to unload")
+                --     Osi.UnloadItem(mainWeapon)
+                --     Osi.UnloadItem(mainWeaponTemplate)
+                --     Osi.UnloadItem(mainWeapon)
+                -- end)
             end
 
         end
 
         if offhandWeapon ~= nil then
             if Osi.HasActiveStatus(offhandWeapon, "REPRODUCTION_MELEE_OFFHAND") == 1 or Osi.HasActiveStatus(offhandWeapon, "REPRODUCTION_MELEE_SHIELD") == 1 then
-                Osi.PlayEffect(fakerCharacter, "11826893-d421-bdc0-baae-2b38e84a5400", "Dummy_L_HandFX",0.25)
-                local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
-                if GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter) ~= nil then
-                    Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
-                end
-                Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
-                -- Osi.UnloadItem(offWeapon)
-                print("Attempted to remove " .. offhandWeaponTemplate)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Ext.Timer.WaitFor(1000, function()
-                    Osi.UnloadItem(offhandWeapon)
-                    Osi.UnloadItem(offhandWeaponTemplate)
-                    Osi.UnloadItem(offhandWeapon)
-                end)
+                Osi.PlayEffect(fakerCharacter, "40126f74-d57d-e88a-8d6d-2c731f3300e9", "Dummy_L_HandFX",1)
+                deleteTracedWeapon(fakerCharacter, offhandWeapon)
+                -- local offhandWeaponTemplate = Osi.GetTemplate(offhandWeapon)
+                -- if GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter) ~= nil then
+                --     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplate,fakerCharacter))
+                -- end
+                -- Osi.TemplateRemoveFrom(offhandWeaponTemplate, fakerCharacter, 1)
+                -- -- Osi.UnloadItem(offWeapon)
+                -- print("Attempted to remove " .. offhandWeaponTemplate)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+                -- Ext.Timer.WaitFor(1000, function()
+                --     Osi.UnloadItem(offhandWeapon)
+                --     Osi.UnloadItem(offhandWeaponTemplate)
+                --     Osi.UnloadItem(offhandWeapon)
+                -- end)
             end
         end
         
@@ -162,45 +175,60 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         print("Faker ranged removed")
         if mainWeaponRanged ~= nil then 
             if Osi.HasActiveStatus(mainWeaponRanged, "REPRODUCTION_RANGED") == 1 then
-                local mainWeaponTemplateRanged = Osi.GetTemplate(mainWeaponRanged) 
-                if GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter) ~= nil then
-                    Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter))
-                end
-                Osi.TemplateRemoveFrom(mainWeaponTemplateRanged, fakerCharacter, 1)
-                print("Attempted to remove " .. mainWeaponTemplateRanged)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Ext.Timer.WaitFor(1000, function()
-                    Osi.UnloadItem(mainWeaponRanged)
-                    Osi.UnloadItem(mainWeaponTemplateRanged)
-                    Osi.UnloadItem(mainWeaponRanged)
-                end)
+                Osi.PlayEffect(fakerCharacter, "40126f74-d57d-e88a-8d6d-2c731f3300e9", "Dummy_R_HandFX",1)
+                deleteTracedWeapon(fakerCharacter, mainWeaponRanged)
+                -- local mainWeaponTemplateRanged = Osi.GetTemplate(mainWeaponRanged) 
+                -- if GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter) ~= nil then
+                --     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(mainWeaponTemplateRanged,fakerCharacter))
+                -- end
+                -- Osi.TemplateRemoveFrom(mainWeaponTemplateRanged, fakerCharacter, 1)
+                -- print("Attempted to remove " .. mainWeaponTemplateRanged)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+                -- Ext.Timer.WaitFor(1000, function()
+                --     Osi.UnloadItem(mainWeaponRanged)
+                --     Osi.UnloadItem(mainWeaponTemplateRanged)
+                --     Osi.UnloadItem(mainWeaponRanged)
+                -- end)
             end
         end
 
         if offhandWeaponRanged ~= nil then
             if Osi.HasActiveStatus(offhandWeaponRanged, "REPRODUCTION_RANGED_OFFHAND") == 1 then
-                local offhandWeaponTemplateRanged = Osi.GetTemplate(offhandWeaponRanged)
-                if GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter) ~= nil then
-                    Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter))
-                end
-                Osi.TemplateRemoveFrom(offhandWeaponTemplateRanged, fakerCharacter, 1)
-                print("Attempted to remove " .. offhandWeaponTemplateRanged)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
-                Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
-                Ext.Timer.WaitFor(1000, function()
-                    Osi.UnloadItem(offhandWeaponRanged)
-                    Osi.UnloadItem(offhandWeaponTemplateRanged)
-                    Osi.UnloadItem(offhandWeaponRanged)
-                end)
+                Osi.PlayEffect(fakerCharacter, "40126f74-d57d-e88a-8d6d-2c731f3300e9", "Dummy_L_HandFX",1)
+                deleteTracedWeapon(fakerCharacter, offhandWeaponRanged)
+
+                -- local offhandWeaponTemplateRanged = Osi.GetTemplate(offhandWeaponRanged)
+                -- if GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter) ~= nil then
+                --     Osi.Unequip(fakerCharacter,GetItemByTemplateInInventory(offhandWeaponTemplateRanged,fakerCharacter))
+                -- end
+                -- Osi.TemplateRemoveFrom(offhandWeaponTemplateRanged, fakerCharacter, 1)
+                -- print("Attempted to remove " .. offhandWeaponTemplateRanged)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 0, 0)
+                -- Osi.SetWeaponUnsheathed(fakerCharacter, 1, 0)
+                -- Ext.Timer.WaitFor(1000, function()
+                --     Osi.UnloadItem(offhandWeaponRanged)
+                --     Osi.UnloadItem(offhandWeaponTemplateRanged)
+                --     Osi.UnloadItem(offhandWeaponRanged)
+                -- end)
             end
         end
 
         Ext.Entity.Get(fakerCharacter).Vars.rangedWeaponTracker = nil
     end
 
-
 end)
+
+function deleteTracedWeapon(character, weapon)
+    Osi.Unequip(character, weapon)
+    Osi.RequestDelete(weapon)
+    print("Attempted to remove " .. weapon)
+    Ext.Timer.WaitFor(1000, function()
+        Osi.UnloadItem(weapon)
+        Osi.UnloadItem(weapon)
+        Osi.UnloadItem(weapon)
+    end)
+end
 
 -- Alteration Arrow
 Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function(caster, spell, spellType, spellElement, storyActionID) 
@@ -518,16 +546,17 @@ end)
 
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function(caster, target, spell, spellType, spellElement, storyActionID)
     if spell == "Target_MainHandAttack_Caliburn" then
-        Osi.ApplyStatus(caster,"CALIBURN_CRIT_BOOST",5, 100,caster)
-        Ext.Timer.WaitFor(150, function()
+        -- Osi.ApplyStatus(caster,"CALIBURN_CRIT_BOOST",5, 100,caster)
+        Ext.Timer.WaitFor(1800, function()
             -- local x,y,z = Osi.GetPosition(target)
             -- Osi.UseSpellAtPosition(caster, "Target_MainHandAttack_Caliburn_Followup", x, y, z)
-            Osi.UseSpell(caster, "Target_MainHandAttack_Caliburn_Followup", target,target,1)
+            -- Osi.UseSpell(caster, "Target_MainHandAttack_Caliburn_Followup", target,target,1)
+            Osi.Attack(caster, target, 0)
             print("Trying to followup caliburn")
 
-            Ext.Timer.WaitFor(200, function()
-                Osi.RemoveStatus(caster, "CALIBURN_CRIT_BOOST", caster)
-            end)
+            -- Ext.Timer.WaitFor(200, function()
+            --     Osi.RemoveStatus(caster, "CALIBURN_CRIT_BOOST", caster)
+            -- end)
         end)
 
     end
@@ -553,6 +582,73 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function(caster, spell, spe
     end
 
 end)
+
+-- kanshou and bakuya
+-- Ext.Osiris.RegisterListener("CastSpellFailed", 5, "before", function(caster, spell, spellType, spellElement, storyActionID)
+--     if spell == "Projectile_CraneWings" then
+--         Osi.PushUnsheathedState(caster, 1)
+--     end
+
+-- end)
+
+-- Ext.Osiris.RegisterListener("CastSpell", 5, "before", function(caster, spell, spellType, spellElement, storyActionID)
+--     if spell == "Projectile_CraneWings" then
+--         Ext.Timer.WaitFor(1000,Osi.PushUnsheathedState(caster, 1))
+--     end
+
+-- end)
+-- Ext.Osiris.RegisterListener("StartedPreviewingSpell", 5, "before", function(caster, spell, isMostPowerful, hasMultipleLevels)
+--     if spell == "Projectile_CraneWings" then
+--         Osi.AddBoosts(Osi.GetEquippedItem(caster,"Melee Main Weapon"),"Invisibility()","Crane Wings Invisibility Helper", caster)
+--     end
+
+-- end)
+
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spell, spellType, spellElement, storyActionID)
+    if spell == "Projectile_CraneWings" then
+        craneWingsTarget = target
+    end
+
+    if Osi.HasActiveStatus(target,"CRANEWINGS_HOVERING") == 1 and craneWingsTarget == nil then
+        if string.find(Ext.Stats.Get(spell).TooltipAttackSave,"Melee") ~= nil then
+            RemoveStatus(target,"CRANEWINGS_HOVERING",caster)
+            RemoveStatus(target,"CRANEWINGS_HOVERING_2",caster)
+            print("Removed crane wings hovering")
+        else
+            for key, entry in pairs(Ext.Stats.Get(spell).SpellFlags) do
+                if string.find(entry,"Melee") ~= nil then
+                    RemoveStatus(target,"CRANEWINGS_HOVERING",caster)
+                    RemoveStatus(target,"CRANEWINGS_HOVERING_2",caster)
+                    print("Removed crane wings hovering")
+                    break
+                end
+            end
+        end
+        
+    end
+
+end)
+
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+    if craneWingsTarget == defender then
+        if HasActiveStatus(craneWingsTarget, "CRANEWINGS_HOVERING") ~= 1 then
+            ApplyStatus(craneWingsTarget, "CRANEWINGS_HOVERING", -1, 100, attackerOwner)
+            print("Applied crane wings hovering")
+        else
+            ApplyStatus(craneWingsTarget, "CRANEWINGS_HOVERING_2", -1, 100, attackerOwner)
+            print("Applied crane wings hovering")
+        end
+        craneWingsTarget = nil
+    end
+
+end)
+
+-- Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, causee, applyStoryActionID)
+--     if status == "CRANEWINGS_HOVERING" then
+--         Ext.Timer.WaitFor(800,Osi.ApplyDamage(object, math.random(6), "Slashing", fakerCharacter))
+--     end
+
+-- end)
 
 -- Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID) 
 --     if Osi.HasActiveStatus(attackerOwner, "EMULATE_WIELDER_SELFDAMAGE") == 1 then

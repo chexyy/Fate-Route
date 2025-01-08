@@ -74,7 +74,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Name" />
 											<attribute id="FullName" type="FixedString" value="Name" />
 											<attribute id="Type" type="uint8" value="7" />
-											<attribute id="Value" type="LSString" value="Model" />
+											<attribute id="Value" type="LSString" value="Bakuya" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Name" />
@@ -716,7 +716,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Name" />
 											<attribute id="FullName" type="FixedString" value="Name" />
 											<attribute id="Type" type="uint8" value="7" />
-											<attribute id="Value" type="LSString" value="Model" />
+											<attribute id="Value" type="LSString" value="Bakuya" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Name" />
@@ -1358,7 +1358,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Name" />
 											<attribute id="FullName" type="FixedString" value="Name" />
 											<attribute id="Type" type="uint8" value="7" />
-											<attribute id="Value" type="LSString" value="Model" />
+											<attribute id="Value" type="LSString" value="Bakuya" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Name" />

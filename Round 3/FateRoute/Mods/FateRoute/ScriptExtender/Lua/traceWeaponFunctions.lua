@@ -557,13 +557,16 @@ end
 
 -- Noble Phantasms Update
 function addNoblePhantasms(character)
-    local NPContainer = "TWT_Caliburn;TWT_Kanshou_and_Bakuya"
+    local NPContainer = "TWT_Caliburn"
     
     if HasPassive(character, 'Passive_NP_ArchersBow') == 1 then
         NPContainer = NPContainer .. ";TWT_Archers_Bow"
     end
     if HasPassive(character, 'Passive_NP_Rulebreaker') == 1 then
         NPContainer = NPContainer .. ";TWT_Rulebreaker"
+    end
+    if HasPassive(character, 'Passive_NP_KanshouBakuya') == 1 then
+        NPContainer = NPContainer .. ";TWT_Kanshou_and_Bakuya"
     end
 
     local traceSpell = Ext.Stats.Get('Shout_TraceWeapon_NoblePhantasm')

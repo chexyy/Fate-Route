@@ -97,6 +97,7 @@ data "StackType" "Stack"
 data "Icon" "Action_InspiringLeader"
 data "DisplayName" "h8617ca2371824908b1a0d5bcb3f957e623bb"
 data "StatusPropertyFlags" "IgnoreResting;DisableCombatlog;DisablePortraitIndicator;ForceOverhead;RemoveOnLongRest"
+data "FormatColor" "Red"
 
 new entry "ARIA_2"
 type "StatusData"

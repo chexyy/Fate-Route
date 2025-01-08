@@ -1,0 +1,5 @@
+new entry "Projectile_DivingStrike"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_DivingStrike"
+data "TargetConditions" "not Self() and not Dead() and Character()"

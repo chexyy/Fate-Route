@@ -68,6 +68,17 @@
           <attribute id="IsHidden" type="bool" value="True" />
           <attribute id="UUID" type="guid" value="d25a8aec-f9f9-451e-92a3-a6634bdbadbc" />
         </node>
+
+        <node id="ActionResourceDefinition">
+          <attribute id="DisplayName" type="TranslatedString" handle="h61824abfebcb4469a172eb2babf8979ade37" version="1" />
+          <attribute id="Description" type="TranslatedString" handle="h810b7890c26b416f9889d53e923f5346d22c" version="1" />
+          <attribute id="MaxLevel" type="uint32" value="12" />
+          <attribute id="Name" type="FixedString" value="KanshouBakuyaFreeDualWield" />
+          <attribute id="ReplenishType" type="FixedString" value="Turn" />
+          <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+          <attribute id="IsHidden" type="bool" value="True" />
+          <attribute id="UUID" type="guid" value="c92a6442-44d0-4b78-bc93-2df5c7fcd805" />
+        </node>
       </children>
     </node>
   </region>
